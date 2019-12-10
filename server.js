@@ -77,6 +77,7 @@ var argresult = message.content.split(` `).slice(1).join(' ');
      }
 });
 
+var adminprefix = "#";
 
 client.on("ready", () => {
   console.log(`----------------`);
@@ -466,7 +467,7 @@ client.on("message", message => {
   }
 });
 
-let room = "620621260204015636";
+let room = "654103635059408929";
 
 client.on("guildMemberAdd", member => {
   let guild = client.channels.get(room).guild.id;
@@ -4464,41 +4465,41 @@ client.on("message", message => {
         roleCrLimits: 3,
         time: 30
     }
-if(message.content.startsWith(prefix + "limit")) {
+if(message.content.startsWith(adminprefix + "limit")) {
  
  
     if(!message.member.hasPermission('MANAGE_GUILD')) return;
-    if(message.content.startsWith(prefix + "limitbans")) {
+    if(message.content.startsWith(adminprefix + "limitbans")) {
         if(!num) return message.channel.send("**→ | Supply a number !");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].banLimit = num;
         message.channel.send(`**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.** <a:4357_ByBLKCREATIONdiamante:606976611253747715>  `)// WESO 
     }
-    if(message.content.startsWith(prefix + "limitkicks")) {
+    if(message.content.startsWith(adminprefix + "limitkicks")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !** ");//WESO
         config[message.guild.id].kickLimits = num;
         message.channel.send(`**→ | Changed kicks limit to : ${config[message.guild.id].kickLimits}.** <a:4357_ByBLKCREATIONdiamante:606976611253747715>  `)
     }
-    if(message.content.startsWith(prefix + "limitroleDelete")) {
+    if(message.content.startsWith(adminprefix + "limitroleDelete")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].roleDelLimit = num;
         message.channel.send(`**→ | Changed Role Deleting limit to : ${config[message.guild.id].roleDelLimit}.** <a:4357_ByBLKCREATIONdiamante:606976611253747715>  `)
     }
-    if(message.content.startsWith(prefix + "limitroleCreate")) {
+    if(message.content.startsWith(adminprefix + "limitroleCreate")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].roleCrLimits = num;
         message.channel.send(`**→ | Changed Role Creation limit to : ${config[message.guild.id].roleCrLimits}.** <a:4357_ByBLKCREATIONdiamante:606976611253747715>  `)
     }//WESO
-    if(message.content.startsWith(prefix + "limitchannelDelete")) {
+    if(message.content.startsWith(adminprefix + "limitchannelDelete")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].chaDelLimit = num;
         message.channel.send(`**→ | Changed Channel Deleting limit to : ${config[message.guild.id].chaDelLimit}.** <a:4357_ByBLKCREATIONdiamante:606976611253747715>  `)
     }
-    if(message.content.startsWith(prefix + "limittime")) {
+    if(message.content.startsWith(adminprefix + "limittime")) {
         if(!num) return message.channel.send("**→ | Supply a number !**");
         if(isNaN(num)) return message.channel.send("**→ | Supply a number !**");
         config[message.guild.id].time = num;
@@ -4659,7 +4660,7 @@ var antibots = client.antibots;
 var julian = client;
 julian.on("message", codes => {
 var prefix = "=";
-if(codes.content.startsWith(prefix + "antibots on")){
+if(codes.content.startsWith(adminprefix + "antibots on")){
 if(codes.author.bot || !codes.channel.guild || codes.author.id != codes.guild.ownerID) return;
 antibots.set(`${codes.guild.id}`, {
 onoff: 'On'
@@ -4668,7 +4669,7 @@ onoff: 'On'
 
 codes.channel.send("AntiBots Join Is On");
 }
-if(codes.content.startsWith(prefix + "antibots off")){
+if(codes.content.startsWith(adminprefix + "antibots off")){
 if(codes.author.bot || !codes.channel.guild || codes.author.id != codes.guild.ownerID) return;
 antibots.set(`${codes.guild.id}`, {
 onoff: "Off"

@@ -13,6 +13,6 @@
     "roleDelLimit": 3,
     "kickLimits": 3,
     "roleCrLimits": 3,
-    "time": 30
+    "time": "5"
   }
 }
