@@ -116,9 +116,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "Support Team"))
+    if (!message.guild.roles.exists("name", "WeSO Team"))
       return message.channel.send(
-        `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
+        `This server doesn't have a \`WeSO Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
       );
     if (
       message.guild.channels.exists(
@@ -130,7 +130,7 @@ client.on("message", message => {
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
-        let role = message.guild.roles.find("name", "Support Team");
+        let role = message.guild.roles.find("name", "WeSO Team");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
           SEND_MESSAGES: true,
@@ -237,7 +237,7 @@ client.on("message", pixelbot => {
         .join(` `);
       let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
         .setColor("#00000")
-        .setTitle(" :beginner: :heartpulse:   | User Info") // itzZa1D - Codes Team.
+        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
         .addField(
           "**✽ Name :** <a:4357_ByBLKCREATIONdiamante:606976611253747715>  ",
@@ -948,16 +948,16 @@ client.on("message", message => {
     let mention = new Discord.RichEmbed()
       .setColor("black")
       .setDescription(
-        `<a:party_parrot:606976910349697034> ✽  **Hi I'm Rad Bot**  ✽ <a:party_parrot:606976910349697034>
-✽  **Support Server** [ •  https://discord.gg/X9esPBy • ]  ✽ <a:4357_ByBLKCREATIONdiamante:606976611253747715>
+        ` ✽  **Hi I'm Rad Bot**  ✽ 
+✽  **Support Server** [ •  https://discord.gg/X9esPBy • ]  ✽ 
 
-✽  **Add Bot** [ • https://bit.ly/2ZAR8n9 • ]  ✽ <a:4357_ByBLKCREATIONdiamante:606976611253747715> 
+✽  **Add Bot** [ • https://bit.ly/2ZAR8n9 • ]  ✽ 
 
 ✽  **Bot Site **[ • http://der7kz.cf/• ]  ✽
 
-✽  **Bot orders** [ • **=help** • ]  ✽ <a:4357_ByBLKCREATIONdiamante:606976611253747715>
+✽  **Bot orders** [ • **=help** • ]  ✽ 
 
-✽  **CREATED BOT BY ** **Rad  Team **  ✽ <a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+✽  **CREATED BOT BY ** **Rad  Team **  ✽ `
       )
 
       .setImage(
@@ -1218,7 +1218,7 @@ client.on("message", message => {
         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
       )
       .setTitle(
-        `✽ **Rad Bot**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+        `✽ **WeSo Bot**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
       )
       .setColor("black")
       .setImage(`${x5bzm.avatarURL}`);
@@ -1296,7 +1296,7 @@ client.on("message", message => {
         ":mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح"
       )
       .setThumbnail(message.author.avatarURL)
-      .setFooter("By : Rad Bot#3145");
+      .setFooter("By : WESO !#0043");
 
     message.channel.send(embed);
   }
@@ -1390,7 +1390,7 @@ client.on("message", message => {
             )
             .setColor("RANDOM")
             .setTitle(
-              `✽ **Rad Bot**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+              `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
             )
             .setImage(
               "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -1441,7 +1441,7 @@ client.on("message", message => {
         m.setVoiceChannel(author);
       })
       .setTitle(
-        `✽ **Rad Bot**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
       )
       .setImage(
         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -1890,7 +1890,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
             )
             .setImage(`${song.eyad}`)
             .setTitle(
-              `✽ **Der7kz**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+              `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
             )
             .setImage(
               "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -1964,7 +1964,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                       )
                       .setImage(`${song.eyad}`)
                       .setTitle(
-                        `✽ **Der7kz**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+                        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
                       )
                       .setImage(
                         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -2025,7 +2025,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                       )
                       .setImage(`${song.eyad}`)
                       .setTitle(
-                        `✽ **Der7kz**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+                        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
                       )
                       .setImage(
                         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -2084,7 +2084,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                       )
                       .setImage(`${song.eyad}`)
                       .setTitle(
-                        `✽ **Der7kz**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+                        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
                       )
                       .setImage(
                         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -2162,18 +2162,18 @@ client.on("message", message => {
     );
 
     message.author
-      .sendMessage(` ✽ **__~~Rad Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
-<a:d1:622268163362652161>   **__الاوامر العامه__** <a:d1:622268163362652161>
-<a:d5:622590597168889892>  ✽**  =bot • لعرض معلومات عن البوت** 
-<a:d5:622590597168889892>  ✽**  =user • لعرض معلومات عنك** 
-<a:d5:622590597168889892>  ✽**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
-<a:d5:622590597168889892>  ✽**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
-<a:d5:622590597168889892>  ✽**  =avt server • يعرض صوره سيرفر** 
-<a:d5:622590597168889892>  ✽**  =id • عرض بطاقة تصنيف السيرفر الخاصة بك أو بشخص آخر**
-<a:d5:622590597168889892>  ✽**  =color • لأختيار لونك في السيرفر **
-<a:d5:622590597168889892>  ✽**  =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك** 
-<a:d5:622590597168889892>  ✽**  =profile • لاضهار البروفايل حقك**
-<a:d5:622590597168889892>  ✽**  =user • لعرض معلومات الحساب**
+      .sendMessage(` ✽ **__~~WeSo Bot~~__**
+**__الاوامر العامه__** 
+✽**  =bot • لعرض معلومات عن البوت** 
+✽**  =user • لعرض معلومات عنك** 
+✽**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
+✽**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
+✽**  =avt server • يعرض صوره سيرفر** 
+✽**  =id • عرض بطاقة تصنيف السيرفر الخاصة بك أو بشخص آخر**
+✽**  =color • لأختيار لونك في السيرفر **
+✽**  =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك** 
+✽**  =profile • لاضهار البروفايل حقك**
+✽**  =user • لعرض معلومات الحساب**
 
 
 `);
@@ -2184,29 +2184,29 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "2help") {
     message.channel.send(
-      `**<a:5845_tickgreen:606976631566893056>| تــم رســال اوامــر الإداريــه فــى الــخــاص ..**`
+      `**| تــم رســال اوامــر الإداريــه فــى الــخــاص ..**`
     );
 
     message.author
-      .sendMessage(` ✽ **__~~Rad Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
-<a:605792367265579084:610549601963081760>  ✽ **__الاوامر الإداريــه__** ✽ <a:hypsquad:622253760743473152>
-<a:d5:622590597168889892>  ✽**  =ce • لمسح الشات** 
-<a:d5:622590597168889892>  ✽**  =ban • لتبنيد شخص** 
-<a:d5:622590597168889892>  ✽**  =kick • لاعطاء كيك لشخص** 
-<a:d5:622590597168889892>  ✽**  =open • لفتح الشات** 
-<a:d5:622590597168889892>  ✽**  =close • لقفل الشات** 
-<a:d5:622590597168889892>  ✽**  =mute • لاعطاء ميوت لشخص** 
-<a:d5:622590597168889892>  ✽**  =unmute • لفك ميوت عن شخص** 
-<a:d5:622590597168889892>  ✽**  =role all • لاعطاء رتبه للكل**  
-<a:d5:622590597168889892>  ✽**  =roleremove  • لسحب رتبه ن شخص او كل ناس**  
-<a:d5:622590597168889892>  ✽**  =bc •  لأرسال برود كاست للكل**
-<a:d5:622590597168889892>  ✽**  =new •  فتح التكت**
-<a:d5:622590597168889892>  ✽**  =say • البوت يكرر كلامك**
-<a:d5:622590597168889892>  ✽**  =contact • ارسال اقتراح او لمراسلة صاحب البوت**
-<a:d5:622590597168889892>  ✽**  =sup • سيرفر الدعم **
-<a:d5:622590597168889892>  ✽**  =move •  لسحب الشخص الى روومك**
-<a:d5:622590597168889892>  ✽**  =mvall •   لسحب الجميع الي روومك**
-<a:d5:622590597168889892>  ✽**  giveaway •   يسويلك قف اوي علي الشي الي تبيه**
+      .sendMessage(` ✽ **__~~WeSo Bot~~__**
+  ✽ **__الاوامر الإداريــه__** ✽ 
+✽**  =ce • لمسح الشات** 
+✽**  =ban • لتبنيد شخص** 
+✽**  =kick • لاعطاء كيك لشخص** 
+✽**  =open • لفتح الشات** 
+✽**  =close • لقفل الشات** 
+✽**  =mute • لاعطاء ميوت لشخص** 
+✽**  =unmute • لفك ميوت عن شخص** 
+✽**  =role all • لاعطاء رتبه للكل**  
+✽**  =roleremove  • لسحب رتبه ن شخص او كل ناس**  
+✽**  =bc •  لأرسال برود كاست للكل**
+✽**  =new •  فتح التكت**
+✽**  =say • البوت يكرر كلامك**
+✽**  =contact • ارسال اقتراح او لمراسلة صاحب البوت**
+✽**  =sup • سيرفر الدعم **
+✽**  =move •  لسحب الشخص الى روومك**
+✽**  =mvall •   لسحب الجميع الي روومك**
+✽**  giveaway •   يسويلك قف اوي علي الشي الي تبيه**
 
 
 `);
@@ -2221,16 +2221,16 @@ client.on("message", message => {
     );
 
     message.author
-      .sendMessage(` ✽ **__~~Rad Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
+      .sendMessage(` ✽ **__~~WeSo Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
 ✽ <a:Music:622250698209493044> **__أوامر الــمــوســيــقــى__**  ✽ <a:music:622250411281088525> 
-<a:d5:622590597168889892>✽**  =play •  لتشغيل أغنية برآبط أو بأسم **
-<a:d5:622590597168889892>✽**  =skip •  لتجآوز الأغنية الحآلية **
-<a:d5:622590597168889892>✽**  =pause •  إيقآف الأغنية مؤقتا**
-<a:d5:622590597168889892>✽**  =resume •  لموآصلة الإغنية بعد إيقآفهآ مؤقتا **
-<a:d5:622590597168889892>✽**  =vol •  لتغيير درجة الصوت 100 - 0 **
-<a:d5:622590597168889892>✽**  =stop •  لإخرآج البوت من الرو م **
-<a:d5:622590597168889892>✽**  =np •  لمعرفة الأغنية المشغلة حآليا **
-<a:d5:622590597168889892>✽**  =queue •   لمعرفة قآئمة التشغيل لأننتقال للاغنية التالية **
+✽**  =play •  لتشغيل أغنية برآبط أو بأسم **
+✽**  =skip •  لتجآوز الأغنية الحآلية **
+✽**  =pause •  إيقآف الأغنية مؤقتا**
+✽**  =resume •  لموآصلة الإغنية بعد إيقآفهآ مؤقتا **
+✽**  =vol •  لتغيير درجة الصوت 100 - 0 **
+✽**  =stop •  لإخرآج البوت من الرو م **
+✽**  =np •  لمعرفة الأغنية المشغلة حآليا **
+✽**  =queue •   لمعرفة قآئمة التشغيل لأننتقال للاغنية التالية **
     
 `);
   }
@@ -2244,16 +2244,16 @@ client.on("message", message => {
     );
 
     message.author
-      .sendMessage(` ✽ **__~~Rad Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
-<a:d6:622838885365579826>✽ **__اوامر الــحــمــايــة__** ✽ <a:pepehackerman:622251426860630026>
-<a:d5:622590597168889892>✽**  =limitbans •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-<a:d5:622590597168889892>✽**  =limitkicks • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-<a:d5:622590597168889892>✽**  =limitroleDelete •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-<a:d5:622590597168889892>✽**  =limitroleCreate •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-<a:d5:622590597168889892>✽**  =limitchannelDelete •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-<a:d5:622590597168889892>✽**  =limittime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
-<a:d5:622590597168889892>✽**  =antibots on •  منع دخول بوتات**
-<a:d5:622590597168889892>✽**  =antibots off •  فتح دخول البوتات**
+      .sendMessage(` ✽ **__~~WeSo Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
+✽ **__اوامر الــحــمــايــة__** ✽ <a:pepehackerman:622251426860630026>
+✽**  =limitbans •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
+✽**  =limitkicks • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
+✽**  =limitroleDelete •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
+✽**  =limitroleCreate •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
+✽**  =limitchannelDelete •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
+✽**  =limittime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+✽**  =antibots on •  منع دخول بوتات**
+✽**  =antibots off •  فتح دخول البوتات**
     
 `);
   }
@@ -2267,16 +2267,16 @@ client.on("message", message => {
     );
 
     message.author
-      .sendMessage(` ✽ **__~~Rad Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
-<a:ads5:622255278926200844>✽ **__اوامر مــمــيــزه__** ✽ <a:ads5:622255278926200844>
-<a:d5:622590597168889892>✽** =rroles •  يسويلك رولات**
-<a:d5:622590597168889892>✽** =channels •  يسويلك رومات وشنلات **
-<a:d5:622590597168889892>✽** =creatcolores • صنع ألوان **
-<a:d5:622590597168889892>✽** =colors • غير لونك  **
-<a:d5:622590597168889892>✽** =nickall • يغير اسم اعضاء السيرفر كلو **
-<a:d5:622590597168889892>✽** =inf • عدد الدعوات للسيرفر**
-<a:d5:622590597168889892>✽** =voicesetup • ينشأ لك روم فويس اون لاين**
-<a:d5:622590597168889892>✽** =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك** 
+      .sendMessage(` ✽ **__~~WeSo Bot ~~__** 
+✽ **__اوامر مــمــيــزه__** ✽ 
+✽** =rroles •  يسويلك رولات**
+✽** =channels •  يسويلك رومات وشنلات **
+✽** =creatcolores • صنع ألوان **
+✽** =colors • غير لونك  **
+✽** =nickall • يغير اسم اعضاء السيرفر كلو **
+✽** =inf • عدد الدعوات للسيرفر**
+✽** =voicesetup • ينشأ لك روم فويس اون لاين**
+✽** =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك** 
     
 `);
   }
@@ -2289,11 +2289,11 @@ client.on("message", message => {
       .send(` ✽ **__~~Rad Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
 <a:8780_discord_geaz:622252635097006092>**✽ Help Menu ✽**<a:8780_discord_geaz:622252635097006092>
 ----------------------------
- > <a:2184_wumpus_color_gif:622254297937215488> ** =1help ** **✽ الاوامر العامه ✽  **
- > <a:hypsquad:622253760743473152>** =2help ** **✽ الاوامر الإداريه ✽ **
- > <a:music:622250411281088525> ** =3help **>>  **✽ أوامر الموسيقى ✽  **
- > <a:pepehackerman:622251426860630026> ** =4help ** **✽ اوامر الحماية ✽ **
- > <a:ads5:622255278926200844> ** =5help ** **✽ اوامر مميزه ✽ **
+** =1help ** **✽ الاوامر العامه ✽  **
+> ** =2help ** **✽ الاوامر الإداريه ✽ **
+> ** =3help **>>  **✽ أوامر الموسيقى ✽  **
+> ** =4help ** **✽ اوامر الحماية ✽ **
+> ** =5help ** **✽ اوامر مميزه ✽ **
  **__Done__** 
    `);
   }
@@ -2316,7 +2316,7 @@ client.on("message", message => {
     let embed = new Discord.RichEmbed()
       .setColor("#36393e")
       .setThumbnail(message.author.avatarURL)
-      .setTitle(`✽ **Der7kz**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`)
+      .setTitle(`✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`)
       .setImage(
         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
       )
@@ -2332,7 +2332,7 @@ client.on("message", message => {
     let embed = new Discord.RichEmbed()
       .setColor("#36393e")
       .setThumbnail(message.author.avatarURL)
-      .setTitle(`✽ **Der7kz**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`)
+      .setTitle(`✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`)
       .setImage(
         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
       )
