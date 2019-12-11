@@ -61,7 +61,7 @@ console.log("Bot Online 24/7");
 ///
 //الاكواد
 
-const dev = ["456487489440579595"];
+const dev = ["335645388323160064"];
 const admin = "=";
 var owner = "533944821228896257"; // Owner Bot Mention
 var number = "1"; // Unmber Bot
@@ -277,7 +277,7 @@ client.on("message", zaid => {
       .addField("✽ **Channels** : ", `» ${client.channels.size} `, true)
       .addField("✽ **Users** : ", `» ${client.users.size} `, true)
       .addField("✽ **Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("✽ **Bot Owner** :  ", `» <@456487489440579595>`, true) // Change Your ID
+      .addField("✽ **Bot Owner** :  ", `» <@335645388323160064>`, true) // Change Your ID
       .setImage(
         ""
       )
@@ -1184,7 +1184,7 @@ client.on("message", message => {
       .join(" ");
 
     client.users
-      .get("456487489440579595", "536126359966187530")
+      .get("335645388323160064", "536126359966187530")
       .send(
         "\n" +
           "**" +
