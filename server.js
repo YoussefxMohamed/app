@@ -651,9 +651,9 @@ client.on("message", async msg => {
   if (msg.channel.type === "dm") return;
   if (msg.author.bot) return;
   if (msg.content.startsWith(prefix + "setstats")) {
-    if (!msg.guild.member(msg.author).hasPermissions("MANAGE_CHANNELS"))
+    if (!msg.guild.member(msg.author).hasPermission("MANAGE_CHANNELS"))
       return msg.reply("❌ **go play minecraft**");
-    if (!msg.guild.member(client.user).hasPermissions(["MANAGE_CHANNELS"]))
+    if (!msg.guild.member(client.user).hasPermission(["MANAGE_CHANNELS"]))
       return msg.reply("❌ **البوت لا يمتلك صلاحية**");
     var ggg = msg.guild.createChannel("SERVER STATS", "category").then(kk => {
       var ccc = msg.guild.createChannel("SERVER STATS", "voice").then(al => {
@@ -1258,12 +1258,12 @@ client.on("message", message => {
 client.on("message", async Epic => {
   var prefix = "=";
   if (Epic.content.startsWith(prefix + "vonline")) {
-    if (!Epic.guild.member(Epic.author).hasPermissions("MANAGE_CHANNELS"))
+    if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
       return Epic.reply(":x: **I Dont Have Permissions**");
     if (
       !Epic.guild
         .member(client.user)
-        .hasPermissions(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
+        .hasPermission(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
     )
       return Epic.reply(":x: **You Dont Have Permissions**");
     Epic.guild
@@ -1873,27 +1873,58 @@ client.on("message", message => {
 ✽**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
 ✽**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
 ✽**  =avt server • يعرض صوره سيرفر** 
-✽**  =id • عرض بطاقة تصنيف السيرفر الخاصة بك أو بشخص آخر**
 ✽**  =color • لأختيار لونك في السيرفر **
 ✽**  =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك** 
-✽**  =profile • لاضهار البروفايل حقك**
 ✽**  =user • لعرض معلومات الحساب**
 
 
 `);
   }
 });
-
+client.on('message', function(message) {
+    if(!message.channel.guild) return;
+    if (message.author.bot) return;
+    if (message.author.id === client.user.id) return;
+    if (message.author.equals(client.user)) return;
+    if (!message.content.startsWith(prefix)) return;
+    
+    var args = message.content.substring(prefix.length).split(' ');
+    switch (args[0].toLocaleLowerCase()) {
+    case "clear" :
+    message.delete()
+    if(!message.channel.guild) return
+    if(message.member.hasPermission(0x2000)){ if (!args[1]) {
+    message.channel.fetchMessages()
+    .then(messages => {
+    message.channel.bulkDelete(messages);
+    var messagesDeleted = messages.array().length;
+    message.channel.sendMessage(' '+ "**```fix\n" + messagesDeleted + " " +  ': عدد الرسائل التي تم مسحها' + "```**").then(m => m.delete(5000));
+    })
+    } else {
+    let messagecount = parseInt(args[1]);
+    message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+    message.channel.sendMessage(' '+ "**```fix\n" + args[1] + " " +  ': عدد الرسائل التي تم مسحها' + "```**").then(m => m.delete(5000));
+    message.delete(60000);
+    }
+    } else {
+    var manage = new Discord.RichEmbed()
+    .setDescription('You Do Not Have Permission MANAGE_MESSAGES :(')
+    .setColor("RANDOM")
+    message.channel.sendEmbed(manage)
+    return;
+    }
+    }
+    });
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "2help") {
     message.channel.send(
       `**| تــم رســال اوامــر الإداريــه فــى الــخــاص ..**`
     );
-
+    
     message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
   ✽ **__الاوامر الإداريــه__** ✽ 
-✽**  =ce • لمسح الشات** 
+✽**  =clear • لمسح الشات** 
 ✽**  =ban • لتبنيد شخص** 
 ✽**  =kick • لاعطاء كيك لشخص** 
 ✽**  =open • لفتح الشات** 
@@ -1960,6 +1991,27 @@ client.on("message", message => {
 `);
   }
 });
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (message.content === prefix + "5help") {
+    
+    message.channel.send(
+      `**| تــم رســال اوامــر المميزة فــى الــخــاص ..**`
+    );
+
+    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
+✽** =rroles •  يسويلك رولات**
+✽ **=channels •  يسويلك رومات وشنلات **
+✽** =creatcolores • صنع ألوان **
+✽** =colors • غير لونك ** 
+✽** =nickall • يغير اسم اعضاء السيرفر كلو **
+✽** =inf • عدد الدعوات للسيرفر**
+✽** =voicesetup • ينشأ لك روم فويس اون لاين**
+✽** =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك **
+✽** =credits • لمعرفة رصيدكك بالبوت**`);
+  }
+});
+
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
