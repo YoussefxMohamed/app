@@ -107,9 +107,7 @@ client.on("message", message => {
 
   if (command == "say") {
     if (!message.member.hasPermission("ADMINISTRATOR"))
-      return message.channel.send(
-        "?|**`ADMINISTRATOR`ليس لديك صلاحيات`**  "
-      );
+      return message.channel.send("?|**`ADMINISTRATOR`ليس لديك صلاحيات`**  ");
 
     message.channel.sendMessage(args.join("  "));
     message.delete();
@@ -245,21 +243,9 @@ client.on("message", pixelbot => {
         .setColor("#00000")
         .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
-        .addField(
-          "**✽ Name :**   ",
-          pixelbot.author.username,
-          true
-        )
-        .addField(
-          "**✽ Tag :**   ",
-          pixelbot.author.discriminator,
-          true
-        )
-        .addField(
-          "**✽ ID :** ",
-          pixelbot.author.id,
-          true
-        ) // itzZa1D - Codes Team.
+        .addField("**✽ Name :**   ", pixelbot.author.username, true)
+        .addField("**✽ Tag :**   ", pixelbot.author.discriminator, true)
+        .addField("**✽ ID :** ", pixelbot.author.id, true) // itzZa1D - Codes Team.
         .addField(
           "**✽ Joined At :**   ",
           moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
@@ -270,11 +256,7 @@ client.on("message", pixelbot => {
           moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
           true
         )
-        .addField(
-          "**✽ Total invites :**    ",
-          inviteCount,
-          true
-        )
+        .addField("**✽ Total invites :**    ", inviteCount, true)
         .setTimestamp(); // itzZa1D - Codes Team.
 
       pixelbot.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
@@ -292,31 +274,11 @@ client.on("message", zaid => {
         `» ${Date.now() - zaid.createdTimestamp}` + " ms",
         true
       )
-      .addField(
-        "✽ **Servers** :  ",
-        `» ${client.guilds.size}`,
-        true
-      )
-      .addField(
-        "✽ **Channels** : ",
-        `» ${client.channels.size} `,
-        true
-      )
-      .addField(
-        "✽ **Users** : ",
-        `» ${client.users.size} `,
-        true
-      )
-      .addField(
-        "✽ **Bot Name** :  ",
-        `» ${client.user.tag} `,
-        true
-      )
-      .addField(
-        "✽ **Bot Owner** :  ",
-        `» <@456487489440579595>`,
-        true
-      ) // Change Your ID
+      .addField("✽ **Servers** :  ", `» ${client.guilds.size}`, true)
+      .addField("✽ **Channels** : ", `» ${client.channels.size} `, true)
+      .addField("✽ **Users** : ", `» ${client.users.size} `, true)
+      .addField("✽ **Bot Name** :  ", `» ${client.user.tag} `, true)
+      .addField("✽ **Bot Owner** :  ", `» <@456487489440579595>`, true) // Change Your ID
       .setImage(
         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
       )
@@ -372,20 +334,15 @@ client.on("message", async message => {
         .setTitle(`:incoming_envelope: **[INVITE INFO]** ${Username}`)
         .addField(
           "**عدد الدعوات للسيرفر**",
-          `**➥** [ شخص **${Number(
-            inviteCount
-          )}** ]   `
+          `**➥** [ شخص **${Number(inviteCount)}** ]   `
         )
         .addField(
           "**تاريخ انضمامك لسيرفرنا **",
-          `**➥** [ منذ  **${daysJoined.toFixed(
-            0
-          )}** يوم ]   `
+          `**➥** [ منذ  **${daysJoined.toFixed(0)}** يوم ]   `
         )
         .addField(
           "**رابط الدعوة الذي دخلت منه**  ",
-          `**➥** [ **https://discord.gg/${inviteCode ||
-            "Zm2U6we"}** ]   `
+          `**➥** [ **https://discord.gg/${inviteCode || "Zm2U6we"}** ]   `
         )
         .setImage(
           "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
@@ -420,9 +377,7 @@ client.on("message", message => {
       .then(messages => message.channel.bulkDelete(messages))
       .then(msgs => {
         message.channel
-          .send(
-            `** Done , Deleted \`${msgs.size}\` messages.** `
-          )
+          .send(`** Done , Deleted \`${msgs.size}\` messages.** `)
           .then(messages => messages.delete(5000));
       });
   }
@@ -1160,7 +1115,6 @@ client.on("message", msg => {
   }
 }); //MohamedTarek
 
-
 client.on("messageCreate", async message => {
   let args = message.cleanContent.split(" ");
   if (args[0] == `${prefix}roles`) {
@@ -1195,9 +1149,7 @@ client.on("message", message => {
       .setImage(
         "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
       )
-      .setTitle(
-        `✽ **WeSo Bot**`
-      )
+      .setTitle(`✽ **WeSo Bot**`)
       .setColor("black")
       .setImage(`${x5bzm.avatarURL}`);
     message.channel.sendEmbed(embed);
@@ -1363,13 +1315,9 @@ client.on("message", message => {
               `✅ You Have Moved <@${usermentioned}> To Your Channel `
             );
           var embed = new Discord.RichEmbed()
-            .setTitle(
-              `You are Moved in ${message.guild.name} `
-            )
+            .setTitle(`You are Moved in ${message.guild.name} `)
             .setColor("RANDOM")
-            .setTitle(
-              `✽ **WeSo**`
-            )
+            .setTitle(`✽ **WeSo**`)
 
             .setDescription(
               `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
@@ -1405,9 +1353,7 @@ client.on("message", message => {
     if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
       return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
     if (message.member.voiceChannel == null)
-      return message.channel.send(
-        `**You Have To Be In Room Voice**`
-      );
+      return message.channel.send(`**You Have To Be In Room Voice**`);
     var author = message.member.voiceChannelID;
     var m = message.guild.members.filter(m => m.voiceChannel);
     message.guild.members
@@ -1771,50 +1717,16 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
           embed: new Discord.RichEmbed()
             .setTitle(`**${fuck.title}**`)
             .setURL(fuck.url)
-            .addField(
-              "✽ **Time The Video** :",
-              `${song.time}`,
-              true
-            )
-            .addField(
-              "✽ **Channel Name** :",
-              `${song.best}`,
-              true
-            )
-            .addField(
-              "✽ **Channel ID** :",
-              `${song.zg}`,
-              true
-            )
-            .addField(
-              "✽ **Video Created at** :",
-              `${fuck.datePublished}`,
-              true
-            )
-            .addField(
-              "✽ **Views** :",
-              `${fuck.views}`,
-              true
-            )
-            .addField(
-              "✽ **Like**👍 :",
-              `${fuck.likeCount}`,
-              true
-            )
-            .addField(
-              "✽ **dislike**👎 :",
-              `${fuck.dislikeCount}`,
-              true
-            )
-            .addField(
-              "✽ **comments** :",
-              `${fuck.commentCount}`,
-              true
-            )
+            .addField("✽ **Time The Video** :", `${song.time}`, true)
+            .addField("✽ **Channel Name** :", `${song.best}`, true)
+            .addField("✽ **Channel ID** :", `${song.zg}`, true)
+            .addField("✽ **Video Created at** :", `${fuck.datePublished}`, true)
+            .addField("✽ **Views** :", `${fuck.views}`, true)
+            .addField("✽ **Like**👍 :", `${fuck.likeCount}`, true)
+            .addField("✽ **dislike**👎 :", `${fuck.dislikeCount}`, true)
+            .addField("✽ **comments** :", `${fuck.commentCount}`, true)
             .setImage(`${song.eyad}`)
-            .setTitle(
-              `✽ **WeSo**`
-            )
+            .setTitle(`✽ **WeSo**`)
             .setThumbnail(
               "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
             )
@@ -1842,31 +1754,15 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                     embed: new Discord.RichEmbed()
                       .setTitle(`**${fuck.title}**`)
                       .setURL(fuck.url)
-                      .addField(
-                        "✽ **Time The Video** ::",
-                        `${song.time}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Channel Name** :",
-                        `${song.best}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Channel ID** :",
-                        `${song.zg}`,
-                        true
-                      )
+                      .addField("✽ **Time The Video** ::", `${song.time}`, true)
+                      .addField("✽ **Channel Name** :", `${song.best}`, true)
+                      .addField("✽ **Channel ID** :", `${song.zg}`, true)
                       .addField(
                         "✽ **Video Created at** :",
                         `${fuck.datePublished}`,
                         true
                       )
-                      .addField(
-                        "✽ **Views** :",
-                        `${fuck.views}`,
-                        true
-                      )
+                      .addField("✽ **Views** :", `${fuck.views}`, true)
                       .addField(
                         "✽ **Like**👍 :",
                         `${yyyy[msg.guild.id].like}`,
@@ -1883,9 +1779,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(
-                        `✽ **WeSo**`
-                      )
+                      .setTitle(`✽ **WeSo**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1900,36 +1794,16 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                     embed: new Discord.RichEmbed()
                       .setTitle(`**${fuck.title}**`)
                       .setURL(fuck.url)
-                      .addField(
-                        "✽ **Time The Video** :",
-                        `${song.time}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Channel Name** :",
-                        `${song.best}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Channel ID **:",
-                        `${song.zg}`,
-                        true
-                      )
+                      .addField("✽ **Time The Video** :", `${song.time}`, true)
+                      .addField("✽ **Channel Name** :", `${song.best}`, true)
+                      .addField("✽ **Channel ID **:", `${song.zg}`, true)
                       .addField(
                         "✽ **Video Created at** :",
                         `${fuck.datePublished}`,
                         true
                       )
-                      .addField(
-                        "✽ **Views** :",
-                        `${fuck.views}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Like**👍 :",
-                        `${fuck.likeCount}`,
-                        true
-                      )
+                      .addField("✽ **Views** :", `${fuck.views}`, true)
+                      .addField("✽ **Like**👍 :", `${fuck.likeCount}`, true)
                       .addField(
                         "✽ **dislike**👎 :",
                         `${yyyy[msg.guild.id].dislike}`,
@@ -1941,9 +1815,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(
-                        `✽ **WeSo**`
-                      )
+                      .setTitle(`✽ **WeSo**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1956,36 +1828,16 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                     embed: new Discord.RichEmbed()
                       .setTitle(`**${fuck.title}**`)
                       .setURL(fuck.url)
-                      .addField(
-                        "✽ **Time The Video** :",
-                        `${song.time}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Channel Name** :",
-                        `${song.best}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Channel ID** :",
-                        `${song.zg}`,
-                        true
-                      )
+                      .addField("✽ **Time The Video** :", `${song.time}`, true)
+                      .addField("✽ **Channel Name** :", `${song.best}`, true)
+                      .addField("✽ **Channel ID** :", `${song.zg}`, true)
                       .addField(
                         "✽ **Video Created at** :",
                         `${fuck.datePublished}`,
                         true
                       )
-                      .addField(
-                        "✽ **Views** :",
-                        `${fuck.views}`,
-                        true
-                      )
-                      .addField(
-                        "✽ **Like**👍 :",
-                        `${fuck.likeCount}`,
-                        true
-                      )
+                      .addField("✽ **Views** :", `${fuck.views}`, true)
+                      .addField("✽ **Like**👍 :", `${fuck.likeCount}`, true)
                       .addField(
                         "✽ **dislike**👎 :",
                         `${fuck.dislikeCount}`,
@@ -1997,9 +1849,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(
-                        `✽ **WeSo**`
-                      )
+                      .setTitle(`✽ **WeSo**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -2014,7 +1864,6 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
     });
   }
 });
-
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -2080,8 +1929,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــمــوســيــقــى فــى الــخــاص ..**`
     );
 
-    message.author
-      .sendMessage(` ✽ **__~~WeSo Bot~~__**
+    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
 ✽  **__أوامر الــمــوســيــقــى__**  ✽ 
 ✽**  =play •  لتشغيل أغنية برآبط أو بأسم **
 ✽**  =skip •  لتجآوز الأغنية الحآلية **
@@ -2103,8 +1951,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــحــمــايــة فــى الــخــاص ..**`
     );
 
-    message.author
-      .sendMessage(` ✽ **__~~WeSo Bot~~__**
+    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
 ✽ **__اوامر الــحــمــايــة__** ✽ 
 ✽**  =limitbans •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
 ✽**  =limitkicks • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
@@ -2144,8 +1991,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-    message.channel
-      .send(` ✽ **__~~Rad Bot~~__**> 
+    message.channel.send(` ✽ **__~~Rad Bot~~__**> 
 **✽ Help Menu ✽**
 ----------------------------
 > ** =1help ** **✽ الاوامر العامه ✽  **
@@ -3600,25 +3446,19 @@ client.on("message", async message => {
 
 client.on("message", msg => {
   if (msg.content === "باك") {
-    msg.reply(
-      "** ولكم نورت :sparkling_heart: :wink:**  "
-    );
+    msg.reply("** ولكم نورت :sparkling_heart: :wink:**  ");
   }
 });
 
 client.on("message", msg => {
   if (msg.content === "هاي") {
-    msg.reply(
-      "** هاي يا عسل   :kissing_heart: :heart: **"
-    );
+    msg.reply("** هاي يا عسل   :kissing_heart: :heart: **");
   }
 });
 
 client.on("message", msg => {
   if (msg.content === "بحبك") {
-    msg.reply(
-      "**عيب :joy:  **"
-    );
+    msg.reply("**عيب :joy:  **");
   }
 });
 
@@ -3650,41 +3490,32 @@ client.on("message", message => {
 client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
     "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
-  )
-    .setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
+  ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
    ✽ **Support Server** [ • https://discord.gg/X9esPBy • ]  ✽ `);
   guild.owner.send(embed);
 });
 
 client.on("message", msg => {
   if (msg.content === "=inv") {
-    msg.reply(
-      "**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**"
-    );
+    msg.reply("**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**");
   }
 });
 
 client.on("message", msg => {
   if (msg.content === "bot") {
-    msg.reply(
-      "**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**"
-    );
+    msg.reply("**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**");
   }
 });
 
 client.on("message", msg => {
   if (msg.content === "البوت") {
-    msg.reply(
-      "**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**"
-    );
+    msg.reply("**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**");
   }
 });
 
 client.on("message", msg => {
   if (msg.content === "رابط البوت") {
-    msg.reply(
-      "**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**"
-    );
+    msg.reply("**✽ Add Bot [** • https://bit.ly/2ZAR8n9 •** ] ✽**");
   }
 });
 
@@ -3694,7 +3525,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "rroles")) {
     //Baron#1500
     if (message.author.bot) return; //Baron#1500
-    if (!message.member.hasPermission("ADMINISTRATOR"))
+    if (!message.member.hasPermission("Ownership"))
       return message.reply(" | **ليس لديك صلاحيات**");
     //دى بقا الرتب ال انت عاوزو يعملها
     let roleking = message.guild.roles.find(r => r.name === "⇁『KiNG 』‏‏༄  ❥"); //Baron#1500
@@ -4388,17 +4219,19 @@ client.on("message", message => {
       time: 30
     };
   if (message.content.startsWith(adminprefix + "limit")) {
-    if (!message.member.hasPermission("MANAGE_GUILD")) return;
-    if (message.content.startsWith(adminprefix + "limitbans")) {
-      if (!num) return message.channel.send("**→ | Supply a number !");
-      if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
-      config[message.guild.id].banLimit = num;
-      message.channel.send(
-        `**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**   `
-      ); // WESO
-    }
+    if (!message.member.hasPermission("Ownership"))
+      if (message.content.startsWith(adminprefix + "limitbans")) {
+        if (!num) return message.channel.send("**→ | Supply a number !");
+        if (isNaN(num))
+          return message.channel.send("**→ | Supply a number !**");
+        config[message.guild.id].banLimit = num;
+        message.channel.send(
+          `**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**   `
+        ); // WESO
+      }
     if (message.content.startsWith(adminprefix + "limitkicks")) {
-      if (!num) return message.channel.send("**→ | Supply a number !**");
+      if (!message.member.hasPermission("Ownership"))
+        if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !** "); //WESO
       config[message.guild.id].kickLimits = num;
       message.channel.send(
@@ -4406,7 +4239,8 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(adminprefix + "limitroleDelete")) {
-      if (!num) return message.channel.send("**→ | Supply a number !**");
+      if (!message.member.hasPermission("Ownership"))
+        if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
@@ -4414,7 +4248,8 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(adminprefix + "limitroleCreate")) {
-      if (!num) return message.channel.send("**→ | Supply a number !**");
+      if (!message.member.hasPermission("Ownership"))
+        if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
@@ -4422,7 +4257,8 @@ client.on("message", message => {
       );
     } //WESO
     if (message.content.startsWith(adminprefix + "limitchannelDelete")) {
-      if (!num) return message.channel.send("**→ | Supply a number !**");
+      if (!message.member.hasPermission("Ownership"))
+        if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
@@ -4430,7 +4266,8 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(adminprefix + "limittime")) {
-      if (!num) return message.channel.send("**→ | Supply a number !**");
+      if (!message.member.hasPermission("Ownership"))
+        if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].time = num;
       message.channel.send(
@@ -4649,20 +4486,19 @@ client.antibots = new Enmap({ name: "chat" });
 var antibots = client.antibots;
 var julian = client;
 julian.on("message", codes => {
-  var prefix = "=";
-  if (codes.content.startsWith(adminprefix + "antibots on")) {
-    if (
-      codes.author.bot ||
-      !codes.channel.guild ||
-      codes.author.id != codes.guild.ownerID
-    )
-      return;
-    antibots.set(`${codes.guild.id}`, {
-      onoff: "On"
-    });
+    if (codes.content.startsWith(adminprefix + "antibots on")) {
+      if (
+        codes.author.bot ||
+        !codes.channel.guild ||
+        codes.author.id != codes.guild.ownerID
+      )
+        return;
+      antibots.set(`${codes.guild.id}`, {
+        onoff: "On"
+      });
 
-    codes.channel.send("AntiBots Join Is On");
-  }
+      codes.channel.send("AntiBots Join Is On");
+    }
   if (codes.content.startsWith(adminprefix + "antibots off")) {
     if (
       codes.author.bot ||
@@ -4889,56 +4725,50 @@ client.on("message", message => {
     let contmessage;
 
     let filter = m => m.author.id === message.author.id;
-    message.channel
-      .send(
-        " |** من فضلك اكتب الرساله الان...** "
-      )
-      .then(msg => {
-        message.channel
-          .awaitMessages(filter, {
-            //R.I.P Royal Bot!
-            maxMatches: 1,
-            time: 12000,
-            errors: ["time"]
-          })
+    message.channel.send(" |** من فضلك اكتب الرساله الان...** ").then(msg => {
+      message.channel
+        .awaitMessages(filter, {
+          //R.I.P Royal Bot!
+          maxMatches: 1,
+          time: 12000,
+          errors: ["time"]
+        })
 
-          .then(collected => {
-            contmessage = collected.first().content;
-            msg.edit(":scroll: | من فضلك اكتب الرد الان... :pencil2: ");
+        .then(collected => {
+          contmessage = collected.first().content;
+          msg.edit(":scroll: | من فضلك اكتب الرد الان... :pencil2: ");
 
-            message.channel
-              .awaitMessages(filter, {
-                maxMatches: 1,
-                time: 12000,
-                errors: ["time"]
-              })
+          message.channel
+            .awaitMessages(filter, {
+              maxMatches: 1,
+              time: 12000,
+              errors: ["time"]
+            })
 
-              .then(collectedd => {
-                replyMSG[message.author.id] = {
-                  contentmessage: contmessage,
-                  replayMessage: collectedd.first().content
-                };
-                saveReplay();
-                var embed1 = new Discord.RichEmbed()
-                  .setTitle(`Done The Autoreply Setup`)
-                  .setThumbnail(message.author.avatarURL)
-                  .setColor("GRAY")
-                  .setDescription(
-                    `
+            .then(collectedd => {
+              replyMSG[message.author.id] = {
+                contentmessage: contmessage,
+                replayMessage: collectedd.first().content
+              };
+              saveReplay();
+              var embed1 = new Discord.RichEmbed()
+                .setTitle(`Done The Autoreply Setup`)
+                .setThumbnail(message.author.avatarURL)
+                .setColor("GRAY")
+                .setDescription(
+                  `
                     Message:
                     ${contmessage}
                     Reply:
                     ${collectedd.first().content}`
-                  )
-                  .setFooter(client.user.username, client.user.avatarURL);
-                msg.edit(
-                  "  |** تم الاعداد بنجاح...** "
-                );
+                )
+                .setFooter(client.user.username, client.user.avatarURL);
+              msg.edit("  |** تم الاعداد بنجاح...** ");
 
-                message.channel.send(embed1);
-              });
-          });
-      });
+              message.channel.send(embed1);
+            });
+        });
+    });
   }
 });
 
@@ -5090,11 +4920,7 @@ client.on("message", async message => {
     credits[mention.id].credits += +args[1];
     fs.writeFileSync("./credits.json", JSON.stringify(credits));
     console.log(credits[mention.id]);
-    message.reply(
-      `**, Adedd Money For : \`${
-        args[1]
-      }\`Done`
-    );
+    message.reply(`**, Adedd Money For : \`${args[1]}\`Done`);
   } else if (Fire === "removecredits") {
     let args = message.content.split(" ");
     if (!devs.includes(message.author.id)) return;
@@ -5106,7 +4932,7 @@ client.on("message", async message => {
     message.reply(
       `**, Remove Money For : \`${
         args[1]
-      }\`**<a:606976631566893056:636655980943507507>`
+      }\`**`
     );
   }
 });
