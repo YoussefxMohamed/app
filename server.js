@@ -273,11 +273,11 @@ client.on("message", zaid => {
         `» ${Date.now() - zaid.createdTimestamp}` + " ms",
         true
       )
-      .addField("✽ **Servers** :  ", `» ${client.guilds.size}`, true)
-      .addField("✽ **Channels** : ", `» ${client.channels.size} `, true)
-      .addField("✽ **Users** : ", `» ${client.users.size} `, true)
-      .addField("✽ **Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("✽ **Bot Owner** :  ", `» <@335645388323160064>`, true) // Change Your ID
+      .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
+      .addField("**Channels** : ", `» ${client.channels.size} `, true)
+      .addField("**Users** : ", `» ${client.users.size} `, true)
+      .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
+      .addField("**Bot Owner** :  ", `» <@335645388323160064>`, true) // Change Your ID
       .setImage(
         ""
       )
@@ -1952,16 +1952,16 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــمــوســيــقــى فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
-✽  **__أوامر الــمــوســيــقــى__**  ✽ 
-✽**  =play •  لتشغيل أغنية برآبط أو بأسم **
-✽**  =skip •  لتجآوز الأغنية الحآلية **
-✽**  =pause •  إيقآف الأغنية مؤقتا**
-✽**  =resume •  لموآصلة الإغنية بعد إيقآفهآ مؤقتا **
-✽**  =vol •  لتغيير درجة الصوت 100 - 0 **
-✽**  =stop •  لإخرآج البوت من الرو م **
-✽**  =np •  لمعرفة الأغنية المشغلة حآليا **
-✽**  =queue •   لمعرفة قآئمة التشغيل لأننتقال للاغنية التالية **
+    message.author.sendMessage(`  **__Solid Bot__**
+  **__أوامر الــمــوســيــقــى__**   
+**  =play •  لتشغيل أغنية برآبط أو بأسم **
+**  =skip •  لتجآوز الأغنية الحآلية **
+**  =pause •  إيقآف الأغنية مؤقتا**
+**  =resume •  لموآصلة الإغنية بعد إيقآفهآ مؤقتا **
+**  =vol •  لتغيير درجة الصوت 100 - 0 **
+**  =stop •  لإخرآج البوت من الرو م **
+**  =np •  لمعرفة الأغنية المشغلة حآليا **
+**  =queue •   لمعرفة قآئمة التشغيل لأننتقال للاغنية التالية **
     
 `);
   }
@@ -1976,16 +1976,16 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــحــمــايــة فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
-✽ **__اوامر الــحــمــايــة__** ✽ 
-✽**  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-✽**  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-✽**  =settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-✽**  =settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-✽**  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-✽**  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
-✽**  =antibots on •  منع دخول بوتات**
-✽**  =antibots off •  فتح دخول البوتات**
+    message.author.sendMessage(`**__Solid Bot__**
+**__اوامر الــحــمــايــة__**  
+**  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
+**  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
+**  =settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
+**  =settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
+**  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
+**  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+**  =antibots on •  منع دخول بوتات**
+**  =antibots off •  فتح دخول البوتات**
 `);
   }
 });
@@ -1997,26 +1997,26 @@ client.on("message", message => {
       `**| تــم رســال اوامــر المميزة فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
+    message.author.sendMessage(` **__Solid Bot__**
 **
-✽** =creatcolores • صنع ألوان **
-✽** =colors • غير لونك ** 
-✽** =inf • عدد الدعوات للسيرفر**
-✽** =credits • لمعرفة رصيدكك بالبوت**`);
+** =creatcolores • صنع ألوان **
+** =colors • غير لونك ** 
+** =inf • عدد الدعوات للسيرفر**
+** =credits • لمعرفة رصيدكك بالبوت**`);
   }
 });
 
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-    message.channel.send(` ✽ **__~~Rad Bot~~__**> 
-**✽ Help Menu ✽**
+    message.channel.send(`  **__Solid Bot__**> 
+** Help Menu**
 ----------------------------
-> ** =1help ** **✽ الاوامر العامه ✽  **
-> ** =2help ** **✽ الاوامر الإداريه ✽ **
-> ** =3help **>>  **✽ أوامر الموسيقى ✽  **
-> ** =4help **>>  **✽ أوامر الحماية (للاونر فقط) ✽  **
-> ** =5help ** **✽ اوامر مميزه ✽ **
+> ** =1help ** ** الاوامر العامه  **
+> ** =2help ** ** الاوامر الإداريه  **
+> ** =3help ** ** أوامر الموسيقى   **
+> ** =4help ** ** أوامر الحماية (للاونر فقط)   **
+> ** =5help ** ** اوامر مميزه  **
  **__Done__** 
    `);
   }
@@ -3509,7 +3509,7 @@ client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
     ""
   ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
-   ✽ **Support Server** [ • https://discord.gg/X9esPBy • ]  ✽ `);
+   ✽ **Support Server** [ • https://discord.gg/aKdCRSX • ]  ✽ `); //تعديل
   guild.owner.send(embed);
 });
 
