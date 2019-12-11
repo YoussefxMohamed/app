@@ -119,9 +119,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "WeSO Team"))
+    if (!message.guild.roles.exists("name", "Solid Team"))
       return message.channel.send(
-        `This server doesn't have a \`WeSO Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
+        `This server doesn't have a \`Solid Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
       );
     if (
       message.guild.channels.exists(
@@ -133,7 +133,7 @@ client.on("message", message => {
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
-        let role = message.guild.roles.find("name", "WeSO Team");
+        let role = message.guild.roles.find("name", "Solid Team");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
           SEND_MESSAGES: true,
@@ -1183,7 +1183,7 @@ client.on("message", message => {
       .join(" ");
 
     client.users
-      .get("335645388323160064", "536126359966187530")
+      .get("335645388323160064",)
       .send(
         "\n" +
           "**" +
@@ -1219,7 +1219,7 @@ client.on("message", message => {
         ":mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح"
       )
       .setThumbnail(message.author.avatarURL)
-      .setFooter("By : WESO !#0043");
+      .setFooter("By : Solid ");
 
     message.channel.send(embed);
   }
@@ -1240,7 +1240,7 @@ client.on("guildMemberAdd", member => {
     .addField(" **__Welcome To Server__**", `**${member.guild.name}**`)
     .addField("**انت العضو رقم** ", `${member.guild.memberCount} `)
     .setColor("RANDOM");
-  var channel = member.guild.channels.find("name", "تعديل مهم اسم الروم");
+  var channel = member.guild.channels.find("name", "تعديل مهم اسم روم الترحيب");
   if (!channel) return;
   channel.send({ embed: embed });
 });
@@ -1310,7 +1310,7 @@ client.on("message", message => {
           var embed = new Discord.RichEmbed()
             .setTitle(`You are Moved in ${message.guild.name} `)
             .setColor("RANDOM")
-            .setTitle(`✽ **WeSo**`)
+            .setTitle(`✽ **Solid**`)
 
             .setDescription(
               `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
@@ -1354,7 +1354,7 @@ client.on("message", message => {
       .forEach(m => {
         m.setVoiceChannel(author);
       })
-      .setTitle(`✽ **WeSo**`)
+      .setTitle(`✽ **Solid**`)
       .setImage(
         ""
       );
@@ -1719,7 +1719,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
             .addField("✽ **dislike**👎 :", `${fuck.dislikeCount}`, true)
             .addField("✽ **comments** :", `${fuck.commentCount}`, true)
             .setImage(`${song.eyad}`)
-            .setTitle(`✽ **WeSo**`)
+            .setTitle(`✽ **Solid**`)
             .setThumbnail(
               "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
             )
@@ -1772,7 +1772,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **WeSo**`)
+                      .setTitle(`✽ **Solid**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1808,7 +1808,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **WeSo**`)
+                      .setTitle(`✽ **Solid**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1842,7 +1842,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **WeSo**`)
+                      .setTitle(`✽ **Solid**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -3508,7 +3508,7 @@ client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
     ""
   ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
-   ✽ **Support Server** [ • https://discord.gg/aKdCRSX • ]  ✽ `); //تعديل
+   ✽ **Support Server** [ • https://discord.gg/aKdCRSX • ]  ✽ `); //تعديل مهم رابط سيرفرك
   guild.owner.send(embed);
 });
 
@@ -4367,7 +4367,7 @@ guild.members.get(ser.id).removeRoles(roles)
 }
  
     })
-    fs.writeFile('./weso.json', JSON.stringify(bane), (err) => {
+    fs.writeFile('./Solid.json', JSON.stringify(bane), (err) => {
 if (err) console.error(err);
 })
 
