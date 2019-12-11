@@ -911,8 +911,7 @@ client.on("message", message => {
         ` ✽  **Hi I'm System Bot**  
 ✽  **Support Server** [ https://discord.gg/aKdCRSX ] 
 ✽  **Video explained ** [ جاري التحميل.. ] 
-✽  **Bot orders** [ • **=help** • ]  
-✽  **CREATED BOT BY ** **Rad  Team **   `
+✽  **Bot orders** [ • **=help** • ]   `
       )
 
       .setImage(
@@ -1143,7 +1142,7 @@ client.on("message", message => {
       .setImage(
         ""
       )
-      .setTitle(`✽ **WeSo Bot**`)
+      .setTitle(`✽ **Solid Bot**`)
       .setColor("black")
       .setImage(`${x5bzm.avatarURL}`);
     message.channel.sendEmbed(embed);
@@ -1241,7 +1240,7 @@ client.on("guildMemberAdd", member => {
     .addField(" **__Welcome To Server__**", `**${member.guild.name}**`)
     .addField("**انت العضو رقم** ", `${member.guild.memberCount} `)
     .setColor("RANDOM");
-  var channel = member.guild.channels.find("name", "welcome");
+  var channel = member.guild.channels.find("name", "تعديل مهم اسم الروم");
   if (!channel) return;
   channel.send({ embed: embed });
 });
@@ -1866,7 +1865,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــعــامــه فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
+    message.author.sendMessage(` ✽ **__ Solid Bot__**
 **__الاوامر العامه__** 
 ✽**  =bot • لعرض معلومات عن البوت** 
 ✽**  =user • لعرض معلومات عنك** 
