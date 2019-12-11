@@ -1941,47 +1941,25 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "4help") {
+    if (message.author.id !== message.guild.owner.user.id) return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
+    
     message.channel.send(
       `**| تــم رســال اوامــر الــحــمــايــة فــى الــخــاص ..**`
     );
 
     message.author.sendMessage(` ✽ **__~~WeSo Bot~~__**
 ✽ **__اوامر الــحــمــايــة__** ✽ 
-✽**  =limitbans •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-✽**  =limitkicks • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-✽**  =limitroleDelete •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-✽**  =limitroleCreate •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-✽**  =limitchannelDelete •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-✽**  =limittime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+✽**  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
+✽**  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
+✽**  =settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
+✽**  =settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
+✽**  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
+✽**  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
 ✽**  =antibots on •  منع دخول بوتات**
 ✽**  =antibots off •  فتح دخول البوتات**
-    
 `);
   }
 });
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === prefix + "4help") {
-    message.channel.send(
-      `**| تــم رســال اوامــر مــمــيــزه فــى الــخــاص ..**`
-    );
-
-    message.author.sendMessage(` ✽ **__~~WeSo Bot ~~__** 
-✽ **__اوامر مــمــيــزه__** ✽ 
-✽** =rroles •  يسويلك رولات**
-✽** =channels •  يسويلك رومات وشنلات **
-✽** =creatcolores • صنع ألوان **
-✽** =colors • غير لونك  **
-✽** =nickall • يغير اسم اعضاء السيرفر كلو **
-✽** =inf • عدد الدعوات للسيرفر**
-✽** =voicesetup • ينشأ لك روم فويس اون لاين**
-✽** =invbot • لدعوه اي بوت تسويلو منشن  البوت سيرفرك** 
-    
-`);
-  }
-});
-
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
@@ -1991,7 +1969,8 @@ client.on("message", message => {
 > ** =1help ** **✽ الاوامر العامه ✽  **
 > ** =2help ** **✽ الاوامر الإداريه ✽ **
 > ** =3help **>>  **✽ أوامر الموسيقى ✽  **
-> ** =4help ** **✽ اوامر مميزه ✽ **
+> ** =4help **>>  **✽ أوامر الحماية (للاونر فقط) ✽  **
+> ** =5help ** **✽ اوامر مميزه ✽ **
  **__Done__** 
    `);
   }
@@ -3516,7 +3495,7 @@ client.on("message", message => {
             config[message.guild.id].banLimit = num;
             message.channel.send(`**⇏ | تم التغيير اِلي : ${config[message.guild.id].banLimit} **`)
         }
-        if (message.content.startsWith(prefix + "settings limitskick")) {
+        if (message.content.startsWith(prefix + "settings limitskick")) { 
             if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
             if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
             config[message.guild.id].kickLimits = num;
