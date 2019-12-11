@@ -83,13 +83,12 @@ client.on("message", message => {
   }
 });
 
-var adminprefix = "#";
 
 client.on("ready", () => {
   console.log(`----------------`);
   console.log(`Rad Bot`);
   console.log(`----------------`);
-  console.log(`ON ${client.guilds.size} Servers '     Script By : Rad Bot ' `);
+  console.log(`ON ${client.guilds.size} Servers '     Script By : Rad Bot  `);
   console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
   client.user.setGame(`Rad Bot  | =help `, "http://twitch.tv/Rad-Bot");
@@ -4218,9 +4217,9 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 30
     };
-  if (message.content.startsWith(adminprefix + "limit")) {
-    if (!message.member.hasPermission("Ownership"))
-      if (message.content.startsWith(adminprefix + "limitbans")) {
+  if (message.content.startsWith(prefix + "limit")) {
+    if (!message.hasPermission("ADMINISTRATOR"))
+      if (message.content.startsWith(prefix + "limitbans")) {
         if (!num) return message.channel.send("**→ | Supply a number !");
         if (isNaN(num))
           return message.channel.send("**→ | Supply a number !**");
@@ -4229,8 +4228,8 @@ client.on("message", message => {
           `**→ | Changed bans limit to : ${config[message.guild.id].banLimit}.**   `
         ); // WESO
       }
-    if (message.content.startsWith(adminprefix + "limitkicks")) {
-      if (!message.member.hasPermission("Ownership"))
+    if (message.content.startsWith(prefix + "limitkicks")) {
+      if (!message.member.hasPermission("ADMINISTRATOR"))
         if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !** "); //WESO
       config[message.guild.id].kickLimits = num;
@@ -4238,8 +4237,8 @@ client.on("message", message => {
         `**→ | Changed kicks limit to : ${config[message.guild.id].kickLimits}.**  `
       );
     }
-    if (message.content.startsWith(adminprefix + "limitroleDelete")) {
-      if (!message.member.hasPermission("Ownership"))
+    if (message.content.startsWith(prefix + "limitroleDelete")) {
+      if (!message.member.hasPermission("ADMINISTRATOR"))
         if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].roleDelLimit = num;
@@ -4247,8 +4246,7 @@ client.on("message", message => {
         `**→ | Changed Role Deleting limit to : ${config[message.guild.id].roleDelLimit}.**   `
       );
     }
-    if (message.content.startsWith(adminprefix + "limitroleCreate")) {
-      if (!message.member.hasPermission("Ownership"))
+    if (message.content.startsWith(prefix + "limitroleCreate")) {
         if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].roleCrLimits = num;
@@ -4256,8 +4254,7 @@ client.on("message", message => {
         `**→ | Changed Role Creation limit to : ${config[message.guild.id].roleCrLimits}.**  `
       );
     } //WESO
-    if (message.content.startsWith(adminprefix + "limitchannelDelete")) {
-      if (!message.member.hasPermission("Ownership"))
+    if (message.content.startsWith(prefix + "limitchannelDelete")) {
         if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].chaDelLimit = num;
@@ -4265,8 +4262,7 @@ client.on("message", message => {
         `**→ | Changed Channel Deleting limit to : ${config[message.guild.id].chaDelLimit}.**   `
       );
     }
-    if (message.content.startsWith(adminprefix + "limittime")) {
-      if (!message.member.hasPermission("Ownership"))
+    if (message.content.startsWith(prefix + "limittime")) {
         if (!num) return message.channel.send("**→ | Supply a number !**");
       if (isNaN(num)) return message.channel.send("**→ | Supply a number !**");
       config[message.guild.id].time = num;
@@ -4486,20 +4482,20 @@ client.antibots = new Enmap({ name: "chat" });
 var antibots = client.antibots;
 var julian = client;
 julian.on("message", codes => {
-    if (codes.content.startsWith(adminprefix + "antibots on")) {
-      if (
-        codes.author.bot ||
-        !codes.channel.guild ||
-        codes.author.id != codes.guild.ownerID
-      )
-        return;
-      antibots.set(`${codes.guild.id}`, {
-        onoff: "On"
-      });
+  if (codes.content.startsWith(prefix + "antibots on")) {
+    if (
+      codes.author.bot ||
+      !codes.channel.guild ||
+      codes.author.id != codes.guild.ownerID
+    )
+      return;
+    antibots.set(`${codes.guild.id}`, {
+      onoff: "On"
+    });
 
-      codes.channel.send("AntiBots Join Is On");
-    }
-  if (codes.content.startsWith(adminprefix + "antibots off")) {
+    codes.channel.send("AntiBots Join Is On");
+  }
+  if (codes.content.startsWith(prefix + "antibots off")) {
     if (
       codes.author.bot ||
       !codes.channel.guild ||
@@ -4929,11 +4925,7 @@ client.on("message", async message => {
     credits[mention.id].credits += -args[1];
     fs.writeFileSync("./credits.json", JSON.stringify(credits));
     console.log(credits[mention.id]);
-    message.reply(
-      `**, Remove Money For : \`${
-        args[1]
-      }\`**`
-    );
+    message.reply(`**, Remove Money For : \`${args[1]}\`**`);
   }
 });
 let level = JSON.parse(fs.readFileSync("./level.json", "utf8"));
