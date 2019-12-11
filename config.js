@@ -4,5 +4,5 @@ module.exports = {
     prefix:  '=',
     devs: ['ايدي الاونر']
 }
-
+//ليش غيرتو 
 // https://اسم البروجكت.glitch.me/
