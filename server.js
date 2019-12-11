@@ -86,12 +86,12 @@ client.on("message", message => {
 
 client.on("ready", () => {
   console.log(`----------------`);
-  console.log(`Rad Bot`);
+  console.log(`osama tech`);
   console.log(`----------------`);
-  console.log(`ON ${client.guilds.size} Servers '     Script By : Rad Bot  `);
+  console.log(`ON ${client.guilds.size} Servers '     Script By : osama tech  `);
   console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setGame(`Rad Bot  | =help `, "http://twitch.tv/Rad-Bot");
+  client.user.setGame(`=help `, "http://twitch.tv/Rad-Bot");
   client.user.setStatus("dnd");
 });
 
@@ -908,16 +908,11 @@ client.on("message", message => {
     let mention = new Discord.RichEmbed()
       .setColor("black")
       .setDescription(
-        ` ✽  **Hi I'm Rad Bot**  ✽ 
-✽  **Support Server** [ •  https://discord.gg/X9esPBy • ]  ✽ 
-
-✽  **Add Bot** [ • https://bit.ly/2ZAR8n9 • ]  ✽ 
-
-✽  **Bot Site **[ • http://der7kz.cf/• ]  ✽
-
-✽  **Bot orders** [ • **=help** • ]  ✽ 
-
-✽  **CREATED BOT BY ** **Rad  Team **  ✽ `
+        ` ✽  **Hi I'm System Bot**  
+✽  **Support Server** [ https://discord.gg/aKdCRSX ] 
+✽  **Video explained ** [ جاري التحميل.. ] 
+✽  **Bot orders** [ • **=help** • ]  
+✽  **CREATED BOT BY ** **Rad  Team **   `
       )
 
       .setImage(
