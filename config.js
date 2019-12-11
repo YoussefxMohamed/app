@@ -1,8 +1,7 @@
 module.exports = {
-    TOKEN: 'التوكن',   
+    TOKEN: 'token',   
     YT_API_KEY: 'api ',
     prefix:  '=',
-    devs: ['ايدي الاونر']
+    devs: ['id ']
 }
-//ليش غيرتو 
 // https://اسم البروجكت.glitch.me/
