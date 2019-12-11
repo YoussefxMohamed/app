@@ -1360,18 +1360,15 @@ client.on("message", message => {
             .setTitle("Succes!")
             .setColor("#000000")
             .setDescription(
-              `✅ You Have Moved <@${usermentioned}> To Your Channel <a:4357_ByBLKCREATIONdiamante:606976611253747715>`
+              `✅ You Have Moved <@${usermentioned}> To Your Channel `
             );
           var embed = new Discord.RichEmbed()
             .setTitle(
-              `You are Moved in ${message.guild.name}<a:4357_ByBLKCREATIONdiamante:606976611253747715> `
+              `You are Moved in ${message.guild.name} `
             )
             .setColor("RANDOM")
             .setTitle(
-              `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
-            )
-            .setImage(
-              "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+              `✽ **WeSo**`
             )
 
             .setDescription(
@@ -1426,56 +1423,6 @@ client.on("message", message => {
     message.channel.send(
       `**:white_check_mark: Success Moved All To Your Channel**`
     );
-  }
-});
-
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "voicesetup")) {
-    if (!message.guild.member(message.author).hasPermissions("MANAGE_CHANNELS"))
-      return message.reply("❌ **ليس لديك الصلاحيات الكافية**");
-    if (
-      !message.guild
-        .member(client.user)
-        .hasPermissions(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
-    )
-      return message.reply("❌ **ليس معي الصلاحيات الكافية**");
-    var args = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    if (args && !args.includes(0))
-      return message.channel.send(
-        "❎ » فشل اعداد الروم الصوتي .. __يجب عليك كتابة 0 في اسم الروم__"
-      );
-    if (!args)
-      args = `VoiceOnline: [ ${
-        message.guild.members.filter(s => s.voiceChannel).size
-      } ]`;
-    message.channel.send("✅ » تم عمل الروم الصوتي بنجاح");
-    message.guild
-      .createChannel(
-        `${args.replace(
-          0,
-          message.guild.members.filter(s => s.voiceChannel).size
-        )}`,
-        "voice"
-      )
-      .then(c => {
-        c.overwritePermissions(message.guild.id, {
-          CONNECT: false,
-          SPEAK: false
-        });
-        setInterval(() => {
-          c.setName(
-            `${args.replace(
-              0,
-              message.guild.members.filter(s => s.voiceChannel).size
-            )}`
-          ).catch(err => {
-            if (err) return;
-          });
-        }, 3000);
-      });
   }
 });
 
@@ -1916,31 +1863,28 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .addField(
-                        "✽ **Views** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Views** :",
                         `${fuck.views}`,
                         true
                       )
                       .addField(
-                        "✽ **Like**👍 :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Like**👍 :",
                         `${yyyy[msg.guild.id].like}`,
                         true
                       )
                       .addField(
-                        "✽ **dislike**👎 :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **dislike**👎 :",
                         `${fuck.dislikeCount}`,
                         true
                       )
                       .addField(
-                        "✽ **comments** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **comments** :",
                         `${fuck.commentCount}`,
                         true
                       )
                       .setImage(`${song.eyad}`)
                       .setTitle(
-                        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
-                      )
-                      .setImage(
-                        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+                        `✽ **WeSo**`
                       )
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
@@ -1957,17 +1901,17 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                       .setTitle(`**${fuck.title}**`)
                       .setURL(fuck.url)
                       .addField(
-                        "✽ **Time The Video** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Time The Video** :",
                         `${song.time}`,
                         true
                       )
                       .addField(
-                        "✽ **Channel Name** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Channel Name** :",
                         `${song.best}`,
                         true
                       )
                       .addField(
-                        "✽ **Channel ID **:<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Channel ID **:",
                         `${song.zg}`,
                         true
                       )
@@ -1977,31 +1921,28 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .addField(
-                        "✽ **Views** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Views** :",
                         `${fuck.views}`,
                         true
                       )
                       .addField(
-                        "✽ **Like**👍 :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Like**👍 :",
                         `${fuck.likeCount}`,
                         true
                       )
                       .addField(
-                        "✽ **dislike**👎 :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **dislike**👎 :",
                         `${yyyy[msg.guild.id].dislike}`,
                         true
                       )
                       .addField(
-                        "✽ **comments** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **comments** :",
                         `${fuck.commentCount}`,
                         true
                       )
                       .setImage(`${song.eyad}`)
                       .setTitle(
-                        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
-                      )
-                      .setImage(
-                        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+                        `✽ **WeSo**`
                       )
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
@@ -2016,17 +1957,17 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                       .setTitle(`**${fuck.title}**`)
                       .setURL(fuck.url)
                       .addField(
-                        "✽ **Time The Video** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Time The Video** :",
                         `${song.time}`,
                         true
                       )
                       .addField(
-                        "✽ **Channel Name** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Channel Name** :",
                         `${song.best}`,
                         true
                       )
                       .addField(
-                        "✽ **Channel ID** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Channel ID** :",
                         `${song.zg}`,
                         true
                       )
@@ -2036,31 +1977,28 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .addField(
-                        "✽ **Views** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Views** :",
                         `${fuck.views}`,
                         true
                       )
                       .addField(
-                        "✽ **Like**👍 :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **Like**👍 :",
                         `${fuck.likeCount}`,
                         true
                       )
                       .addField(
-                        "✽ **dislike**👎 :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **dislike**👎 :",
                         `${fuck.dislikeCount}`,
                         true
                       )
                       .addField(
-                        "✽ **comments** :<a:4357_ByBLKCREATIONdiamante:606976611253747715>",
+                        "✽ **comments** :",
                         `${fuck.commentCount}`,
                         true
                       )
                       .setImage(`${song.eyad}`)
                       .setTitle(
-                        `✽ **WeSo**<a:4357_ByBLKCREATIONdiamante:606976611253747715>`
-                      )
-                      .setImage(
-                        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+                        `✽ **WeSo**`
                       )
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
@@ -2077,55 +2015,6 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
   }
 });
 
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "voicesetup")) {
-    if (!message.guild.member(message.author).hasPermissions("MANAGE_CHANNELS"))
-      return message.reply("❌ **ليس لديك الصلاحيات الكافية**");
-    if (
-      !message.guild
-        .member(client.user)
-        .hasPermissions(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
-    )
-      return message.reply("❌ **ليس معي الصلاحيات الكافية**");
-    var args = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    if (args && !args.includes(0))
-      return message.channel.send(
-        "❎ » فشل اعداد الروم الصوتي .. __يجب عليك كتابة 0 في اسم الروم__"
-      );
-    if (!args)
-      args = `VoiceOnline: [ ${
-        message.guild.members.filter(s => s.voiceChannel).size
-      } ]`;
-    message.channel.send("✅ » تم عمل الروم الصوتي بنجاح");
-    message.guild
-      .createChannel(
-        `${args.replace(
-          0,
-          message.guild.members.filter(s => s.voiceChannel).size
-        )}`,
-        "voice"
-      )
-      .then(c => {
-        c.overwritePermissions(message.guild.id, {
-          CONNECT: false,
-          SPEAK: false
-        });
-        setInterval(() => {
-          c.setName(
-            `${args.replace(
-              0,
-              message.guild.members.filter(s => s.voiceChannel).size
-            )}`
-          ).catch(err => {
-            if (err) return;
-          });
-        }, 3000);
-      });
-  }
-});
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -2192,8 +2081,8 @@ client.on("message", message => {
     );
 
     message.author
-      .sendMessage(` ✽ **__~~WeSo Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
-✽ <a:Music:622250698209493044> **__أوامر الــمــوســيــقــى__**  ✽ <a:music:622250411281088525> 
+      .sendMessage(` ✽ **__~~WeSo Bot~~__**
+✽  **__أوامر الــمــوســيــقــى__**  ✽ 
 ✽**  =play •  لتشغيل أغنية برآبط أو بأسم **
 ✽**  =skip •  لتجآوز الأغنية الحآلية **
 ✽**  =pause •  إيقآف الأغنية مؤقتا**
@@ -2215,8 +2104,8 @@ client.on("message", message => {
     );
 
     message.author
-      .sendMessage(` ✽ **__~~WeSo Bot~~__**<a:4357_ByBLKCREATIONdiamante:606976611253747715> 
-✽ **__اوامر الــحــمــايــة__** ✽ <a:pepehackerman:622251426860630026>
+      .sendMessage(` ✽ **__~~WeSo Bot~~__**
+✽ **__اوامر الــحــمــايــة__** ✽ 
 ✽**  =limitbans •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
 ✽**  =limitkicks • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
 ✽**  =limitroleDelete •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
@@ -5063,3 +4952,180 @@ client.on("message", message => {
 });
 
 ///////////////////
+
+const credits = JSON.parse(fs.readFileSync("./credits.json"));
+var time = require("./time.json");
+client.on("message", async message => {
+  if (message.author.bot || message.channel.type === "dm") return;
+  let args = message.content.split(" ");
+  let author = message.author.id;
+  if (!credits[author])
+    credits[author] = {
+      credits: 0
+    };
+  fs.writeFileSync("./credits.json", JSON.stringify(credits, null, 4));
+  if (args[0].toLowerCase() == `${prefix}credits`) {
+    const mention = message.mentions.users.first() || message.author;
+    const mentionn = message.mentions.users.first();
+    if (!args[2]) {
+      message.channel.send(
+        `**${mention.username}, your :credit_card: balance is \`$${credits[mention.id].credits}\`**`
+      );
+    } else if (mentionn && args[2]) {
+      if (isNaN(args[2])) return message.channel.send(`**:x: | Error**`);
+      if (args[2] < 1) return message.channel.send(`**:x: | Error**`);
+      if (mention.bot) return message.channel.send(`**:x: | Error**`);
+      if (mentionn.id === message.author.id)
+        return message.channel.send(`**:x: | Error**`);
+      if (args[2] > credits[author].credits)
+        return message.channel.send(
+          `**:x: | Error , You Don't Have Enough Credit**`
+        );
+      if (args[2].includes("-")) return message.channel.send(`**:x: | Error**`);
+      let resulting = Math.floor(args[2] - args[2] * (5 / 100));
+      let tax = Math.floor(args[2] * (5 / 100));
+      let first = Math.floor(Math.random() * 9);
+      let second = Math.floor(Math.random() * 9);
+      let third = Math.floor(Math.random() * 9);
+      let fourth = Math.floor(Math.random() * 9);
+      let num = `${first}${second}${third}${fourth}`;
+      let canvas = Canvas.createCanvas(108, 40);
+      let ctx = canvas.getContext("2d");
+      const background = await Canvas.loadImage(
+        "https://cdn.discordapp.com/attachments/608278049091223552/617791172810899456/hmmm.png"
+      );
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+      ctx.font = "20px Arial Bold";
+      ctx.fontSize = "20px";
+      ctx.fillStyle = "#ffffff";
+      message.channel
+        .send(
+          `**${
+            message.author.username
+          }, Transfer Fees: \`${tax}\`, Amount: \`$${resulting.toLocaleString()}\`**
+type these numbers to confirm: `
+        )
+        .then(essss => {
+          ctx.fillText(num, canvas.width / 2.4, canvas.height / 1.7);
+          message.channel.sendFile(canvas.toBuffer()).then(m => {
+            message.channel
+              .awaitMessages(r => r.author.id === message.author.id, {
+                max: 1,
+                time: 20000,
+                errors: ["time"]
+              })
+              .then(collected => {
+                if (collected.first().content === num) {
+                  message.channel.send(
+                    `**:moneybag: | ${
+                      message.author.username
+                    }, Done Trans \`$${resulting.toLocaleString()}\` To ${mentionn}**`
+                  );
+                  mention.send(
+                    `**:money_with_wings: | Transfer Receipt \`\`\`You Have Received \`$${resulting.toLocaleString()}\` From User ${
+                      message.author.username
+                    }; (ID (${message.author.id})\`\`\``
+                  );
+                  m.delete();
+                  credits[author].credits += Math.floor(
+                    -resulting.toLocaleString()
+                  );
+                  credits[mentionn.id].credits += Math.floor(
+                    +resulting.toLocaleString()
+                  );
+                  fs.writeFileSync(
+                    "./credits.json",
+                    JSON.stringify(credits, null, 4)
+                  );
+                } else {
+                  m.delete();
+                  essss.delete();
+                }
+              });
+          });
+        });
+    } else {
+      message.channel.send(
+        `**:x: | Error , Please Command True Ex: \`${prefix}credits [MentionUser] [Balance]\`**`
+      );
+    }
+  }
+  if (args[0].toLowerCase() === `${prefix}daily`) {
+    let cooldown = 8.64e7;
+    let Daily = time[message.author.id];
+    if (Daily !== null && cooldown - (Date.now() - Daily) > 0) {
+      let times = cooldown - (Date.now() - Daily);
+      message.channel.send(
+        `**:stopwatch: |  ${
+          message.author.username
+        }, your daily :dollar: credits refreshes in ${pretty(times, {
+          verbose: true
+        })}.**`
+      );
+      fs.writeFile("./time.json", JSON.stringify(time), function(e) {
+        if (e) throw e;
+      });
+    } else {
+      let ammount = (300, 500, 100, 200, 120, 150, 350, 320, 220, 250);
+      credits[author].credits += ammount;
+      time[message.author.id] = Date.now();
+      message.channel.send(
+        `**:atm:  | ${message.author.username}, you received your :yen: ${ammount} daily credits!**`
+      );
+      fs.writeFile("./credits.json", JSON.stringify(credits), function(e) {
+        if (e) throw e;
+      });
+    }
+  }
+}); // Me ZIAD كم حاقد
+
+client.on("message", async message => {
+  let Fire = message.content.split(" ")[0].substring(prefix.length);
+  let mention = message.mentions.users.first() || message.author;
+  if (Fire === "addcredits") {
+    let args = message.content.split(" ");
+    if (!devs.includes(message.author.id)) return;
+    if (!args[1] || isNaN(args[1])) return message.reply("**Type Credit**");
+    if (!credits[mention.id]) return;
+    credits[mention.id].credits += +args[1];
+    fs.writeFileSync("./credits.json", JSON.stringify(credits));
+    console.log(credits[mention.id]);
+    message.reply(
+      `**, Adedd Money For : \`${
+        args[1]
+      }\`Done`
+    );
+  } else if (Fire === "removecredits") {
+    let args = message.content.split(" ");
+    if (!devs.includes(message.author.id)) return;
+    if (!args[1] || isNaN(args[1])) return message.reply("**Type Credit**");
+    if (!credits[mention.id]) return;
+    credits[mention.id].credits += -args[1];
+    fs.writeFileSync("./credits.json", JSON.stringify(credits));
+    console.log(credits[mention.id]);
+    message.reply(
+      `**, Remove Money For : \`${
+        args[1]
+      }\`**<a:606976631566893056:636655980943507507>`
+    );
+  }
+});
+let level = JSON.parse(fs.readFileSync("./level.json", "utf8"));
+client.on("message", message => {
+  if (message.author.bot) return undefined;
+  if (!level[message.author.id])
+    level[message.author.id] = {
+      xp: 0,
+      level: 0
+    };
+  let username = message.author;
+  level[message.author.id].xp++;
+  let userlevel = level[message.author.id];
+  if (userlevel.xp > Math.floor(Math.random() * 250) + 50) {
+    userlevel.level++;
+    userlevel.xp = 0;
+  }
+  fs.writeFileSync("./level.json", JSON.stringify(level), function(s) {
+    if (s) throw s;
+  });
+});
