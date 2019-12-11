@@ -279,7 +279,7 @@ client.on("message", zaid => {
       .addField("✽ **Bot Name** :  ", `» ${client.user.tag} `, true)
       .addField("✽ **Bot Owner** :  ", `» <@456487489440579595>`, true) // Change Your ID
       .setImage(
-        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+        ""
       )
       .setFooter(zaid.author.username, zaid.author.avatarURL);
     zaid.channel.send(bot);
@@ -344,7 +344,7 @@ client.on("message", async message => {
           `**➥** [ **https://discord.gg/${inviteCode || "Zm2U6we"}** ]   `
         )
         .setImage(
-          "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+          ""
         )
         .setColor("RANDOM")
         .setTimestamp()
@@ -639,7 +639,7 @@ client.on("message", message => {
       )
       .addField(":earth_africa:✽** Region **", ` ${message.guild.region}`, true)
       .setImage(
-        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+        ""
       )
 
       .setColor("#000000");
@@ -921,7 +921,7 @@ client.on("message", message => {
       )
 
       .setImage(
-        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+        ""
       );
     message.channel.send(mention);
   }
@@ -1146,7 +1146,7 @@ client.on("message", message => {
     const embed = new Discord.RichEmbed()
 
       .setImage(
-        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+        ""
       )
       .setTitle(`✽ **WeSo Bot**`)
       .setColor("black")
@@ -1237,7 +1237,7 @@ client.on("guildMemberAdd", member => {
   var embed = new Discord.RichEmbed()
     .setThumbnail(m.avatarURL)
     .setImage(
-      "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+      ""
     )
     .addField(
       `<a:NW:620727189528117258><a:NE:620727187196215306><a:NL:620727189272526876><a:NC:620727189184446501><a:NO:620727189205155840><a:NM:620727189154955265><a:NE:620727187196215306>`,
@@ -1362,7 +1362,7 @@ client.on("message", message => {
       })
       .setTitle(`✽ **WeSo**`)
       .setImage(
-        "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+        ""
       );
 
     message.channel.send(
@@ -1942,7 +1942,7 @@ client.on("message", message => {
 `);
   }
 });
-
+/*
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "4help") {
@@ -1964,10 +1964,10 @@ client.on("message", message => {
 `);
   }
 });
-
+*/
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === prefix + "5help") {
+  if (message.content === prefix + "4help") {
     message.channel.send(
       `**| تــم رســال اوامــر مــمــيــزه فــى الــخــاص ..**`
     );
@@ -1996,8 +1996,7 @@ client.on("message", message => {
 > ** =1help ** **✽ الاوامر العامه ✽  **
 > ** =2help ** **✽ الاوامر الإداريه ✽ **
 > ** =3help **>>  **✽ أوامر الموسيقى ✽  **
-> ** =4help ** **✽ اوامر الحماية ✽ **
-> ** =5help ** **✽ اوامر مميزه ✽ **
+> ** =4help ** **✽ اوامر مميزه ✽ **
  **__Done__** 
    `);
   }
@@ -3488,7 +3487,7 @@ client.on("message", message => {
 
 client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
-    "https://cdn.discordapp.com/attachments/523532054499950602/607172616905555971/fx-long.gif"
+    ""
   ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
    ✽ **Support Server** [ • https://discord.gg/X9esPBy • ]  ✽ `);
   guild.owner.send(embed);
