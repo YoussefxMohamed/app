@@ -11,8 +11,8 @@
     "banLimit": "1",
     "chaDelLimit": "2",
     "roleDelLimit": "2",
-    "kickLimits": 3,
+    "kickLimits": "1",
     "roleCrLimits": "2",
-    "time": "5"
+    "time": "0.1"
   }
 }
