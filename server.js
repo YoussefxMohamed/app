@@ -1937,7 +1937,7 @@ client.on("message", message => {
 `);
   }
 });
-/*
+
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "4help") {
@@ -1959,7 +1959,7 @@ client.on("message", message => {
 `);
   }
 });
-*/
+
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "4help") {
@@ -3509,7 +3509,7 @@ client.on("message", message => {
     if (message.content.startsWith(prefix + "settings limits")) {
  
  
-        if (message.author.id !== message.guild.member(guild.owner)) return message.channel.send(`**لا تستطيع استخدام هذا الامر**`)
+        if (message.author.id !== message.guild.owner.user.id) return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
         if (message.content.startsWith(prefix + "settings limitsban")) {
             if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
             if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
