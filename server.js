@@ -3515,7 +3515,7 @@ client.on("guildCreate", guild => {
 
 
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
-let config = JSON.parse(fs.readFileSync("./config.json", "UTF8"));
+let config = JSON.parse(fs.readFileSync("./server.json", "UTF8"));
 client.on("message", message => {
     if (!message.channel.guild) return;
     let user = anti[message.guild.id + message.author.id]
