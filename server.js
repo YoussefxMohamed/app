@@ -3591,7 +3591,7 @@ client.on("channelDelete", async channel => {
         roleDelLimit: 3,
         kickLimits: 3,
         roleCrLimits: 3
-    }
+    } 
     if (!anti[channel.guild.id + entry.id]) {
         anti[channel.guild.id + entry.id] = {
             actions: 1
@@ -3718,7 +3718,7 @@ client.on("roleCreate", async channel => {
 });
  
 client.on("guildBanAdd", async (guild, user) => {
-    const entry1 = await channel.guild.fetchAuditLogs({
+    const entry1 = await guild.fetchAuditLogs({
         type: 'MEMBER_BAN_ADD'
     }).then(audit => audit.entries.first())
     console.log(entry1.executor.username)
@@ -3744,7 +3744,7 @@ client.on("guildBanAdd", async (guild, user) => {
             anti[guild.id + entry.id].actions = "0"
         }, config[guild.id].time * 1000)
         if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
-            channel.members.get(entry.id).ban().catch(e => channel.owner.send(`**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`))
+            guild.members.get(entry.id).ban().catch(e => guild.owner.send(`**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`))
             anti[guild.id + entry.id].actions = "0"
             fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
                 if (e) throw e;
@@ -3764,7 +3764,7 @@ client.on("guildBanAdd", async (guild, user) => {
 });
  
 client.on("guildKickAdd", async (guild, user) => {
-    const entry1 = await channel.fetchAuditLogs({
+    const entry1 = await guild.fetchAuditLogs({
         type: 'MEMBER_KICK'
     }).then(audit => audit.entries.first())
     console.log(entry1.executor.username)
@@ -3790,7 +3790,7 @@ client.on("guildKickAdd", async (guild, user) => {
             anti[guild.id + entry.id].actions = "0"
         }, config[guild.id].time * 1000)
         if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
-            channel.members.get(entry.id).ban().catch(e => channel.owner.send(`**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`))
+            guild.members.get(entry.id).ban().catch(e => guild.owner.send(`**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`))
             anti[guild.id + entry.id].actions = "0"
             fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
                 if (e) throw e;
@@ -4344,7 +4344,7 @@ client.on("message", message => {
 };     
 });
 
-
+/*
 let banse = new Set();
 client.on('guildBanAdd', function(guild) {
   guild.fetchAuditLogs().then(logs => {
@@ -4499,4 +4499,58 @@ console.log(error)
 }
 })
 });
+ let channelc = {};
+  client.on('channelCreate', async (channel) => {
+  const rebellog = client.channels.find("name", "hack-log"),
+  Oguild = channel.guild,
+  Onumber = 3,
+  Otime = 10000;
+  const audit = await channel.guild.fetchAuditLogs({limit: 1});
+  const channelcreate = audit.entries.first().executor;
+  console.log(` A ${channel.type} Channel called ${channel.name} was Created By ${channelcreate.tag}`);
+   if(!channelc[channelcreate.id]) {
+    channelc[channelcreate.id] = {
+    created : 0
+     }
+ }
+ channelc[channelcreate.id].created += 1;
+ if(channelc[channelcreate.id].created >= Onumber ) {
+    Oguild.members.get(channelcreate.id).kick();
+rebellog.send(`<@!${channelcreate.id}>
+حآول العبث بالسيرفر @everyone`);
+channel.guild.owner.send(`<@!${channelcreate.id}>
+حآول العبث بالسيرفر ${channel.guild.name}`)
+}
+  setTimeout(() => {
+ channelc[channelcreate.id].created = 0;
+  },Otime)
+  });
 
+let channelr = {};
+  client.on('channelDelete', async (channel) => {
+  const rebellog = client.channels.find("name", "hack-log"),
+  Oguild = channel.guild,
+  Onumber = 3,
+  Otime = 10000;
+  const audit = await channel.guild.fetchAuditLogs({limit: 1});
+  const channelremover = audit.entries.first().executor;
+  console.log(` A ${channel.type} Channel called ${channel.name} was deleted By ${channelremover.tag}`);
+   if(!channelr[channelremover.id]) {
+    channelr[channelremover.id] = {
+    deleted : 0
+     }
+ }
+ channelr[channelremover.id].deleted += 1;
+ if(channelr[channelremover.id].deleted >= Onumber ) {
+  Oguild.guild.member(channelremover).kick();
+rebellog.send(`<@!${channelremover.id}>
+حآول العبث بالسيرفر @everyone`);
+channel.guild.owner.send(`<@!${channelremover.id}>
+حآول العبث بالسيرفر ${channel.guild.name}`)
+}
+  setTimeout(() => {
+ channelr[channelremover.id].deleted = 0;
+  },Otime)
+  });
+
+*/
