@@ -1240,7 +1240,7 @@ client.on("guildMemberAdd", member => {
     .addField(" **__Welcome To Server__**", `**${member.guild.name}**`)
     .addField("**انت العضو رقم** ", `${member.guild.memberCount} `)
     .setColor("RANDOM");
-  var channel = member.guild.channels.find("name", "تعديل مهم اسم روم الترحيب");
+  var channel = member.guild.channels.find("name", "new");
   if (!channel) return;
   channel.send({ embed: embed });
 });
