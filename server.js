@@ -922,59 +922,6 @@ client.on("message", message => {
 });
 /////
 
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "add")) {
-    let args = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    if (!args)
-      return message.channel.send(
-        "**Please type the emoji ID after the command!**"
-      );
-    if (args.length < "18" || args.length > "18" || isNaN(args))
-      return message.channel.send(`**This emoji Can't be Found :x:**`);
-    message.guild
-      .createEmoji(`https://cdn.discordapp.com/emojis/${args}.png`, `${args}`)
-      .catch(mstry => {
-        return message.channel.send(`**This emoji Can't be Found :x:**`);
-      });
-    message.channel.send(`**Successfully Added The Emoji ✅**`);
-  }
-});
-
-client.on("message", message => {
-  if (message.content == "=bserver") {
-    if (!message.author.id === "382293804671172620") return;
-    var gimg;
-    var gname;
-    var gmemb;
-    var gbots;
-    var groles;
-    var servers = client.guilds;
-    servers.forEach(g => {
-      gname = g.name;
-      gimg = g.iconURL;
-      gmemb = g.members.size;
-      gbots = g.members.filter(m => m.bot).size;
-      groles = g.roles.map(r => {
-        return r.name;
-      });
-      let serv = new Discord.RichEmbed()
-        .setAuthor(gname, gimg)
-        .setThumbnail(gimg)
-        .addField("Server bots", gbots)
-        .addField("Server Member Count", (gmemb = g.members.size))
-        .setColor("RANDOM");
-      message.channel.send(`
-    Server Name : **${gname}**
-    Server MemberCount : **${gmemb} **
-            
-            `);
-      message.channel.sendEmbed(serv);
-    });
-  }
-});
 
 client.on("guildCreate", guild => {
   client.channels
