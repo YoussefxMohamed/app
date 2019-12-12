@@ -39,10 +39,10 @@ const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const pretty = require("pretty-ms");
-client.login('');
+client.login(TOKEN);
 const queue = new Map();
 var table = require("table").table;
-
+const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -119,9 +119,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "weso Team"))
+    if (!message.guild.roles.exists("name", "Weso Team"))
       return message.channel.send(
-        `This server doesn't have a \`weso Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
+        `This server doesn't have a \`Weso Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
       );
     if (
       message.guild.channels.exists(
@@ -133,7 +133,7 @@ client.on("message", message => {
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
-        let role = message.guild.roles.find("name", "weso Team");
+        let role = message.guild.roles.find("name", "Weso Team");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
           SEND_MESSAGES: true,
@@ -1142,7 +1142,7 @@ client.on("message", message => {
       .setImage(
         ""
       )
-      .setTitle(`✽ **weso Bot**`)
+      .setTitle(`✽ **Weso Bot**`)
       .setColor("black")
       .setImage(`${x5bzm.avatarURL}`);
     message.channel.sendEmbed(embed);
@@ -1219,7 +1219,7 @@ client.on("message", message => {
         ":mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح"
       )
       .setThumbnail(message.author.avatarURL)
-      .setFooter("By : weso ");
+      .setFooter("By : Weso ");
 
     message.channel.send(embed);
   }
@@ -1310,7 +1310,7 @@ client.on("message", message => {
           var embed = new Discord.RichEmbed()
             .setTitle(`You are Moved in ${message.guild.name} `)
             .setColor("RANDOM")
-            .setTitle(`✽ **weso**`)
+            .setTitle(`✽ **Weso**`)
 
             .setDescription(
               `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
@@ -1354,7 +1354,7 @@ client.on("message", message => {
       .forEach(m => {
         m.setVoiceChannel(author);
       })
-      .setTitle(`✽ **weso**`)
+      .setTitle(`✽ **Weso**`)
       .setImage(
         ""
       );
@@ -1719,7 +1719,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
             .addField("✽ **dislike**👎 :", `${fuck.dislikeCount}`, true)
             .addField("✽ **comments** :", `${fuck.commentCount}`, true)
             .setImage(`${song.eyad}`)
-            .setTitle(`✽ **weso**`)
+            .setTitle(`✽ **Weso**`)
             .setThumbnail(
               "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
             )
@@ -1772,7 +1772,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **weso**`)
+                      .setTitle(`✽ **Weso**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1808,7 +1808,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **weso**`)
+                      .setTitle(`✽ **Weso**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1842,7 +1842,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **weso**`)
+                      .setTitle(`✽ **Weso**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1865,7 +1865,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــعــامــه فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` ✽ **__ Solid Bot__**
+    message.author.sendMessage(` ✽ **__ Weso Bot__**
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -1919,7 +1919,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الإداريــه فــى الــخــاص ..**`
     );
     
-    message.author.sendMessage(` ✽ **__Solid Bot__**
+    message.author.sendMessage(` ✽ **__Weso Bot__**
    **__الاوامر الإداريــه__** ✽ 
 **  =clear • لمسح الشات** 
 **  =ban • لتبنيد شخص** 
@@ -1948,7 +1948,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــمــوســيــقــى فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(`  **__Solid Bot__**
+    message.author.sendMessage(`  **__Weso Bot__**
   **__أوامر الــمــوســيــقــى__**   
 **  =play •  لتشغيل أغنية برآبط أو بأسم **
 **  =skip •  لتجآوز الأغنية الحآلية **
@@ -1972,7 +1972,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــحــمــايــة فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(`**__Solid Bot__**
+    message.author.sendMessage(`**__Weso Bot__**
 **__اوامر الــحــمــايــة__**  
 **  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
 **  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
@@ -1993,7 +1993,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر المميزة فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` **__Solid Bot__**
+    message.author.sendMessage(` **__Weso Bot__**
 **
 ** =creatcolores • صنع ألوان **
 ** =colors • غير لونك ** 
@@ -2007,7 +2007,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-    message.channel.send(`  **__Solid Bot__**> 
+    message.channel.send(`  **__Weso Bot__**> 
 ** Help Menu**
 ----------------------------
 > ** =1help ** ** الاوامر العامه  **
@@ -4344,7 +4344,7 @@ client.on("message", message => {
 
  let channelc = {};
   client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "welcome"),
+  const rebellog = client.channels.find("name", "hack-log"),
   Oguild = channel.guild,
   Onumber = 3,
   Otime = 10000;
