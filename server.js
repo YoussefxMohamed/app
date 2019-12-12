@@ -119,9 +119,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "Weso Team"))
+    if (!message.guild.roles.exists("name", "WeSO Team"))
       return message.channel.send(
-        `This server doesn't have a \`Weso Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
+        `This server doesn't have a \`WeSO Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
       );
     if (
       message.guild.channels.exists(
@@ -427,7 +427,7 @@ client.on("message", message => {
   }
 });
 
-let room = "654103635059408929";
+let room = "654107522155675728"; //تعديل مهم ايدي روم الترحيب
 
 client.on("guildMemberAdd", member => {
   let guild = client.channels.get(room).guild.id;
@@ -1219,7 +1219,7 @@ client.on("message", message => {
         ":mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح"
       )
       .setThumbnail(message.author.avatarURL)
-      .setFooter("By : Weso ");
+      .setFooter("By : WeSO ");
 
     message.channel.send(embed);
   }
