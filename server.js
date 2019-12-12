@@ -119,9 +119,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "WeSO Team"))
+    if (!message.guild.roles.exists("name", "Weso Team"))
       return message.channel.send(
-        `This server doesn't have a \`WeSO Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
+        `This server doesn't have a \`Weso Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Weso Team\`.`
       );
     if (
       message.guild.channels.exists(
@@ -427,7 +427,7 @@ client.on("message", message => {
   }
 });
 
-let room = "654107522155675728"; //تعديل مهم ايدي روم الترحيب
+let room = "654630549331378176"; //تعديل مهم ايدي روم عد الاعضاء والترحيب ، روم صوتي
 
 client.on("guildMemberAdd", member => {
   let guild = client.channels.get(room).guild.id;
@@ -3236,19 +3236,6 @@ client.on("message", ra3d => {
     }
   }
 });
-
-/*
-client.on('message', message => {
-if (message.author.bot) return;
-     if (message.content  === prefix + "link") {
-    const embed = new Discord.RichEmbed()
-.setColor("RANDOM")
-.setThumbnail('https://cdn.discordapp.com/avatars/593058945732575292/e38f448c43cafc11771a74ab72713ce0.png')//@〖D̷o̷̶Ḿa̶ |̷ B̷O̷Y̷〗#1362  حقوق
-.setTitle('**Click Here To Invite The Bot Your Server 🌀**')
-.setURL(' https://bit.ly/2ZAR8n9')
-message.channel.send({embed});
-    }
-}); */
 
 client.on("message", async message => {
   var room;
