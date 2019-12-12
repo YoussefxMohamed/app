@@ -1493,7 +1493,7 @@ client.on("message", message => {
 });
 
 
-
+ 
 
 client.on('message', async msg => {
 	if (msg.author.bot) return undefined;
