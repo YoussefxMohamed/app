@@ -39,10 +39,10 @@ const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const pretty = require("pretty-ms");
-client.login(TOKEN);
+client.login('');
 const queue = new Map();
 var table = require("table").table;
-const Discord = require("discord.js");
+
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -119,9 +119,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "Solid Team"))
+    if (!message.guild.roles.exists("name", "weso Team"))
       return message.channel.send(
-        `This server doesn't have a \`Solid Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
+        `This server doesn't have a \`weso Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets.`
       );
     if (
       message.guild.channels.exists(
@@ -133,7 +133,7 @@ client.on("message", message => {
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
-        let role = message.guild.roles.find("name", "Solid Team");
+        let role = message.guild.roles.find("name", "weso Team");
         let role2 = message.guild.roles.find("name", "@everyone");
         c.overwritePermissions(role, {
           SEND_MESSAGES: true,
@@ -1142,7 +1142,7 @@ client.on("message", message => {
       .setImage(
         ""
       )
-      .setTitle(`✽ **Solid Bot**`)
+      .setTitle(`✽ **weso Bot**`)
       .setColor("black")
       .setImage(`${x5bzm.avatarURL}`);
     message.channel.sendEmbed(embed);
@@ -1219,7 +1219,7 @@ client.on("message", message => {
         ":mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح"
       )
       .setThumbnail(message.author.avatarURL)
-      .setFooter("By : Solid ");
+      .setFooter("By : weso ");
 
     message.channel.send(embed);
   }
@@ -1310,7 +1310,7 @@ client.on("message", message => {
           var embed = new Discord.RichEmbed()
             .setTitle(`You are Moved in ${message.guild.name} `)
             .setColor("RANDOM")
-            .setTitle(`✽ **Solid**`)
+            .setTitle(`✽ **weso**`)
 
             .setDescription(
               `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
@@ -1354,7 +1354,7 @@ client.on("message", message => {
       .forEach(m => {
         m.setVoiceChannel(author);
       })
-      .setTitle(`✽ **Solid**`)
+      .setTitle(`✽ **weso**`)
       .setImage(
         ""
       );
@@ -1719,7 +1719,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
             .addField("✽ **dislike**👎 :", `${fuck.dislikeCount}`, true)
             .addField("✽ **comments** :", `${fuck.commentCount}`, true)
             .setImage(`${song.eyad}`)
-            .setTitle(`✽ **Solid**`)
+            .setTitle(`✽ **weso**`)
             .setThumbnail(
               "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
             )
@@ -1772,7 +1772,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **Solid**`)
+                      .setTitle(`✽ **weso**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1808,7 +1808,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **Solid**`)
+                      .setTitle(`✽ **weso**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -1842,7 +1842,7 @@ ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join("\n")}
                         true
                       )
                       .setImage(`${song.eyad}`)
-                      .setTitle(`✽ **Solid**`)
+                      .setTitle(`✽ **weso**`)
                       .setThumbnail(
                         "http://cdn.akhbaar24.com/430e061a-f89a-43c7-86d9-82fae5f7c495.jpg"
                       )
@@ -4342,219 +4342,9 @@ client.on("message", message => {
 };     
 });
 
-/*
-let banse = new Set();
-client.on('guildBanAdd', function(guild) {
-  guild.fetchAuditLogs().then(logs => {
-    const ser = logs.entries.first().executor;
-    if(!bane[ser.id+guild.id]) bane[ser.id+guild.id] = {
-      bans: 2
-    }
-    let boner = bane[ser.id+guild.id]
-banse.add(ser.id)
-boner.bans = Math.floor(boner.bans+1)
-
-
-setTimeout(() => {
-  boner.bans = 2
-  banse.delete(ser.id)
-},8000)
-
-if(boner.bans > 2) {
-  let roles = guild.members.get(ser.id).roles.array()
-guild.members.get(ser.id).removeRoles(roles)
-}
- 
-    })
-    fs.writeFile('./Solid.json', JSON.stringify(bane), (err) => {
-if (err) console.error(err);
-})
-
-})
-client.on('guildMemberRemove', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `MEMBER_KICK`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {  
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
-                data[ss.executor.id].time = 0
-            });
-        setTimeout(function(){
-            if (data[ss.executor.id].time <= 3) {
-                data[ss.executor.id].time = 0
-            }
-        },60000)
-    };
-    });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
-        if (err) console.log(err.message);
-    });
-});
-client.on('roleDelete', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `ROLE_DELETE`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
-                data[ss.executor.id].time = 0
-            });
-        setTimeout(function(){
-            if (data[ss.executor.id].time <= 3) {
-                data[ss.executor.id].time = 0
-            }
-        },60000)
-    };
-    });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
-        if (err) console.log(err.message);
-    }); 
-});
-client.on('channelDelete', (u) => {
-    u.guild.fetchAuditLogs().then( s => {
-        var ss = s.entries.first();
-        if (ss.action == `CHANNEL_DELETE`) {
-        if (!data[ss.executor.id]) {
-            data[ss.executor.id] = {
-            time : 1
-          };
-      } else {
-          data[ss.executor.id].time+=1
-      };
-data[ss.executor.id].time = 0
-u.guild.members.get(ss.executor.id).roles.forEach(r => {
-                r.edit({
-                    permissions : []
-                });
-                data[ss.executor.id].time = 0
-            });
-        setTimeout(function(){
-            if (data[ss.executor.id].time <= 3) {
-                data[ss.executor.id].time = 0
-            }
-        },60000)
-    };
-    });
-    fs.writeFile("./data.json", JSON.stringify(data) ,(err) =>{
-        if (err) console.log(err.message);
-    });
-})
-
-var guilds = {};
-client.on('guildBanAdd', function(guild) {
-            const rebellog = client.channels.find("name", "hack-log"),
-            Onumber = 3,
-  Otime = 10000
-guild.fetchAuditLogs({
-    type: 22
-}).then(audit => {
-    let banner = audit.entries.map(banner => banner.executor.id)
-    let bans = guilds[guild.id + banner].bans || 0 
-    guilds[guild.id + banner] = {
-        bans: 0
-    }
-      bans[guilds.id].bans += 1; 
-if(guilds[guild.id + banner].bans >= Onumber) {
-try {
-let roles = guild.members.get(banner).roles.array();
-guild.members.get(banner).removeRoles(roles);
-  guild.guild.member(banner).kick();
-
-} catch (error) {
-console.log(error)
-try {
-guild.members.get(banner).ban();
-  rebellog.send(`<@!${banner.id}>
-حآول العبث بالسيرفر @everyone`);
-guild.owner.send(`<@!${banner.id}>
-حآول العبث بالسيرفر ${guild.name}`)
-    setTimeout(() => {
- guilds[guild.id].bans = 0;
-  },Otime)
-} catch (error) {
-console.log(error)
-}
-}
-}
-})
-});
  let channelc = {};
   client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "hack-log"),
-  Oguild = channel.guild,
-  Onumber = 3,
-  Otime = 10000;
-  const audit = await channel.guild.fetchAuditLogs({limit: 1});
-  const channelcreate = audit.entries.first().executor;
-  console.log(` A ${channel.type} Channel called ${channel.name} was Created By ${channelcreate.tag}`);
-   if(!channelc[channelcreate.id]) {
-    channelc[channelcreate.id] = {
-    created : 0
-     }
- }
- channelc[channelcreate.id].created += 1;
- if(channelc[channelcreate.id].created >= Onumber ) {
-    Oguild.members.get(channelcreate.id).kick();
-rebellog.send(`<@!${channelcreate.id}>
-حآول العبث بالسيرفر @everyone`);
-channel.guild.owner.send(`<@!${channelcreate.id}>
-حآول العبث بالسيرفر ${channel.guild.name}`)
-}
-  setTimeout(() => {
- channelc[channelcreate.id].created = 0;
-  },Otime)
-  });
-
-let channelr = {};
-  client.on('channelDelete', async (channel) => {
-  const rebellog = client.channels.find("name", "hack-log"),
-  Oguild = channel.guild,
-  Onumber = 3,
-  Otime = 10000;
-  const audit = await channel.guild.fetchAuditLogs({limit: 1});
-  const channelremover = audit.entries.first().executor;
-  console.log(` A ${channel.type} Channel called ${channel.name} was deleted By ${channelremover.tag}`);
-   if(!channelr[channelremover.id]) {
-    channelr[channelremover.id] = {
-    deleted : 0
-     }
- }
- channelr[channelremover.id].deleted += 1;
- if(channelr[channelremover.id].deleted >= Onumber ) {
-  Oguild.guild.member(channelremover).kick();
-rebellog.send(`<@!${channelremover.id}>
-حآول العبث بالسيرفر @everyone`);
-channel.guild.owner.send(`<@!${channelremover.id}>
-حآول العبث بالسيرفر ${channel.guild.name}`)
-}
-  setTimeout(() => {
- channelr[channelremover.id].deleted = 0;
-  },Otime)
-  });
-
-*/
- let channelc = {};
-  client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "hack-log"),
+  const rebellog = client.channels.find("name", "welcome"),
   Oguild = channel.guild,
   Onumber = 3,
   Otime = 10000;
