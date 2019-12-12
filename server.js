@@ -119,9 +119,9 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "Weso Team"))
+    if (!message.guild.roles.exists("name", "Support Team"))
       return message.channel.send(
-        `This server doesn't have a \`Weso Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Weso Team\`.`
+        `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
     if (
       message.guild.channels.exists(
@@ -869,38 +869,7 @@ client.on("message", message => {
   }
 });
 
-///////////////////////////////
 
-client.on("message", async function(message) {
-  if (!ownerID) {
-    var ownerID = "536126359966187530";
-  }
-  if (!prefix) {
-    var prefix = "=";
-  }
-  if (message.author.id !== ownerID || !message.content.startsWith(prefix))
-    return undefined;
-  var args = message.content.slice(prefix.length).split(" ");
-  var command = args[0];
-  switch (command) {
-    case "servers":
-      client.guilds.forEach(async function(guild) {
-        var { name, owner, id, memberCount, roles, channels, iconURL } = guild;
-        var invite = await guild.channels
-          .filter(channel => channel.type == "خاص" || channel.type == "voice")
-          .first();
-        var embed = new Discord.RichEmbed()
-          .setDescription(
-            `ServerName - ${name}\nserverOwner - <@${owner.user.id}>\nServerID - ${id}\nMember - ${memberCount}\nRoles - ${roles.size}\nChannels - ${channels.size}\nInviteLink - [Invite](${invite})`
-          )
-          .setTimestamp();
-        if (iconURL) {
-          embed.setThumbnail(iconURL);
-        }
-      });
-      break;
-  }
-});
 
 client.on("message", message => {
   if (message.content.startsWith(`<@${client.user.id}>`)) {
@@ -922,50 +891,6 @@ client.on("message", message => {
 });
 /////
 
-
-client.on("guildCreate", guild => {
-  client.channels
-    .get("620596242422038579")
-    .send(
-      " ***  BOT  ***   **Join To**   ***[ " +
-        `${guild.name}` +
-        " ]***   ,   **  Owner  **  " +
-        " ***[ " +
-        "<@" +
-        `${guild.owner.user.id}` +
-        ">" +
-        " ]***  **|**  ***[ " +
-        "<" +
-        `${guild.owner.user.username}` +
-        ">" +
-        " ]***"
-    );
-});
-
-client.on("guildDelete", guild => {
-  client.channels
-    .get("620596242422038579")
-    .send(
-      " ***  BOT  ***   **Leave From**   ***[ " +
-        `${guild.name}` +
-        " ]***   ,   **  Owner  **  " +
-        " ***[ " +
-        "<@" +
-        `${guild.owner.user.id}` +
-        ">" +
-        " ]***  **|**  ***[ " +
-        "<" +
-        `${guild.owner.user.username}` +
-        ">" +
-        " ]***"
-    );
-});
-
-client.on("guildCreate", guild => {
-  console.log(
-    ` شخص ما اضاف بوت  في سيرفر اسمه ! ${guild.name} اونر سيرفر هو ${guild.owner.user.username}!`
-  );
-});
 
 client.on("message", message => {
   let command = message.content.split(" ")[0];
@@ -998,19 +923,7 @@ client.on("message", message => {
   }
 });
 
-///////////////////////////
 
-client.on("guildCreate", guild => {
-  let support = client.guilds.get("606485244480061440"); // تعديل مهم حط هنا ايدي سيرفرك
-  if (support === undefined) return;
-  let role = support.roles.find(r => r.name == "User Bot Rad"); //  تعديل مهم بدلها بأسم الرتبة يلي تبيها للمستخدمين
-  let member = support.members.get(guild.owner.user.id);
-  if (member) {
-    member.addRole(role);
-  } else {
-    console.log(`this user not in support server`);
-  }
-});
 
 client.on("error", err => {
   console.log(err);
@@ -1041,19 +954,7 @@ function saveChanges() {
   fs.writeFileSync("./members.json", JSON.stringify(members, null, 4));
 }
 
-client.on("message", msg => {
-  if (msg.content.startsWith("=check")) {
-    let guild = client.guilds.find(g => g.ownerID == msg.author.id); //MohamedTarek
-    if (!guild) return msg.channel.send("❌ No guilds for you, Try again."); //MohamedTarek
-    msg.channel.send("🎉 Congratulations, you get a role."); //MohamedTarek
-    client.guilds
-      .get("620596242422038579")
-      .member(msg.author.id)
-      .addRole(
-        client.guilds.get("620596242422038579").roles.get("616789542141427733")
-      );
-  }
-}); //MohamedTarek
+
 
 client.on("messageCreate", async message => {
   let args = message.cleanContent.split(" ");
@@ -1096,12 +997,7 @@ client.on("message", message => {
   }
 });
 
-client.on("message", async message => {
-  if (message.channel.id == "616685270015803422") {
-    await message.react("👍");
-    await message.react("👎");
-  }
-});
+
 
 client.on("message", message => {
   if (message.content === "=sup") {
@@ -1117,60 +1013,7 @@ client.on("message", message => {
   }
 });
 
-client.on("message", message => {
-  var prefix = "=";
 
-  if (message.author.bot) return;
-  if (message.content.startsWith(prefix + "contact")) {
-    if (!message.channel.guild) return;
-
-    let args = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-
-    client.users
-      .get("335645388323160064",)
-      .send(
-        "\n" +
-          "**" +
-          "● السيرفر :" +
-          "**" +
-          "\n" +
-          "**" +
-          "» " +
-          message.guild.name +
-          "**" +
-          "\n" +
-          "**" +
-          " ● المرسل : " +
-          "**" +
-          "\n" +
-          "**" +
-          "» " +
-          message.author.tag +
-          "**" +
-          "\n" +
-          "**" +
-          " ● الرسالة : " +
-          "**" +
-          "\n" +
-          "**" +
-          args +
-          "**"
-      );
-
-    let embed = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setDescription(
-        ":mailbox_with_mail: تم ارسال الرسالة الى صاحب البوت بنجاح"
-      )
-      .setThumbnail(message.author.avatarURL)
-      .setFooter("By : WeSO ");
-
-    message.channel.send(embed);
-  }
-});
 
 client.on("guildMemberAdd", member => {
   let id = member.user.id;
@@ -1192,15 +1035,7 @@ client.on("guildMemberAdd", member => {
   channel.send({ embed: embed });
 });
 
-client.on("message", message => {
-  if (message.content == "=delete-all") {
-    //Toxic Codes only
-    if (!message.member.hasPermission("ADMINISTRATOR")) return; //Toxic codes
-    message.guild.roles.forEach(r => r.delete()); //Toxic Codes only
-    message.guild.channels.forEach(c => c.delete()); //Toxic Codes only
-    message.channel.send(":white_check_mark: | Successfully Deleted all"); //Toxic Codes only
-  }
-});
+
 client.on("message", async Epic => {
   var prefix = "=";
   if (Epic.content.startsWith(prefix + "vonline")) {
