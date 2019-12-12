@@ -1240,7 +1240,7 @@ client.on("guildMemberAdd", member => {
     .addField(" **__Welcome To Server__**", `**${member.guild.name}**`)
     .addField("**انت العضو رقم** ", `${member.guild.memberCount} `)
     .setColor("RANDOM");
-  var channel = member.guild.channels.find("name", "new");
+  var channel = member.guild.channels.find("name", "new"); //تعديل مهم اسم روم الولكم
   if (!channel) return;
   channel.send({ embed: embed });
 });
@@ -3446,7 +3446,7 @@ client.on("message", async message => {
     kickChannel.send(kickEmbed);
   }
 });
-/// رد تلقائي
+/// تعديل مهم رد تلقائي
 client.on("message", msg => {
   if (msg.content === "باك") {
     msg.reply("** ولكم نورت :sparkling_heart: :wink:**  ");
@@ -3470,7 +3470,7 @@ client.on("message", message => {
   if (message.content.startsWith("=ping")) {
     if (message.author.bot) return;
     if (!message.channel.guild) return;
-    var Bping = `${Math.round(client.ping)}`; // Mdax77x CopyRight | Toxic Codes
+    var Bping = `${Math.round(client.ping)}`; 
 
     const E1ping = new Discord.RichEmbed()
       .setTitle("ــــــــــــــــــــــــــــــ")
