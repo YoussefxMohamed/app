@@ -990,7 +990,7 @@ client.on("message", message => {
       .setImage(
         ""
       )
-      .setTitle(`✽ **Weso Bot**`)
+      .setTitle(`✽ **Premium Bot**`)
       .setColor("black")
       .setImage(`${x5bzm.avatarURL}`);
     message.channel.sendEmbed(embed);
@@ -1092,7 +1092,7 @@ client.on("message", message => {
           var embed = new Discord.RichEmbed()
             .setTitle(`You are Moved in ${message.guild.name} `)
             .setColor("RANDOM")
-            .setTitle(`✽ **Weso**`)
+            .setTitle(`✽ **Premium**`)
 
             .setDescription(
               `**<@${message.author.id}> Moved You To His Channel!\nServer --> ${message.guild.name}**`
@@ -1136,7 +1136,7 @@ client.on("message", message => {
       .forEach(m => {
         m.setVoiceChannel(author);
       })
-      .setTitle(`✽ **Weso**`)
+      .setTitle(`✽ **Premium**`)
       .setImage(
         ""
       );
@@ -1462,7 +1462,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــعــامــه فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` ✽ **__ Weso Bot__**
+    message.author.sendMessage(` ✽ **__ Premium Bot__**
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -1515,7 +1515,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الإداريــه فــى الــخــاص ..**`
     );
     
-    message.author.sendMessage(` ✽ **__Weso Bot__**
+    message.author.sendMessage(` ✽ **__Premium Bot v1__**
    **__الاوامر الإداريــه__** ✽ 
 **  =clear • لمسح الشات** 
 **  =ban • لتبنيد شخص** 
@@ -1544,7 +1544,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــمــوســيــقــى فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(`  **__Weso Bot__**
+    message.author.sendMessage(`  **__Premium Bot v1__**
   **__أوامر الــمــوســيــقــى__**   
 **  =play •  لتشغيل أغنية برآبط أو بأسم **
 **  =skip •  لتجآوز الأغنية الحآلية **
@@ -1568,7 +1568,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر الــحــمــايــة فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(`**__Weso Bot__**
+    message.author.sendMessage(`**__Premium Bot v1__**
 **__اوامر الــحــمــايــة__**  
 **  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
 **  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
@@ -1589,7 +1589,7 @@ client.on("message", message => {
       `**| تــم رســال اوامــر المميزة فــى الــخــاص ..**`
     );
 
-    message.author.sendMessage(` **__Weso Bot__**
+    message.author.sendMessage(` **__Premium Bot v1__**
 **
 ** =creatcolores • صنع ألوان **
 ** =colors • غير لونك ** 
@@ -1604,7 +1604,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-    message.channel.send(`  **__Weso Bot__**> 
+    message.channel.send(`  **__Premium Bot v1__**> 
 ** Help Menu**
 ----------------------------
 > ** =1help ** ** الاوامر العامه  **
