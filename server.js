@@ -1872,7 +1872,6 @@ client.on("message", message => {
 **  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
 **  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
 **  =color • لأختيار لونك في السيرفر **
-**  =user • لعرض معلومات الحساب**
 
 
 `);
@@ -3459,7 +3458,7 @@ client.on("message", async message => {
     kickChannel.send(kickEmbed);
   }
 });
-
+/// رد تلقائي
 client.on("message", msg => {
   if (msg.content === "باك") {
     msg.reply("** ولكم نورت :sparkling_heart: :wink:**  ");
@@ -3469,12 +3468,6 @@ client.on("message", msg => {
 client.on("message", msg => {
   if (msg.content === "هاي") {
     msg.reply("** هاي يا عسل   :kissing_heart: :heart: **");
-  }
-});
-
-client.on("message", msg => {
-  if (msg.content === "بحبك") {
-    msg.reply("**عيب :joy:  **");
   }
 });
 
