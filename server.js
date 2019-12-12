@@ -1054,9 +1054,9 @@ client.on("message", message => {
 ///////////////////////////
 
 client.on("guildCreate", guild => {
-  let support = client.guilds.get("606485244480061440"); // حط هنا ايدي سيرفر السبورت
+  let support = client.guilds.get("606485244480061440"); // تعديل مهم حط هنا ايدي سيرفرك
   if (support === undefined) return;
-  let role = support.roles.find(r => r.name == "User Bot Rad"); // بدلها بأسم الرتبة يلي تبيها للمستخدمين
+  let role = support.roles.find(r => r.name == "User Bot Rad"); //  تعديل مهم بدلها بأسم الرتبة يلي تبيها للمستخدمين
   let member = support.members.get(guild.owner.user.id);
   if (member) {
     member.addRole(role);
@@ -3236,6 +3236,7 @@ client.on("message", ra3d => {
     }
   }
 });
+
 
 client.on("message", async message => {
   var room;
