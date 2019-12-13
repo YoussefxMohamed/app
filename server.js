@@ -94,7 +94,7 @@ client.on("ready", () => {
   console.log(`ON ${client.guilds.size} Servers '     Script By : osama tech  `);
   console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(`=help `, "http://twitch.tv/Rad-Bot");
+  client.user.setActivity(`=help | Premium `, "http://twitch.tv/Rad-Bot"); ///تعديل مهم غير كلمة هيلب وبرميوم للوتشينق اللي بدك اياه مثل اسم سيرفرك
   client.user.setStatus("dnd");
 });
 
