@@ -61,9 +61,9 @@ console.log("Bot Online 24/7");
 ///
 //الاكواد
 
-const dev = ["335645388323160064"];
+const dev = ["335645388323160064"]; ///تعديل مهم ايدي حسابك
 const admin = "=";
-var owner = "533944821228896257"; // Owner Bot Mention
+var owner = "533944821228896257"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
 var number = "1"; // Unmber Bot
 var ex = "2019/10/08";
 client.on("message", message => {
@@ -1406,17 +1406,24 @@ client.on("message", message => {
 
     message.author.sendMessage(` **__Premium Bot v1__**
 
+
 ** =creatcolores • صنع ألوان **
 ** =colors • غير لونك ** 
 ** =inf • عدد الدعوات للسيرفر**
-** =credits • لمعرفة رصيدكك بالبوت **
-** =removecredits • لحذف من شخص كريدت **
-** =addcredits • لـ أضافة لشخص كريدت **
+** =credits • لمعرفة رصيدكك ** 
+** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily= كل 6 ساعات \`**
+** =removecredits • لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
+** مثال : \` =removecredits 500 \`**
+** =addcredits • لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
 ** مثال : \`addcredits 500= \`**
 ** =setLog • تحديد روم اللوق**
-**=setby • تحديد روم المغادة**`);
+**=setby • تحديد روم المغادة**
+**=inf • انفو للانفايت الخاص فيك
+
+`);
   }
 });
+
 
 client.on("message", message => {
   if (message.author.bot) return;
