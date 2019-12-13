@@ -1405,14 +1405,16 @@ client.on("message", message => {
     );
 
     message.author.sendMessage(` **__Premium Bot v1__**
-**
+
 ** =creatcolores • صنع ألوان **
 ** =colors • غير لونك ** 
 ** =inf • عدد الدعوات للسيرفر**
 ** =credits • لمعرفة رصيدكك بالبوت **
 ** =removecredits • لحذف من شخص كريدت **
 ** =addcredits • لـ أضافة لشخص كريدت **
-** =setLog • تحديد روم اللوق**`);
+** مثال : \`addcredits 500= \`**
+** =setLog • تحديد روم اللوق**
+**=setby • تحديد روم المغادة**`);
   }
 });
 
@@ -2808,15 +2810,6 @@ client.on("message", message => {
       if (!channel) return;
       channel.send({ embed: embed });
     });
-  }
-});
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === "حشيش") {
-    message.channel.sendFile(
-      "https://cdn.discordapp.com/attachments/462240606513659904/481474963925106708/images.jpg"
-    );
   }
 });
 
