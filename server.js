@@ -1,5 +1,8 @@
 //ملف:server.js
-/////
+///// معلومات مهمة
+///// البوت أمن ولايوجد به مشاكل وان وجد مشاكل تواصل معي وسوف يتم حلها ، برابط المقطع 
+//// رابط المقطع : https://youtu.be/pD52f5iWk-A
+/// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجدة
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -277,7 +280,7 @@ client.on("message", zaid => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@335645388323160064>`, true) // Change Your ID
+      .addField("**Bot Owner** :  ", `» <@335645388323160064>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
       .setImage(
         ""
       )
