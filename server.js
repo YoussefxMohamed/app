@@ -3740,7 +3740,7 @@ client.on("message", message => {
 
  let channelc = {};
   client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "hack-log"),
+  const rebellog = client.channels.find("name", "hack-log"), /// hack-log تعديل مهم سوي روم اسمو
   Oguild = channel.guild,
   Onumber = 3,
   Otime = 10000;
@@ -3764,3 +3764,4 @@ channel.guild.owner.send(`<@!${channelcreate.id}>
  channelc[channelcreate.id].created = 0;
   },Otime)
   });
+/// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
