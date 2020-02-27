@@ -62,6 +62,15 @@ console.log("====================================");
 console.log("Bot Online 24/7");
 ///
 //الاكواد
+client.on("message", message => {
+if(message.content === "listbots"){
+
+message.guild.members.forEach(bot => {
+if(!message.user.bot) return;
+message.channel.send(`$bot.user.username}`)
+}); 
+}
+});
 
 const dev = ["335645388323160064"]; ///تعديل مهم ايدي حسابك
 const admin = "=";
