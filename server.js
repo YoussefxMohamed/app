@@ -3764,4 +3764,662 @@ channel.guild.owner.send(`<@!${channelcreate.id}>
  channelc[channelcreate.id].created = 0;
   },Otime)
   });
+
+
+
+const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8'));
+
+client.on('guildMemberAdd', async member => {
+if(!welcome) return;
+var findingWlcChannel = welcome[member.guild.id].channel[0];
+const channel = await member.guild.channels.find(r => r.name == findingWlcChannel);
+if(!channel) return;
+if(channel) {
+
+
+
+const imageUrlRegex = /\?size=2048$/g;
+const wlcImage = await fsn.readFile('./welcome111.png');
+    let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
+    if (!result.ok) throw new Error('Failed to get the avatar!');
+    let avatar = await result.buffer();
+
+    let name = member.user.username.length > 12 ? member.user.username.substring(0, 11) + '...'
+    : member.user.username;
+
+    //Welcome Image (background)
+    var imageWidth = 500; //عرض الصورة
+    var imageHeight = 266; //ارتفاع الصورة
+
+    //Avatar
+    var imageX = 250; //X coordinate
+    var imageY = 145; //Y coordinate
+    var imageRadius = 110; //نصف قطر الصورة الدائرية
+
+    //Member Name
+    var nameSize = "18pt" //حجم خط الاسم
+    var nameKind = "Source Sans Pro (OT1)" //نوع خط الاسم
+    var nameColor = "#ff9933" //لون خط الاسم
+
+    //Name Position
+    var nameX = 247; //position x
+    var nameY = 275; //position y
+
+const buffer = await new Canvas(500, 300)
+      .addImage(wlcImage, 0, 0, imageWidth, imageHeight)
+      .addCircularImage(avatar, imageX, imageY, imageRadius)
+      .setTextAlign('center')
+      .setTextFont(`${nameSize} ${nameKind}`)
+      .setColor(nameColor)
+      .addText(name, nameX, nameY)
+      .toBuffer();
+
+
+    const filename = `Baron-wlc-${member.id}.jpg`;
+    const attachment = new Attachment(buffer, filename);
+    await channel.send(attachment);
+
+}
+
+
+})
+client.on('message', async message => {
+ if (!message.channel.guild) return;
+let room = message.content.split(" ").slice(1);
+let findroom = message.guild.channels.find(r => r.name == room)
+if(message.content.startsWith(prefix + "setWelcomer")) {
+if(!welcome[message.guild.id].channel) {
+  if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+if(!room) return message.channel.send('Please Type The Channel Name')
+if(!findroom) return message.channel.send('Cant Find This Channel')
+let embed = new Discord.RichEmbed()
+.setTitle('**Done The Welcome Has Been Setup**')
+.addField('Channel:', `${room}`)
+.addField('Requested By:', `${message.author}`)
+.addField('Default Message:', `**Welcome [member], You Joined by [inviter] invite**`)
+.setThumbnail(message.author.avatarURL)
+.setFooter(`${client.user.username}`)
+message.channel.sendEmbed(embed)
+welcome[message.guild.id] = {
+channel: room,
+onoff: 'On',
+by: 'On',
+msg: '**Welcome [member], You Joined by [inviter] invite**'
+}
+fs.writeFile("./welcomer.json", JSON.stringify(welcome), (err) => {
+if (err) console.error(err)
+})
+
+} else if (welcome[message.guild.id].channel) {
+  let msg = await welcome[message.guild.id].msg;
+  let by = await welcome[message.guild.id].by;
+  if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
+if(!room) return message.channel.send('Please Type The Channel Name')
+if(!findroom) return message.channel.send('Cant Find This Channel')
+let embed = new Discord.RichEmbed()
+.setTitle('**Done The Welcome Has Been Setup**')
+.addField('Channel:', `${room}`)
+.addField('Requested By:', `${message.author}`)
+.addField('Default Message:', msg)
+.setThumbnail(message.author.avatarURL)
+.setFooter(`${client.user.username}`)
+message.channel.sendEmbed(embed)
+welcome[message.guild.id] = {
+channel: room,
+onoff: 'On',
+by: by,
+msg: msg
+}
+fs.writeFile("./welcomer.json", JSON.stringify(welcome), (err) => {
+if (err) console.error(err)
+})
+}
+    }
+
+})
+
+      const invites = {};
+
+const wait = require('util').promisify(setTimeout);
+
+client.on('ready', () => {
+  wait(1000);
+
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});
+
+client.on('guildMemberAdd', member => {
+let channel = member.guild.channels.find(c => c.name == welcome[member.guild.id].channel);
+if(!channel) return;
+                    if(!welcome[member.guild.id]) welcome[member.guild.id] = {
+                  by: 'Off'
+                }
+    if(welcome[member.guild.id].by === 'Off') return;
+  member.guild.fetchInvites().then(async guildInvites => {
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+    const logChannel = member.guild.channels.find(channel => channel.name === `${welcome[member.guild.id].channel}`);
+    if(!logChannel) return;
+    let msg = await welcome[member.guild.id].msg.replace('[member]', `<@!${member.id}>`).replace('[inviter]', `<@${inviter.id}>`)
+      setTimeout(() => {
+    logChannel.send(msg)
+  },2000)
+  fs.writeFile("./welcome.json", JSON.stringify(welcome), (err) => {
+    if (err) console.error(err)
+    .catch(err => {
+      console.error(err);
+  });
+    });
+  });
+});
+
+client.on('message', async message => {
+    let messageArray = message.content.split(" ");
+   if(message.content.startsWith(prefix + "setMessage")) {
+     if(!welcome[message.guild.id] || !welcome[message.guild.id].onoff == "On") return message.channel.send(`**please type \`${prefix}setWelcomer\` first **`)
+    let filter = m => m.author.id === message.author.id;
+    let thisMessage;
+    let thisFalse;
+    let room = welcome[message.guild.id].channel
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('You don\'t have permission').then(msg => {
+       msg.delete(4500);
+       message.delete(4500);
+    });
+
+    message.channel.send(`**من فضلك اكتب رسالة الترحيب الان:
+    لعمل منشن للعضو او الشخص الذى قام بدعوتة
+    [sender] - [member] مثال
+    [member] Joined the server by [inviter]**`).then(msg => {
+
+        message.channel.awaitMessages(filter, {
+          max: 1,
+          time: 90000,
+          errors: ['time']
+        })
+        .then(collected => {
+            collected.first().delete();
+            thisMessage = collected.first().content;
+            msg.edit('**تم الاعداد بنجاح**').then(msg => {
+                      let embed = new Discord.RichEmbed()
+                      .setTitle('**Done The Welcome Msg Has Been Setup**')
+                      .addField('Message:', `${thisMessage}`)
+                      .setThumbnail(message.author.avatarURL)
+                      .setFooter(`${client.user.username}`)
+                     message.channel.sendEmbed(embed)
+    welcome[message.guild.id] = {
+channel: room,
+onoff: 'On',
+by: 'On',
+msg: thisMessage
+    }
+    fs.writeFile("./welcomer.json", JSON.stringify(welcome), (err) => {
+    if (err) console.error(err)
+  })
+   }
+            )
+        })
+    })
+}})
+
+
+const client = new Discord.Client();
+const { Canvas } = require('canvas-constructor');
+const { Attachment } = require('discord.js');
+const { resolve, join } = require('path');
+const fetch = require('node-fetch');
+const fsn = require('fs-nextra');
+const prettySeconds = require("pretty-seconds")
+const fs = require('fs');
+
+//
+const test = JSON.parse(fs.readFileSync('./test.json' , 'utf8'));
+client.on('message', async message => {
+if(!message.channel.guild) return;
+if(message.content.startsWith(prefix + 'setLink-Time')) {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('**You need `MANAGE_GUILD` Permission**');
+const Embed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setTitle(`**Link Expire Time**`)
+.setDescription(`**React With ❤️ for 30m\nReact With 🖤 for 1h\nReact With 💚 for 6h\nReact With 💛 for 12h\nReact With 💙 for 1d\n️React With 🤎️ for Never Expired**`)
+await message.delete();
+await message.channel.send(Embed).then(async msg => {
+
+await msg.react('❤️')
+await msg.react('🖤')
+await msg.react('💚')
+await msg.react('💛')
+await msg.react('💙')
+await msg.react('🤎')
+
+var halfHour = (reaction, user) => reaction.emoji.name === '❤️' && user.id === message.author.id;
+var oneHour = (reaction, user) => reaction.emoji.name === '🖤' && user.id === message.author.id;
+var sixHours = (reaction, user) => reaction.emoji.name === '💚' && user.id === message.author.id;
+var twelveHours = (reaction, user) => reaction.emoji.name === '💛' && user.id === message.author.id;
+var oneDay = (reaction, user) => reaction.emoji.name === '💙' && user.id === message.author.id;
+var neverExpired = (reaction, user) => reaction.emoji.name === '🤎' && user.id === message.author.id;
+
+var nsfSa3a  = msg.createReactionCollector(halfHour, { time: 60000 });
+var sa3a = msg.createReactionCollector(oneHour, { time: 60000 });
+var setSa3at = msg.createReactionCollector(sixHours, { time: 60000 });
+var etna4rSa3a = msg.createReactionCollector(twelveHours, { time: 60000 });
+var youmWa7d = msg.createReactionCollector(oneDay, { time: 60000 });
+var mby5ls4 = msg.createReactionCollector(neverExpired, { time: 60000 });
+
+nsfSa3a.on("collect", async r => {
+if(!test[message.guild.id]) {
+await msg.delete()
+await message.channel.send(`**Expire after \`30m\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '1800',
+uses: '5'
+}
+} else if (test[message.guild.id].uses) {
+var uses = test[message.guild.id].uses;
+await msg.delete()
+await message.channel.send(`**Expire after \`30m\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '1800',
+uses: uses
+}
+};
+fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+if (err) console.error(err)
+})
+})
+
+sa3a.on("collect", async r => {
+if(!test[message.guild.id]) {
+await msg.delete()
+await message.channel.send(`**Expire after \`1h\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '3600',
+uses: '5'
+}
+} else if (test[message.guild.id].uses) {
+var uses = test[message.guild.id].uses;
+await msg.delete()
+await message.channel.send(`**Expire after \`1h\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '3600',
+uses: uses
+}
+};
+fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+if (err) console.error(err)
+})
+})
+
+setSa3at.on("collect", async r => {
+if(!test[message.guild.id]) {
+await msg.delete()
+await message.channel.send(`**Expire after \`6h\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '21600',
+uses: '5'
+}
+} else if (test[message.guild.id].uses) {
+var uses = test[message.guild.id].uses;
+await msg.delete()
+await message.channel.send(`**Expire after \`6h\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '21600',
+uses: uses
+}
+};
+fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+if (err) console.error(err)
+})
+})
+
+etna4rSa3a.on("collect", async r => {
+if(!test[message.guild.id]) {
+await msg.delete()
+await message.channel.send(`**Expire after \`12h\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '43200',
+uses: '5'
+}
+} else if (test[message.guild.id].uses) {
+var uses = test[message.guild.id].uses;
+await msg.delete()
+await message.channel.send(`**Expire after \`12h\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '43200',
+uses: uses
+}
+};
+fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+if (err) console.error(err)
+})
+})
+
+youmWa7d.on("collect", async r => {
+if(!test[message.guild.id]) {
+await msg.delete()
+await message.channel.send(`**Expire after \`1d\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '86400',
+uses: '5'
+}
+} else if (test[message.guild.id].uses) {
+var uses = test[message.guild.id].uses;
+await msg.delete()
+await message.channel.send(`**Expire after \`1d\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '86400',
+uses: uses
+}
+};
+fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+if (err) console.error(err)
+})
+})
+
+mby5ls4.on("collect", async r => {
+if(!test[message.guild.id]) {
+await msg.delete()
+await message.channel.send(`**Expire after \`Never\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '0',
+uses: '5'
+}
+} else if (test[message.guild.id].uses) {
+var uses = test[message.guild.id].uses;
+await msg.delete()
+await message.channel.send(`**Expire after \`Never\`**`).then(m => m.delete(5000));
+test[message.guild.id] = {
+expire: '0',
+uses: uses
+}
+};
+fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+if (err) console.error(err)
+})
+})
+})
+}
+});
+
+//وضع استخدامات للرابط
+client.on('message', async message => {
+  if(!message.channel.guild) return;
+  if(message.content.startsWith(prefix + 'setLink-Uses')) {
+  if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+  if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('**You need `MANAGE_GUILD` Permission**');
+  const Embed = new Discord.RichEmbed()
+  .setThumbnail(message.author.avatarURL)
+  .setTitle(`**Link Uses**`)
+  .setDescription(`**React With ❤️ for 1use\nReact With 🖤 for 5uses\nReact With 💚 for 10uses\nReact With 💛 for 25uses\nReact With 💙 for 50uses\n️React With 🤎️ for 100uses**`)
+  await message.delete();
+  await message.channel.send(Embed).then(async msg => {
+
+  await msg.react('❤️')
+  await msg.react('🖤')
+  await msg.react('💚')
+  await msg.react('💛')
+  await msg.react('💙')
+  await msg.react('🤎')
+
+  var oneUses = (reaction, user) => reaction.emoji.name === '❤️' && user.id === message.author.id;
+  var fiveUses = (reaction, user) => reaction.emoji.name === '🖤' && user.id === message.author.id;
+  var tenUses = (reaction, user) => reaction.emoji.name === '💚' && user.id === message.author.id;
+  var twintyFiveUses = (reaction, user) => reaction.emoji.name === '💛' && user.id === message.author.id;
+  var fiftyUses = (reaction, user) => reaction.emoji.name === '💙' && user.id === message.author.id;
+  var hundredUses = (reaction, user) => reaction.emoji.name === '🤎' && user.id === message.author.id;
+
+  var mraW7da  = msg.createReactionCollector(oneUses, { time: 60000 });
+  var khamsMrat = msg.createReactionCollector(fiveUses, { time: 60000 });
+  var asherMrat = msg.createReactionCollector(tenUses, { time: 60000 });
+  var khamsaW3shren = msg.createReactionCollector(twintyFiveUses, { time: 60000 });
+  var khamseen = msg.createReactionCollector(fiftyUses, { time: 60000 });
+  var myaa = msg.createReactionCollector(hundredUses, { time: 60000 });
+
+  mraW7da.on("collect", async r => {
+  if(!test[message.guild.id]) {
+  await msg.delete()
+  await message.channel.send(`**Uses \`1 time\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: '86400',
+  uses: '1'
+  }
+  } else if (test[message.guild.id].expire) {
+  var expire = test[message.guild.id].expire;
+  await msg.delete()
+  await message.channel.send(`**Uses \`1 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: expire,
+  uses: '1'
+  }
+  };
+  fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+  if (err) console.error(err)
+  })
+  })
+
+  khamsMrat.on("collect", async r => {
+  if(!test[message.guild.id]) {
+  await msg.delete()
+  await message.channel.send(`**Uses \`5 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: '86400',
+  uses: '5'
+  }
+  } else if (test[message.guild.id].expire) {
+  var expire = test[message.guild.id].expire;
+  await msg.delete()
+  await message.channel.send(`**Uses \`5 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: expire,
+  uses: '5'
+  }
+  };
+  fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+  if (err) console.error(err)
+  })
+  })
+
+  asherMrat.on("collect", async r => {
+  if(!test[message.guild.id]) {
+  await msg.delete()
+  await message.channel.send(`**Uses \`10 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: '86400',
+  uses: '10'
+  }
+  } else if (test[message.guild.id].expire) {
+  var expire = test[message.guild.id].expire;
+  await msg.delete()
+  await message.channel.send(`**Uses \`10 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: expire,
+  uses: '10'
+  }
+  };
+  fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+  if (err) console.error(err)
+  })
+  })
+
+  khamsaW3shren.on("collect", async r => {
+  if(!test[message.guild.id]) {
+  await msg.delete()
+  await message.channel.send(`**Uses \`25 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: '86400',
+  uses: '25'
+  }
+  } else if (test[message.guild.id].expire) {
+  var expire = test[message.guild.id].expire;
+  await msg.delete()
+  await message.channel.send(`**Uses \`25 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: expire,
+  uses: '25'
+  }
+  };
+  fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+  if (err) console.error(err)
+  })
+  })
+
+  khamseen.on("collect", async r => {
+  if(!test[message.guild.id]) {
+  await msg.delete()
+  await message.channel.send(`**Uses \`50 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: '86400',
+  uses: '50'
+  }
+  } else if (test[message.guild.id].expire) {
+  var expire = test[message.guild.id].expire;
+  await msg.delete()
+  await message.channel.send(`**Uses \`50 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: expire,
+  uses: '50'
+  }
+  };
+  fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+  if (err) console.error(err)
+  })
+  })
+
+  myaa.on("collect", async r => {
+  if(!test[message.guild.id]) {
+  await msg.delete()
+  await message.channel.send(`**Uses \`100 times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: '86400',
+  uses: '100'
+  }
+  } else if (test[message.guild.id].expire) {
+  var expire = test[message.guild.id].expire;
+  await msg.delete()
+  await message.channel.send(`**Uses \`times\`**`).then(m => m.delete(5000));
+  test[message.guild.id] = {
+  expire: expire,
+  uses: '100'
+  }
+  };
+  fs.writeFile("./test.json", JSON.stringify(test), (err) => {
+  if (err) console.error(err)
+  })
+  })
+  })
+  }
+  });
+
+//معلومات الرابط
+  client.on('message', async message => {
+    if(!message.channel.guild) return;
+    if(message.content.startsWith(prefix+'linkInfo')) {
+      if(!test[message.guild.id]) return message.channel.send(`**Please type first \`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
+      if(!test[message.guild.id].uses) return message.channel.send(`**There is some issues in our database pls type:**\n\`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
+      if(!test[message.guild.id].expire) return message.channel.send(`**There is some issues in our database pls type:**\n\`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
+      if(test[message.guild.id].expire == "0") {
+        await message.delete()
+        await message.channel.send(`**Link uses: \`${test[message.guild.id].uses}\`\nExpired after: \`Never\`**`);
+      } else if (test[message.guild.id].expire !== "0") {
+        await message.delete()
+        await message.channel.send(`**Link uses: \`${test[message.guild.id].uses}\`\nExpired after: \`${prettySeconds(Number (test[message.guild.id].expire))}\`**`);
+      }
+    }
+  })
+
+//تكملة كود الرابط الكلمة ال يكتبها العضو مشان يجيلة رابط فى الخاص
+  client.on("message", async message => {
+    if(message.author.bot || !message.channel.guild) return;
+    if(message.content.startsWith("رابط")) {
+      if(!test[message.guild.id]) return;
+      if(!test[message.guild.id].expire) return;
+      if(!test[message.guild.id].uses) return;
+      if(test[message.guild.id].uses && test[message.guild.id].expire) {
+        let invite = await message.channel.createInvite({
+            maxAge: Number (test[message.guild.id].expire),
+            maxUses: Number (test[message.guild.id].uses)
+        }, `Requested by ${message.author.tag}`);
+        if(test[message.guild.id].expire == "0") {
+          try {
+           await message.author.send(`**مدة الرابط\n\`Never\`\nعدد الاستخدامات\n\`${test[message.guild.id].uses}\`\n${invite}**`)
+                 message.react("✅")
+          } catch (error) {
+
+            await message.reply('**خاصك مقفول**🔐')
+                  message.react('❌')
+          }
+        } else if (test[message.guild.id].expire !== "0") {
+          try {
+          await message.author.send(`**مدة الرابط\n\`${prettySeconds(Number (test[message.guild.id].expire))}\`\nعدد الاستخدامات\n\`${test[message.guild.id].uses}\`\n${invite}**`)
+               message.react("✅")
+
+          } catch (error) {
+            await message.reply(`**خاصك مقفول**🔐`)
+             message.react("❌")
+
+          }
+          }
+    }
+
+    }
+})
+
+//كود الفويس اونلاين
+let vojson = JSON.parse(fs.readFileSync('vojson.json', 'utf8'))
+client.on('message', message => {
+    if(message.content.startsWith(prefix + "setVc")) {
+let channel = message.content.split(" ").slice(1).join(" ")
+let channelfind = message.guild.channels.find(c => c.name == channel)
+if(!channel) return message.channel.send('Please Type The Voice Channel Name Example: '+`${prefix}setVc <Channel name>`)
+if(!channelfind) return message.channel.send(`I can't find this channel \`${channel}\``)
+vojson[message.guild.id] = {
+stats: 'enable',
+chid: channelfind.id,
+guild: message.guild.id
+
+}
+channelfind.setName(`VoiceOnline: ${message.guild.members.filter(m => m.voiceChannel).size}`)
+message.channel.send('**Done The Voice Online  Is Turned On**')
+}
+    if(message.content.startsWith(prefix + "vc off")) {
+      message.guild.channels.find('id', `${vojson[message.guild.id].chid}`).delete()
+    vojson[message.guild.id] = {
+        stats: 'disable',
+        chid: 'undefined',
+        guild: message.guild.id
+        }
+        message.channel.send('**Done The Voice Online Is Turned Off**')
+
+}
+fs.writeFile("./vojson.json", JSON.stringify(vojson), (err) => {
+    if (err) console.error(err)
+  })
+})
+
+client.on('voiceStateUpdate', (oldMember , newMember) => {
+            if(!vojson[oldMember.guild.id]) vojson[oldMember.guild.id] = {
+                stats: 'disable',
+                chid: 'undefined',
+                guild: 'undefined'
+            }
+                    if (vojson[oldMember.guild.id].stats === 'enable') {
+                        let ch = vojson[oldMember.guild.id].chid
+                        let channel = oldMember.guild.channels.get(ch)
+                        if(!channel) return;
+                        let guildid = vojson[oldMember.guild.id].guild
+                        channel.setName(`VoiceOnline: ${oldMember.guild.members.filter(m => m.voiceChannel).size}`)
+                  };
+                    if (vojson[oldMember.guild.id].stats === 'disable') {
+                    return;
+                }
+      });
+
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
