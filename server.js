@@ -3772,6 +3772,10 @@ const { resolve, join } = require('path');
 const fetch = require('node-fetch');
 const prettySeconds = require("pretty-seconds")
 const fsn = require('fs-nextra');
+/*
+تعديل مهم متنساش تعرف البريفيكس لو مش موجود
+const prefix = "حط البريفيكس هنا"
+*/
 
 const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8')); //ملف تخزين كود الويلكم
 
@@ -3786,7 +3790,7 @@ if(channel) {
 if(member.displayAvatarURL == null) return;
   
 const imageUrlRegex = /\?size=2048$/g;
-const wlcImage = await fsn.readFile('./welcome111.png');
+const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
     let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
     if (!result.ok) throw new Error('Failed to get the avatar!');
     let avatar = await result.buffer();
@@ -3794,6 +3798,8 @@ const wlcImage = await fsn.readFile('./welcome111.png');
     let name = member.user.username.length > 12 ? member.user.username.substring(0, 11) + '...'
     : member.user.username;
 
+  // تعديل مهم : هنا خيارات الصورة لو تبى تغيرها 
+  
     //Welcome Image (background)
     var imageWidth = 500; //عرض الصورة
     var imageHeight = 266; //ارتفاع الصورة
@@ -3983,7 +3989,7 @@ client.on('message', async message => {
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'setLink-Time')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.auhtor.id.hasPermission('ADMINISTRATOR')) return message.reply('**You need `ADMINISTRATOR` Permission**');
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('**You need `ADMINISTRATOR` Permission**');
 const Embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`**Link Expire Time**`)
@@ -4152,7 +4158,7 @@ client.on('message', async message => {
   if(!message.channel.guild) return;
   if(message.content.startsWith(prefix + 'setLink-Uses')) {
   if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-  if(!message.auhtor.id.hasPermission('ADMINISTRATOR')) return message.reply('**You need `ADMINISTRATOR` Permission**');
+  if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('**You need `ADMINISTRATOR` Permission**');
   const Embed = new Discord.RichEmbed()
   .setThumbnail(message.author.avatarURL)
   .setTitle(`**Link Uses**`)
