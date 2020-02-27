@@ -4326,6 +4326,19 @@ client.on('message', async message => {
 
     }
 })
+///كود البوتات
+
+client.on("message", message => {
+if(message.content === "#ls"){
+  var list_all = [];
+message.guild.members.forEach(bb => {
+if(!bb.user.bot) return;
+list_all.push(`<@${bb.user.id}>`)
+});
+  message.channel.send(list_all.join(", "));
+}
+});
+
 
 //كود الفويس اونلاين
 let vojson = JSON.parse(fs.readFileSync('vojson.json', 'utf8')) // ملف تخزين الفويس اونلاين
