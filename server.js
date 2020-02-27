@@ -3766,6 +3766,12 @@ channel.guild.owner.send(`<@!${channelcreate.id}>
   });
 
 
+const { Welcome } = require('canvas-constructor');
+const { Attachment } = require('discord.js');
+const { resolve, join } = require('path');
+const fetch = require('node-fetch');
+const prettySeconds = require("pretty-seconds")
+const fsn = require('fs-nextra');
 
 const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8'));
 
@@ -3775,8 +3781,6 @@ var findingWlcChannel = welcome[member.guild.id].channel[0];
 const channel = await member.guild.channels.find(r => r.name == findingWlcChannel);
 if(!channel) return;
 if(channel) {
-
-
 
 const imageUrlRegex = /\?size=2048$/g;
 const wlcImage = await fsn.readFile('./welcome111.png');
@@ -3805,7 +3809,7 @@ const wlcImage = await fsn.readFile('./welcome111.png');
     var nameX = 247; //position x
     var nameY = 275; //position y
 
-const buffer = await new Canvas(500, 300)
+const buffer = await new Welcome(500, 300)
       .addImage(wlcImage, 0, 0, imageWidth, imageHeight)
       .addCircularImage(avatar, imageX, imageY, imageRadius)
       .setTextAlign('center')
@@ -3879,9 +3883,6 @@ if (err) console.error(err)
     }
 
 })
-
-      const invites = {};
-
 const wait = require('util').promisify(setTimeout);
 
 client.on('ready', () => {
@@ -3969,17 +3970,7 @@ msg: thisMessage
     })
 }})
 
-
-const client = new Discord.Client();
-const { Canvas } = require('canvas-constructor');
-const { Attachment } = require('discord.js');
-const { resolve, join } = require('path');
-const fetch = require('node-fetch');
-const fsn = require('fs-nextra');
-const prettySeconds = require("pretty-seconds")
-const fs = require('fs');
-
-//
+//وضع وقت للرابط
 const test = JSON.parse(fs.readFileSync('./test.json' , 'utf8'));
 client.on('message', async message => {
 if(!message.channel.guild) return;
