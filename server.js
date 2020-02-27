@@ -510,52 +510,6 @@ const SQLite = require("sqlite"); // SQLpackage
 const path = require("path"); // PATHpackage
 const invites = {}; // Codes
 
-client.on("ready", () => {
-  // ready ?
-  client.guilds.forEach(g => {
-    // for each guilds ?
-    g.fetchInvites().then(guildInvites => {
-      // fetch invites ?
-      invites[g.id] = guildInvites; // push guild invites on invites ^^
-    }); // end
-  }); // end
-}); // end
-SQLite.open(path.join(__dirname, "links.sql")) // read path ?
-  .then(() => {
-    // then ?
-    console.log("Opened"); // seccussfull opened
-    SQLite.run(
-      `CREATE TABLE IF NOT EXISTS linkSysteme (code TEXT, id VARCHAR(30))`
-    ); // create table if not exisit
-  }) // end
-  .catch(err => console.error(err)); // on error
-
-client.on("message", async msg => {
-  // message ?
-  if (msg.author.bot || !msg.channel.guild) return; // if bot or private return
-  if (msg.content.startsWith("رابط")) {
-    // message content
-    let invite = await msg.channel
-      .createInvite(
-        {
-          //  create invites
-          maxAge: 86400, // one day // limit time for invite ^^
-          maxUses: 5 // 5 people can enter // limit users for invites ^^
-        },
-        `Requested by ${msg.author.tag}`
-      )
-      .catch(console.log); // reason // end
-
-    SQLite.run(
-      `INSERT INTO linkSysteme VALUES ('${invite.code}','${msg.author.id}')`
-    ); // insert into table
-    msg.author.send(
-      invite
-        ? /*seccussfull*/ `**مدة الرابط : يـوم عدد استخدامات الرابط : 5 **:\n ${invite}` /*error catch*/
-        : "يوجد خلل في البوت :( \n  يتم حل المشكل قريبا ..."
-    );
-  }
-});
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "server")) {
@@ -3951,13 +3905,13 @@ list_all.push(`<@${bb.user.id}>`)
 });
 
 ////كود رابط
-
+////تعديل مهم بوت رابط
 
  client.on('message', message => {
-    if (message.content.startsWith("$رابط")) {
+    if (message.content.startsWith("رابط")) {
         message.channel.createInvite({
         thing: true,
-        maxUses: 10,
+        maxUses: 1,
         maxAge: 3600,
     }).then(invite =>
       message.author.sendMessage(invite.url)
@@ -3973,7 +3927,10 @@ list_all.push(`<@${bb.user.id}>`)
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
         
-    .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 1 **")
+.setDescription(`** مدة الرابط : 1h 
+ عدد استخدامات الرابط : 1 **`)              
+              
+              
       message.author.sendEmbed(Embed11)
     }
 }); 
