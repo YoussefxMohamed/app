@@ -3773,15 +3773,18 @@ const fetch = require('node-fetch');
 const prettySeconds = require("pretty-seconds")
 const fsn = require('fs-nextra');
 
-const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8'));
+const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8')); //ملف تخزين كود الويلكم
 
+//كود الويلكم
 client.on('guildMemberAdd', async member => {
 if(!welcome) return;
 var findingWlcChannel = welcome[member.guild.id].channel[0];
 const channel = await member.guild.channels.find(r => r.name == findingWlcChannel);
 if(!channel) return;
 if(channel) {
-
+  
+if(member.displayAvatarURL == null) return;
+  
 const imageUrlRegex = /\?size=2048$/g;
 const wlcImage = await fsn.readFile('./welcome111.png');
     let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
@@ -3827,6 +3830,9 @@ const buffer = await new Welcome(500, 300)
 
 
 })
+
+
+//تحديد روم الويلكم
 client.on('message', async message => {
  if (!message.channel.guild) return;
 let room = message.content.split(" ").slice(1);
@@ -3922,6 +3928,7 @@ if(!channel) return;
   });
 });
 
+//تغير رسالة الانفايتد باى
 client.on('message', async message => {
     let messageArray = message.content.split(" ");
    if(message.content.startsWith(prefix + "setMessage")) {
@@ -3971,12 +3978,12 @@ msg: thisMessage
 }})
 
 //وضع وقت للرابط
-const test = JSON.parse(fs.readFileSync('./test.json' , 'utf8'));
+const test = JSON.parse(fs.readFileSync('./test.json' , 'utf8')); //ملف التخزين حق الوقت
 client.on('message', async message => {
 if(!message.channel.guild) return;
 if(message.content.startsWith(prefix + 'setLink-Time')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('**You need `MANAGE_GUILD` Permission**');
+if(!message.auhtor.id.hasPermission('ADMINISTRATOR')) return message.reply('**You need `ADMINISTRATOR` Permission**');
 const Embed = new Discord.RichEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`**Link Expire Time**`)
@@ -4145,7 +4152,7 @@ client.on('message', async message => {
   if(!message.channel.guild) return;
   if(message.content.startsWith(prefix + 'setLink-Uses')) {
   if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
-  if(!message.member.hasPermission('MANAGE_GUILD')) return message.reply('**You need `MANAGE_GUILD` Permission**');
+  if(!message.auhtor.id.hasPermission('ADMINISTRATOR')) return message.reply('**You need `ADMINISTRATOR` Permission**');
   const Embed = new Discord.RichEmbed()
   .setThumbnail(message.author.avatarURL)
   .setTitle(`**Link Uses**`)
@@ -4309,23 +4316,6 @@ client.on('message', async message => {
   }
   });
 
-//معلومات الرابط
-  client.on('message', async message => {
-    if(!message.channel.guild) return;
-    if(message.content.startsWith(prefix+'linkInfo')) {
-      if(!test[message.guild.id]) return message.channel.send(`**Please type first \`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
-      if(!test[message.guild.id].uses) return message.channel.send(`**There is some issues in our database pls type:**\n\`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
-      if(!test[message.guild.id].expire) return message.channel.send(`**There is some issues in our database pls type:**\n\`${prefix}setLink-Time\` to put a time for the link,\nand type \`${prefix}setLink-Uses\` to put max uses for the link.`);
-      if(test[message.guild.id].expire == "0") {
-        await message.delete()
-        await message.channel.send(`**Link uses: \`${test[message.guild.id].uses}\`\nExpired after: \`Never\`**`);
-      } else if (test[message.guild.id].expire !== "0") {
-        await message.delete()
-        await message.channel.send(`**Link uses: \`${test[message.guild.id].uses}\`\nExpired after: \`${prettySeconds(Number (test[message.guild.id].expire))}\`**`);
-      }
-    }
-  })
-
 //تكملة كود الرابط الكلمة ال يكتبها العضو مشان يجيلة رابط فى الخاص
   client.on("message", async message => {
     if(message.author.bot || !message.channel.guild) return;
@@ -4364,7 +4354,7 @@ client.on('message', async message => {
 })
 
 //كود الفويس اونلاين
-let vojson = JSON.parse(fs.readFileSync('vojson.json', 'utf8'))
+let vojson = JSON.parse(fs.readFileSync('vojson.json', 'utf8')) // ملف تخزين الفويس اونلاين
 client.on('message', message => {
     if(message.content.startsWith(prefix + "setVc")) {
 let channel = message.content.split(" ").slice(1).join(" ")
@@ -4380,7 +4370,7 @@ guild: message.guild.id
 channelfind.setName(`VoiceOnline: ${message.guild.members.filter(m => m.voiceChannel).size}`)
 message.channel.send('**Done The Voice Online  Is Turned On**')
 }
-    if(message.content.startsWith(prefix + "vc off")) {
+    if(message.content.startsWith(prefix + "vc off")) { // ايقاف الفويس اونلاين
       message.guild.channels.find('id', `${vojson[message.guild.id].chid}`).delete()
     vojson[message.guild.id] = {
         stats: 'disable',
