@@ -1370,7 +1370,13 @@ client.on("message", message => {
 ** مثال : \`addcredits 500= \`**
 ** =setLog • تحديد روم اللوق**
 ** =setby • تحديد روم المغادرة**
-
+**=setWelcomer <channel name> **
+**=setMessage **
+**=setVc <channel name> **
+**=vc off **
+**=setLink-Time **
+**=setLink-Uses **
+**=linkInfo **
 `);
   }
 });
