@@ -3927,7 +3927,7 @@ list_all.push(`<@${bb.user.id}>`)
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
         
-.setDescription(`** مدة الرابط : 1h 
+.setDescription(`** مدة الرابط : ساعة 
  عدد استخدامات الرابط : 1 **`)              
               
               
