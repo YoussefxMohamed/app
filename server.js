@@ -63,9 +63,9 @@ console.log("Bot Online 24/7");
 ///
 //الاكواد
 
-const dev = ["335645388323160064"]; ///تعديل مهم ايدي حسابك
+const dev = ["508723875253583896"]; ///تعديل مهم ايدي حسابك
 const admin = "=";
-var owner = "533944821228896257"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
+var owner = "508723875253583896"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
 var number = "1"; // Unmber Bot
 var ex = "2019/10/08";
 client.on("message", message => {
@@ -267,7 +267,7 @@ client.on("message", zaid => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@335645388323160064>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@508723875253583896>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
       .setImage(
         ""
       )
@@ -416,25 +416,6 @@ client.on("message", message => {
     );
   }
 });
-
-let room = "654630549331378176"; //تعديل مهم ايدي روم عد الاعضاء والترحيب ، روم صوتي
-/*
-client.on("guildMemberAdd", member => {
-  let guild = client.channels.get(room).guild.id;
-
-  if (member.guild.id != guild) return;
-  client.channels
-    .get(room)
-    .setName("Welcome " + member.user.username)
-    .then(m => {
-      setTimeout(() => {
-        client.channels
-          .get(room)
-          .setName(member.guild.name + " - " + member.guild.members.size);
-      }, 3000);
-    });
-});
-*/
 
 client.on("message", async message => {
   let args = message.content.split(" ");
@@ -918,13 +899,13 @@ client.on("guildMemberAdd", member => {
       ""
     )
     .addField(
-      `<a:NW:620727189528117258><a:NE:620727187196215306><a:NL:620727189272526876><a:NC:620727189184446501><a:NO:620727189205155840><a:NM:620727189154955265><a:NE:620727187196215306>`,
+      `WELCOME TO FIVEM Community`,
       `<@${id}>`
     )
     .addField(" **__Welcome To Server__**", `**${member.guild.name}**`)
     .addField("**انت العضو رقم** ", `${member.guild.memberCount} `)
     .setColor("RANDOM");
-  var channel = member.guild.channels.find("name", "new"); //تعديل مهم اسم روم الولكم
+  var channel = member.guild.channels.find("name", "الترحيب-🌹"); //تعديل مهم اسم روم الولكم
   if (!channel) return;
   channel.send({ embed: embed });
 });
@@ -2800,7 +2781,7 @@ client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
     ""
   ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
-   ✽ **Support Server** [ • https://discord.gg/aKdCRSX • ]  ✽ `); //تعديل مهم رابط سيرفرك
+   ✽ **Support Server** [ • https://discord.gg/dP5qe6C • ]  ✽ `); //تعديل مهم رابط سيرفرك
   guild.owner.send(embed);
 });
 
@@ -3637,7 +3618,7 @@ client.on("message", message => {
 
  let channelc = {};
   client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "hack-log"), /// hack-log تعديل مهم سوي روم اسمو
+  const rebellog = client.channels.find("name", "لوق"), /// hack-log تعديل مهم سوي روم اسمو
   Oguild = channel.guild,
   Onumber = 3,
   Otime = 10000;
