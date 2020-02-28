@@ -3318,6 +3318,7 @@ client.on("message", async message => {
   }
 });
 
+/* /// تعديل مهم كود حذف روابط الديسكورد
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
     // if(message.member.hasPermission("MANAGE_GUILD")) return;
@@ -3325,7 +3326,7 @@ client.on("message", async message => {
     message.delete();
   }
 });
-
+*/
 const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); // i dont wanna explain you are not my father!
 
 function saveReplay() {
