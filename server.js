@@ -2641,6 +2641,7 @@ client.on("message", async message => {
       });
   }
 });
+///// تعديل مهم كود دخول وخروج العضو
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
@@ -2653,23 +2654,22 @@ client.on("message", message => {
       !message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")
     )
       return message.channel.send("**ليس لديك صلاحيات . ❌**");
-    message.channel.send(`**${args}. لقد تم شغيل المغادرة هنا.**`); //By ItzTexo
+    message.channel.send(`**${args}.  | :ballot_box_with_check: |لقد تم شغيل المغادرة هنا**`); //By ItzTexo
     client.on("guildMemberAdd", member => {
       if (member.user.bot) return;
       var embed = new Discord.RichEmbed()
         .setAuthor(member.user.username, member.user.avatarURL)
         .setThumbnail(member.user.avatarURL)
-        .setTitle(`**__الله معاك ✋ 😢 😔__**`)
+        .setTitle(`**الله معاك ✋ **`)
         .addField("**__شكرا لوقتك__**  ", `${member}`)
-        .setDescription(`**__مع السلامه تشرفنا بك ✋😢 😔__** `)
+        .setDescription(`**مع السلامه تشرفنا بك ✋** `)
         .addField("👤   تبقي", `**[ ${member.guild.memberCount} ]**`, true)
         .setColor("RANDOM")
         .setFooter(
-          `==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`,
-          "https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png"
+          `نتمنى لكم الاستمتاع`,
         );
 
-      var channel = member.guild.channels.find("name", "leave");
+      var channel = member.guild.channels.find("name", "المغادرين-😴"); //// تعديل مهم اسم روم المغادرة
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2680,7 +2680,7 @@ client.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
 
-  let prefix = "-";
+  let prefix = "="; /// تعديل مهم برفكس الطرد
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -2708,7 +2708,7 @@ client.on("message", async message => {
       .addField("Time", message.createdAt)
       .addField("Reason", kReason);
 
-    let kickChannel = message.guild.channels.find("name", "لوق");
+    let kickChannel = message.guild.channels.find("name", "لوق"); //// تعديل مهم روم لوق طرد وباند
     if (!kickChannel) return message.channel.send("لم اجد روم ال kick-ban");
 
     message.guild.member(kUser).kick(kReason);
