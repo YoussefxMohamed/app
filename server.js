@@ -744,7 +744,7 @@ client.on("message", message => {
         SEND_MESSAGES: false
       })
       .then(() => {
-        message.reply("تم تقفيل الشات");
+        message.reply("**تم قفل الشات :no_entry: **");
       });
   }
   if (message.content === "=open") {
@@ -758,7 +758,7 @@ client.on("message", message => {
         SEND_MESSAGES: true
       })
       .then(() => {
-        message.reply("تم فتح الشات  ");
+        message.reply("**تم فتح الشات :white_check_mark:**");
       });
   }
 });
