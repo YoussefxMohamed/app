@@ -3591,7 +3591,7 @@ client.on("message", message => {
   });
 });
 
-
+/*
  let channelc = {};
   client.on('channelCreate', async (channel) => {
   const rebellog = client.channels.find("name", "لوق"), /// hack-log تعديل مهم سوي روم اسمو
@@ -3618,7 +3618,7 @@ channel.guild.owner.send(`<@!${channelcreate.id}>
  channelc[channelcreate.id].created = 0;
   },Otime)
   });
-
+*/
 
 const { Canvas } = require('canvas-constructor');
 const { Attachment } = require('discord.js');
