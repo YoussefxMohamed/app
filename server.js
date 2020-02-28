@@ -3974,6 +3974,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 ////تعديل مهم برودكاست 
 
+
 client.on("message", async message => {
   if (!message.guild || message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -4074,6 +4075,7 @@ client.on("message", async message => {
     message.channel.send(`تم تغيير الصورة الى :**${args}** `);
   }
 });
+
 
 
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
