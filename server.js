@@ -1276,6 +1276,8 @@ client.on("message", message => {
 **=setMessage **
 **=setVc <channel name> **
 **=vc off **
+**=vc off **
+**=ls ** لإظهار جميع بوتات السيرفر
 `);
   }
 });
@@ -3662,7 +3664,7 @@ const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
     var imageRadius = 110; //نصف قطر الصورة الدائرية
 
     //Member Name
-    var nameSize = "18pt" //حجم خط الاسم
+    var nameSize = "12pt" //حجم خط الاسم
     var nameKind = "Source Sans Pro (OT1)" //نوع خط الاسم
     var nameColor = "#ff9933" //لون خط الاسم
 
@@ -3839,7 +3841,7 @@ msg: thisMessage
 ///كود منشن بوتات
 
 client.on("message", message => {
-if(message.content === "#ls"){
+if(message.content === "=ls"){
   var list_all = [];
 message.guild.members.forEach(bb => {
 if(!bb.user.bot) return;
