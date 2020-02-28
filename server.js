@@ -1174,7 +1174,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "1help") {
     message.channel.send(
-      `****تم ارسال الأوامر على الخاص :ballot_box_with_check: ****`
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
     message.author.sendMessage(` ✽ **__ Premium Bot__**
@@ -1227,7 +1227,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "2help") {
     message.channel.send(
-      `**تم ارسال الأوامر على الخاص :ballot_box_with_check: **`
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
     
     message.author.sendMessage(` ✽ **__Premium Bot v1__**
@@ -1256,7 +1256,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "3help") {
     message.channel.send(
-      `**تم ارسال الأوامر على الخاص :ballot_box_with_check: **`
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
     message.author.sendMessage(`  **__Premium Bot v1__**
@@ -1295,7 +1295,7 @@ client.on("message", message => {
   if (message.content === prefix + "5help") {
     
     message.channel.send(
-      `****تم ارسال الأوامر على الخاص :ballot_box_with_check: ****`
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
     message.author.sendMessage(` **__Premium Bot v1__**
@@ -3937,7 +3937,7 @@ chid: channelfind.id,
 guild: message.guild.id
 
 }
-channelfind.setName(`VoiceOnline: ${message.guild.members.filter(m => m.voiceChannel).size}`)
+channelfind.setName(`VoiceOnline : ${message.guild.members.filter(m => m.voiceChannel).size}`)
 message.channel.send('**Done The Voice Online  Is Turned On**')
 }
     if(message.content.startsWith(prefix + "vc off")) { // ايقاف الفويس اونلاين
