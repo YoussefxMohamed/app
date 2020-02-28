@@ -58,6 +58,7 @@
     "node-opus": "^0.3.1",
     "npm": "^6.5.0",
     "opusscript": "0.0.6",
+    "parse-time": "^0.1.4",
     "path": "0.12.7",
     "pretty-ms": "^4.0.0",
     "pretty-seconds": "^1.0.0",
