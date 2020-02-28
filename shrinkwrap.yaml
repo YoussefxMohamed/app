@@ -47,6 +47,7 @@ dependencies:
   node-opus: 0.3.2
   npm: 6.12.0
   opusscript: 0.0.6
+  parse-time: 0.1.4
   path: 0.12.7
   pretty-ms: 4.0.0
   pretty-seconds: 1.0.0
@@ -3807,15 +3808,15 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-X/2yK+b4aDKZ217m3LJF3fKfzl8X9duDmGyLq1pm/Q+/P8e4pJzmMaP+Z+sRLwtLaUsyvSzvdzk1EAP23cWvvQ==
-  /m3u8stream/0.6.2:
+  /m3u8stream/0.6.5:
     dependencies:
-      miniget: 1.6.0
+      miniget: 1.6.1
       sax: 1.2.4
     dev: false
     engines:
       node: '>=6'
     resolution:
-      integrity: sha512-WsuM2bd5pPN80xvfrB+1DZqr4M7+kJl8byi6+ZCy6cmVjEiHhmr/desN53Ngsa6Hs13kYumeVgT4wL0oIJ+v6g==
+      integrity: sha512-QZCzhcfUliZfsOboi68QkNcMejPKTEhxE+s1TApvHubDeR8ythm4ViWuYFqgUwZeoHe8q0nsPxOvA3lQvdSzyg==
   /make-dir/1.3.0:
     dependencies:
       pify: 3.0.0
@@ -4018,12 +4019,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
-  /miniget/1.6.0:
+  /miniget/1.6.1:
     dev: false
     engines:
-      node: '>=6'
+      node: '>=8'
     resolution:
-      integrity: sha512-CELIsH/oJfnDHixh7j//7H7PyQYkoMxgaTtzdoD08PYjyLW0YuYqxeIZGjLx59WF2/eapCLkQE4N5ppj82DW+A==
+      integrity: sha512-I5oBwZmcaOuJrjQn7lpS29HM+aAZDbzKbX5ouxVyhFYdg6fA6YKOTwOCgzZQwlHuMek3FlCxz6eNrd4pOXbwOA==
   /minimatch/3.0.4:
     dependencies:
       brace-expansion: 1.1.11
@@ -4468,6 +4469,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
+  /object-assign/2.1.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-Q8NuXVaf+OSBbE76i+AtJpZ8GKo=
   /object-assign/3.0.0:
     dev: false
     engines:
@@ -4750,6 +4757,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-kHt7kzLoS9VBZfUsiKjv43mr91ea+U05EyKkEtqp7vNbHxmaVuEqN7XxeEVnGrMtYOAxGrDElSi96K7EgO1zCA==
+  /parse-time/0.1.4:
+    dependencies:
+      object-assign: 2.1.1
+    dev: false
+    resolution:
+      integrity: sha1-idCrQNPz6Rghvzxr3WHQGqEozxY=
   /parse5/1.5.1:
     dev: false
     optional: true
@@ -6685,8 +6698,8 @@ packages:
   /ytdl-core/0.29.7:
     dependencies:
       html-entities: 1.2.1
-      m3u8stream: 0.6.2
-      miniget: 1.6.0
+      m3u8stream: 0.6.5
+      miniget: 1.6.1
       sax: 1.2.4
     dev: false
     engines:
@@ -6749,6 +6762,7 @@ specifiers:
   node-opus: ^0.3.1
   npm: ^6.5.0
   opusscript: 0.0.6
+  parse-time: ^0.1.4
   path: 0.12.7
   pretty-ms: ^4.0.0
   pretty-seconds: ^1.0.0
@@ -6768,4 +6782,4 @@ specifiers:
   ustat: 0.0.2
   winston: ^3.2.1
   youtube-info: ^1.3.2
-  ytdl-core: ^0.29.0
+  ytdl-core: ^0.29.7
