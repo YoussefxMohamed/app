@@ -85,18 +85,6 @@ client.on("message", message => {
   }
 });
 
-
-client.on("ready", () => {
-  console.log(`----------------`);
-  console.log(`osama tech`);
-  console.log(`----------------`);
-  console.log(`ON ${client.guilds.size} Servers '     Script By : osama tech  `);
-  console.log(`----------------`);
-  console.log(`Logged in as ${client.user.tag}!`);
-  client.user.setActivity(`=help | Premium `, "http://twitch.tv/Rad-Bot"); ///تعديل مهم غير كلمة هيلب وبرميوم للوتشينق اللي بدك اياه مثل اسم سيرفرك
-  client.user.setStatus("dnd");
-});
-
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -3918,7 +3906,7 @@ list_all.push(`<@${bb.user.id}>`)
     )
     const embed = new Discord.RichEmbed()
         .setColor("RANDOM")
-          .setDescription("تم أرسال الرابط برسالة خاصة")
+          .setDescription("** تم ارسال الرابط على الخاص ، اذا لم يصلك افتح الخاص  **")
            .setAuthor(client.user.username, client.user.avatarURL)
                  .setAuthor(client.user.username, client.user.avatarURL)
                 .setFooter('طلب بواسطة: ' + message.author.tag)
