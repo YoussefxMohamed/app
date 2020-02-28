@@ -1283,13 +1283,13 @@ client.on("message", message => {
 **=setVc <channel name> **
 **=vc off **
 **=vc off **
-**=ls ** لإظهار جميع بوتات السيرفر
-**=wt لتغير الحالة إلى واتشنق**
-**=pl لتغير الحالة إلى بلاينق**
-**=st لتغير الحالة إلى ستريمنق"تويتش**
-**=ls لتغير الحالة إلى ليسننق **
-**=setname لتغير أسم البوت**
-**=setavatar لتغير صورة البوت**
+**==ls ** لإظهار جميع بوتات السيرفر
+**==wt لتغير الحالة إلى واتشنق**
+**==pl لتغير الحالة إلى بلاينق**
+**==st لتغير الحالة إلى ستريمنق"تويتش**
+**==ls لتغير الحالة إلى ليسننق **
+**==setname لتغير أسم البوت**
+**==setavatar لتغير صورة البوت**
 `);
   }
 });
@@ -3936,7 +3936,7 @@ client.on('ready',  () => {
 });
 
 const developers = ['335645388323160064'] //الايدي هنا
-const adminprefix = "="//برفكس
+const adminprefix = "=="//برفكس
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
