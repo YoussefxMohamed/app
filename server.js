@@ -3123,7 +3123,7 @@ julian.on("message", codes => {
       onoff: "On"
     });
 
-    codes.channel.send("AntiBots Join Is On");
+    codes.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
   }
   if (codes.content.startsWith(prefix + "antibots off")) {
     if (
@@ -3135,7 +3135,7 @@ julian.on("message", codes => {
     antibots.set(`${codes.guild.id}`, {
       onoff: "Off"
     });
-    codes.channel.send("AntiBots Join Is Off");
+    codes.channel.send("**AntiBots Join Is Off :unlock: **");
   }
 });
 
