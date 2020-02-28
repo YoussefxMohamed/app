@@ -1174,7 +1174,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "1help") {
     message.channel.send(
-      `**| تــم رســال اوامــر الــعــامــه فــى الــخــاص ..**`
+      `****تم ارسال الأوامر على الخاص :ballot_box_with_check: ****`
     );
 
     message.author.sendMessage(` ✽ **__ Premium Bot__**
@@ -1227,7 +1227,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "2help") {
     message.channel.send(
-      `**| تــم رســال اوامــر الإداريــه فــى الــخــاص ..**`
+      `**تم ارسال الأوامر على الخاص :ballot_box_with_check: **`
     );
     
     message.author.sendMessage(` ✽ **__Premium Bot v1__**
@@ -1256,7 +1256,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "3help") {
     message.channel.send(
-      `**| تــم رســال اوامــر الــمــوســيــقــى فــى الــخــاص ..**`
+      `**تم ارسال الأوامر على الخاص :ballot_box_with_check: **`
     );
 
     message.author.sendMessage(`  **__Premium Bot v1__**
@@ -1274,7 +1274,7 @@ client.on("message", message => {
     if (message.author.id !== message.guild.owner.user.id) return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
     
     message.channel.send(
-      `**| تــم رســال اوامــر الــحــمــايــة فــى الــخــاص ..**`
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
     message.author.sendMessage(`**__Premium Bot v1__**
@@ -1295,7 +1295,7 @@ client.on("message", message => {
   if (message.content === prefix + "5help") {
     
     message.channel.send(
-      `**| تــم رســال اوامــر المميزة فــى الــخــاص ..**`
+      `****تم ارسال الأوامر على الخاص :ballot_box_with_check: ****`
     );
 
     message.author.sendMessage(` **__Premium Bot v1__**
