@@ -890,27 +890,6 @@ client.on("message", message => {
 
 
 
-client.on("guildMemberAdd", member => {
-  let id = member.user.id;
-  let m = member.user;
-  var embed = new Discord.RichEmbed()
-    .setThumbnail(m.avatarURL)
-    .setImage(
-      ""
-    )
-    .addField(
-      `WELCOME TO FIVEM Community`,
-      `<@${id}>`
-    )
-    .addField(" **__Welcome To Server__**", `**${member.guild.name}**`)
-    .addField("**انت العضو رقم** ", `${member.guild.memberCount} `)
-    .setColor("RANDOM");
-  var channel = member.guild.channels.find("name", "الترحيب-🌹"); //تعديل مهم اسم روم الولكم
-  if (!channel) return;
-  channel.send({ embed: embed });
-});
-
-
 client.on("message", async Epic => {
   var prefix = "=";
   if (Epic.content.startsWith(prefix + "vonline")) {
@@ -1297,9 +1276,6 @@ client.on("message", message => {
 **=setMessage **
 **=setVc <channel name> **
 **=vc off **
-**=setLink-Time **
-**=setLink-Uses **
-**=linkInfo **
 `);
   }
 });
@@ -3880,8 +3856,8 @@ list_all.push(`<@${bb.user.id}>`)
     if (message.content.startsWith("رابط")) {
         message.channel.createInvite({
         thing: true,
-        maxUses: 1,
-        maxAge: 3600,
+        maxUses: 5,
+        maxAge: 86400,
     }).then(invite =>
       message.author.sendMessage(invite.url)
     )
@@ -3896,8 +3872,8 @@ list_all.push(`<@${bb.user.id}>`)
               const Embed11 = new Discord.RichEmbed()
         .setColor("RANDOM")
         
-.setDescription(`** مدة الرابط : ساعة 
- عدد استخدامات الرابط : 1 **`)              
+.setDescription(`** مدة الرابط : يوم 
+ عدد استخدامات الرابط : 5 **`)              
               
               
       message.author.sendEmbed(Embed11)
