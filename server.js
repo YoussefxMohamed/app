@@ -1000,7 +1000,7 @@ client.on("message", message => {
     );
   }
 });
-
+/* //// تعديل مهم لا تعطي رتب
 client.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.content.startsWith(prefix + "roles")) {
@@ -1081,6 +1081,7 @@ client.on("message", msg => {
     }
   }
 });
+*/
 
 client.on("message", message => {
   let command = message.content.split(" ")[0];
@@ -1199,11 +1200,8 @@ client.on("message", message => {
 **  =close • لقفل الشات** 
 **  =mute • لاعطاء ميوت لشخص** 
 **  =unmute • لفك ميوت عن شخص** 
-**  =role all • لاعطاء رتبه للكل**  
-**  =bc •  لأرسال برود كاست للكل**
 **  =new •  فتح التكت**
 **  =say • البوت يكرر كلامك**
-**  =contact • ارسال اقتراح او لمراسلة صاحب البوت**
 **  =move •  لسحب الشخص الى روومك**
 **  =giveaway •   يسويلك قف اوي علي الشي الي تبيه**
 
@@ -2710,7 +2708,7 @@ client.on("message", async message => {
       .addField("Time", message.createdAt)
       .addField("Reason", kReason);
 
-    let kickChannel = message.guild.channels.find("name", "kick-ban");
+    let kickChannel = message.guild.channels.find("name", "لوق");
     if (!kickChannel) return message.channel.send("لم اجد روم ال kick-ban");
 
     message.guild.member(kUser).kick(kReason);
@@ -3579,21 +3577,6 @@ client.on("message", message => {
   });
 });
 
-
-
- client.on("message", message => {
-
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
- m.send(`${argresult}\n  `);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\`Done`); 
- message.delete(); 
-};     
-});
 
  let channelc = {};
   client.on('channelCreate', async (channel) => {
