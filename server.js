@@ -1713,6 +1713,8 @@ client.on("message", message => {
   }
 });
 
+////تعديل مهم 
+
 client.on("message", message => {
   if (message.content === prefix + "creatcolores") {
     if (!message.channel.guild)
@@ -1820,6 +1822,8 @@ client.on("message", message => {
     });
   }
 });
+
+/////تعديل مهم امر تشغيل واغلاق اللوق
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "toggleLog")) {
