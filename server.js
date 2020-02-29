@@ -2655,6 +2655,7 @@ client.on("message", async message => {
       });
   }
 });
+
 ///// تعديل مهم كود دخول وخروج العضو
 
 client.on("message", message => {
@@ -3420,7 +3421,7 @@ client.on("message", message => {
   }
 });
 
-///////////////////
+//////////////////تعديل مهم كريدت
 
 const credits = JSON.parse(fs.readFileSync("./credits.json"));
 var time = require("./time.json");
@@ -3634,6 +3635,7 @@ const prefix = "حط البريفيكس هنا"
 const welcome = JSON.parse(fs.readFileSync('./welcomer.json' , 'utf8')); //ملف تخزين كود الويلكم
 
 //كود الويلكم
+
 client.on('guildMemberAdd', async member => {
 if(!welcome) return;
 var findingWlcChannel = welcome[member.guild.id].channel[0];
@@ -3691,6 +3693,8 @@ const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
 
 
 //تحديد روم الويلكم
+
+
 client.on('message', async message => {
  if (!message.channel.guild) return;
 let room = message.content.split(" ").slice(1);
@@ -3787,6 +3791,7 @@ if(!channel) return;
 });
 
 //تغير رسالة الانفايتد باى
+
 client.on('message', async message => {
     let messageArray = message.content.split(" ");
    if(message.content.startsWith(prefix + "setMessage")) {
@@ -3880,7 +3885,8 @@ list_all.push(`<@${bb.user.id}>`)
     }
 }); 
 
-//كود الفويس اونلاين
+////كود الفويس اونلاين
+
 let vojson = JSON.parse(fs.readFileSync('vojson.json', 'utf8')) // ملف تخزين الفويس اونلاين
 client.on('message', message => {
     if(message.content.startsWith(prefix + "setVc")) {
