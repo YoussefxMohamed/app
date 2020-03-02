@@ -17,7 +17,7 @@ setInterval(() => {
 // كل البكجات الي ممكن تحتجها في اي بوت
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
-const { TOKEN, YT_API_KEY, prefix, devs } = require("./config");
+const {YT_API_KEY, prefix, devs } = require("./config");
 const client = new Client({ disableEveryone: true });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
@@ -41,7 +41,7 @@ const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
 const pretty = require("pretty-ms");
-client.login(TOKEN);
+client.login(process.env.BOT_TOKEN);
 const queue = new Map();
 var table = require("table").table;
 const Discord = require("discord.js");
