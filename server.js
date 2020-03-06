@@ -2687,7 +2687,7 @@ client.on("message", message => {
           `نتمنى لكم الاستمتاع`,
         );
 
-      var channel = member.guild.channels.find("name", "المغادرين-😴"); //// تعديل مهم اسم روم المغادرة
+      var channel = member.guild.channels.find("name", "log"); //// تعديل مهم اسم روم المغادرة
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2726,7 +2726,7 @@ client.on("message", async message => {
       .addField("Time", message.createdAt)
       .addField("Reason", kReason);
 
-    let kickChannel = message.guild.channels.find("name", "لوق"); //// تعديل مهم روم لوق طرد وباند
+    let kickChannel = message.guild.channels.find("name", "log"); //// تعديل مهم روم لوق طرد وباند
     if (!kickChannel) return message.channel.send("لم اجد روم ال kick-ban");
 
     message.guild.member(kUser).kick(kReason);
@@ -2775,7 +2775,7 @@ client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
     ""
   ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
-   ✽ **Support Server** [ • https://discord.gg/dP5qe6C • ]  ✽ `); //تعديل مهم رابط سيرفرك
+   ✽ **Support Server** [ • https://discord.gg/NNb7TVU • ]  ✽ `); //تعديل مهم رابط سيرفرك
   guild.owner.send(embed);
 });
 
