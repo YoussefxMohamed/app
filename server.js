@@ -3954,7 +3954,7 @@ client.on('ready',  () => {
   console.log("ffff");
 });
 
-const developers = ['578719620412735490'] //الايدي هنا
+const developers = ['594328715807293461'] //الايدي هنا
 const adminprefix = "=="//برفكس
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
