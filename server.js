@@ -3349,7 +3349,7 @@ client.on("message", async message => {
     message.delete();
   }
 });
-*/
+
 
 const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); // i dont wanna explain you are not my father!
 
@@ -3431,7 +3431,7 @@ client.on("message", message => {
     message.channel.send(reply);
   }
 });
-
+*/
 //////////////////تعديل مهم كريدت
 
 const credits = JSON.parse(fs.readFileSync("./credits.json"));
@@ -3898,6 +3898,7 @@ list_all.push(`<@${bb.user.id}>`)
 
 ////كود الفويس اونلاين
 
+
 let vojson = JSON.parse(fs.readFileSync('vojson.json', 'utf8')) // ملف تخزين الفويس اونلاين
 client.on('message', message => {
     if(message.content.startsWith(prefix + "setVc")) {
@@ -3946,6 +3947,7 @@ client.on('voiceStateUpdate', (oldMember , newMember) => {
                     return;
                 }
       });
+
 
 //// تعديل مهم الحالة والاسم والصورة
 client.on('ready',  () => {
