@@ -4081,7 +4081,7 @@ client.on("message", message => {
   let mySupport = message.guild.roles.find('name',role);
   if(message.content.startsWith(prefix + "قبول")) {
     let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
-    if(!acRoom) return message.reply("${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+    if(!acRoom) return message.reply(`${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`);
     if(acRoom) {
     if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
     if(!mention) return message.reply('منشن شخص');
@@ -4090,7 +4090,7 @@ client.on("message", message => {
     if(mention.roles.has(mySupport)) return message.reply('هذا الشخص معه الرتبة مسبقا');
  
     mention.addRole(mySupport).then(() => {
-      acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم بنجاح قبولك**`);
+      acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم قبولك بنجاح**`);
     });
   }
 }
@@ -4105,7 +4105,7 @@ let mention = message.mentions.members.first();
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
 let rrrr = message.content.split(/ +/).slice(2);
 let reason = rrrr.join(" ");
-  if(!acRoom) return message.reply("=room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+  if(!acRoom) return message.reply(`${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`);
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply("منشن شخص");
  message.react("✅");
