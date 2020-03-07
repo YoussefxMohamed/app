@@ -4039,8 +4039,8 @@ client.on("message", message => {
                         .addField('**`هل سوف يتفاعل ؟`**',`${ask}`)
                         .addField('**`هل سوف يحترم القوانين ؟`**',`${ask2}`)
                         .addField('**`لماذا يجب علينا قبوله|وماهى الرتبه اللتي يريدها`**',`${ask3}`)
-                        .setFooter(`${message.author}`,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
-                        channel.send(embed)
+                        .setFooter(`Name : ${message.author.username}\nID User : ${message.author.id}`, 'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')                          
+                          channel.send(embed)
                         }, 2500);
                         setTimeout(() => {
                           mtime.delete()
