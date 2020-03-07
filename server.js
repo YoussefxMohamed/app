@@ -63,9 +63,9 @@ console.log("Bot Online 24/7");
 ///
 //الاكواد
 
-const dev = ["508723875253583896"]; ///تعديل مهم ايدي حسابك
+const dev = ["578719620412735490"]; ///تعديل مهم ايدي حسابك
 const admin = "=";
-var owner = "508723875253583896"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
+var owner = "578719620412735490"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
 var number = "1"; // Unmber Bot
 var ex = "2019/10/08";
 client.on("message", message => {
@@ -267,7 +267,7 @@ client.on("message", zaid => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@508723875253583896>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@578719620412735490>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
       .setImage(
         ""
       )
