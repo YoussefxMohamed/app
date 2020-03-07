@@ -4036,10 +4036,10 @@ client.on("message", message => {
                         .setTitle(`**تقديم على رتبه** [__**${message.guild.name}**__]`)
                         .addField('**`الاسم`**', `${name}` , true)
                         .addField('**`العمر`**', `${age}` , true)
-                        .addField('**`هل سيتفاعل ؟`**',`${ask}`)
-                        .addField('**`هل سيحترم القوانين ؟`**',`${ask2}`)
-                        .addField('**`لماذا يجب علينا قبوله|وماهى الرتبه العوزها؟`**',`${ask3}`)
-                        .setFooter(message.author.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
+                        .addField('**`هل سوف يتفاعل ؟`**',`${ask}`)
+                        .addField('**`هل سوف يحترم القوانين ؟`**',`${ask2}`)
+                        .addField('**`لماذا يجب علينا قبوله|وماهى الرتبه اللتي يريدها`**',`${ask3}`)
+                        .setFooter(`${message.author}`,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
                         channel.send(embed)
                         }, 2500);
                         setTimeout(() => {
