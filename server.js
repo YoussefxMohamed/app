@@ -3350,6 +3350,7 @@ client.on("message", async message => {
   }
 });
 */
+
 const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); // i dont wanna explain you are not my father!
 
 function saveReplay() {
