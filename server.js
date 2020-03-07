@@ -4095,16 +4095,22 @@ client.on("message", message => {
   }
 }
 });
+
 client.on('message',async message => {
-  let mention = message.mentions.members.first();
+  
   if(message.content.startsWith(prefix + "رفض")) {
-  if(!message.channel.guild) return;
+if(!message.channel.guild) return;
+
+let mention = message.mentions.members.first();
   let acRoom = message.guild.channels.find('name', 'القبول-الرفض');
-  if(!acRoom) return message.reply("!room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
+let rrrr = message.content.split(/ +/).slice(2);
+let reason = rrrr.join(" ");
+  if(!acRoom) return message.reply("=room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر");
   if(!message.guild.member(message.author).hasPermission("MANAGE_ROLES")) return;
   if(!mention) return message.reply("منشن شخص");
- 
-  acRoom.send(`**${mention} تم رفضك للاسف**`)
+ message.react("✅");
+  acRoom.send(`**${mention} تم رفضك للأسف **
+السبب : \`${reason}\``).then(m => m.react("✅"));
   }
 });
           client.on('message', message=>{
