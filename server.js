@@ -2759,6 +2759,40 @@ client.on("message", msg => {
   }
 });
 
+client.on("message", msg => {
+  if (msg.content === "ip") {
+    msg.reply(`**
+Server Information | معلومات السيرفر
+Enter وقم بضغط على زر
+
+Name: طوكيو نيتورك
+IP: 51.89.49.216
+- 
+للدخول المباشر
+F8 اضغط 
+ومن ثم قم بإدخال 
+connect 51.89.49.216**
+`);
+  }
+});
+
+client.on("message", msg => {
+  if (msg.content === "هح") {
+    msg.reply(`**
+Server Information | معلومات السيرفر
+Enter وقم بضغط على زر
+
+Name: طوكيو نيتورك
+IP: 51.89.49.216
+- 
+للدخول المباشر
+F8 اضغط 
+ومن ثم قم بإدخال 
+connect 51.89.49.216**
+`);
+  }
+});
+
 client.on("message", message => {
   if (!message.channel.guild) return;
   if (message.content.startsWith("=ping")) {
