@@ -4002,7 +4002,7 @@ client.on('ready',  () => {
   console.log("ffff");
 });
 
-const developers = ['https://discord.gg/qywdkfD'] //الايدي هنا
+const developers = ['416602464020594698'] //الايدي هنا
 const adminprefix = "=="//برفكس
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
