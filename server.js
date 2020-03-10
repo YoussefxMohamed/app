@@ -2747,6 +2747,20 @@ client.on("message", msg => {
   }
 });
 
+
+client.on("message", msg => {
+  if (msg.content === "تسجيل دخول") {
+    msg.reply("**تم تسجيل دخولك بنجاح :white_check_mark: **  ");
+  }
+});
+
+client.on("message", msg => {
+  if (msg.content === "تسجيل خروج") {
+    msg.reply("**تم تسجيل خروجك بنجاح :white_check_mark: **  ");
+  }
+});
+
+
 client.on("message", msg => {
   if (msg.content === "هاي") {
     msg.reply("** هاي يا عسل   :kissing_heart: :heart: **");
