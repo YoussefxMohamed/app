@@ -63,9 +63,9 @@ console.log("Bot Online 24/7");
 ///
 //الاكواد
 
-const dev = ["279557901922729984"]; ///تعديل مهم ايدي حسابك
+const dev = ["416602464020594698"]; ///تعديل مهم ايدي حسابك
 const admin = "=";
-var owner = "279557901922729984"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
+var owner = "416602464020594698"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
 var number = "1"; // Unmber Bot
 var ex = "2019/10/08";
 client.on("message", message => {
@@ -267,7 +267,7 @@ client.on("message", zaid => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@279557901922729984>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@416602464020594698>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
       .setImage(
         ""
       )
@@ -1281,7 +1281,7 @@ client.on("message", message => {
 **=setMessage • لتحديد رسالة الترحيب **
 **=setVc <channel name> • لتحديد روم الفويس اونلاين **
 **=vc off • لإغلاق روم الفويس اونلاين**
-**==ls • لإظهار جميع بوتات السيرفر**
+**=ls • لإظهار جميع بوتات السيرفر**
 **==wt • لتغير الحالة إلى واتشنق**
 **==pl • لتغير الحالة إلى بلاينق**
 **==st • لتغير الحالة إلى ستريمنق"تويتش**
@@ -2694,7 +2694,7 @@ client.on("message", message => {
           `نتمنى لكم الاستمتاع`,
         );
 
-      var channel = member.guild.channels.find("name", "╠📰log-discord"); //// تعديل مهم اسم روم المغادرة
+      var channel = member.guild.channels.find("name", "log"); //// تعديل مهم اسم روم المغادرة
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2733,7 +2733,7 @@ client.on("message", async message => {
       .addField("Time", message.createdAt)
       .addField("Reason", kReason);
 
-    let kickChannel = message.guild.channels.find("name", "╠📰log-discord"); //// تعديل مهم روم لوق طرد وباند
+    let kickChannel = message.guild.channels.find("name", "log"); //// تعديل مهم روم لوق طرد وباند
     if (!kickChannel) return message.channel.send("لم اجد روم ال kick-ban");
 
     message.guild.member(kUser).kick(kReason);
@@ -2830,7 +2830,7 @@ client.on("guildCreate", guild => {
   var embed = new Discord.RichEmbed().setImage(
     ""
   ).setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
-   ✽ **Your Serve** [ • https://discord.gg/Azqep4 • ]  ✽ `); //تعديل مهم رابط سيرفرك
+   ✽ **Your Serve** [ • https://discord.gg/qywdkfD • ]  ✽ `); //تعديل مهم رابط سيرفرك
   guild.owner.send(embed);
 });
 
@@ -4002,7 +4002,7 @@ client.on('ready',  () => {
   console.log("ffff");
 });
 
-const developers = ['279557901922729984'] //الايدي هنا
+const developers = ['https://discord.gg/qywdkfD'] //الايدي هنا
 const adminprefix = "=="//برفكس
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
