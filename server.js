@@ -3703,7 +3703,7 @@ if(!channel) return;
 if(channel) {
   
 const imageUrlRegex = /\?size=2048$/g;
-const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
+const wlcImage = await fsn.readFile('./samoly.png'); //اسم الصورة
     let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
     if (!result.ok) throw new Error('Failed to get the avatar!');
     let avatar = await result.buffer();
@@ -3718,14 +3718,14 @@ const wlcImage = await fsn.readFile('./welcome111.png'); //اسم الصورة
     var imageHeight = 266; //ارتفاع الصورة
 
     //Avatar
-    var imageX = 250; //X coordinate
-    var imageY = 145; //Y coordinate
+    var imageX = 170; //X coordinate
+    var imageY = 150; //Y coordinate
     var imageRadius = 110; //نصف قطر الصورة الدائرية
 
     //Member Name
     var nameSize = "12pt" //حجم خط الاسم
     var nameKind = "Source Sans Pro (OT1)" //نوع خط الاسم
-    var nameColor = "#ff9933" //لون خط الاسم
+    var nameColor = "#ffffff" //لون خط الاسم
 
     //Name Position
     var nameX = 247; //position x
