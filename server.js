@@ -3703,7 +3703,7 @@ if(!channel) return;
 if(channel) {
   
 const imageUrlRegex = /\?size=2048$/g;
-const wlcImage = await fsn.readFile('./samoly.png'); //اسم الصورة
+const wlcImage = await fsn.readFile('./gg.png'); //اسم الصورة
     let result = await fetch(member.user.displayAvatarURL.replace(imageUrlRegex, '?size=128'));
     if (!result.ok) throw new Error('Failed to get the avatar!');
     let avatar = await result.buffer();
