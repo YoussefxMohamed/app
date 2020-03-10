@@ -4040,7 +4040,7 @@ if (message.content.startsWith(adminprefix + 'setavatar')) {
 
 
 ////تعديل مهم كود التقديم
-
+/*
 client.on("message", message => {
             if(message.content.startsWith(prefix + "تقديم")) {
         if(!message.channel.guild) return;
@@ -4185,5 +4185,5 @@ let reason = rrrr.join(" ");
     message.channel.send("**✅ تم انشاء روم القبول والرفض بنجاح**")
             }
 })
-
+*/
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
