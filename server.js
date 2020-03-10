@@ -3718,18 +3718,18 @@ const wlcImage = await fsn.readFile('./samoly.png'); //اسم الصورة
     var imageHeight = 266; //ارتفاع الصورة
 
     //Avatar
-    var imageX = 170; //X coordinate
-    var imageY = 150; //Y coordinate
-    var imageRadius = 110; //نصف قطر الصورة الدائرية
+    var imageX = 175; //X coordinate
+    var imageY = 125; //Y coordinate
+    var imageRadius = 115; //نصف قطر الصورة الدائرية
 
     //Member Name
-    var nameSize = "12pt" //حجم خط الاسم
+    var nameSize = "20pt" //حجم خط الاسم
     var nameKind = "Source Sans Pro (OT1)" //نوع خط الاسم
     var nameColor = "#ffffff" //لون خط الاسم
 
     //Name Position
-    var nameX = 247; //position x
-    var nameY = 275; //position y
+    var nameX = 370; //position x
+    var nameY = 125; //position y
 
       let buffer = await new Canvas(500, 300)
       .addImage(wlcImage, 0, 0, imageWidth, imageHeight)
