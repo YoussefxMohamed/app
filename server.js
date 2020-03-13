@@ -747,27 +747,6 @@ client.on("message", message => {
 
 
 client.on("message", message => {
-  if (message.content.startsWith(`<@${client.user.id}>`)) {
-    if (message.author.bot || message.channel.type == "dm") return;
-    let mention = new Discord.RichEmbed()
-      .setColor("black")
-      .setDescription(
-        ` ✽  **Hi I'm System Bot**  
-✽  **Support Server** [ https://discord.gg/aKdCRSX ] 
-✽  **Video explained ** [ https://youtu.be/pD52f5iWk-A ] 
-✽  **Bot orders** [ • **=help** • ]   `
-      )
-
-      .setImage(
-        ""
-      );
-    message.channel.send(mention);
-  }
-});
-/////
-
-
-client.on("message", message => {
   let command = message.content.split(" ")[0];
   if (command == prefix + "unban") {
     if (!message.member.hasPermission("BAN_MEMBERS")) return;
