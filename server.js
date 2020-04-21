@@ -894,7 +894,7 @@ client.on("message", async Epic => {
 });
 
 client.on("message", message => {
-  var prefix = "=";
+
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "move")) {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -1287,7 +1287,10 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-    message.channel.send(`  **__Premium Bot v1__**> 
+    message.channel.send(
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
+    );
+    message.author.sendMessage(`  **__Premium Bot v1__**> 
 ** Help Menu**
 ----------------------------
 > ** =1help ** ** الاوامر العامه  **
