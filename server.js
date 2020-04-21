@@ -4126,7 +4126,7 @@ client.on("message", message => {
 });
 
 ////تعديل مهم كود التقديم
-/*
+
 client.on("message", message => {
             if(message.content.startsWith(prefix + "تقديم")) {
         if(!message.channel.guild) return;
@@ -4234,7 +4234,7 @@ client.on("message", message => {
     if(mention.roles.has(mySupport)) return message.reply('هذا الشخص معه الرتبة مسبقا');
  
     mention.addRole(mySupport).then(() => {
-      acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم قبولك بنجاح**`);
+    acRoom.send(`**[ ${mySupport} ] واعطائك رتبة ${mention} تم قبولك بنجاح**`);
     });
   }
 }
@@ -4271,5 +4271,5 @@ let reason = rrrr.join(" ");
     message.channel.send("**✅ تم انشاء روم القبول والرفض بنجاح**")
             }
 })
-*/
+
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
