@@ -1254,10 +1254,6 @@ client.on("message", message => {
   }
 });
 
-client.on("ready", () => {
-  var x = client.channels.get("620424484502896658");
-  if (x) x.join();
-});
 
 client.on("message", message => {
   if (!message.channel.guild) return;
