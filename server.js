@@ -2705,13 +2705,6 @@ client.on("message", message => {
   }
 });
 
-client.on("guildCreate", guild => {
-  var embed = new Discord.RichEmbed().setImage("")
-    .setDescription(` ✽ **Thank You for Adding  Bot To Your Server**  ✽ 
-   ✽ **Your Serve** [ • https://discord.gg/qywdkfD • ]  ✽ `); //تعديل مهم رابط سيرفرك
-  guild.owner.send(embed);
-});
-
 let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./server.json", "UTF8"));
 client.on("message", message => {
