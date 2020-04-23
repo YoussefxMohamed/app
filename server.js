@@ -1,8 +1,6 @@
-//ملف:server.js
 ///// معلومات مهمة
-///// البوت أمن ولايوجد به مشاكل وان وجد مشاكل تواصل معي وسوف يتم حلها ، برابط المقطع
 //// رابط المقطع : https://youtu.be/pD52f5iWk-A
-/// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجدة
+/// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -345,15 +343,6 @@ client.on("message", message => {
       });
   }
 }); ///Zine & Zaid
-
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "linkbot")) {
-    var mbot = message.mentions.members.first();
-    message.channel.send(
-      `https://discordapp.com/api/oauth2/authorize?client_id=${mbot.id}&permissions=0&scope=bot`
-    );
-  }
-});
 
 client.on("message", message => {
   if (message.content.split(" ")[0] == `ban`) {
