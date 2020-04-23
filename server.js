@@ -63,28 +63,6 @@ console.log("Bot Online 24/7");
 ///
 //الاكواد
 
-const dev = ["416602464020594698"]; ///تعديل مهم ايدي حسابك
-const admin = "=";
-var owner = "416602464020594698"; // Owner Bot Mention /// تعديل مهم ايدي حسابك
-var number = "1"; // Unmber Bot
-var ex = "2019/10/08";
-client.on("message", message => {
-  var argresult = message.content
-    .split(` `)
-    .slice(1)
-    .join(" ");
-  if (!dev.includes(message.author.id)) return;
-  if (message.content === admin + "vip") {
-    if (message.author.bot) return;
-    if (!message.guild)
-      return message.reply("**This Command Just In Servers**");
-    message.channel.send("> **# - `Premium Info` » **" + `${message.author}`);
-    message.channel.sendMessage(
-      `> **# - Premium Number:** **[** ${number} **]**\n> **# - Ends in:** **[** ${ex} **]**\n> **# - Owner:** **[** <@${owner}> **]**`
-    );
-  }
-});
-
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
@@ -104,7 +82,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("=new")) {
+  if (message.content.startsWith(prefix+"new")) {
     const reason = message.content
       .split(" ")
       .slice(1)
@@ -254,7 +232,7 @@ client.on("message", pixelbot => {
 }); // itzZa1D - Codes Team.
 
 client.on("message", zaid => {
-  if (zaid.content === "=bot") {
+  if (zaid.content ===prefix+ "bot") {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
       .setColor("#00000")
@@ -378,7 +356,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content.split(" ")[0] == `=ban`) {
+  if (message.content.split(" ")[0] ==prefix+ `ban`) {
     if (!message.guild || message.author.bot) return undefined;
     if (!message.member.hasPermission("BAN_MEMBERS"))
       return message.channel.send("You don't have permission.");
@@ -423,7 +401,7 @@ client.on("message", message => {
 
 client.on("message", async message => {
   let args = message.content.split(" ");
-  if (args[0] == `=kick`) {
+  if (args[0] ==prefix+ `kick`) {
     if (!message.guild || message.author.bot) return undefined;
     if (
       !message.member.hasPermission("KICK_MEMBERS") ||
@@ -460,7 +438,7 @@ client.on("message", async message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("=avt")) {
+  if (message.content.startsWith(prefix+"avt")) {
     if (message.author.bot || message.channel.type == "dm") return;
     var args = message.content.split(" ")[1];
     var avt = args || message.author.id;
@@ -594,7 +572,7 @@ client.on("message", message => {
 
   let command = message.content.split(" ")[0];
 
-  if (command === "=unmute") {
+  if (command ===prefix+ "unmute") {
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
@@ -656,7 +634,7 @@ client.on("message", message => {
 
   let command = message.content.split(" ")[0];
 
-  if (command === "=mute") {
+  if (command === prefix+"mute") {
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
@@ -715,7 +693,7 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  if (message.content === "=close") {
+  if (message.content === prefix+"close") {
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
 
@@ -729,7 +707,7 @@ client.on("message", message => {
         message.reply("**تم قفل الشات :no_entry: **");
       });
   }
-  if (message.content === "=open") {
+  if (message.content === prefix+"open") {
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
 
@@ -826,7 +804,7 @@ client.on("messageCreate", async message => {
 });
 
 client.on("message", message => {
-  if (message.content.startsWith("=avatar")) {
+  if (message.content.startsWith(prefix+"avatar")) {
     var mentionned = message.mentions.users.first();
     var x5bzm;
     if (mentionned) {
@@ -844,22 +822,8 @@ client.on("message", message => {
   }
 });
 
-client.on("message", message => {
-  if (message.content === "=sup") {
-    let embed = new Discord.RichEmbed()
-      .setAuthor(message.author.username)
-      .setColor("#9B59B6")
-      .addField(
-        " ** :gear: Server Support :gear: **",
-        "  **https://discord.gg/X9esPBy*"
-      );
-
-    message.channel.sendEmbed(embed);
-  }
-});
 
 client.on("message", async Epic => {
-  var prefix = "=";
   if (Epic.content.startsWith(prefix + "vonline")) {
     if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
       return Epic.reply(":x: **I Dont Have Permissions**");
@@ -894,7 +858,6 @@ client.on("message", async Epic => {
 });
 
 client.on("message", message => {
-
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "move")) {
     if (message.member.hasPermission("MOVE_MEMBERS")) {
@@ -943,7 +906,6 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  var prefix = "=";
   if (message.content.startsWith(prefix + "mvall")) {
     if (!message.member.hasPermission("MOVE_MEMBERS"))
       return message.channel.send("**:x: You Dont Have Perms `MOVE_MEMBERS`**");
@@ -966,7 +928,7 @@ client.on("message", message => {
     );
   }
 });
-/* //// تعديل مهم لا تعطي رتب
+//// تعديل مهم لا تعطي رتب
 client.on("message", msg => {
   if (msg.author.bot) return;
   if (msg.content.startsWith(prefix + "roles")) {
@@ -1047,7 +1009,7 @@ client.on("message", msg => {
     }
   }
 });
-*/
+
 
 client.on("message", message => {
   let command = message.content.split(" ")[0];
@@ -2468,7 +2430,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
-  if (message.content.split(" ")[0] == "=color") {
+  if (message.content.split(" ")[0] == prefix+"color") {
     const embedd = new Discord.RichEmbed()
       .setFooter(
         "Requested by " + message.author.username,
@@ -2689,8 +2651,6 @@ client.on("message", message => {
 client.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
-
-  let prefix = "="; /// تعديل مهم برفكس الطرد
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -2728,7 +2688,7 @@ client.on("message", async message => {
 
 client.on("message", message => {
   if (!message.channel.guild) return;
-  if (message.content.startsWith("=ping")) {
+  if (message.content.startsWith(prefix+"ping")) {
     if (message.author.bot) return;
     if (!message.channel.guild) return;
     var Bping = `${Math.round(client.ping)}`;
@@ -3433,10 +3393,10 @@ client.on("message", async message => {
   }
 });
 
-/* /// تعديل مهم كود حذف روابط الديسكورد
+/// تعديل مهم كود حذف روابط الديسكورد
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
-    // if(message.member.hasPermission("MANAGE_GUILD")) return;
+   if(message.member.hasPermission("MANAGE_GUILD")) return;
     if (!message.channel.guild) return;
     message.delete();
   }
@@ -3523,7 +3483,7 @@ client.on("message", message => {
     message.channel.send(reply);
   }
 });
-*/
+
 //////////////////تعديل مهم كريدت
 
 const credits = JSON.parse(fs.readFileSync("./credits.json"));
@@ -3969,7 +3929,7 @@ Ex :
 ///كود منشن بوتات
 
 client.on("message", message => {
-  if (message.content === "=ls") {
+  if (message.content === prefix+"ls") {
     var list_all = [];
     message.guild.members.forEach(bb => {
       if (!bb.user.bot) return;
