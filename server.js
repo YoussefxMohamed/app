@@ -939,7 +939,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
 if(message.author.id == message.guild.ownerID){
- message.author.send(`   
+  message.author.send(`   
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -997,19 +997,7 @@ if(message.author.id == message.guild.ownerID){
 **  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
 **  =antibots on •  منع دخول بوتات**
 **  =antibots off •  فتح دخول البوتات**
-  `) .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      }); 
+  `) 
 }else{
  message.author.send(`   
 **__الاوامر العامه__** 
@@ -1020,7 +1008,8 @@ if(message.author.id == message.guild.ownerID){
 **  =color • لأختيار لونك في السيرفر **
 
 **__الاوامر الإداريــه__** ✽ 
-**  =clear • لمسح الشات** 
+**  =clea
+} • لمسح الشات** 
 **  =ban • لتبنيد شخص** 
 **  =kick • لاعطاء كيك لشخص** 
 **  =open • لفتح الشات** 
@@ -3044,7 +3033,7 @@ client.on("message", async message => {
   }
 });
 const wait = require("util").promisify(setTimeout);
-
+/*
 client.on("ready", () => {
   wait(1000);
 
@@ -3054,7 +3043,7 @@ client.on("ready", () => {
     });
   });
 });
-
+*/
 client.on("guildMemberAdd", member => {
   let channel = member.guild.channels.find(
     c => c.name == welcome[member.guild.id].channel
@@ -3426,8 +3415,8 @@ client.on("message", message => {
     message.channel.send("**✅ تم انشاء روم التقديمات بنجاح**");
   }
 });
-client.on("message", async message => {
-  let mention = message.mentions.members.first();
+/*client.on("message", async message => {
+//''  let mention = message.mentions.members.first();
   let role = message.content
     .split(" ")
     .slice(2)
@@ -3456,7 +3445,7 @@ client.on("message", async message => {
     }
   }
 });
-
+*/
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "رفض")) {
     if (!message.channel.guild) return;
