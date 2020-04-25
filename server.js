@@ -356,6 +356,7 @@ const SQLite = require("sqlite"); // SQLpackage
 const path = require("path"); // PATHpackage
 const invites = {}; // Codes
 
+////كود معلومات السيرفر
 client.on("message", message => {
   if (message.content.startsWith(prefix + "server")) {
     if (!message.channel.guild)
@@ -458,6 +459,7 @@ client.on("message", message => {
   }
 });
 
+////كود ميوت او اسكات
 client.on("message", message => {
   if (message.author.bot) return;
 
@@ -521,6 +523,7 @@ client.on("message", message => {
   }
 });
 
+//// كود فتح واغلاق الروم
 client.on("message", message => {
   if (message.content === prefix + "close") {
     if (!message.channel.guild)
@@ -607,6 +610,7 @@ client.on("messageCreate", async message => {
   }
 });
 
+//// كود افتار عن طريق المنشن
 client.on("message", message => {
   if (message.content.startsWith(prefix + "avatar")) {
     var mentionned = message.mentions.users.first();
@@ -660,6 +664,7 @@ client.on("message", async Epic => {
   }
 });
 
+//// كود سحب شخص 
 client.on("message", message => {
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "move")) {
@@ -708,6 +713,7 @@ client.on("message", message => {
   }
 });
 
+//// كود سحب الكل
 client.on("message", message => {
   if (message.content.startsWith(prefix + "mvall")) {
     if (!message.member.hasPermission("MOVE_MEMBERS"))
@@ -813,51 +819,6 @@ client.on("message", msg => {
   }
 });
 
-client.on("message", message => {
-  let command = message.content.split(" ")[0];
-  if (command == prefix + "moreinfo") {
-    var server = client.guilds.find(
-      c => c.id === message.content.split(" ")[1]
-    );
-    if (!server)
-      return message.channel.send("**I Can't find this server :x:**");
-    message.channel.send(
-      new Discord.RichEmbed()
-        .setColor("#36393e")
-        .setTitle(`📖 **${server.name}** Info`)
-        .setImage(
-          `https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png?size=1024`
-        )
-        .addField(
-          "**Members Cout:**",
-          `**${server.memberCount -
-            server.members.filter(m => m.user.bot).size}** | **${
-            server.members.filter(m => m.user.bot).size
-          }** bots`,
-          true
-        )
-        .addField(
-          `**Channels [${server.channels.size}]**`,
-          `**${
-            server.channels.filter(m => m.type === "text").size
-          }** Text | **${
-            server.channels.filter(m => m.type === "voice").size
-          }** Voice | **${
-            server.channels.filter(m => m.type === "category").size
-          }** Category`,
-          true
-        )
-        .addField("**Server Region:**", server.region, true)
-        .addField("**Server Owner**", `**${server.owner}**`, true)
-        .addField(`**Roles Count [${server.roles.size}]**`, `** **`, true)
-        .addField(
-          `**verification Level [ ${server.verificationLevel} ]**`,
-          `** **`,
-          true
-        )
-    );
-  }
-});
 
 client.on("message", function(message) {
   if (!message.channel.guild) return;
@@ -914,6 +875,7 @@ client.on("message", function(message) {
   }
 });
 
+////كود هيلب
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
@@ -1062,6 +1024,8 @@ ${prefix}colors • غير لونك **
     }
   }
 });
+
+////كود قيف اوي
 client.on("message", async message => {
   var room;
   var title; //HactorMC
@@ -1189,6 +1153,8 @@ client.on("message", async message => {
 });
 //all copyrighit for revenge https://github.com/Bowlingtoolkit
 ///
+
+/// كود الوان
 client.on("message", message => {
   if (!message.guild || message.author.bot) return;
   if (message.content == prefix + "colors") {
@@ -1248,7 +1214,7 @@ client.on("message", message => {
 });
 
 ////تعديل مهم
-
+/// كود تعين اللوق
 const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 
 client.on("message", message => {
@@ -1924,6 +1890,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
 
 ///////////////////
 
+/// كود الرد التلقائي
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -1934,6 +1901,8 @@ client.on("message", message => {
   }
 });
 
+
+/// كود اختيار لون
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
   if (message.content.split(" ")[0] == prefix + "color") {
@@ -1972,6 +1941,7 @@ client.on("message", message => {
   }
 });
 
+/////كود عمل الوان
 client.on("message", ra3d => {
   let args = ra3d.content
     .split(" ")
@@ -2026,6 +1996,7 @@ client.on("message", message => {
   }
 });
 
+/////كود سرعة البوت او البينق
 client.on("message", message => {
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "ping")) {
@@ -2725,7 +2696,7 @@ client.on("message", async message => {
     });
   }
 });
-
+///كود حذف الروابط
 /// تعديل مهم كود حذف روابط الديسكورد
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
@@ -2745,6 +2716,14 @@ function saveReplay() {
 
 //If You want to remove //R.I.P Royal Bot! this message just click ctrl + h and replace this message to nothing
 
+
+client.on("message", message => {
+  if (!message.channel.guild) return;
+  if (message.content.startsWith(prefix + "ping")) {
+    if (message.author.bot) return;
+    if (!message.channel.guild) return;
+    
+/////كود صنع رد تلقائي
 client.on("message", message => {
   var prefix = "="; //prefix
   if (!replyMSG[message.author.id])
