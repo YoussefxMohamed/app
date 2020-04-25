@@ -197,7 +197,7 @@ client.on("message", message => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@416602464020594698>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@279557901922729984>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
       .setImage("")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
@@ -1993,7 +1993,7 @@ client.on("message", message => {
         .setColor("RANDOM")
         .setFooter(`نتمنى لكم الاستمتاع`);
 
-      var channel = member.guild.channels.find("name", "log"); //// تعديل مهم اسم روم المغادرة
+      var channel = member.guild.channels.find("name", "𝙇𝙊𝙂-𝘿𝙄𝙎𝘾𝙊𝙍𝘿"); //// تعديل مهم اسم روم المغادرة
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2702,6 +2702,7 @@ client.on("message", async message => {
 });
 ///كود حذف الروابط
 /// تعديل مهم كود حذف روابط الديسكورد
+/*
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
     if (message.member.hasPermission("MANAGE_GUILD")) return;
@@ -2709,6 +2710,7 @@ client.on("message", async message => {
     message.delete();
   }
 });
+*/
 
 const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); // i dont wanna explain you are not my father!
 
