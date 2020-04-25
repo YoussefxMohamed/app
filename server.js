@@ -1,6 +1,6 @@
 ///// معلومات مهمة
-//// رابط المقطع : https://youtu.be/pD52f5iWk-A
-/// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
+////
+//// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -901,6 +901,8 @@ client.on("message", message => {
 ** \`${prefix}new\` : فتح التكت**
 ** \`${prefix}say\` : البوت يكرر كلامك**
 ** \`${prefix}move\` : لسحب الشخص الى روومك**
+** \`${prefix}ccolors\` : لعمل الوان عشوائية **
+** \`${prefix}reply\` : لصنع رد تلقائي**
   `
         )
         .then(() => {
@@ -962,16 +964,18 @@ client.on("message", message => {
 **${prefix}color • لأختيار لونك في السيرفر **
 
 **__الاوامر الإداريــه__** ✽ 
-**${prefix}clear • لمسح الشات** 
-**${prefix}ban • لتبنيد شخص** 
-**${prefix}kick • لاعطاء كيك لشخص** 
-**${prefix}open • لفتح الشات** 
-**${prefix}close • لقفل الشات** 
-**${prefix}mute • لاعطاء ميوت لشخص** 
-**${prefix}unmute • لفك ميوت عن شخص** 
-**${prefix}new •  فتح التكت**
-**${prefix}say • البوت يكرر كلامك**
-**${prefix}move •  لسحب الشخص الى روومك**
+** \`${prefix}clear\` : لمسح الشات** 
+** \`${prefix}ban\` : لتبنيد شخص** 
+** \`${prefix}kick\` : لاعطاء كيك لشخص** 
+** \`${prefix}open\` : لفتح الشات** 
+** \`${prefix}close\` : لقفل الشات** 
+** \`${prefix}mute\` : لاعطاء ميوت لشخص** 
+** \`${prefix}unmute\` : لفك ميوت عن شخص** 
+** \`${prefix}new\` : فتح التكت**
+** \`${prefix}say\` : البوت يكرر كلامك**
+** \`${prefix}move\` : لسحب الشخص الى روومك**
+** \`${prefix}ccolors\` : لعمل الوان عشوائية **
+** \`${prefix}reply\` : لصنع رد تلقائي**
   `
         )
         .then(() => {
@@ -2717,15 +2721,9 @@ function saveReplay() {
 //If You want to remove //R.I.P Royal Bot! this message just click ctrl + h and replace this message to nothing
 
 
-client.on("message", message => {
-  if (!message.channel.guild) return;
-  if (message.content.startsWith(prefix + "ping")) {
-    if (message.author.bot) return;
-    if (!message.channel.guild) return;
-    
+
 /////كود صنع رد تلقائي
 client.on("message", message => {
-  var prefix = "="; //prefix
   if (!replyMSG[message.author.id])
     replyMSG[message.author.id] = {
       contentmessage: "none",
@@ -2921,7 +2919,7 @@ type these numbers to confirm: `
       });
     }
   }
-}); // Me ZIAD كم حاقد
+}); //   
 
 client.on("message", async message => {
   let Fire = message.content.split(" ")[0].substring(prefix.length);
@@ -2966,34 +2964,6 @@ client.on("message", message => {
   });
 });
 
-/*
- let channelc = {};
-  client.on('channelCreate', async (channel) => {
-  const rebellog = client.channels.find("name", "لوق"), /// hack-log تعديل مهم سوي روم اسمو
-  Oguild = channel.guild,
-  Onumber = 3,
-  Otime = 10000;
-  const audit = await channel.guild.fetchAuditLogs({limit: 1});
-  const channelcreate = audit.entries.first().executor;
-  console.log(` A ${channel.type} Channel called ${channel.name} was Created By ${channelcreate.tag}`);
-   if(!channelc[channelcreate.id]) {
-    channelc[channelcreate.id] = {
-    created : 0
-     }
- }
- channelc[channelcreate.id].created += 1;
- if(channelc[channelcreate.id].created >= Onumber ) {
-    Oguild.members.get(channelcreate.id).kick();
-rebellog.send(`<@!${channelcreate.id}>
-حآول العبث بالسيرفر @everyone`);
-channel.guild.owner.send(`<@!${channelcreate.id}>
-حآول العبث بالسيرفر ${channel.guild.name}`)
-}
-  setTimeout(() => {
- channelc[channelcreate.id].created = 0;
-  },Otime)
-  });
-*/
 
 const { Canvas } = require("canvas-constructor");
 const { Attachment } = require("discord.js");
@@ -3002,7 +2972,6 @@ const fetch = require("node-fetch");
 const prettySeconds = require("pretty-seconds");
 const fsn = require("fs-nextra");
 /*
-تعديل مهم متنساش تعرف البريفيكس لو مش موجود
 const prefix = "حط البريفيكس هنا"
 */
 
@@ -3358,7 +3327,6 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
   }
 });
 
-//// تعديل مهم الحالة والاسم والصورة
 client.on("ready", () => {
   console.log("hi");
 });
@@ -3679,7 +3647,10 @@ client.on('message', async msg =>{
 //////////////////////
 /////////////////////////
 ////////////////////////
-//////////////////////]
+//////////////////////
+
+///// كود ميوزك
+
 let cmds = {
   play: { cmd: 'play', a: ['p', 'شغل'] },
   skip: { cmd: 'skip', a: ['s', 'تخطى'] },
@@ -4202,19 +4173,3 @@ function play(guild, song) {
 
 });
 
-
-client.on('message', message => {
-  if (!message.guild) return;
-  if (message.content === prefix + 'join') {
-    if (message.member.voiceChannel) {
-      message.member.voiceChannel.join()
-        .then(connection => { 
-          message.reply('\`تم الدخول الى الروم\`');
-        })
-        .catch(console.log);
-    } else {
-      message.reply('\` يجب الدخول الى روم صوتي\`');
-    }
-  }
-})
-/// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
