@@ -2622,7 +2622,28 @@ client.on("message", async message => {
     });
   }
 });
+client.on("message", message => {
+  if (message.author.bot) return;
+  if (message.content === prefix + "1help") {
+    message.channel.send(
+      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
+    );
 
+    message.author.send(` ✽ **__ Premium Bot__**
+**__الاوامر العامه__** 
+**  =bot • لعرض معلومات عن البوت** 
+**  =user • لعرض معلومات عنك** 
+**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
+**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
+**  =color • لأختيار لونك في السيرفر **
+
+
+`).then(e = {
+      
+    })
+  }
+  
+});
 /// تعديل مهم كود حذف روابط الديسكورد
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
