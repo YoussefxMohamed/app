@@ -33,10 +33,10 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+const youtube = new YouTube("AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk");
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyDeoIH0u1e72AtfpwSKKOSy3IPp2UHzqi4";
+const yt_api_key = "AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk";
 const pretty = require("pretty-ms");
 client.login(process.env.BOT_TOKEN);
 const queue = new Map();
@@ -918,41 +918,42 @@ client.on("message", message => {
         .send(
           `   
 **__الاوامر العامه__** 
-**  ${prefix}bot • لعرض معلومات عن البوت** 
-**  =user • لعرض معلومات عنك** 
-**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
-**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
-**  =color • لأختيار لونك في السيرفر **
+**${prefix}bot • لعرض معلومات عن البوت** 
+**${prefix}user • لعرض معلومات عنك** 
+**${prefix}avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
+**${prefix}avatar • لعرض صورتك أو صورة الي تمنشنه** 
+**${prefix}color • لأختيار لونك في السيرفر **
 
 **__الاوامر الإداريــه__** ✽ 
-**  =clear • لمسح الشات** 
-**  =ban • لتبنيد شخص** 
-**  =kick • لاعطاء كيك لشخص** 
-**  =open • لفتح الشات** 
-**  =close • لقفل الشات** 
-**  =mute • لاعطاء ميوت لشخص** 
-**  =unmute • لفك ميوت عن شخص** 
-**  =new •  فتح التكت**
-**  =say • البوت يكرر كلامك**
-**  =move •  لسحب الشخص الى روومك**
+**${prefix}clear • لمسح الشات** 
+**${prefix}ban • لتبنيد شخص** 
+**${prefix}kick • لاعطاء كيك لشخص** 
+**${prefix}open • لفتح الشات** 
+**${prefix}close • لقفل الشات** 
+**${prefix}mute • لاعطاء ميوت لشخص** 
+**${prefix}unmute • لفك ميوت عن شخص** 
+**${prefix}new •  فتح التكت**
+**${prefix}say • البوت يكرر كلامك**
+**${prefix}move •  لسحب الشخص الى روومك**
   `
         )
         .then(() => {
-          message.author.send(`** =colors • غير لونك ** 
-** =inf • عدد الدعوات للسيرفر**
-** =credits • لمعرفة رصيدكك ** 
-** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily= كل 6 ساعات \`**
-** =removecredits • لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
-** مثال : \` =removecredits 500 \`**
-** =addcredits • لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
-** مثال : \`addcredits 500= \`**
-** =setLog • تحديد روم اللوق**
-** =setby • تحديد روم المغادرة**
-**=setWelcomer <channel name> • لتحديد روم الولكم **
-**=setMessage • لتحديد رسالة الترحيب **
-**=setVc <channel name> • لتحديد روم الفويس اونلاين **
-**=vc off • لإغلاق روم الفويس اونلاين**
-**=ls • لإظهار جميع بوتات السيرفر**
+          message.author.send(`**
+${prefix}colors • غير لونك ** 
+**${prefix}inf • عدد الدعوات للسيرفر**
+**${prefix}credits • لمعرفة رصيدكك ** 
+** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily${prefix} كل 6 ساعات \`**
+**${prefix}removecredits • لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
+** مثال : \` ${prefix}removecredits 500 \`**
+**${prefix}addcredits • لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
+** مثال : \`addcredits 500${prefix} \`**
+**${prefix}setLog • تحديد روم اللوق**
+**${prefix}setby • تحديد روم المغادرة**
+**${prefix}setWelcomer <channel name> • لتحديد روم الولكم **
+**${prefix}setMessage • لتحديد رسالة الترحيب **
+**${prefix}setVc <channel name> • لتحديد روم الفويس اونلاين **
+**${prefix}vc off • لإغلاق روم الفويس اونلاين**
+**${prefix}ls • لإظهار جميع بوتات السيرفر**
 **==wt • لتغير الحالة إلى واتشنق**
 **==pl • لتغير الحالة إلى بلاينق**
 **==st • لتغير الحالة إلى ستريمنق"تويتش**
@@ -960,22 +961,22 @@ client.on("message", message => {
 **==setname • لتغير أسم البوت**
 **==setavatar • لتغير صورة البوت**
 \`\`اوامر التقديم\`\`
-**=room1 • لعمل روم التقديمات**
-**=room2 • لعمل روم القبول والرفض**
-**=لقبول تقديم عضو • قبول**
-مثال: \`\`=قبول @منشن عضو \`\`
-** =لرفض عضو • رفض**
-مثال: \`\`=رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+**${prefix}room1 • لعمل روم التقديمات**
+**${prefix}room2 • لعمل روم القبول والرفض**
+**${prefix}لقبول تقديم عضو • قبول**
+مثال: \`\`${prefix}قبول @منشن عضو \`\`
+** ${prefix}لرفض عضو • رفض**
+مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
 **__اوامر الــحــمــايــة__**  
-**  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-**  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-**  =settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-**  =settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-**  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-**  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
-**  =antibots on •  منع دخول بوتات**
-**  =antibots off •  فتح دخول البوتات**`);
+**${prefix}settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
+**${prefix}settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
+**${prefix}settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
+**${prefix}settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
+**${prefix}settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
+**${prefix}settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+**${prefix}antibots on •  منع دخول بوتات**
+**${prefix}antibots off •  فتح دخول البوتات**`);
         })
         .then(e => {
           message.react("✅");
@@ -2951,7 +2952,7 @@ client.on("message", async message => {
     credits[mention.id].credits += +args[1];
     fs.writeFileSync("./credits.json", JSON.stringify(credits));
     console.log(credits[mention.id]);
-    message.reply(`**, Adedd Money For : \`${args[1]}\`Done`);
+    message.reply(`** Adedd Money For : \`${args[1]}\` Done **`);
   } else if (Fire === "removecredits") {
     let args = message.content.split(" ");
     if (!devs.includes(message.author.id)) return;
