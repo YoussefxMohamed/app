@@ -268,88 +268,6 @@ client.on("message", async message => {
 });
 
 client.on("message", message => {
-  if (message.content.split(" ")[0] == `ban`) {
-    if (!message.guild || message.author.bot) return undefined;
-    if (!message.member.hasPermission("BAN_MEMBERS"))
-      return message.channel.send("You don't have permission.");
-    if (!message.guild.member(client.user).hasPermission("BAN_MEMBERS"))
-      return message.channel.send("I don't have permission.");
-    let args = message.content.split(" ").slice(1);
-    let user =
-      message.guild.members.get(message.content.split(" ")[1]) ||
-      message.mentions.members.first();
-    let reason = message.content
-      .split(" ")
-      .slice(2)
-      .join(" ");
-    if (!user)
-      return message.channel.send(`Usage: ${prefix}ban @mention reason`);
-    if (!reason) reason = "No reason provided.";
-    if (user.user.id === message.author.id)
-      return message.channel.send("You can't ban yourself!");
-    if (
-      message.guild.member(user.user).highestRole.position >=
-      message.guild.member(client.user).highestRole.position
-    )
-      return message.channel.send(
-        `I can't ban **${user.user.tag}** because his role highest than my role!`
-      );
-    if (
-      message.guild.member(user.user).highestRole.position >=
-      message.member.highestRole.position
-    )
-      return message.channel.send(
-        `You can't ban **${user.user.tag}** because his role highest than your role.!`
-      );
-
-    if (!message.guild.member(user.user).bannable)
-      return message.channel.send(`I can't ban **${user.user.tag}**.`);
-    message.guild.member(user).ban(reason, user);
-    message.channel.send(
-      `Done :+1:, I Banned ${user.user.username} from the server!\nReason: \`\`${reason}\`\``
-    );
-  }
-});
-
-client.on("message", async message => {
-  let args = message.content.split(" ");
-  if (args[0] == prefix + `kick`) {
-    if (!message.guild || message.author.bot) return undefined;
-    if (
-      !message.member.hasPermission("KICK_MEMBERS") ||
-      !message.guild.member(client.user).hasPermission("KICK_MEMBERS")
-    )
-      return;
-    let user =
-      message.guild.members.get(args[1]) || message.mentions.members.first();
-    let reason = args.slice(2).join(" ");
-    if (!user)
-      return message.channel.send(`**Usage:** ${prefix}kick @member [reason]`);
-    if (!reason) reason = "No reason provided.";
-    if (
-      message.guild.member(user.user).highestRole.position >=
-      message.guild.member(message.member).highestRole.position
-    )
-      return message.channel.send(
-        `You cant kick **${user.user.username}** because his role highest than your role!`
-      );
-    if (
-      message.guild.member(user.user).highestRole.position >=
-      message.guild.member(client.user).highestRole.position
-    )
-      return message.channel.send(
-        `I cant kick **${user.user.username}** because his role highest than my role!`
-      );
-    if (!message.guild.member(user.user).kickable)
-      return message.channel.send(`I cant kick **${user.user.username}**.`);
-    await message.guild.member(user).kick(reason, user);
-    await message.channel.send(
-      `**${user.user.username}** has been kicked from the server! \`\`${reason}\`\``
-    );
-  }
-});
-
-client.on("message", message => {
   if (message.content.startsWith(prefix + "avt")) {
     if (message.author.bot || message.channel.type == "dm") return;
     var args = message.content.split(" ")[1];
@@ -3609,7 +3527,7 @@ client.on("message", message => {
 
 client.on("message", async message => {
     let mention = message.mentions.members.first();
-  let role = message.content
+  let role = message.content  
     .split(" ")
     .slice(2)
     .join(" ");
