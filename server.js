@@ -3709,28 +3709,9 @@ let cmds = {
   nowplaying: { cmd: 'Nowplaying', a: ['np', 'الان'] }
 };
 
-client.on('ready',async () => {
-  setInterval(() => {
-client.channels.find(ch => ch.id === CHANNELID && ch.type === 'voice').join();
-},1000); 
- voiceStay(GUILDID, CHANNELID);
-  function voiceStay(guildid, channelid) {
-    if(!guildid) throw new Error('Syntax: voiceStay function requires guildid');
-    if(!channelid) throw new Error('Syntax: voiceStay function requires channelid');
 
-    let guild = client.guilds.get(guildid);
-    let channel = guild.channels.get(channelid);
-
-    if(channel.type === 'voice') {
-      channel.join().catch(e => {
-        console.log(`Failed To Join :: ${e.message}`);
-      });
-    } else {
-      console.log(`Channel Type ::  ${channel.type}, It must be Voice.`);
-    }
-  }
-});
-
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
 
 Object.keys(cmds).forEach(key => {
 var value = cmds[key];
@@ -4250,4 +4231,5 @@ client.on('message', message => {
       message.reply('\` يجب الدخول الى روم صوتي\`');
     }
   }
+})
 /// تعديل مهم هذا فقط تنبيه تم حذف الاكواد المتكررة والاكواد الخاطئة وتم اضافة تنبيهات مثل الميوزك وروم الهاك لوج تم حذف تغير ايدي سيرفرك
