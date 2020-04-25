@@ -876,37 +876,8 @@ client.on("message", message => {
   }
 });
 
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === prefix + "1help") {
-    message.author
-      .send(
-        ` ✽ **__ ${client.user.username}__**
-**__الاوامر العامه__** 
-**  =bot • لعرض معلومات عن البوت** 
-**  =user • لعرض معلومات عنك** 
-**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
-**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
-**  =color • لأختيار لونك في السيرفر **
 
 
-`
-      )
-      .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      });
-  }
-});
 client.on("message", function(message) {
   if (!message.channel.guild) return;
   if (message.author.bot) return;
@@ -961,13 +932,22 @@ client.on("message", function(message) {
       }
   }
 });
+
+
+
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === prefix + "2help") {
+  if (message.content === prefix + "help") {
+if(message.author.id == message.guild.ownerID){
+ message.author.send(`   
+**__الاوامر العامه__** 
+**  =bot • لعرض معلومات عن البوت** 
+**  =user • لعرض معلومات عنك** 
+**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
+**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
+**  =color • لأختيار لونك في السيرفر **
 
-
-    message.author.send(` ✽ **__Premium Bot v1__**
-   **__الاوامر الإداريــه__** ✽ 
+**__الاوامر الإداريــه__** ✽ 
 **  =clear • لمسح الشات** 
 **  =ban • لتبنيد شخص** 
 **  =kick • لاعطاء كيك لشخص** 
@@ -978,99 +958,7 @@ client.on("message", message => {
 **  =new •  فتح التكت**
 **  =say • البوت يكرر كلامك**
 **  =move •  لسحب الشخص الى روومك**
-**  =giveaway •   يسويلك قف اوي علي الشي الي تبيه**
-** #bc •  لعمل برودكاست**
-`)      .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
 
-          })
-        );
-      });
-  }
-});
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === prefix + "3help") {
-   
-
-    message.author.send(`  **__Premium Bot v1__**
-  **أوامر الــمــوســيــقــى** 
-
-=play :** لتشغيل اُغنية**
-مثال : play bad guy=
-
-=vol : **لرفع صوت الموسيقى **
-مثال : vol 50=
-
-** لايقاف الاغنية ** :  stop=
-=skip :** لتخطي الاغنية الحالية**
-=repeat : **لتكرار الاغنية**
-=help : **لمعرفة اكثر عن البوت**  
-`)      .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      });
-  }
-});
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === prefix + "4help") {
-    if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
-
-  
-    message.author.send(`**__Premium Bot v1__**
-**__اوامر الــحــمــايــة__**  
-**  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-**  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-**  =settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-**  =settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-**  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-**  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
-**  =antibots on •  منع دخول بوتات**
-**  =antibots off •  فتح دخول البوتات**
-`)      .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      });
-  }
-});
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === prefix + "5help") {
-
-
-    message.author.semd(` **__Premium Bot v1__**
-
-
-** =creatcolores • صنع ألوان **
 ** =colors • غير لونك ** 
 ** =inf • عدد الدعوات للسيرفر**
 ** =credits • لمعرفة رصيدكك ** 
@@ -1100,27 +988,16 @@ client.on("message", message => {
 ** =لرفض عضو • رفض**
 مثال: \`\`=رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
-`)      .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      });
-  }
-});
-
-client.on("message", message => {
-  if (message.author.bot) return;
-  if (message.content === prefix + "help") {
-if(message.author.id == message.guild.ownerID){
- message.channel.send() .then(e => {
+**__اوامر الــحــمــايــة__**  
+**  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
+**  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
+**  =settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
+**  =settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
+**  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
+**  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+**  =antibots on •  منع دخول بوتات**
+**  =antibots off •  فتح دخول البوتات**
+  `) .then(e => {
         message.react("✅");
       })
       .catch(() => {
@@ -1134,7 +1011,55 @@ if(message.author.id == message.guild.ownerID){
         );
       }); 
 }else{
-  message.channel.send() .then(e => {
+ message.author.send(`   
+**__الاوامر العامه__** 
+**  =bot • لعرض معلومات عن البوت** 
+**  =user • لعرض معلومات عنك** 
+**  =avt • يعرض لك صورت  اي شخص عن طريق الايدي** 
+**  =avatar • لعرض صورتك أو صورة الي تمنشنه** 
+**  =color • لأختيار لونك في السيرفر **
+
+**__الاوامر الإداريــه__** ✽ 
+**  =clear • لمسح الشات** 
+**  =ban • لتبنيد شخص** 
+**  =kick • لاعطاء كيك لشخص** 
+**  =open • لفتح الشات** 
+**  =close • لقفل الشات** 
+**  =mute • لاعطاء ميوت لشخص** 
+**  =unmute • لفك ميوت عن شخص** 
+**  =new •  فتح التكت**
+**  =say • البوت يكرر كلامك**
+**  =move •  لسحب الشخص الى روومك**
+
+** =colors • غير لونك ** 
+** =inf • عدد الدعوات للسيرفر**
+** =credits • لمعرفة رصيدكك ** 
+** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily= كل 6 ساعات \`**
+** =removecredits • لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
+** مثال : \` =removecredits 500 \`**
+** =addcredits • لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
+** مثال : \`addcredits 500= \`**
+** =setLog • تحديد روم اللوق**
+** =setby • تحديد روم المغادرة**
+**=setWelcomer <channel name> • لتحديد روم الولكم **
+**=setMessage • لتحديد رسالة الترحيب **
+**=setVc <channel name> • لتحديد روم الفويس اونلاين **
+**=vc off • لإغلاق روم الفويس اونلاين**
+**=ls • لإظهار جميع بوتات السيرفر**
+**==wt • لتغير الحالة إلى واتشنق**
+**==pl • لتغير الحالة إلى بلاينق**
+**==st • لتغير الحالة إلى ستريمنق"تويتش**
+**==ls • لتغير الحالة إلى ليسننق **
+**==setname • لتغير أسم البوت**
+**==setavatar • لتغير صورة البوت**
+\`\`اوامر التقديم\`\`
+**=room1 • لعمل روم التقديمات**
+**=room2 • لعمل روم القبول والرفض**
+**=لقبول تقديم عضو • قبول**
+مثال: \`\`=قبول @منشن عضو \`\`
+** =لرفض عضو • رفض**
+مثال: \`\`=رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+  `) .then(e => {
         message.react("✅");
       })
       .catch(() => {
@@ -3151,11 +3076,14 @@ client.on("guildMemberAdd", member => {
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
     if (!logChannel) return;
-    let msg = await welcome[member.guild.id].msg
-      .replace("[member]", `<@!${member.id}>`)
-      if(inviter.id == undefine) {
-msg.replace("[inviter]", `<@${inviter.id}>`);
-      }e
+    let msg = await 
+      welcome[member.guild.id].msg.replace("[member]", `<@!${member.id}>`)
+      if(inviter.id == undefined) {
+welcome[member.guild.id].msg.replace("[inviter]", `<@${member.guild.ownerID}>`);
+      }else{
+        welcome[member.guild.id].msg.replace("[inviter]", `<@${inviter.id}>`);
+
+      }
     setTimeout(() => {
       logChannel.send(msg);
     }, 2000);
