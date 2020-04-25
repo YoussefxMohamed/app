@@ -876,8 +876,6 @@ client.on("message", message => {
   }
 });
 
-
-
 client.on("message", function(message) {
   if (!message.channel.guild) return;
   if (message.author.bot) return;
@@ -933,13 +931,13 @@ client.on("message", function(message) {
   }
 });
 
-
-
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-            if (message.author.id == message.guild.ownerID) {
-    message.author.send(`   
+    if (message.author.id == message.guild.ownerID) {
+      message.author
+        .send(
+          `   
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -958,8 +956,10 @@ client.on("message", message => {
 **  =new •  فتح التكت**
 **  =say • البوت يكرر كلامك**
 **  =move •  لسحب الشخص الى روومك**
-  `).then(() =>{
-      message.author.send(`** =colors • غير لونك ** 
+  `
+        )
+        .then(() => {
+          message.author.send(`** =colors • غير لونك ** 
 ** =inf • عدد الدعوات للسيرفر**
 ** =credits • لمعرفة رصيدكك ** 
 ** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily= كل 6 ساعات \`**
@@ -996,22 +996,24 @@ client.on("message", message => {
 **  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
 **  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
 **  =antibots on •  منع دخول بوتات**
-**  =antibots off •  فتح دخول البوتات**`)
-    }).then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      });
-}else{
- message.author.send(`   
+**  =antibots off •  فتح دخول البوتات**`);
+        })
+        .then(e => {
+          message.react("✅");
+        })
+        .catch(() => {
+          return message.channel
+            .send(
+              "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+            )
+            .then(() => {
+              return message.react("❌");
+            });
+        });
+    } else {
+      message.author
+        .send(
+          `   
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -1060,20 +1062,21 @@ client.on("message", message => {
 مثال: \`\`=قبول @منشن عضو \`\`
 ** =لرفض عضو • رفض**
 مثال: \`\`=رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
-  `) .then(e => {
-        message.react("✅");
-      })
-      .catch(() => {
-        return (
-          message.channel.send(
-            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
-          ).then(() =>{
-              return message.react("❌") 
-
-          })
-        );
-      });
-}
+  `
+        )
+        .then(e => {
+          message.react("✅");
+        })
+        .catch(() => {
+          return message.channel
+            .send(
+              "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+            )
+            .then(() => {
+              return message.react("❌");
+            });
+        });
+    }
   }
 });
 
@@ -1083,7 +1086,7 @@ client.on("message", message => {
   if (!message.guild || message.author.bot) return;
   if (message.content == prefix + "colors") {
     var fsn = require("fs-nextra");
-    fs.readdir("./colors", async (err, files) => {
+    fs.readdir("https://cdn.discordapp.com/attachments/703582696554627115/703601865656631306/file.jpg", async (err, files) => {
       var f = files[Math.floor(Math.random() * files.length)];
       var { Canvas } = require("canvas-constructor");
       var x = 0;
@@ -3008,7 +3011,7 @@ client.on("message", async message => {
         channel: room,
         onoff: "On",
         by: "On",
-        msg:`**Welcome [member], You Joined by [inviter] invite**`
+        msg: `**Welcome [member], You Joined by [inviter] invite**`
       };
       fs.writeFile("./welcomer.json", JSON.stringify(welcome), err => {
         if (err) console.error(err);
@@ -3045,7 +3048,7 @@ client.on("message", async message => {
   }
 });
 const wait = require("util").promisify(setTimeout);
-/*
+
 client.on("ready", () => {
   wait(1000);
 
@@ -3055,7 +3058,7 @@ client.on("ready", () => {
     });
   });
 });
-*/
+
 client.on("guildMemberAdd", member => {
   let channel = member.guild.channels.find(
     c => c.name == welcome[member.guild.id].channel
@@ -3077,14 +3080,18 @@ client.on("guildMemberAdd", member => {
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
     if (!logChannel) return;
-    let msg = await 
-      welcome[member.guild.id].msg.replace("[member]", `<@!${member.id}>`)
-      if(inviter.id == undefined) {
-welcome[member.guild.id].msg.replace("[inviter]", `<@${member.guild.ownerID}>`);
-      }else{
-        welcome[member.guild.id].msg.replace("[inviter]", `<@${inviter.id}>`);
-
-      }
+    let msg = await welcome[member.guild.id].msg.replace(
+      "[member]",
+      `<@!${member.id}>`
+    );
+    if (inviter.id == undefined) {
+      welcome[member.guild.id].msg.replace(
+        "[inviter]",
+        `<@${member.guild.ownerID}>`
+      );
+    } else {
+      welcome[member.guild.id].msg.replace("[inviter]", `<@${inviter.id}>`);
+    }
     setTimeout(() => {
       logChannel.send(msg);
     }, 2000);
@@ -3427,8 +3434,8 @@ client.on("message", message => {
     message.channel.send("**✅ تم انشاء روم التقديمات بنجاح**");
   }
 });
-/*client.on("message", async message => {
-//''  let mention = message.mentions.members.first();
+client.on("message", async message => {
+    let mention = message.mentions.members.first();
   let role = message.content
     .split(" ")
     .slice(2)
@@ -3457,7 +3464,7 @@ client.on("message", message => {
     }
   }
 });
-*/
+
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "رفض")) {
     if (!message.channel.guild) return;
