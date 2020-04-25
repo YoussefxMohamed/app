@@ -9,7 +9,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://fivem-community99.glitch.me/`);
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
 const { Client, RichEmbed } = require("discord.js");
@@ -45,18 +45,6 @@ const Discord = require("discord.js");
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-console.log("==================================");
-console.log("1");
-console.log("2");
-console.log("3");
-console.log("=========> Bot Online <=========");
-console.log("========> TestBot <========");
-console.log("=======> Token Bot **** <=======");
-console.log("3");
-console.log("2");
-console.log("1");
-console.log("====================================");
-console.log("Bot Online 24/7");
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -924,7 +912,7 @@ client.on("message", function(message) {
             message.channel.bulkDelete(messages);
             var messagesDeleted = messages.array().length;
             message.channel
-              .sendMessage(
+              .send(
                 " " +
                   "**```fix\n" +
                   messagesDeleted +
@@ -940,7 +928,7 @@ client.on("message", function(message) {
             .fetchMessages({ limit: messagecount })
             .then(messages => message.channel.bulkDelete(messages));
           message.channel
-            .sendMessage(
+            .send(
               " " +
                 "**```fix\n" +
                 args[1] +
@@ -967,7 +955,7 @@ client.on("message", message => {
       `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
-    message.author.sendMessage(` ✽ **__Premium Bot v1__**
+    message.author.send(` ✽ **__Premium Bot v1__**
    **__الاوامر الإداريــه__** ✽ 
 **  =clear • لمسح الشات** 
 **  =ban • لتبنيد شخص** 
@@ -992,7 +980,7 @@ client.on("message", message => {
       `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
-    message.author.sendMessage(`  **__Premium Bot v1__**
+    message.author.send(`  **__Premium Bot v1__**
   **أوامر الــمــوســيــقــى** 
 
 =play :** لتشغيل اُغنية**
@@ -1019,7 +1007,7 @@ client.on("message", message => {
       `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
-    message.author.sendMessage(`**__Premium Bot v1__**
+    message.author.send(`**__Premium Bot v1__**
 **__اوامر الــحــمــايــة__**  
 **  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
 **  =settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
@@ -1039,7 +1027,7 @@ client.on("message", message => {
       `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
 
-    message.author.sendMessage(` **__Premium Bot v1__**
+    message.author.semd(` **__Premium Bot v1__**
 
 
 ** =creatcolores • صنع ألوان **
@@ -1082,7 +1070,7 @@ client.on("message", message => {
     message.channel.send(
       `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
     );
-    message.author.sendMessage(`  **__Premium Bot v1__**> 
+    message.author.send(`  **__Premium Bot v1__**> 
 ** Help Menu**
 ----------------------------
 > ** =1help ** ** الاوامر العامه  **
@@ -1884,7 +1872,7 @@ client.on("message", ra3d => {
   if (ra3d.content.startsWith(prefix + "ccolors")) {
     if (!args) return ra3d.channel.send("`يرجي اختيار كم لون `");
     if (!ra3d.member.hasPermission("MANAGE_ROLES"))
-      return ra3d.channel.sendMessage(
+      return ra3d.channel.send(
         "`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**"
       );
     ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
@@ -3193,7 +3181,7 @@ client.on("message", message => {
         maxUses: 5,
         maxAge: 86400
       })
-      .then(invite => message.author.sendMessage(invite.url));
+      .then(invite => message.author.send(invite.url));
     const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(
