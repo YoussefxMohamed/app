@@ -74,12 +74,7 @@ client.on("message", message => {
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
-    if (
-      message.guild.channels.exists(
-        "name",
-        `ticket-` + message.author.id
-      )
-    )
+    if (message.guild.channels.exists("name", `ticket-` + message.author.id))
       return message.channel.send(`You already have a ticket open.`);
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
@@ -142,8 +137,6 @@ client.on("message", async message => {
     }
   }
 });
-
-
 
 client.on("message", pixelbot => {
   // itzZa1D - Codes Team.
@@ -273,8 +266,6 @@ client.on("message", async message => {
     });
   }
 });
-
-
 
 client.on("message", message => {
   if (message.content.split(" ")[0] == `ban`) {
@@ -421,7 +412,6 @@ client.on("message", message => {
     message.channel.sendEmbed(embed);
   }
 });
-
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -613,8 +603,6 @@ client.on("message", message => {
 client.on("error", err => {
   console.log(err);
 });
-
-
 
 client.on("messageCreate", async message => {
   let args = message.cleanContent.split(" ");
@@ -891,9 +879,9 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "1help") {
-  
-
-    message.author.send(` ✽ **__ ${client.user.username}__**
+    message.author
+      .send(
+        ` ✽ **__ ${client.user.username}__**
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -902,15 +890,22 @@ client.on("message", message => {
 **  =color • لأختيار لونك في السيرفر **
 
 
-`).then(e => {
-   message.react("✅")    
-    }).catch(() =>{
-      return message.react("❌")
-     return  message.channel.send("**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **")
-      
-    })
+`
+      )
+      .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
   }
-  
 });
 client.on("message", function(message) {
   if (!message.channel.guild) return;
@@ -969,9 +964,7 @@ client.on("message", function(message) {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "2help") {
-    message.channel.send(
-      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
-    );
+
 
     message.author.send(` ✽ **__Premium Bot v1__**
    **__الاوامر الإداريــه__** ✽ 
@@ -987,16 +980,26 @@ client.on("message", message => {
 **  =move •  لسحب الشخص الى روومك**
 **  =giveaway •   يسويلك قف اوي علي الشي الي تبيه**
 ** #bc •  لعمل برودكاست**
-`);
+`)      .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
   }
 });
 
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "3help") {
-    message.channel.send(
-      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
-    );
+   
 
     message.author.send(`  **__Premium Bot v1__**
   **أوامر الــمــوســيــقــى** 
@@ -1011,7 +1014,19 @@ client.on("message", message => {
 =skip :** لتخطي الاغنية الحالية**
 =repeat : **لتكرار الاغنية**
 =help : **لمعرفة اكثر عن البوت**  
-`);
+`)      .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
   }
 });
 
@@ -1021,10 +1036,7 @@ client.on("message", message => {
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
 
-    message.channel.send(
-      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
-    );
-
+  
     message.author.send(`**__Premium Bot v1__**
 **__اوامر الــحــمــايــة__**  
 **  =settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
@@ -1035,15 +1047,25 @@ client.on("message", message => {
 **  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
 **  =antibots on •  منع دخول بوتات**
 **  =antibots off •  فتح دخول البوتات**
-`);
+`)      .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
   }
 });
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "5help") {
-    message.channel.send(
-      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
-    );
+
 
     message.author.semd(` **__Premium Bot v1__**
 
@@ -1078,84 +1100,116 @@ client.on("message", message => {
 ** =لرفض عضو • رفض**
 مثال: \`\`=رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
-`);
+`)      .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
   }
 });
 
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-    message.channel.send(
-      `**تم ارسال الأوامر على الخاص | :ballot_box_with_check: **`
-    );
-    message.author.send(`  **__Premium Bot v1__**> 
-** Help Menu**
-----------------------------
-> ** =1help ** ** الاوامر العامه  **
-> ** =2help ** ** الاوامر الإداريه  **
-> ** =3help ** ** أوامر الموسيقى   **
-> ** =4help ** ** أوامر الحماية (للاونر فقط)   **
-> ** =5help ** ** اوامر مميزه  **
- **__Done__** 
-   `);
+if(message.author.id == message.guild.ownerID){
+ message.channel.send() .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      }); 
+}else{
+  message.channel.send() .then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
+}
   }
 });
 
-//all copyrighit for revenge https://github.com/Bowlingtoolkit 
-/// 
+//all copyrighit for revenge https://github.com/Bowlingtoolkit
+///
 client.on("message", message => {
-    if (!message.guild || message.author.bot) return;
-    if (message.content == ".colors") {
-        var fsn = require('fs-nextra');
-        fs.readdir('./colors', async (err, files) => {
-            var f = files[Math.floor(Math.random() * files.length)];
-            var {
-                Canvas
-            } = require('canvas-constructor');
-            var x = 0;
-            var y = 0;
-            if (message.guild.roles.filter(role => !isNaN(role.name)).size <= 0) return;
-            message.guild.roles.filter(role => !isNaN(role.name)).sort((b1, b2) => b1.name - b2.name).forEach(() => {
-                x += 100;
-                if (x > 100 * 12) {
-                    x = 100;
-                    y += 80;
-                }
-            });
-            var image = await fsn.readFile(`./colors/${f}`);
-            var xd = new Canvas(100 * 11, y + 350) // كانت 250 يلي هو الحين 350
-                .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100) // يلي هي الحين 350 كانت 250 و يلي هي الحين 100 كانت 50
-                .setTextBaseline('middle')
-                .setColor('white')
-                .setTextSize(60)
-                .addText(`قائمة الألوان`, 375, 40);
-            x = 0;
-            y = 150;
-            message.guild.roles.filter(role => !isNaN(role.name)).sort((b1, b2) => b1.name - b2.name).forEach(role => {
-                x += 75;
-                if (x > 100 * 10) {
-                    x = 75;
-                    y += 80;
-                }
-                xd
-                    .setTextBaseline('middle')
-                    .setTextAlign('center')
-                    .setColor(role.hexColor)
-                    .addBeveledRect(x, y, 60, 60, 15)
-                    .setColor('white');
-                if (`${role.name}`.length > 2) {
-                    xd.setTextSize(30);
-                } else if (`${role.name}`.length > 1) {
-                    xd.setTextSize(40);
-                } else {
-                    xd.setTextSize(50);
-                }
-                xd.addText(role.name, x + 30, y + 30);
-            });
-            message.channel.sendFile(xd.toBuffer());
+  if (!message.guild || message.author.bot) return;
+  if (message.content == prefix + "colors") {
+    var fsn = require("fs-nextra");
+    fs.readdir("./colors", async (err, files) => {
+      var f = files[Math.floor(Math.random() * files.length)];
+      var { Canvas } = require("canvas-constructor");
+      var x = 0;
+      var y = 0;
+      if (message.guild.roles.filter(role => !isNaN(role.name)).size <= 0)
+        return;
+      message.guild.roles
+        .filter(role => !isNaN(role.name))
+        .sort((b1, b2) => b1.name - b2.name)
+        .forEach(() => {
+          x += 100;
+          if (x > 100 * 12) {
+            x = 100;
+            y += 80;
+          }
         });
-    }
-})
+      var image = await fsn.readFile(`./colors/${f}`);
+      var xd = new Canvas(100 * 11, y + 350) // كانت 250 يلي هو الحين 350
+        .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100) // يلي هي الحين 350 كانت 250 و يلي هي الحين 100 كانت 50
+        .setTextBaseline("middle")
+        .setColor("white")
+        .setTextSize(60)
+        .addText(`قائمة الألوان`, 375, 40);
+      x = 0;
+      y = 150;
+      message.guild.roles
+        .filter(role => !isNaN(role.name))
+        .sort((b1, b2) => b1.name - b2.name)
+        .forEach(role => {
+          x += 75;
+          if (x > 100 * 10) {
+            x = 75;
+            y += 80;
+          }
+          xd.setTextBaseline("middle")
+            .setTextAlign("center")
+            .setColor(role.hexColor)
+            .addBeveledRect(x, y, 60, 60, 15)
+            .setColor("white");
+          if (`${role.name}`.length > 2) {
+            xd.setTextSize(30);
+          } else if (`${role.name}`.length > 1) {
+            xd.setTextSize(40);
+          } else {
+            xd.setTextSize(50);
+          }
+          xd.addText(role.name, x + 30, y + 30);
+        });
+      message.channel.sendFile(xd.toBuffer());
+    });
+  }
+});
 
 ////تعديل مهم
 
@@ -1890,9 +1944,7 @@ client.on("message", ra3d => {
   if (ra3d.content.startsWith(prefix + "ccolors")) {
     if (!args) return ra3d.channel.send("`يرجي اختيار كم لون `");
     if (!ra3d.member.hasPermission("MANAGE_ROLES"))
-      return ra3d.channel.send(
-        "`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**"
-      );
+      return ra3d.channel.send("`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**");
     ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
     setInterval(function() {});
     let count = 0;
@@ -1902,8 +1954,6 @@ client.on("message", ra3d => {
     }
   }
 });
-
-
 
 ///// تعديل مهم كود دخول وخروج العضو
 
@@ -1939,7 +1989,6 @@ client.on("message", message => {
     });
   }
 });
-
 
 client.on("message", message => {
   if (!message.channel.guild) return;
@@ -3033,7 +3082,7 @@ client.on("message", async message => {
         channel: room,
         onoff: "On",
         by: "On",
-        msg: "**Welcome [member], You Joined by [inviter] invite**"
+        msg:`**Welcome [member], You Joined by [inviter] invite**`
       };
       fs.writeFile("./welcomer.json", JSON.stringify(welcome), err => {
         if (err) console.error(err);
@@ -3104,7 +3153,9 @@ client.on("guildMemberAdd", member => {
     if (!logChannel) return;
     let msg = await welcome[member.guild.id].msg
       .replace("[member]", `<@!${member.id}>`)
-      .replace("[inviter]", `<@${inviter.id}>`);
+      if(inviter.id == undefine) {
+msg.replace("[inviter]", `<@${inviter.id}>`);
+      }e
     setTimeout(() => {
       logChannel.send(msg);
     }, 2000);
@@ -3287,9 +3338,8 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
 
 //// تعديل مهم الحالة والاسم والصورة
 client.on("ready", () => {
-    console.log("hi");
+  console.log("hi");
 });
-
 
 ////تعديل مهم كود التقديم
 
