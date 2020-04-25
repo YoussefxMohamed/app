@@ -12,6 +12,7 @@ setInterval(() => {
   http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 280000);
 
+////بكجات
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const { prefix, devs } = require("./config");
@@ -64,6 +65,7 @@ client.on("message", message => {
   }
 });
 
+////كود تيكت
 client.on("message", message => {
   if (message.content.startsWith(prefix + "new")) {
     const reason = message.content
@@ -138,6 +140,7 @@ client.on("message", async message => {
   }
 });
 
+//// كود معلومات الشخص او اليوزر
 client.on("message", pixelbot => {
   // itzZa1D - Codes Team.
   if (pixelbot.content.startsWith(prefix + "user")) {
@@ -179,6 +182,7 @@ client.on("message", pixelbot => {
   }
 }); // itzZa1D - Codes Team.
 
+////كود معلومات البوت
 client.on("message", message => {
   if (message.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
@@ -963,12 +967,12 @@ client.on("message", message => {
 مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
 **__اوامر الــحــمــايــة__**  
-**\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-**\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-**\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-**\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-**\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-**\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+**\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده **
+**\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده **
+**\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده **
+**\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده **
+**\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده **
+**\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده**
 **\`${prefix}antibots on\` : منع دخول بوتات**
 **\`${prefix}antibots off\` : فتح دخول البوتات**`);
         })
@@ -1034,12 +1038,12 @@ ${prefix}colors • غير لونك **
 مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
 **__اوامر الــحــمــايــة__**  
-**${prefix}settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-**${prefix}settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-**${prefix}settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-**${prefix}settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-**${prefix}settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-**${prefix}settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+**\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده **
+**\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده **
+**\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده **
+**\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده **
+**\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده **
+**\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده**
 **${prefix}antibots on •  منع دخول بوتات**
 **${prefix}antibots off •  فتح دخول البوتات**`);
         })
@@ -3586,6 +3590,7 @@ client.on("message", message => {
 	} 
 });
 
+
 client.on("message", async message => {
     let mention = message.mentions.members.first();
   let role = message.content  
@@ -3682,6 +3687,7 @@ client.on('message', async msg =>{
         }
     };
 });
+
 /////////////////////////
 ////////////////////////
 //////////////////////
