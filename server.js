@@ -917,7 +917,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-**__الاوامر العامه__** 
+**__الاوامر العامه__** ✽
 ** \`${prefix}bot\` : لعرض معلومات عن البوت** 
 ** \`${prefix}user\` : لعرض معلومات عنك** 
 ** \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي** 
@@ -930,47 +930,47 @@ client.on("message", message => {
 ** \`${prefix}kick\` : لاعطاء كيك لشخص** 
 ** \`${prefix}open\` : لفتح الشات** 
 ** \`${prefix}close\` : لقفل الشات** 
-** `${prefix}mute\` : لاعطاء ميوت لشخص** 
-** `${prefix}unmute\` : لفك ميوت عن شخص** 
-** `${prefix}new\` : فتح التكت**
-** `${prefix}say` : البوت يكرر كلامك**
-** `${prefix}move` : لسحب الشخص الى روومك**
+** \`${prefix}mute\` : لاعطاء ميوت لشخص** 
+** \`${prefix}unmute\` : لفك ميوت عن شخص** 
+** \`${prefix}new\` : فتح التكت**
+** \`${prefix}say\` : البوت يكرر كلامك**
+** \`${prefix}move\` : لسحب الشخص الى روومك**
   `
         )
         .then(() => {
           message.author.send(`**
-${prefix}colors • غير لونك ** 
-**${prefix}inf • عدد الدعوات للسيرفر**
-**${prefix}credits • لمعرفة رصيدكك ** 
+\`${prefix}colors\` : غير لونك ** 
+**\`${prefix}inf\` : عدد الدعوات للسيرفر**
+**\`${prefix}credits\` : لمعرفة رصيدكك ** 
 ** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily${prefix} كل 6 ساعات \`**
-**${prefix}removecredits • لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
+**\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
 ** مثال : \` ${prefix}removecredits 500 \`**
-**${prefix}addcredits • لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
+**\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
 ** مثال : \`addcredits 500${prefix} \`**
-**${prefix}setLog • تحديد روم اللوق**
-**${prefix}setby • تحديد روم المغادرة**
-**${prefix}setWelcomer <channel name> • لتحديد روم الولكم **
-**${prefix}setMessage • لتحديد رسالة الترحيب **
-**${prefix}setVc <channel name> • لتحديد روم الفويس اونلاين **
-**${prefix}vc off • لإغلاق روم الفويس اونلاين**
-**${prefix}ls • لإظهار جميع بوتات السيرفر**
+**\`${prefix}setLog\` :  تحديد روم اللوق**
+**\`${prefix}setby\` : تحديد روم المغادرة**
+**\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم **
+**\`${prefix}setMessage\` : لتحديد رسالة الترحيب **
+**\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين **
+**\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين**
+**\`${prefix}ls\` : لإظهار جميع بوتات السيرفر**
 \`\`اوامر التقديم\`\`
-**${prefix}room1 • لعمل روم التقديمات**
-**${prefix}room2 • لعمل روم القبول والرفض**
-**${prefix}لقبول تقديم عضو • قبول**
+**\`${prefix}room1\` : لعمل روم التقديمات**
+**\`${prefix}room2\` : لعمل روم القبول والرفض**
+**\`${prefix}لقبول تقديم عضو : \`قبول**
 مثال: \`\`${prefix}قبول @منشن عضو \`\`
-** ${prefix}لرفض عضو • رفض**
+** ${prefix}لرفض عضو : رفض**
 مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
 **__اوامر الــحــمــايــة__**  
-**${prefix}settings limitsban •  تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
-**${prefix}settings limitskick • تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
-**${prefix}settings limitsroleD •  تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
-**${prefix}settings limitsroleC •  تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
-**${prefix}settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
-**${prefix}settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
-**${prefix}antibots on •  منع دخول بوتات**
-**${prefix}antibots off •  فتح دخول البوتات**`);
+**\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  بيشتال رتبته **
+**\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 بيشتال رتبته **
+**\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 بيشتال رتبته **
+**\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 بيشتال رتبته **
+**\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
+**\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
+**\`${prefix}antibots on\` : منع دخول بوتات**
+**\`${prefix}antibots off\` : فتح دخول البوتات**`);
         })
         .then(e => {
           message.react("✅");
