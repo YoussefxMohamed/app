@@ -938,8 +938,8 @@ client.on("message", function(message) {
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content === prefix + "help") {
-if(message.author.id == message.guild.ownerID){
-  message.author.send(`   
+            if (message.author.id == message.guild.ownerID) {
+    message.author.send(`   
 **__الاوامر العامه__** 
 **  =bot • لعرض معلومات عن البوت** 
 **  =user • لعرض معلومات عنك** 
@@ -958,8 +958,8 @@ if(message.author.id == message.guild.ownerID){
 **  =new •  فتح التكت**
 **  =say • البوت يكرر كلامك**
 **  =move •  لسحب الشخص الى روومك**
-
-** =colors • غير لونك ** 
+  `).then(() =>{
+      message.author.send(`** =colors • غير لونك ** 
 ** =inf • عدد الدعوات للسيرفر**
 ** =credits • لمعرفة رصيدكك ** 
 ** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily= كل 6 ساعات \`**
@@ -996,8 +996,20 @@ if(message.author.id == message.guild.ownerID){
 **  =settings limitschannelD •  تحدد العدد الي تبيه لو حد مسح روم 3 او 4 بيشتال رتبته **
 **  =settings limitstime •  تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة تنزل رتبتة**
 **  =antibots on •  منع دخول بوتات**
-**  =antibots off •  فتح دخول البوتات**
-  `) 
+**  =antibots off •  فتح دخول البوتات**`)
+    }).then(e => {
+        message.react("✅");
+      })
+      .catch(() => {
+        return (
+          message.channel.send(
+            "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
+          ).then(() =>{
+              return message.react("❌") 
+
+          })
+        );
+      });
 }else{
  message.author.send(`   
 **__الاوامر العامه__** 

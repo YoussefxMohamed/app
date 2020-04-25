@@ -5,7 +5,7 @@ dependencies:
   ascii-data-table: 2.1.1
   better-sqlite-pool: 0.2.3
   canvas: 2.6.1
-  canvas-constructor: 3.1.0
+  canvas-constructor: 3.2.0
   canvas-prebuilt: 1.6.11
   cleverbot.io: 1.0.4
   common-tags: 1.8.0
@@ -1026,14 +1026,14 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==
-  /canvas-constructor/3.1.0:
+  /canvas-constructor/3.2.0:
     dev: false
     engines:
       node: '>=8.6.0'
     peerDependencies:
       canvas: '*'
     resolution:
-      integrity: sha512-S3CIisunkG6IqDIhCecPkm+xx5iTvsum3pDH3a96Tl7uS1h1Me1dfePwBjnt83I2OqtUopZoFYtTgjYpcNV2Aw==
+      integrity: sha512-m62c2LCwctkvs1jLGS/zz74g/uIKF2agx/lJU53XYLDfDnxh37pioXoHYECdv6UeDNeyVhDgn88H8YDA6RFhEw==
   /canvas-prebuilt/1.6.11:
     dependencies:
       node-pre-gyp: 0.10.3
@@ -6800,7 +6800,7 @@ specifiers:
   ascii-data-table: ^2.1.1
   better-sqlite-pool: ^0.2.2
   canvas: ^2.4.1
-  canvas-constructor: ^3.1.0
+  canvas-constructor: ^3.2.0
   canvas-prebuilt: ^1.6.11
   cleverbot.io: ^1.0.4
   common-tags: ^1.8.0
@@ -6817,7 +6817,7 @@ specifiers:
   forever: ^2.0.0
   fortnite: ^4.3.2
   fortnite-api: ^3.2.0
-  fs-nextra: ^0.4.4
+  fs-nextra: ^0.4.7
   get: 1.4.0
   get-youtube-id: ^1.0.1
   gif-search: ^2.0.1
