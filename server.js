@@ -3236,7 +3236,7 @@ client.on("message", message => {
       guild: message.guild.id
     };
     channelfind.setName(
-      `VoiceOnline : ${message.guild.members.filter(m => m.voiceChannel).size}`
+      `VoiceOnline : ${message.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تعديل اسم روم الفويس اونلاين
     );
     message.channel.send("**Done The Voice Online  Is Turned On**");
   }
@@ -3270,7 +3270,7 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
     if (!channel) return;
     let guildid = vojson[oldMember.guild.id].guild;
     channel.setName(
-      `VoiceOnline: ${oldMember.guild.members.filter(m => m.voiceChannel).size}`
+      `VoiceOnline: ${oldMember.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تغير اسم روم الفويس اونلاين
     );
   }
   if (vojson[oldMember.guild.id].stats === "disable") {
