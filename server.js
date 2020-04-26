@@ -3118,6 +3118,8 @@ client.on("ready", () => {
     });
   });
 });
+var gg1;
+var gg2;
 
 client.on("guildMemberAdd", member => {
   let channel = member.guild.channels.find(
@@ -3134,27 +3136,28 @@ client.on("guildMemberAdd", member => {
     invites[member.guild.id] = guildInvites;
     const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
     console.log(invite.inviter)
-    const inviter = await invite.inviter ||
+    const inviter1 = await invite.inviter;
+    const inviter = await 
       client.users.get(invite.inviter.id) ||
       client.users.get(member.guild.owner.user.id);
     const logChannel = member.guild.channels.find(
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
     if (!logChannel) return;
-    let msg = await welcome[member.guild.id].msg.replace(
+    gg1 = await welcome[member.guild.id].msg.replace(
       "[member]",
       `<@!${member.id}>`
     );
-    if (!inviter.id) {
-      welcome[member.guild.id].msg.replace(
+    if (!inviter1.id) {
+    gg2=  welcome[member.guild.id].msg.replace(
         "[inviter]",
         `<@${member.guild.ownerID}>`
       );
     } else {
-      welcome[member.guild.id].msg.replace("[inviter]", `<@${inviter.id}>`);
+    gg2=  welcome[member.guild.id].msg.replace("[inviter]", `<@${inviter1.id}>`);
     }
     setTimeout(() => {
-      logChannel.send(msg);
+      logChannel.send(`${gg1}`);
     }, 2000);
     fs.writeFile("./welcome.json", JSON.stringify(welcome), err => {
       if (err)
