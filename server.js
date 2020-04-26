@@ -2959,7 +2959,7 @@ client.on("guildMemberAdd", async member => {
   if (!channel) return;
   if (channel) {
     const imageUrlRegex = /\?size=2048$/g; ///تعديل غير اساسي
-    const wlcImage = await fsn.readFile("./welcome111.png"); //سم الصورة
+    const wlcImage = await fsn.readFile("./welcome111.png"); //اسم الصورة
     let result = await fetch(
       member.user.displayAvatarURL.replace(imageUrlRegex, "?size=128")
     );
