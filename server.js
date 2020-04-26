@@ -829,25 +829,28 @@ client.on("message", message => {
         .send(
           `   
 **__الاوامر العامه__** ✽
-** \`${prefix}bot\` : لعرض معلومات عن البوت** 
-** \`${prefix}user\` : لعرض معلومات عنك** 
-** \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي** 
-** \`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه** 
-** \`${prefix}color\` : لأختيار لونك في السيرفر **
+**\`${prefix}bot\` : لعرض معلومات عن البوت** 
+**\`${prefix}user\` : لعرض معلومات عنك** 
+**\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي** 
+**\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه** 
+**\`${prefix}color\` : لأختيار لونك في السيرفر **
+**\`${prefix}colors\` : غير لونك ** 
+**\`${prefix}inf\` : عدد الدعوات للسيرفر**
+**\`${prefix}credits\` : لمعرفة رصيدكك ** 
 
 **__الاوامر الإداريــه__** ✽ 
-** \`${prefix}clear\` : لمسح الشات** 
-** \`${prefix}ban\` : لتبنيد شخص** 
-** \`${prefix}kick\` : لاعطاء كيك لشخص** 
-** \`${prefix}open\` : لفتح الشات** 
-** \`${prefix}close\` : لقفل الشات** 
-** \`${prefix}mute\` : لاعطاء ميوت لشخص** 
-** \`${prefix}unmute\` : لفك ميوت عن شخص** 
-** \`${prefix}new\` : فتح التكت**
-** \`${prefix}say\` : البوت يكرر كلامك**
-** \`${prefix}move\` : لسحب الشخص الى روومك**
-** \`${prefix}ccolors\` : لعمل الوان عشوائية **
-** \`${prefix}reply\` : لصنع رد تلقائي**
+**\`${prefix}clear\` : لمسح الشات** 
+**\`${prefix}ban\` : لتبنيد شخص** 
+**\`${prefix}kick\` : لاعطاء كيك لشخص** 
+**\`${prefix}open\` : لفتح الشات** 
+**\`${prefix}close\` : لقفل الشات** 
+**\`${prefix}mute\` : لاعطاء ميوت لشخص** 
+**\`${prefix}unmute\` : لفك ميوت عن شخص** 
+**\`${prefix}new\` : فتح التكت**
+**\`${prefix}say\` : البوت يكرر كلامك**
+**\`${prefix}move\` : لسحب الشخص الى روومك**
+**\`${prefix}ccolors\` : لعمل الوان عشوائية **
+**\`${prefix}reply\` : لصنع رد تلقائي**
 **\`${prefix}setLog\` :  تحديد روم اللوق**
 **\`${prefix}setby\` : تحديد روم المغادرة**
 **\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم **
@@ -870,16 +873,13 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`**
-\`${prefix}colors\` : غير لونك ** 
-**\`${prefix}inf\` : عدد الدعوات للسيرفر**
-**\`${prefix}credits\` : لمعرفة رصيدكك ** 
 ** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily${prefix} كل 6 ساعات \`**
 **\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
 ** مثال : \` ${prefix}removecredits 500 \`**
 **\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
 ** مثال : \`addcredits 500${prefix} \`**
 
-**__اوامر الــحــمــايــة__**  
+**__اوامر الــحــمــايــة__** ✽  
 **\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده **
 **\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده **
 **\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده **
@@ -906,25 +906,28 @@ client.on("message", message => {
         .send(
           `   
 **__الاوامر العامه__** ✽
-** \`${prefix}bot\` : لعرض معلومات عن البوت** 
-** \`${prefix}user\` : لعرض معلومات عنك** 
-** \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي** 
-** \`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه** 
-** \`${prefix}color\` : لأختيار لونك في السيرفر **
+**\`${prefix}bot\` : لعرض معلومات عن البوت** 
+**\`${prefix}user\` : لعرض معلومات عنك** 
+**\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي** 
+**\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه** 
+**\`${prefix}color\` : لأختيار لونك في السيرفر **
+**\`${prefix}colors\` : غير لونك ** 
+**\`${prefix}inf\` : عدد الدعوات للسيرفر**
+**\`${prefix}credits\` : لمعرفة رصيدكك ** 
 
 **__الاوامر الإداريــه__** ✽ 
-** \`${prefix}clear\` : لمسح الشات** 
-** \`${prefix}ban\` : لتبنيد شخص** 
-** \`${prefix}kick\` : لاعطاء كيك لشخص** 
-** \`${prefix}open\` : لفتح الشات** 
-** \`${prefix}close\` : لقفل الشات** 
-** \`${prefix}mute\` : لاعطاء ميوت لشخص** 
-** \`${prefix}unmute\` : لفك ميوت عن شخص** 
-** \`${prefix}new\` : فتح التكت**
-** \`${prefix}say\` : البوت يكرر كلامك**
-** \`${prefix}move\` : لسحب الشخص الى روومك**
-** \`${prefix}ccolors\` : لعمل الوان عشوائية **
-** \`${prefix}reply\` : لصنع رد تلقائي**
+**\`${prefix}clear\` : لمسح الشات** 
+**\`${prefix}ban\` : لتبنيد شخص** 
+**\`${prefix}kick\` : لاعطاء كيك لشخص** 
+**\`${prefix}open\` : لفتح الشات** 
+**\`${prefix}close\` : لقفل الشات** 
+**\`${prefix}mute\` : لاعطاء ميوت لشخص** 
+**\`${prefix}unmute\` : لفك ميوت عن شخص** 
+**\`${prefix}new\` : فتح التكت**
+**\`${prefix}say\` : البوت يكرر كلامك**
+**\`${prefix}move\` : لسحب الشخص الى روومك**
+**\`${prefix}ccolors\` : لعمل الوان عشوائية **
+**\`${prefix}reply\` : لصنع رد تلقائي**
 **\`${prefix}setLog\` :  تحديد روم اللوق**
 **\`${prefix}setby\` : تحديد روم المغادرة**
 **\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم **
@@ -947,16 +950,13 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`**
-\`${prefix}colors\` : غير لونك ** 
-**\`${prefix}inf\` : عدد الدعوات للسيرفر**
-**\`${prefix}credits\` : لمعرفة رصيدكك ** 
 ** ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily${prefix} كل 6 ساعات \`**
 **\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص **
 ** مثال : \` ${prefix}removecredits 500 \`**
 **\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي **
 ** مثال : \`addcredits 500${prefix} \`**
 
-**__اوامر الــحــمــايــة__**  
+**__اوامر الــحــمــايــة__** ✽  
 **\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده **
 **\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده **
 **\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده **
@@ -1131,8 +1131,8 @@ client.on("message", message => {
           }
         });
       var image = await fsn.readFile(`./colors/${f}`);
-      var xd = new Canvas(100 * 11, y + 350) // كانت 250 يلي هو الحين 350
-        .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100) // يلي هي الحين 350 كانت 250 و يلي هي الحين 100 كانت 50
+      var xd = new Canvas(100 * 11, y + 350)     
+        .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100) 
         .setTextBaseline("middle")
         .setColor("white")
         .setTextSize(60)
