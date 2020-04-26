@@ -3069,7 +3069,7 @@ client.on("guildMemberAdd", member => {
     const logChannel = member.guild.channels.find(
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
-    if (!logChannel) return;
+    if (!logChannel) return console.log("I can't find welcomeChannel");
    gg1 = await welcome[member.guild.id].msg.replace(
       "[member]",
       `<@!${member.id}>`
