@@ -730,8 +730,6 @@ client.on("message", message => {
   }
 });
 
-//// تعديل مهم لا تعطي رتب
-
 
 client.on("message", function(message) {
   if (!message.channel.guild) return;
@@ -2947,7 +2945,7 @@ client.on("guildMemberAdd", async member => {
         ? member.user.username.substring(0, 11) + "..."
         : member.user.username;
 
-    // تعديل مهم : هنا خيارات الصورة لو تبى تغيرها
+    // تعديل غير اساسي : هنا خيارات الصورة لو تبى تغيرها
 
     //Welcome Image (background)
     var imageWidth = 500; //عرض الصورة
