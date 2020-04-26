@@ -35,10 +35,10 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk");
+const youtube = new YouTube("AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"); //تعديل اساسي سوي اي بي اي جديد 
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk";
+const yt_api_key = "AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"; ///تعديل اساسي سوي اي بي اي جديد
 const pretty = require("pretty-ms");
 client.login(process.env.BOT_TOKEN);
 const queue = new Map();
@@ -198,21 +198,13 @@ client.on("message", message => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@416602464020594698>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@416602464020594698>`, true) // تعديل اساسي غير الايدي لايدي حسابك
       .setImage("")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
   }
 });
 
-client.on("message", async message => {
-  if (message.content.startsWith(prefix + "invbot")) {
-    const invite = `**Invite: [No Any Perms](${await client.generateInvite()})\nInvite: [Administrator Perm](${await client.generateInvite(
-      ["ADMINISTRATOR"]
-    )})**`;
-    message.channel.send(invite);
-  }
-});
 client.on('message', message => {
   if (message.author.codes) return;
   if (!message.content.startsWith(prefix)) return;
@@ -738,30 +730,6 @@ client.on("message", message => {
   }
 });
 
-//// كود سحب الكل
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "mvall")) {
-    if (!message.member.hasPermission("MOVE_MEMBERS"))
-      return message.channel.send("**:x: You Dont Have Perms `MOVE_MEMBERS`**");
-    if (!message.guild.member(client.user).hasPermission("MOVE_MEMBERS"))
-      return message.reply("**:x: I Dont Have Perms `MOVE_MEMBERS`**");
-    if (message.member.voiceChannel == null)
-      return message.channel.send(`**You Have To Be In Room Voice**`);
-    var author = message.member.voiceChannelID;
-    var m = message.guild.members.filter(m => m.voiceChannel);
-    message.guild.members
-      .filter(m => m.voiceChannel)
-      .forEach(m => {
-        m.setVoiceChannel(author);
-      })
-      .setTitle(`✽ **Premium**`)
-      .setImage("");
-
-    message.channel.send(
-      `**:white_check_mark: Success Moved All To Your Channel**`
-    );
-  }
-});
 //// تعديل مهم لا تعطي رتب
 
 
@@ -819,7 +787,7 @@ client.on("message", function(message) {
       }
   }
 });
-
+///تعديل غير اساسي
 ////كود هيلب
 client.on("message", message => {
   if (message.author.bot) return;
@@ -1131,6 +1099,7 @@ client.on("message", async message => {
 
 
 ///تعديل غير اساسي
+///تقدر الصورة الخلفية ، شوف الشرح الرابط فوق اول الكود
 /// كود الوان
 client.on("message", message => {
   if (!message.guild || message.author.bot) return;
