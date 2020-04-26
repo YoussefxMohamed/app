@@ -3080,13 +3080,13 @@ client.on("guildMemberAdd", member => {
       `<@!${member.id}>`
     );
     if (!inviter1 || !inviter1.id ) {
-    gg2=  gg1.replace(
+    gg2= await gg1.replace(
         "[inviter]",
         `<@${member.guild.ownerID}>`
       );
       
     } else {
-    gg2=  gg1.replace("[inviter]", `<@${inviter1.id}>`);
+    gg2= await gg1.replace("[inviter]", `<@${inviter1.id}>`);
     }
     setTimeout(() => {
       logChannel.send(`${gg2}`);
