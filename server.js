@@ -1,6 +1,7 @@
 ///// معلومات مهمة
 ////
 //// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
+require('events').EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -3131,9 +3132,9 @@ client.on("guildMemberAdd", member => {
   member.guild.fetchInvites().then(async guildInvites => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    console.log(invite)
-    const inviter = await 
+    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    console.log(invite.inviter)
+    const inviter = await invite.inviter ||
       client.users.get(invite.inviter.id) ||
       client.users.get(member.guild.owner.user.id);
     const logChannel = member.guild.channels.find(
@@ -3144,7 +3145,7 @@ client.on("guildMemberAdd", member => {
       "[member]",
       `<@!${member.id}>`
     );
-    if (inviter.id == undefined) {
+    if (!inviter.id) {
       welcome[member.guild.id].msg.replace(
         "[inviter]",
         `<@${member.guild.ownerID}>`
