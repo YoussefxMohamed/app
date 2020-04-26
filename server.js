@@ -2979,6 +2979,8 @@ const prefix = "حط البريفيكس هنا"
 
 const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف تخزين كود الويلكم
 
+
+
 //كود الويلكم
 
 client.on("guildMemberAdd", async member => {
@@ -3130,7 +3132,8 @@ client.on("guildMemberAdd", member => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter =
+    console.log(invite)
+    const inviter = await 
       client.users.get(invite.inviter.id) ||
       client.users.get(member.guild.owner.user.id);
     const logChannel = member.guild.channels.find(
