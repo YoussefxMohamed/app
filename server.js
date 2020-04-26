@@ -1,7 +1,6 @@
 ///// معلومات مهمة
 ////
 //// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
-require('events').EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -198,7 +197,7 @@ client.on("message", message => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@279557901922729984>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@416602464020594698>`, true) // تعديل مهم عدل هذا الرقم لايدي حسابك
       .setImage("")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
@@ -557,35 +556,59 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-  let command = message.content.split(" ")[0];
-  if (command == prefix + "unban") {
-    if (!message.member.hasPermission("BAN_MEMBERS")) return;
-    let args = message.content
-      .split(" ")
-      .slice(1)
-      .join(" ");
-    if (args == "all") {
-      message.guild.fetchBans().then(zg => {
-        zg.forEach(NoNo => {
-          message.guild.unban(NoNo);
-        });
-      });
-      return message.channel.send("**✅ Unbanned all members **");
-    }
-    if (!args)
-      return message.channel.send("**Please Type the member ID / all**");
-    message.guild
-      .unban(args)
-      .then(m => {
-        message.channel.send(`**✅ Unbanned ${m.username}**`);
-      })
-      .catch(stry => {
-        message.channel.send(
-          `**🙄 - I can't find \`${args}\` in the ban list**`
-        );
-      });
-  }
-});
+        let roleembed = new Discord.RichEmbed()
+    .setDescription(`
+    أمثله على الأوامر :
+    -role @mention rolename : لأعطاء رتبة لعضو معين
+    -role all rolename : لأعطاء رتبة للجميع
+    -role humans rolename : لأعطاء رتبة للاشخاص فقط
+    -role bots rolename : لأعطاء رتبة لجميع البوتات`)
+    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+      var args = message.content.split(' ').slice(1);
+      var msg = message.content.toLowerCase();
+      if( !message.guild ) return;
+      if( !msg.startsWith( prefix + 'role' ) ) return;
+      if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
+      if( msg.toLowerCase().startsWith( prefix + 'roleembed' ) ){
+          if( !args[0] ) return message.channel.sendEmbed(roleembed)
+          if( !args[1] ) return message.channel.sendEmbed(roleembed)
+          var role = msg.split(' ').slice(2).join(" ").toLowerCase();
+          var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
+          if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );if( message.mentions.members.first() ){
+              message.mentions.members.first().addRole( role1 );
+              return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء الى **');
+          }
+          if( args[0].toLowerCase() == "all" ){
+              message.guild.members.forEach(m=>m.addRole( role1 ))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى الكل رتبة**');
+          } else if( args[0].toLowerCase() == "bots" ){
+              message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البوتات رتبة**');
+          } else if( args[0].toLowerCase() == "humans" ){
+              message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البشريين رتبة**');
+          }  
+      } else {
+          if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
+          if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
+          var role = msg.split(' ').slice(2).join(" ").toLowerCase();
+          var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
+          if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
+              message.mentions.members.first().addRole( role1 );
+              return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
+          }
+          if( args[0].toLowerCase() == "all" ){
+              message.guild.members.forEach(m=>m.addRole( role1 ))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
+          } else if( args[0].toLowerCase() == "bots" ){
+              message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
+          } else if( args[0].toLowerCase() == "humans" ){
+              message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
+              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
+          }
+      }
+  });
 
 client.on("error", err => {
   console.log(err);
@@ -739,86 +762,6 @@ client.on("message", message => {
   }
 });
 //// تعديل مهم لا تعطي رتب
-client.on("message", msg => {
-  if (msg.author.bot) return;
-  if (msg.content.startsWith(prefix + "roles")) {
-    let params = msg.content
-      .slice(prefix.length)
-      .trim()
-      .split(/ +/g);
-    if (!params[0])
-      return msg.channel.send(
-        `**syntax: ${prefix}role <all/humans/bots/@user> <name role/@role>`
-      );
-    if (params[0] === "all") {
-      if (!params[1])
-        return msg.channel.send(
-          `**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role all <@role / name role>**`
-        );
-      let role =
-        msg.mentions.roles.first() ||
-        msg.guild.roles.find(r =>
-          r.name.toLowerCase().startsWith(params[1].toLowerCase())
-        );
-      if (!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`);
-      msg.guild.members.forEach(m => {
-        if (m.roles.some(r => r.id == role.id)) return;
-        m.addRole(role);
-      });
-      msg.channel.send(`**done give all role @${role.name}**`);
-    } else if (params[0] === "bots") {
-      if (!params[1])
-        return msg.channel.send(
-          `**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role bots <@role / name role>**`
-        );
-      let role =
-        msg.mentions.roles.first() ||
-        msg.guild.roles.find(r =>
-          r.name.toLowerCase().startsWith(params[1].toLowerCase())
-        );
-      if (!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`);
-      let bots = msg.guild.members.filter(m => m.user.bot);
-      bots.forEach(bot => {
-        if (bot.roles.some(r => r.id == role.id)) return;
-        bot.addRole(role);
-      });
-      msg.channel.send(`**done give all bots role @${role.name}**`);
-    } else if (params[0] === "humans") {
-      if (!params[1])
-        return msg.channel.send(
-          `**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role humans <@role / name role>**`
-        );
-      let role =
-        msg.mentions.roles.first() ||
-        msg.guild.roles.find(r =>
-          r.name.toLowerCase().startsWith(params[1].toLowerCase())
-        );
-      if (!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`);
-      let humans = msg.guild.members.filter(m => !m.user.bot);
-      humans.forEach(h => {
-        if (h.roles.some(r => r.id == role.id)) return;
-        h.addRole(role);
-      });
-      msg.channel.send(`**done give all humans role @${role.name}**`);
-    } else {
-      if (!params[1])
-        return msg.channel.send(
-          `**منشن الرتبة او اكتب اسمها \n syntax: ${prefix}role @user <@role / name role>**`
-        );
-      let role =
-        msg.mentions.roles.first() ||
-        msg.guild.roles.find(r =>
-          r.name.toLowerCase().startsWith(params[1].toLowerCase())
-        );
-      if (!role) return msg.channel.send(`**لم استطع ايجاد هذه الرتبة**`);
-      let userID = params[0].slice(2, -1);
-      let user = msg.guild.members.get(userID);
-      if (!user) return;
-      user.addRole(role);
-      msg.channel.send(`**Done give ${user} @${role.name}**`);
-    }
-  }
-});
 
 
 client.on("message", function(message) {
@@ -1002,17 +945,7 @@ client.on("message", message => {
 **\`${prefix}لقبول تقديم عضو : \`قبول**
 مثال: \`\`${prefix}قبول @منشن عضو \`\`
 ** ${prefix}لرفض عضو : رفض**
-مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
-
-**__اوامر الــحــمــايــة__**  
-**\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده **
-**\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده **
-**\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده **
-**\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده **
-**\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده **
-**\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده**
-**\`${prefix}antibots on\` : منع دخول بوتات**
-**\`${prefix}antibots off\` : فتح دخول البوتات**`);
+مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\``);
         })
         .then(e => {
           message.react("✅");
@@ -1994,7 +1927,7 @@ client.on("message", message => {
         .setColor("RANDOM")
         .setFooter(`نتمنى لكم الاستمتاع`);
 
-      var channel = member.guild.channels.find("name", "𝙇𝙊𝙂-𝘿𝙄𝙎𝘾𝙊𝙍𝘿"); //// تعديل مهم اسم روم المغادرة
+      var channel = member.guild.channels.find("name", "log"); //// تعديل مهم اسم روم المغادرة
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2703,7 +2636,6 @@ client.on("message", async message => {
 });
 ///كود حذف الروابط
 /// تعديل مهم كود حذف روابط الديسكورد
-/*
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
     if (message.member.hasPermission("MANAGE_GUILD")) return;
@@ -2711,7 +2643,6 @@ client.on("message", async message => {
     message.delete();
   }
 });
-*/
 
 const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); // i dont wanna explain you are not my father!
 
@@ -2795,6 +2726,7 @@ client.on("message", message => {
     message.channel.send(reply);
   }
 });
+
 
 //////////////////تعديل مهم كريدت
 
@@ -3144,20 +3076,21 @@ client.on("guildMemberAdd", member => {
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
     if (!logChannel) return;
-    gg1 = await welcome[member.guild.id].msg.replace(
+   gg1 = await welcome[member.guild.id].msg.replace(
       "[member]",
       `<@!${member.id}>`
     );
     if (!inviter1.id) {
-    gg2=  welcome[member.guild.id].msg.replace(
+    gg2=  gg1.replace(
         "[inviter]",
         `<@${member.guild.ownerID}>`
       );
+      
     } else {
-    gg2=  welcome[member.guild.id].msg.replace("[inviter]", `<@${inviter1.id}>`);
+    gg2=  gg1.replace("[inviter]", `<@${inviter1.id}>`);
     }
     setTimeout(() => {
-      logChannel.send(`${gg1}`);
+      logChannel.send(`${gg2}`);
     }, 2000);
     fs.writeFile("./welcome.json", JSON.stringify(welcome), err => {
       if (err)
