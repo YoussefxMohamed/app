@@ -1128,8 +1128,9 @@ client.on("message", async message => {
   }
 });
 //all copyrighit for revenge https://github.com/Bowlingtoolkit
-///
 
+
+///تعديل غير اساسي
 /// كود الوان
 client.on("message", message => {
   if (!message.guild || message.author.bot) return;
@@ -1189,7 +1190,6 @@ client.on("message", message => {
   }
 });
 
-////تعديل مهم
 /// كود تعين اللوق
 const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 
@@ -1225,7 +1225,6 @@ client.on("message", message => {
   }
 });
 
-/////تعديل مهم امر تشغيل واغلاق اللوق
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "toggleLog")) {
@@ -1866,6 +1865,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
 
 ///////////////////
 
+///تعديل اساسي
 /// كود الرد التلقائي
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -1877,7 +1877,7 @@ client.on("message", message => {
   }
 });
 
-
+////تعديل غير اساسي
 /// كود اختيار لون
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
@@ -1891,10 +1891,10 @@ client.on("message", message => {
       .setColor(`ff0000`);
 
     if (!isNaN(args) && args.length > 0)
-      if (!message.guild.roles.find(gg =>gg.name === args)) // تم
+      if (!message.guild.roles.find(gg =>gg.name === args))  
         return message.channel.sendEmbed(embedd);
 
-    var a = message.guild.roles.find(gg => gg.name ===args); // GO
+    var a = message.guild.roles.find(gg => gg.name ===args);  
     if (!a) return;
     const embed = new Discord.RichEmbed()
 
@@ -1911,9 +1911,9 @@ client.on("message", message => {
     let count = 0;
     let ecount = 0;
     for (let x = 1; x < 201; x++) {
-      message.member.removeRole(message.guild.roles.find(gg=> gg.name === x)); //   
+      message.member.removeRole(message.guild.roles.find(gg=> gg.name === x));    
     }
-    message.member.addRole(message.guild.roles.find(gg=> gg.name === args)) //   
+    message.member.addRole(message.guild.roles.find(gg=> gg.name === args))    
   } // 
 });
 
@@ -1937,7 +1937,7 @@ client.on("message", ra3d => {
   }
 });
 
-///// تعديل مهم كود دخول وخروج العضو
+///// كود خروج الاعضاء
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
@@ -1965,7 +1965,7 @@ client.on("message", message => {
         .setColor("RANDOM")
         .setFooter(`نتمنى لكم الاستمتاع`);
 
-      var channel = member.guild.channels.find(gg => gg.name ==="log"); //// تعديل مهم اسم روم المغادرة
+      var channel = member.guild.channels.find(gg => gg.name ==="log"); //// تعديل اساسي
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2669,8 +2669,9 @@ client.on("message", async message => {
     });
   }
 });
+
 ///كود حذف الروابط
-/// تعديل مهم كود حذف روابط الديسكورد
+/// تعديل اساسي حذف روابط الديسكورد
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
     if (message.member.hasPermission("MANAGE_GUILD")) return;
@@ -2763,7 +2764,7 @@ client.on("message", message => {
 });
 
 
-//////////////////تعديل مهم كريدت
+/////كود كريدت
 
 const credits = JSON.parse(fs.readFileSync("./credits.json"));
 var time = require("./time.json");
@@ -2941,9 +2942,7 @@ const { resolve, join } = require("path");
 const fetch = require("node-fetch");
 const prettySeconds = require("pretty-seconds");
 const fsn = require("fs-nextra");
-/*
-const prefix = "حط البريفيكس هنا"
-*/
+
 
 const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف تخزين كود الويلكم
 
@@ -3135,7 +3134,6 @@ client.on("guildMemberAdd", member => {
   });
 });
 
-//تغير رسالة الانفايتد باى
 
 client.on("message", async message => {
   let messageArray = message.content.split(" ");
@@ -3207,7 +3205,7 @@ client.on("message", message => {
 });
 
 ////كود رابط
-////تعديل مهم بوت رابط
+////تعديل غير اساسي
 
 client.on("message", message => {
   if (message.content.startsWith("رابط")) {
@@ -3238,6 +3236,7 @@ client.on("message", message => {
   }
 });
 
+////لايحتاج تعديل
 ////كود الفويس اونلاين
 
 let vojson = JSON.parse(fs.readFileSync("vojson.json", "utf8")); // ملف تخزين الفويس اونلاين
@@ -3307,7 +3306,7 @@ client.on("ready", () => {
   console.log("hi");
 });
 
-////تعديل مهم كود التقديم
+////تعديل غير اساسي
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "تقديم")) {
@@ -3611,20 +3610,7 @@ client.on('message', async msg =>{
     };
 });
 
-/////////////////////////
-////////////////////////
-//////////////////////
-/////////////////////////
-////////////////////////
-//////////////////////
- 
-/////////////////////////
-////////////////////////
-//////////////////////
-/////////////////////////
-////////////////////////
-//////////////////////
-
+//// تغير غير اساسي
 ///// كود ميوزك
 
 let cmds = {
@@ -3746,11 +3732,11 @@ let dur = `${hrs}${min}${sec}`
 	};
 	if (!serverQueue) {
 		const queueConstruct = {
-			textChannel: msg.channel,
-			voiceChannel: voiceChannel, //درجة الصوت الاحتياطي
+			textChannel: msg.channel,  
+			voiceChannel: voiceChannel, 
 			connection: null,
-			songs: [],
-			volume: 25,
+			songs: [], ////تعديل غير اساسي
+			volume: 25, //// تعديل درجة الصوت الاساسية 
       requester: msg.author,
 			playing: true,
       repeating: false
@@ -4149,3 +4135,11 @@ function play(guild, song) {
 
 });
 
+////
+////
+////
+////
+////
+////
+////
+////
