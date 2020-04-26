@@ -1886,6 +1886,14 @@ client.on("message", message => {
   } // 
 });
 
+
+///تعديل اساسي
+///لو تبي تعطل كود بدون حذفه حط هذي الرموز
+
+/*
+///test
+*/
+
 /////كود عمل الوان
 client.on("message", ra3d => {
   let args = ra3d.content
@@ -2641,6 +2649,7 @@ client.on("message", async message => {
 
 ///كود حذف الروابط
 /// تعديل اساسي حذف روابط الديسكورد
+
 client.on("message", async message => {
   if (message.content.includes("discord.gg")) {
     if (message.member.hasPermission("MANAGE_GUILD")) return;
@@ -2649,15 +2658,13 @@ client.on("message", async message => {
   }
 });
 
-const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); // i dont wanna explain you are not my father!
+const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); 
 
 function saveReplay() {
   fs.writeFile("./replyMSG.json", JSON.stringify(replyMSG), function(err) {
     if (err) throw err;
   });
 }
-
-//If You want to remove //R.I.P Royal Bot! this message just click ctrl + h and replace this message to nothing
 
 
 
