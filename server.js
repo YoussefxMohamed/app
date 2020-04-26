@@ -1853,10 +1853,10 @@ client.on("message", message => {
       .setColor(`ff0000`);
 
     if (!isNaN(args) && args.length > 0)
-      if (!message.guild.roles.find("name", `${args}`))
+      if (!message.guild.roles.find(gg =>gg.name === args)) // تم
         return message.channel.sendEmbed(embedd);
 
-    var a = message.guild.roles.find("name", `${args}`);
+    var a = message.guild.roles.find("name", `${args};
     if (!a) return;
     const embed = new Discord.RichEmbed()
 
