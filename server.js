@@ -3067,7 +3067,6 @@ client.on("guildMemberAdd", member => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    console.log(invite.inviter)
     const inviter1 = await invite.inviter;
     const inviter = await 
       client.users.get(invite.inviter.id) ||
@@ -3080,7 +3079,7 @@ client.on("guildMemberAdd", member => {
       "[member]",
       `<@!${member.id}>`
     );
-    if (!inviter1.id) {
+    if (!inviter1 || !inviter1.id ) {
     gg2=  gg1.replace(
         "[inviter]",
         `<@${member.guild.ownerID}>`
