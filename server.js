@@ -1,6 +1,7 @@
 ///// معلومات مهمة
 ////
 //// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
+require('events').EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -72,7 +73,7 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists("name", "Support Team"))
+    if (!message.guild.roles.exists(gg=> gg.name === "Support Team"))
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
@@ -81,8 +82,8 @@ client.on("message", message => {
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
-        let role = message.guild.roles.find("name", "Support Team");
-        let role2 = message.guild.roles.find("name", "@everyone");
+        let role = message.guild.roles.find(gg=> gg.name ==="Support Team");  
+        let role2 = message.guild.roles.find(gg=> gg.name ==="@everyone");
         c.overwritePermissions(role, {
           SEND_MESSAGES: true,
           READ_MESSAGES: true
@@ -408,10 +409,10 @@ client.on("message", message => {
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
         .catch(console.error);
     let user = message.mentions.users.first();
-    let modlog = client.channels.find("name", "log");
+    let modlog = client.channels.find(gg=> gg.name === "log"); 
     let muteRole = client.guilds
       .get(message.guild.id)
-      .roles.find("name", "Muted");
+      .roles.find(gg=> gg.name === "Muted"); 
     if (!muteRole)
       return message
         .reply("** لا يوجد لديك رتبه الميوت 'Muted' **")
@@ -471,10 +472,10 @@ client.on("message", message => {
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
         .catch(console.error);
     let user = message.mentions.users.first();
-    let modlog = client.channels.find("name", "log");
+    let modlog = client.channels.find(gg=> gg.name === "log"); 
     let muteRole = client.guilds
       .get(message.guild.id)
-      .roles.find("name", "Muted");
+      .roles.find(gg=> gg.name === "Muted"); 
     if (!muteRole)
       return message
         .reply("** لا يوجد رتبة الميوت 'Muted' **")
@@ -986,10 +987,7 @@ client.on("message", async message => {
             errors: ["time"]
           })
           .then(collected => {
-            let room = message.guild.channels.find(
-              "name",
-              collected.first().content
-            );
+            let room = message.guild.channels.find(gg => gg.name===collected.first().content); 
             if (!room)
               return message.channel.send(
                 "**لم اقدر علي ايجاد الروم | اعد المحاوله لاحقا**"
@@ -1039,7 +1037,7 @@ client.on("message", async message => {
                                 message.author.avatarURL
                               );
                             message.guild.channels
-                              .find("name", room)
+                              .find(gg => gg.name === room) 
                               .send(giveEmbed)
                               .then(m => {
                                 let re = m.react("🎉");
@@ -1159,7 +1157,7 @@ client.on("message", message => {
   if (!message.channel.guild) return;
 
   let room = message.content.split(" ").slice(1);
-  let findroom = message.guild.channels.find("name", `${room}`);
+  let findroom = message.guild.channels.find(gg=> gg.name === room); 
   if (message.content.startsWith(prefix + "setLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
@@ -1873,10 +1871,10 @@ client.on("message", message => {
     let count = 0;
     let ecount = 0;
     for (let x = 1; x < 201; x++) {
-      message.member.removeRole(message.guild.roles.find(gg=> gg.name === x)); // في مشكلة تحتك
+      message.member.removeRole(message.guild.roles.find(gg=> gg.name === x)); //   
     }
-    message.member.addRole(message.guild.roles.find(gg=> gg.name === args))
-  } // go
+    message.member.addRole(message.guild.roles.find(gg=> gg.name === args)) //   
+  } // 
 });
 
 /////كود عمل الوان
@@ -1929,7 +1927,7 @@ client.on("message", message => {
 
       var channel = member.guild.channels.find(gg => gg.name ==="log"); //// تعديل مهم اسم روم المغادرة
       if (!channel) return;
-      channel.send({ embed: embed }); // Go
+      channel.send({ embed: embed });
     });
   }
 });
@@ -2529,7 +2527,7 @@ client.on("message", async message => {
           errors: ["time"]
         })
         .then(collected => {
-          let room = message.guild.channels.find(gg => gg.name ===collected.first().content ); // Go
+          let room = message.guild.channels.find(gg => gg.name ===collected.first().content ); 
           if (!room) return message.channel.send(embed3);
           room = collected.first().content;
           collected.first().delete();
@@ -2566,7 +2564,7 @@ client.on("message", async message => {
                           );
                         //.setFooter(message.author.username, message.author.avatarURL);
                         message.guild.channels
-                          .find(gg=> gg.name === room) // Go
+                          .find(gg=> gg.name === room) 
                           .send(" :tada: **Giveaway** :tada:", {
                             embed: giveEmbed
                           })
@@ -2610,7 +2608,7 @@ client.on("message", async message => {
                                 // message.guild.channels.find("name" , room).send("No enough number of reactions")
                               } else {
                                 message.guild.channels
-                                  .find(gg => gg.name === room) // Go
+                                  .find(gg => gg.name === room) 
                                   .send(
                                     `**Congratulations ${gFilter}! You won The \`${title}\`**`
                                   );
@@ -3230,7 +3228,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "vc off")) {
     // ايقاف الفويس اونلاين
     message.guild.channels
-      .find(gg=> gg.name=== vojson[message.guild.id].chid) // Go
+      .find(gg=> gg.name=== vojson[message.guild.id].chid) 
       .delete();
     vojson[message.guild.id] = {
       stats: "disable",
@@ -3275,7 +3273,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "تقديم")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
-    let channel = message.guild.channels.find(gg => gg.name ==="التقديمات");/// Go
+    let channel = message.guild.channels.find(gg => gg.name ==="التقديمات");
     if (!channel)
       return message.reply(
         "**لانشاء روم التقديمات ${prefix}room1 من فضلك اكتب الامر**"
@@ -3482,10 +3480,10 @@ client.on("message", async message => {
     .split(" ")
     .slice(2)
     .join(" ");
-  let mySupport = message.guild.roles.find(gg=> gg.name === role); // Go
+  let mySupport = message.guild.roles.find(gg=> gg.name === role); 
   if (message.content.startsWith(prefix + "قبول")) {
-    let acRoom = message.guild.channels.find(gg => gg.name ==="قبول-الرفض"); //  من اسم الروم و
-    if (!acRoom) ///الان لازم يكون موجود هذا الروم عشان مايصير اخطاء؟ طيب انا افرض موقفه مؤقتا بدون روم بس شغال هنا
+    let acRoom = message.guild.channels.find(gg => gg.name ==="القبول-الرفض");
+    if (!acRoom) 
       return message.reply(
         `${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`
       );
@@ -3512,7 +3510,7 @@ client.on("message", async message => {
     if (!message.channel.guild) return;
 
     let mention = message.mentions.members.first();
-    let acRoom = message.guild.channels.find("name", "القبول-الرفض");
+    let acRoom = message.guild.channels.find("name", "القبول-الرفض"); 
     let rrrr = message.content.split(/ +/).slice(2);
     let reason = rrrr.join(" ");
     if (!acRoom)
