@@ -3059,7 +3059,7 @@ client.on("guildMemberAdd", member => {
     };
   if (welcome[member.guild.id].by === "Off") return;
   member.guild.fetchInvites().then(async guildInvites => {
-    const ei = invites[member.guild.id];
+    const ei = await invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter1 = await invite.inviter;
