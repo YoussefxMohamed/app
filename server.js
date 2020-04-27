@@ -2960,25 +2960,6 @@ client.on("message", async message => {
     message.reply(`**, Remove Money For : \`${args[1]}\`**`);
   }
 });
-let level = JSON.parse(fs.readFileSync("./level.json", "utf8"));
-client.on("message", message => {
-  if (message.author.bot) return undefined;
-  if (!level[message.author.id])
-    level[message.author.id] = {
-      xp: 0,
-      level: 0
-    };
-  let username = message.author;
-  level[message.author.id].xp++;
-  let userlevel = level[message.author.id];
-  if (userlevel.xp > Math.floor(Math.random() * 250) + 50) {
-    userlevel.level++;
-    userlevel.xp = 0;
-  }
-  fs.writeFileSync("./level.json", JSON.stringify(level), function(s) {
-    if (s) throw s;
-  });
-});
 
 const { Canvas } = require("canvas-constructor");
 const { Attachment } = require("discord.js");
