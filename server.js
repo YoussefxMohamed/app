@@ -48,6 +48,18 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+//كود تغيير الحالة
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+client.on("ready", () => {
+  client.user.setStatus("idle");
+});
+client.on('ready', () => {
+    client.user.setActivity(`${prefix}help`,{ type: 'WATCHING' });
+})
+
+
 client.on("message", message => {
   if (message.author.bot) return;
   if (!message.content.startsWith(prefix)) return;
