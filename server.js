@@ -896,6 +896,8 @@ client.on("message", message => {
 **\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين **
 **\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين**
 **\`${prefix}ls\` : لإظهار جميع بوتات السيرفر**
+**\`${prefix}role\` : لاعطاء شخص رتبة**
+**\`${prefix}role all\` : لاعطاء االجميع رتبة معينة**
 
 \`\`اوامر التقديم\`\`
 **\`${prefix}room1\` : لعمل روم التقديمات**
@@ -939,7 +941,7 @@ client.on("message", message => {
 **\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده **
 **\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده**
 **\`${prefix}antibots on\` : منع دخول بوتات**
-**\`${prefix}antibots off\` : فتح دخول البوتات**`);
+**\`${prefix}antibots off\` : فتح دخول البوتات`);
         })
         .then(e => {
           message.react("✅");
@@ -987,6 +989,8 @@ client.on("message", message => {
 **\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين **
 **\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين**
 **\`${prefix}ls\` : لإظهار جميع بوتات السيرفر**
+**\`${prefix}role\` : لاعطاء شخص رتبة**
+**\`${prefix}role all\` : لاعطاء االجميع رتبة معينة**
 
 \`\`اوامر التقديم\`\`
 **\`${prefix}room1\` : لعمل روم التقديمات**
