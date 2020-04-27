@@ -1,7 +1,7 @@
-///هذا البوت الاصدار الثاني من بوت السيستم تحت ادارة اسامة خالد : 
+///هذا البوت الاصدار الثاني من بوت السيستم تحت ادارة اسامة خالد :
 ///رابط المقطع: https://youtu.be/6B9nrQp02Rk
 //// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
-require('events').EventEmitter.defaultMaxListeners = 200;
+require("events").EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
 const express = require("express");
 const app = express();
@@ -35,7 +35,7 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"); //تعديل اساسي سوي اي بي اي جديد 
+const youtube = new YouTube("AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
 const yt_api_key = "AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"; ///تعديل اساسي سوي اي بي اي جديد
@@ -73,7 +73,7 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if (!message.guild.roles.exists(gg=> gg.name === "Support Team"))
+    if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
@@ -82,8 +82,8 @@ client.on("message", message => {
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
-        let role = message.guild.roles.find(gg=> gg.name ==="Support Team");  
-        let role2 = message.guild.roles.find(gg=> gg.name ==="@everyone");
+        let role = message.guild.roles.find(gg => gg.name === "Support Team");
+        let role2 = message.guild.roles.find(gg => gg.name === "@everyone");
         c.overwritePermissions(role, {
           SEND_MESSAGES: true,
           READ_MESSAGES: true
@@ -205,7 +205,7 @@ client.on("message", message => {
   }
 });
 
-client.on('message', message => {
+client.on("message", message => {
   if (message.author.codes) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -215,22 +215,27 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "ban") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("BAN_MEMBERS")) return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
-  if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if (!message.guild.member(user)
-  .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+    if (!message.channel.guild)
+      return message.reply("** This command only for servers**");
 
+    if (!message.guild.member(message.author).hasPermission("BAN_MEMBERS"))
+      return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
+    if (!message.guild.member(client.user).hasPermission("BAN_MEMBERS"))
+      return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+    let user = message.mentions.users.first();
 
-  message.guild.member(user).ban(7, user);
+    if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+    if (!message.guild.member(user).bannable)
+      return message.reply(
+        "**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**"
+      );
 
-message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `)
+    message.guild.member(user).ban(7, user);
 
-}
+    message.channel.send(
+      `**:white_check_mark: ${user.tag} banned from the server ! :airplane: **  `
+    );
+  }
 });
 client.on("message", async message => {
   if (message.content.startsWith(prefix + "inf")) {
@@ -290,7 +295,7 @@ client.on("message", async message => {
   }
 });
 
-client.on('message', message => {
+client.on("message", message => {
   if (message.author.x5bz) return;
   if (!message.content.startsWith(prefix)) return;
 
@@ -300,30 +305,38 @@ client.on('message', message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "kick") {
-               if(!message.channel.guild) return message.reply('** This command only for servers**');
-         
-  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
-  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
-  let user = message.mentions.users.first();
-  let reason = message.content.split(" ").slice(2).join(" ");
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-  if(!reason) return message.reply ("**اكتب سبب الطرد**");
-  if (!message.guild.member(user)
-  .kickable) return message.reply("**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**");
+    if (!message.channel.guild)
+      return message.reply("** This command only for servers**");
 
-  message.guild.member(user).kick();
+    if (!message.guild.member(message.author).hasPermission("KICK_MEMBERS"))
+      return message.reply("**You Don't Have ` KICK_MEMBERS ` Permission**");
+    if (!message.guild.member(client.user).hasPermission("KICK_MEMBERS"))
+      return message.reply("**I Don't Have ` KICK_MEMBERS ` Permission**");
+    let user = message.mentions.users.first();
+    let reason = message.content
+      .split(" ")
+      .slice(2)
+      .join(" ");
+    if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+    if (!reason) return message.reply("**اكتب سبب الطرد**");
+    if (!message.guild.member(user).kickable)
+      return message.reply(
+        "**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**"
+      );
 
-  const kickembed = new Discord.RichEmbed()
-  .setAuthor(`KICKED!`, user.displayAvatarURL)
-  .setColor("RANDOM")
-  .setTimestamp()
-  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
-  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
-  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
-  message.channel.send({
-    embed : kickembed
-  })
-}
+    message.guild.member(user).kick();
+
+    const kickembed = new Discord.RichEmbed()
+      .setAuthor(`KICKED!`, user.displayAvatarURL)
+      .setColor("RANDOM")
+      .setTimestamp()
+      .addField("**User:**", "**[ " + `${user.tag}` + " ]**")
+      .addField("**By:**", "**[ " + `${message.author.tag}` + " ]**")
+      .addField("**Reason:**", "**[ " + `${reason}` + " ]**");
+    message.channel.send({
+      embed: kickembed
+    });
+  }
 });
 client.on("message", message => {
   if (message.content.startsWith(prefix + "avt")) {
@@ -401,10 +414,10 @@ client.on("message", message => {
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
         .catch(console.error);
     let user = message.mentions.users.first();
-    let modlog = client.channels.find(gg=> gg.name === "log"); 
+    let modlog = client.channels.find(gg => gg.name === "log");
     let muteRole = client.guilds
       .get(message.guild.id)
-      .roles.find(gg=> gg.name === "Muted"); 
+      .roles.find(gg => gg.name === "Muted");
     if (!muteRole)
       return message
         .reply("** لا يوجد لديك رتبه الميوت 'Muted' **")
@@ -464,10 +477,10 @@ client.on("message", message => {
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
         .catch(console.error);
     let user = message.mentions.users.first();
-    let modlog = client.channels.find(gg=> gg.name === "log"); 
+    let modlog = client.channels.find(gg => gg.name === "log");
     let muteRole = client.guilds
       .get(message.guild.id)
-      .roles.find(gg=> gg.name === "Muted"); 
+      .roles.find(gg => gg.name === "Muted");
     if (!muteRole)
       return message
         .reply("** لا يوجد رتبة الميوت 'Muted' **")
@@ -549,59 +562,119 @@ client.on("message", message => {
 });
 
 client.on("message", message => {
-        let roleembed = new Discord.RichEmbed()
-    .setDescription(`
+  let roleembed = new Discord.RichEmbed()
+    .setDescription(
+      `
     أمثله على الأوامر :
     -role @mention rolename : لأعطاء رتبة لعضو معين
     -role all rolename : لأعطاء رتبة للجميع
     -role humans rolename : لأعطاء رتبة للاشخاص فقط
-    -role bots rolename : لأعطاء رتبة لجميع البوتات`)
-    .setFooter('Requested by '+message.author.username, message.author.avatarURL)
-      var args = message.content.split(' ').slice(1);
-      var msg = message.content.toLowerCase();
-      if( !message.guild ) return;
-      if( !msg.startsWith( prefix + 'role' ) ) return;
-      if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
-      if( msg.toLowerCase().startsWith( prefix + 'roleembed' ) ){
-          if( !args[0] ) return message.channel.sendEmbed(roleembed)
-          if( !args[1] ) return message.channel.sendEmbed(roleembed)
-          var role = msg.split(' ').slice(2).join(" ").toLowerCase();
-          var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-          if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**' );if( message.mentions.members.first() ){
-              message.mentions.members.first().addRole( role1 );
-              return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء الى **');
-          }
-          if( args[0].toLowerCase() == "all" ){
-              message.guild.members.forEach(m=>m.addRole( role1 ))
-              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى الكل رتبة**');
-          } else if( args[0].toLowerCase() == "bots" ){
-              message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البوتات رتبة**');
-          } else if( args[0].toLowerCase() == "humans" ){
-              message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الى البشريين رتبة**');
-          }  
-      } else {
-          if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-          if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
-          var role = msg.split(' ').slice(2).join(" ").toLowerCase();
-          var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first();
-          if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
-              message.mentions.members.first().addRole( role1 );
-              return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
-          }
-          if( args[0].toLowerCase() == "all" ){
-              message.guild.members.forEach(m=>m.addRole( role1 ))
-              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
-          } else if( args[0].toLowerCase() == "bots" ){
-              message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
-          } else if( args[0].toLowerCase() == "humans" ){
-              message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-              return  message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
-          }
-      }
-  });
+    -role bots rolename : لأعطاء رتبة لجميع البوتات`
+    )
+    .setFooter(
+      "Requested by " + message.author.username,
+      message.author.avatarURL
+    );
+  var args = message.content.split(" ").slice(1);
+  var msg = message.content.toLowerCase();
+  if (!message.guild) return;
+  if (!msg.startsWith(prefix + "role")) return;
+  if (!message.member.hasPermission("MANAGE_ROLES"))
+    return message.channel.send(" **__ليس لديك صلاحيات__**");
+  if (msg.toLowerCase().startsWith(prefix + "roleembed")) {
+    if (!args[0]) return message.channel.sendEmbed(roleembed);
+    if (!args[1]) return message.channel.sendEmbed(roleembed);
+    var role = msg
+      .split(" ")
+      .slice(2)
+      .join(" ")
+      .toLowerCase();
+    var role1 = message.guild.roles
+      .filter(r => r.name.toLowerCase().indexOf(role) > -1)
+      .first();
+    if (!role1)
+      return message.reply("**:x: يرجى وضع الرتبة المراد اعطاءها الى الشخص**");
+    if (message.mentions.members.first()) {
+      message.mentions.members.first().addRole(role1);
+      return message.reply(
+        "**:white_check_mark: [ " +
+          role1.name +
+          " ] رتبة [ " +
+          args[0] +
+          " ] تم اعطاء الى **"
+      );
+    }
+    if (args[0].toLowerCase() == "all") {
+      message.guild.members.forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء الى الكل رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "bots") {
+      message.guild.members
+        .filter(m => m.user.bot)
+        .forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " +
+          role1.name +
+          " ] تم اعطاء الى البوتات رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "humans") {
+      message.guild.members
+        .filter(m => !m.user.bot)
+        .forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " +
+          role1.name +
+          " ] تم اعطاء الى البشريين رتبة**"
+      );
+    }
+  } else {
+    if (!args[0])
+      return message.reply("**:x: يرجى وضع الشخص المراد اعطائها الرتبة**");
+    if (!args[1])
+      return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
+    var role = msg
+      .split(" ")
+      .slice(2)
+      .join(" ")
+      .toLowerCase();
+    var role1 = message.guild.roles
+      .filter(r => r.name.toLowerCase().indexOf(role) > -1)
+      .first();
+    if (!role1)
+      return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
+    if (message.mentions.members.first()) {
+      message.mentions.members.first().addRole(role1);
+      return message.reply(
+        "**:white_check_mark: [ " +
+          role1.name +
+          " ] رتبة [ " +
+          args[0] +
+          " ] تم اعطاء **"
+      );
+    }
+    if (args[0].toLowerCase() == "all") {
+      message.guild.members.forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء الكل رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "bots") {
+      message.guild.members
+        .filter(m => m.user.bot)
+        .forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البوتات رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "humans") {
+      message.guild.members
+        .filter(m => !m.user.bot)
+        .forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البشريين رتبة**"
+      );
+    }
+  }
+});
 
 client.on("error", err => {
   console.log(err);
@@ -681,7 +754,7 @@ client.on("message", async Epic => {
   }
 });
 
-//// كود سحب شخص 
+//// كود سحب شخص
 client.on("message", message => {
   if (!message.channel.guild) return;
   if (message.content.startsWith(prefix + "move")) {
@@ -729,7 +802,6 @@ client.on("message", message => {
     }
   }
 });
-
 
 client.on("message", function(message) {
   if (!message.channel.guild) return;
@@ -993,7 +1065,9 @@ client.on("message", async message => {
             errors: ["time"]
           })
           .then(collected => {
-            let room = message.guild.channels.find(gg => gg.name===collected.first().content); 
+            let room = message.guild.channels.find(
+              gg => gg.name === collected.first().content
+            );
             if (!room)
               return message.channel.send(
                 "**لم اقدر علي ايجاد الروم | اعد المحاوله لاحقا**"
@@ -1043,7 +1117,7 @@ client.on("message", async message => {
                                 message.author.avatarURL
                               );
                             message.guild.channels
-                              .find(gg => gg.name === room) 
+                              .find(gg => gg.name === room)
                               .send(giveEmbed)
                               .then(m => {
                                 let re = m.react("🎉");
@@ -1095,7 +1169,6 @@ client.on("message", async message => {
 });
 //all copyrighit for revenge https://github.com/Bowlingtoolkit
 
-
 ///تعديل غير اساسي
 ///تقدر الصورة الخلفية ، شوف الشرح الرابط فوق اول الكود
 /// كود الوان
@@ -1121,8 +1194,8 @@ client.on("message", message => {
           }
         });
       var image = await fsn.readFile(`./colors/${f}`);
-      var xd = new Canvas(100 * 11, y + 350)     
-        .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100) 
+      var xd = new Canvas(100 * 11, y + 350)
+        .addBeveledImage(image, 0, 0, 100 * 11, y + 350, 100)
         .setTextBaseline("middle")
         .setColor("white")
         .setTextSize(60)
@@ -1162,9 +1235,8 @@ const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 
 client.on("message", message => {
   if (!message.channel.guild) return;
-
   let room = message.content.split(" ").slice(1);
-  let findroom = message.guild.channels.find(gg=> gg.name === room); 
+  let findroom = message.guild.channels.find(r => r.name == room);
   if (message.content.startsWith(prefix + "setLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
@@ -1191,7 +1263,6 @@ client.on("message", message => {
     });
   }
 });
-
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "toggleLog")) {
@@ -1846,6 +1917,8 @@ client.on("message", message => {
 
 ////تعديل غير اساسي
 /// كود اختيار لون
+
+
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
   if (message.content.split(" ")[0] == prefix + "color") {
@@ -1858,10 +1931,10 @@ client.on("message", message => {
       .setColor(`ff0000`);
 
     if (!isNaN(args) && args.length > 0)
-      if (!message.guild.roles.find(gg =>gg.name === args))  
+      if (!message.guild.roles.find("name", `${args}`))
         return message.channel.sendEmbed(embedd);
 
-    var a = message.guild.roles.find(gg => gg.name ===args);  
+    var a = message.guild.roles.find("name", `${args}`);
     if (!a) return;
     const embed = new Discord.RichEmbed()
 
@@ -1878,12 +1951,11 @@ client.on("message", message => {
     let count = 0;
     let ecount = 0;
     for (let x = 1; x < 201; x++) {
-      message.member.removeRole(message.guild.roles.find(gg=> gg.name === x));    
+      message.member.removeRole(message.guild.roles.find("name", `${x}`));
     }
-    message.member.addRole(message.guild.roles.find(gg=> gg.name === args))    
-  } // 
+    message.member.addRole(message.guild.roles.find("name", `${args}`));
+  }
 });
-
 
 ///تعديل اساسي
 ///لو تبي تعطل كود بدون حذفه حط هذي الرموز
@@ -1940,7 +2012,7 @@ client.on("message", message => {
         .setColor("RANDOM")
         .setFooter(`نتمنى لكم الاستمتاع`);
 
-      var channel = member.guild.channels.find(gg => gg.name ==="log"); //// تعديل اساسي
+      var channel = member.guild.channels.find(gg => gg.name === "log"); //// تعديل اساسي
       if (!channel) return;
       channel.send({ embed: embed });
     });
@@ -2040,7 +2112,7 @@ client.on("message", message => {
         `**⇏ | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
       if (e) throw e;
     });
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
@@ -2542,7 +2614,9 @@ client.on("message", async message => {
           errors: ["time"]
         })
         .then(collected => {
-          let room = message.guild.channels.find(gg => gg.name ===collected.first().content ); 
+          let room = message.guild.channels.find(
+            gg => gg.name === collected.first().content
+          );
           if (!room) return message.channel.send(embed3);
           room = collected.first().content;
           collected.first().delete();
@@ -2579,7 +2653,7 @@ client.on("message", async message => {
                           );
                         //.setFooter(message.author.username, message.author.avatarURL);
                         message.guild.channels
-                          .find(gg=> gg.name === room) 
+                          .find(gg => gg.name === room)
                           .send(" :tada: **Giveaway** :tada:", {
                             embed: giveEmbed
                           })
@@ -2623,7 +2697,7 @@ client.on("message", async message => {
                                 // message.guild.channels.find("name" , room).send("No enough number of reactions")
                               } else {
                                 message.guild.channels
-                                  .find(gg => gg.name === room) 
+                                  .find(gg => gg.name === room)
                                   .send(
                                     `**Congratulations ${gFilter}! You won The \`${title}\`**`
                                   );
@@ -2656,15 +2730,13 @@ client.on("message", async message => {
   }
 });
 
-const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8")); 
+const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8"));
 
 function saveReplay() {
   fs.writeFile("./replyMSG.json", JSON.stringify(replyMSG), function(err) {
     if (err) throw err;
   });
 }
-
-
 
 /////كود صنع رد تلقائي
 client.on("message", message => {
@@ -2736,7 +2808,6 @@ client.on("message", message => {
     message.channel.send(reply);
   }
 });
-
 
 /////كود كريدت
 
@@ -2864,7 +2935,7 @@ type these numbers to confirm: `
       });
     }
   }
-}); //   
+}); //
 
 client.on("message", async message => {
   let Fire = message.content.split(" ")[0].substring(prefix.length);
@@ -2909,7 +2980,6 @@ client.on("message", message => {
   });
 });
 
-
 const { Canvas } = require("canvas-constructor");
 const { Attachment } = require("discord.js");
 const { resolve, join } = require("path");
@@ -2917,10 +2987,7 @@ const fetch = require("node-fetch");
 const prettySeconds = require("pretty-seconds");
 const fsn = require("fs-nextra");
 
-
 const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف تخزين كود الويلكم
-
-
 
 //كود الويلكم
 
@@ -3076,25 +3143,21 @@ client.on("guildMemberAdd", member => {
     invites[member.guild.id] = guildInvites;
     const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter1 = await invite.inviter;
-    const inviter = await 
-      client.users.get(invite.inviter.id) ||
+    const inviter =
+      (await client.users.get(invite.inviter.id)) ||
       client.users.get(member.guild.owner.user.id);
     const logChannel = member.guild.channels.find(
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
     if (!logChannel) return console.log("I can't find welcomeChannel");
-   gg1 = await welcome[member.guild.id].msg.replace(
+    gg1 = await welcome[member.guild.id].msg.replace(
       "[member]",
       `<@!${member.id}>`
     );
-    if (!inviter1 || !inviter1.id ) {
-    gg2= await gg1.replace(
-        "[inviter]",
-        `<@${member.guild.ownerID}>`
-      );
-      
+    if (!inviter1 || !inviter1.id) {
+      gg2 = await gg1.replace("[inviter]", `<@${member.guild.ownerID}>`);
     } else {
-    gg2= await gg1.replace("[inviter]", `<@${inviter1.id}>`);
+      gg2 = await gg1.replace("[inviter]", `<@${inviter1.id}>`);
     }
     setTimeout(() => {
       logChannel.send(`${gg2}`);
@@ -3107,7 +3170,6 @@ client.on("guildMemberAdd", member => {
     });
   });
 });
-
 
 client.on("message", async message => {
   let messageArray = message.content.split(" ");
@@ -3241,7 +3303,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "vc off")) {
     // ايقاف الفويس اونلاين
     message.guild.channels
-      .find(gg=> gg.name=== vojson[message.guild.id].chid) 
+      .find(gg => gg.name === vojson[message.guild.id].chid)
       .delete();
     vojson[message.guild.id] = {
       stats: "disable",
@@ -3286,7 +3348,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "تقديم")) {
     if (!message.channel.guild) return;
     if (message.author.bot) return;
-    let channel = message.guild.channels.find(gg => gg.name ==="التقديمات");
+    let channel = message.guild.channels.find(gg => gg.name === "التقديمات");
     if (!channel)
       return message.reply(
         "**لانشاء روم التقديمات ${prefix}room1 من فضلك اكتب الامر**"
@@ -3438,65 +3500,116 @@ client.on("message", message => {
   }
 });
 
-
 client.on("message", message => {
-	var args = message.content.split(' ').slice(1); 
-	var msg = message.content.toLowerCase();
-	if( !message.guild ) return;
-	if( !msg.startsWith( prefix + 'role' ) ) return;
-	if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(' **__ليس لديك صلاحيات__**');
-	if( msg.toLowerCase().startsWith( prefix + 'rerole' ) ){
-		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد سحب منه الرتبة**' );
-		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );
-		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
-		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
-		if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد سحبها من الشخص**' );if( message.mentions.members.first() ){
-			message.mentions.members.first().removeRole( role1 );
-			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم سحب من **');
-		}
-		if( args[0].toLowerCase() == "all" ){
-			message.guild.members.forEach(m=>m.removeRole( role1 ))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من الكل رتبة**');
-		} else if( args[0].toLowerCase() == "bots" ){
-			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.removeRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البوتات رتبة**');
-		} else if( args[0].toLowerCase() == "humans" ){
-			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.removeRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم سحب من البشريين رتبة**');
-		} 	
-	} else {
-		if( !args[0] ) return message.reply( '**:x: يرجى وضع الشخص المراد اعطائها الرتبة**' );
-		if( !args[1] ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );
-		var role = msg.split(' ').slice(2).join(" ").toLowerCase(); 
-		var role1 = message.guild.roles.filter( r=>r.name.toLowerCase().indexOf(role)>-1 ).first(); 
-		if( !role1 ) return message.reply( '**:x: يرجى وضع الرتبة المراد اعطائها للشخص**' );if( message.mentions.members.first() ){
-			message.mentions.members.first().addRole( role1 );
-			return message.reply('**:white_check_mark: [ '+role1.name+' ] رتبة [ '+args[0]+' ] تم اعطاء **');
-		}
-		if( args[0].toLowerCase() == "all" ){
-			message.guild.members.forEach(m=>m.addRole( role1 ))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء الكل رتبة**');
-		} else if( args[0].toLowerCase() == "bots" ){
-			message.guild.members.filter(m=>m.user.bot).forEach(m=>m.addRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البوتات رتبة**');
-		} else if( args[0].toLowerCase() == "humans" ){
-			message.guild.members.filter(m=>!m.user.bot).forEach(m=>m.addRole(role1))
-			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
-		} 
-	} 
+  var args = message.content.split(" ").slice(1);
+  var msg = message.content.toLowerCase();
+  if (!message.guild) return;
+  if (!msg.startsWith(prefix + "role")) return;
+  if (!message.member.hasPermission("MANAGE_ROLES"))
+    return message.channel.send(" **__ليس لديك صلاحيات__**");
+  if (msg.toLowerCase().startsWith(prefix + "rerole")) {
+    if (!args[0])
+      return message.reply("**:x: يرجى وضع الشخص المراد سحب منه الرتبة**");
+    if (!args[1])
+      return message.reply("**:x: يرجى وضع الرتبة المراد سحبها من الشخص**");
+    var role = msg
+      .split(" ")
+      .slice(2)
+      .join(" ")
+      .toLowerCase();
+    var role1 = message.guild.roles
+      .filter(r => r.name.toLowerCase().indexOf(role) > -1)
+      .first();
+    if (!role1)
+      return message.reply("**:x: يرجى وضع الرتبة المراد سحبها من الشخص**");
+    if (message.mentions.members.first()) {
+      message.mentions.members.first().removeRole(role1);
+      return message.reply(
+        "**:white_check_mark: [ " +
+          role1.name +
+          " ] رتبة [ " +
+          args[0] +
+          " ] تم سحب من **"
+      );
+    }
+    if (args[0].toLowerCase() == "all") {
+      message.guild.members.forEach(m => m.removeRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم سحب من الكل رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "bots") {
+      message.guild.members
+        .filter(m => m.user.bot)
+        .forEach(m => m.removeRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم سحب من البوتات رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "humans") {
+      message.guild.members
+        .filter(m => !m.user.bot)
+        .forEach(m => m.removeRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم سحب من البشريين رتبة**"
+      );
+    }
+  } else {
+    if (!args[0])
+      return message.reply("**:x: يرجى وضع الشخص المراد اعطائها الرتبة**");
+    if (!args[1])
+      return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
+    var role = msg
+      .split(" ")
+      .slice(2)
+      .join(" ")
+      .toLowerCase();
+    var role1 = message.guild.roles
+      .filter(r => r.name.toLowerCase().indexOf(role) > -1)
+      .first();
+    if (!role1)
+      return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
+    if (message.mentions.members.first()) {
+      message.mentions.members.first().addRole(role1);
+      return message.reply(
+        "**:white_check_mark: [ " +
+          role1.name +
+          " ] رتبة [ " +
+          args[0] +
+          " ] تم اعطاء **"
+      );
+    }
+    if (args[0].toLowerCase() == "all") {
+      message.guild.members.forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء الكل رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "bots") {
+      message.guild.members
+        .filter(m => m.user.bot)
+        .forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البوتات رتبة**"
+      );
+    } else if (args[0].toLowerCase() == "humans") {
+      message.guild.members
+        .filter(m => !m.user.bot)
+        .forEach(m => m.addRole(role1));
+      return message.reply(
+        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البشريين رتبة**"
+      );
+    }
+  }
 });
 
-
 client.on("message", async message => {
-    let mention = message.mentions.members.first();
-  let role = message.content  
+  let mention = message.mentions.members.first();
+  let role = message.content
     .split(" ")
     .slice(2)
     .join(" ");
-  let mySupport = message.guild.roles.find(gg=> gg.name === role); 
+  let mySupport = message.guild.roles.find(gg => gg.name === role);
   if (message.content.startsWith(prefix + "قبول")) {
-    let acRoom = message.guild.channels.find(gg => gg.name ==="القبول-الرفض");
-    if (!acRoom) 
+    let acRoom = message.guild.channels.find(gg => gg.name === "القبول-الرفض");
+    if (!acRoom)
       return message.reply(
         `${prefix}room2 من فضلك انشاء روم **القبول-الرفض** او اكتب الامر`
       );
@@ -3523,7 +3636,7 @@ client.on("message", async message => {
     if (!message.channel.guild) return;
 
     let mention = message.mentions.members.first();
-    let acRoom = message.guild.channels.find("name", "القبول-الرفض"); 
+    let acRoom = message.guild.channels.find("name", "القبول-الرفض");
     let rrrr = message.content.split(/ +/).slice(2);
     let reason = rrrr.join(" ");
     if (!acRoom)
@@ -3556,565 +3669,644 @@ client.on("message", message => {
     message.channel.send("**✅ تم انشاء روم القبول والرفض بنجاح**");
   }
 });
-client.on('message', async msg =>{
-    if (msg.author.bot) return undefined;
-    if (!msg.content.startsWith(prefix)) return undefined;
-   
-    let args = msg.content.split(' ');
- 
-    let command = msg.content.toLowerCase().split(" ")[0];
-    command = command.slice(prefix.length)
- 
-    if(command === `avatar`){
-    if(msg.channel.type === 'dm') return msg.channel.send("Nope Nope!! u can't use avatar command in DMs (:")
-        let mentions = msg.mentions.members.first()
-        if(!mentions) {
-          let sicon = msg.author.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setImage(msg.author.avatarURL)
-          .setColor("#5074b3")
-          msg.channel.send({embed})
-        } else {
-          let sicon = mentions.user.avatarURL
-          let embed = new Discord.RichEmbed()
-          .setColor("#5074b3")
-          .setImage(sicon)
-          msg.channel.send({embed})
-        }
-    };
+client.on("message", async msg => {
+  if (msg.author.bot) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
+
+  let args = msg.content.split(" ");
+
+  let command = msg.content.toLowerCase().split(" ")[0];
+  command = command.slice(prefix.length);
+
+  if (command === `avatar`) {
+    if (msg.channel.type === "dm")
+      return msg.channel.send(
+        "Nope Nope!! u can't use avatar command in DMs (:"
+      );
+    let mentions = msg.mentions.members.first();
+    if (!mentions) {
+      let sicon = msg.author.avatarURL;
+      let embed = new Discord.RichEmbed()
+        .setImage(msg.author.avatarURL)
+        .setColor("#5074b3");
+      msg.channel.send({ embed });
+    } else {
+      let sicon = mentions.user.avatarURL;
+      let embed = new Discord.RichEmbed().setColor("#5074b3").setImage(sicon);
+      msg.channel.send({ embed });
+    }
+  }
 });
 
 //// تغير غير اساسي
 ///// كود ميوزك
 
 let cmds = {
-  play: { cmd: 'play', a: ['p', 'شغل'] },
-  skip: { cmd: 'skip', a: ['s', 'تخطى'] },
-  stop: { cmd: 'stop', a: ['ايقاف'] },
-  pause: { cmd: 'pause', a: ['ايقاف مؤقت'] },
-  resume: { cmd: 'resume', a: ['r','كمل'] },
-  volume: { cmd: 'volume', a: ['vol','صوت'] },
-  queue: { cmd: 'queue', a: ['q', 'قائمة'] },
-  repeat: { cmd: 'repeat', a: ['re','تكرار'] },
-  forceskip: { cmd: 'forceskip', a: ['تخطي الكل', 'fskip'] },
-  skipto: { cmd: 'skipto', a: ['st', 'اذهب الى'] },
-  nowplaying: { cmd: 'Nowplaying', a: ['np', 'الان'] }
+  play: { cmd: "play", a: ["p", "شغل"] },
+  skip: { cmd: "skip", a: ["s", "تخطى"] },
+  stop: { cmd: "stop", a: ["ايقاف"] },
+  pause: { cmd: "pause", a: ["ايقاف مؤقت"] },
+  resume: { cmd: "resume", a: ["r", "كمل"] },
+  volume: { cmd: "volume", a: ["vol", "صوت"] },
+  queue: { cmd: "queue", a: ["q", "قائمة"] },
+  repeat: { cmd: "repeat", a: ["re", "تكرار"] },
+  forceskip: { cmd: "forceskip", a: ["تخطي الكل", "fskip"] },
+  skipto: { cmd: "skipto", a: ["st", "اذهب الى"] },
+  nowplaying: { cmd: "Nowplaying", a: ["np", "الان"] }
 };
-
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
 Object.keys(cmds).forEach(key => {
-var value = cmds[key];
+  var value = cmds[key];
   var command = value.cmd;
   client.commands.set(command, command);
 
-  if(value.a) {
+  if (value.a) {
     value.a.forEach(alias => {
-    client.aliases.set(alias, command)
-  })
+      client.aliases.set(alias, command);
+    });
   }
-})
-
-
+});
 
 let active = new Map();
 
-client.on('warn', console.warn);
+client.on("warn", console.warn);
 
-client.on('error', console.error);
+client.on("error", console.error);
 
-client.on('ready', () => {
-    console.log(`on`);
-    console.log(`Guilds: ${client.guilds.size}`);
-    console.log(`Users: ${client.users.size}`);
+client.on("ready", () => {
+  console.log(`on`);
+  console.log(`Guilds: ${client.guilds.size}`);
+  console.log(`Users: ${client.users.size}`);
 });
 
-client.on('message', async msg => {
-    if(msg.author.bot) return undefined;
-  if(!msg.content.startsWith(prefix)) return undefined;
-
-  const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
-
-    const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
-
-    let cmd = client.commands.get(command) || client.commands.get(client.aliases.get(command))
-
-    let s;
-
-    if(cmd === 'play') {
-        const voiceChannel = msg.member.voiceChannel;
-        if(!voiceChannel) return msg.channel.send(`:no_entry_sign: You must be listening in a voice channel to use that!`);
-        const permissions = voiceChannel.permissionsFor(msg.client.user);
-        if(!permissions.has('CONNECT')) {
-            return msg.channel.send(`:no_entry_sign: I can't join Your voiceChannel because i don't have ` + '`' + '`CONNECT`' + '`' + ` permission!`);
-        }
-
-        if(!permissions.has('SPEAK')) {
-            return msg.channel.send(`:no_entry_sign: I can't SPEAK in your voiceChannel because i don't have ` + '`' + '`SPEAK`' + '`' + ` permission!`);
-        }
-
-        if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-			const playlist = await youtube.getPlaylist(url);
-			const videos = await playlist.getVideos();
-
-			for (const video of Object.values(videos)) {
-				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
-			}
-			return msg.channel.send(`Added to queue: ${playlist.title}`);
-		} else {
-			try {
-
-				var video = await youtube.getVideo(url);
-			} catch (error) {
-				try {
-					var videos = await youtube.searchVideos(args, 1);
-
-					// eslint-disable-next-line max-depth
-					var video = await youtube.getVideoByID(videos[0].id);
-				} catch (err) {
-					console.error(err);
-					return msg.channel.send('I can\'t find any thing');
-				}
-			}
-
-			return handleVideo(video, msg, voiceChannel);
-		}
-
-        async function handleVideo(video, msg, voiceChannel, playlist = false) {
-	const serverQueue = active.get(msg.guild.id);
-
-
-//	console.log('yao: ' + Util.escapeMarkdown(video.thumbnailUrl));
-
-let hrs = video.duration.hours > 0 ? (video.duration.hours > 9 ? `${video.duration.hours}:` : `0${video.duration.hours}:`) : '';
-let min = video.duration.minutes > 9 ? `${video.duration.minutes}:` : `0${video.duration.minutes}:`;
-let sec = video.duration.seconds > 9 ? `${video.duration.seconds}` : `0${video.duration.seconds}`;
-let dur = `${hrs}${min}${sec}`
-
-  let ms = video.durationSeconds * 1000;
-
-	const song = {
-		id: video.id,
-		title: video.title,
-    duration: dur,
-    msDur: ms,
-		url: `https://www.youtube.com/watch?v=${video.id}`
-	};
-	if (!serverQueue) {
-		const queueConstruct = {
-			textChannel: msg.channel,  
-			voiceChannel: voiceChannel, 
-			connection: null,
-			songs: [], ////تعديل غير اساسي
-			volume: 25, //// تعديل درجة الصوت الاساسية 
-      requester: msg.author,
-			playing: true,
-      repeating: false
-		};
-		active.set(msg.guild.id, queueConstruct);
-
-		queueConstruct.songs.push(song);
-
-		try {
-			var connection = await voiceChannel.join();
-			queueConstruct.connection = connection;
-			play(msg.guild, queueConstruct.songs[0]);
-		} catch (error) {
-			console.error(`I could not join the voice channel: ${error}`);
-			active.delete(msg.guild.id);
-			return msg.channel.send(`I cant join this voice channel`);
-		}
-	} else {
-		serverQueue.songs.push(song);
-
-		if (playlist) return undefined;
-		if(!args) return msg.channel.send('no results.');
-		else return msg.channel.send(':watch: Loading... [`' + args + '`]').then(m => {
-      setTimeout(() => {//:watch: Loading... [let]
-        m.edit(`:notes: Added **${song.title}**` + '(` ' + song.duration + ')`' + ` to the queue at position ` + `${serverQueue.songs.length}`);
-      }, 500)
-    }) 
-	}
-	return undefined;
-}
-
-function play(guild, song) {
-	const serverQueue = active.get(guild.id);
-
-	if (!song) {
-		serverQueue.voiceChannel.leave();
-		active.delete(guild.id);
-		return;
-	}
-	//console.log(serverQueue.songs);
-  if(serverQueue.repeating) {
-	console.log('Repeating');
-  } else {
-	serverQueue.textChannel.send(':notes: Added **' + song.title + '** (`' + song.duration + '`) to begin playing.');
-}
-	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
-		.on('end', reason => {
-			//if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
-			//else console.log(reason);
-      if(serverQueue.repeating) return play(guild, serverQueue.songs[0])
-			serverQueue.songs.shift();
-			play(guild, serverQueue.songs[0]);
-		})
-		.on('error', error => console.error(error));
-	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
-
-
-}
-} else if(cmd === 'stop') {
-        if(msg.guild.me.voiceChannel !== msg.member.voiceChannel) return msg.channel.send(`You must be in ${msg.guild.me.voiceChannel.name}`)
-        if(!msg.member.hasPermission('ADMINISTRATOR')) {
-          msg.react('❌')
-          return msg.channel.send('You don\'t have permission `ADMINSTRATOR`');
-        }
-        let queue = active.get(msg.guild.id);
-        if(queue.repeating) return msg.channel.send('Repeating Mode is on, you can\'t stop the music, run `' + `${prefix}repeat` + '` to turn off it.')
-        queue.songs = [];
-        queue.connection.dispatcher.end();
-        return msg.channel.send(':notes: The player has stopped and the queue has been cleared.');
-
-    } else if(cmd === 'skip') {
-
-      let vCh = msg.member.voiceChannel;
-
-      let queue = active.get(msg.guild.id);
-
-        if(!vCh) return msg.channel.send('Sorry, but you can\'t because you are not in voice channel');
-
-        if(!queue) return msg.channel.send('No music playing to skip it');
-
-        if(queue.repeating) return msg.channel.send('You can\'t skip it, because repeating mode is on, run ' + `\`${prefix}forceskip\``);
-
-        let req = vCh.members.size - 1;
-
-        if(req == 1) {
-            msg.channel.send('**:notes: Skipped **' + args);
-            return queue.connection.dispatcher.end('Skipping ..')
-        }
-
-        if(!queue.votes) queue.votes = [];
-
-        if(queue.votes.includes(msg.member.id)) return msg.say(`You already voted for skip! ${queue.votes.length}/${req}`);
-
-        queue.votes.push(msg.member.id);
-
-        if(queue.votes.length >= req) {
-            msg.channel.send('**:notes: Skipped **' + args);
-
-            delete queue.votes;
-
-            return queue.connection.dispatcher.end('Skipping ..')
-        }
-
-        msg.channel.send(`**You have successfully voted for skip! ${queue.votes.length}/${req}**`)
-
-    } else if(cmd === 'pause') {
-
-      let queue = active.get(msg.guild.id);
-
-        let vCh = msg.member.voiceChannel;
-
-        if(!vCh || vCh !== msg.guild.me.voiceChannel) return msg.channel.send(`You are not in my voice channel.`);
-
-        if(!queue) {
-            return msg.channel.send('No music playing to pause.')
-        }
-
-        if(!queue.playing) return msg.channel.send(':no_entry_sign: There must be music playing to use that!')
-
-        let disp = queue.connection.dispatcher;
-
-        disp.pause('Pausing..')
-
-        queue.playing = false;
-
-        msg.channel.send(':notes: Paused ' + args + '. **Type** `' + prefix + 'resume` to unpause!')
-
-    } else if (cmd === 'resume') {
-
-      let queue = active.get(msg.guild.id);
-
-        let vCh = msg.member.voiceChannel;
-
-        if(!vCh || vCh !== msg.guild.me.voiceChannel) return msg.channel.send(`You are not in my voice channel.`);
-
-        if(!queue) return msg.channel.send(':notes: No music paused to resume.')
-
-        if(queue.playing) return msg.channel.send(':notes: No music paused to resume.')
-
-        let disp = queue.connection.dispatcher;
-
-        disp.resume('Resuming..')
-
-        queue.playing = true;
-
-        msg.channel.send(':notes: Resumed.')
-
-    } else if(cmd === 'volume') {
-
-      let queue = active.get(msg.guild.id);
-
-      if(!queue || !queue.songs) return msg.channel.send(':notes: There is no music playing to set volume.');
-
-      let vCh = msg.member.voiceChannel;
-
-      if(!vCh || vCh !== msg.guild.me.voiceChannel) return msg.channel.send(':notes: You are not in my voice channel');
-
-      let disp = queue.connection.dispatcher;
-
-      if(isNaN(args[0])) return msg.channel.send(':notes: Numbers only!');
-
-      if(parseInt(args[0]) > 100) return msg.channel.send('You can\'t set the volume more than **100**.')
-//:speaker: Volume changed from 20 to 20 ! The volume has been changed from ${queue.volume} to ${args[0]}
-      msg.channel.send(':loud_sound: Volume has been **changed** from (`' + queue.volume + '`) to (`' + args[0] + '`)');
-
-      queue.volume = args[0];
-
-      disp.setVolumeLogarithmic(queue.volume / 100);
-
-    } else if (cmd === 'queue') {
-
-      let queue = active.get(msg.guild.id);
-
-      if(!queue) return msg.channel.send(':no_entry_sign: There must be music playing to use that!');
-
-      let embed = new Discord.RichEmbed()
-      .setAuthor(`${client.user.username}`, client.user.displayAvatarURL)
-      let text = '';
-
-      for (var i = 0; i < queue.songs.length; i++) {
-        let num;
-        if((i) > 8) {
-          let st = `${i+1}`
-          let n1 = converter.toWords(st[0])
-          let n2 = converter.toWords(st[1])
-          num = `:${n1}::${n2}:`
-        } else {
-        let n = converter.toWords(i+1)
-        num = `:${n}:`
+client.on("message", async msg => {
+  if (msg.author.bot) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
+
+  const args = msg.content
+    .slice(prefix.length)
+    .trim()
+    .split(/ +/g);
+  const command = args.shift().toLowerCase();
+
+  const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
+
+  let cmd =
+    client.commands.get(command) ||
+    client.commands.get(client.aliases.get(command));
+
+  let s;
+
+  if (cmd === "play") {
+    const voiceChannel = msg.member.voiceChannel;
+    if (!voiceChannel)
+      return msg.channel.send(
+        `:no_entry_sign: You must be listening in a voice channel to use that!`
+      );
+    const permissions = voiceChannel.permissionsFor(msg.client.user);
+    if (!permissions.has("CONNECT")) {
+      return msg.channel.send(
+        `:no_entry_sign: I can't join Your voiceChannel because i don't have ` +
+          "`" +
+          "`CONNECT`" +
+          "`" +
+          ` permission!`
+      );
+    }
+
+    if (!permissions.has("SPEAK")) {
+      return msg.channel.send(
+        `:no_entry_sign: I can't SPEAK in your voiceChannel because i don't have ` +
+          "`" +
+          "`SPEAK`" +
+          "`" +
+          ` permission!`
+      );
+    }
+
+    if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
+      const playlist = await youtube.getPlaylist(url);
+      const videos = await playlist.getVideos();
+
+      for (const video of Object.values(videos)) {
+        const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
+        await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
       }
-        text += `${num} ${queue.songs[i].title} [${queue.songs[i].duration}]\n`
+      return msg.channel.send(`Added to queue: ${playlist.title}`);
+    } else {
+      try {
+        var video = await youtube.getVideo(url);
+      } catch (error) {
+        try {
+          var videos = await youtube.searchVideos(args, 1);
+
+          // eslint-disable-next-line max-depth
+          var video = await youtube.getVideoByID(videos[0].id);
+        } catch (err) {
+          console.error(err);
+          return msg.channel.send("I can't find any thing");
+        }
       }
-      embed.setDescription(`Songs Queue | ${msg.guild.name}\n\n ${text}`)
-      msg.channel.send(embed)
 
-    } else if(cmd === 'repeat') {
+      return handleVideo(video, msg, voiceChannel);
+    }
 
-      let vCh = msg.member.voiceChannel;
+    async function handleVideo(video, msg, voiceChannel, playlist = false) {
+      const serverQueue = active.get(msg.guild.id);
 
-      if(!vCh || vCh !== msg.guild.me.voiceChannel) return msg.channel.send('You are not in my voice channel');
+      //	console.log('yao: ' + Util.escapeMarkdown(video.thumbnailUrl));
 
-      let queue = active.get(msg.guild.id);
+      let hrs =
+        video.duration.hours > 0
+          ? video.duration.hours > 9
+            ? `${video.duration.hours}:`
+            : `0${video.duration.hours}:`
+          : "";
+      let min =
+        video.duration.minutes > 9
+          ? `${video.duration.minutes}:`
+          : `0${video.duration.minutes}:`;
+      let sec =
+        video.duration.seconds > 9
+          ? `${video.duration.seconds}`
+          : `0${video.duration.seconds}`;
+      let dur = `${hrs}${min}${sec}`;
 
-      if(!queue || !queue.songs) return msg.channel.send('There is no music playing to repeat it.');
+      let ms = video.durationSeconds * 1000;
 
-      if(queue.repeating) {
-        queue.repeating = false;
-        return msg.channel.send(':arrows_counterclockwise: **Repeating Mode** (`False`)');
+      const song = {
+        id: video.id,
+        title: video.title,
+        duration: dur,
+        msDur: ms,
+        url: `https://www.youtube.com/watch?v=${video.id}`
+      };
+      if (!serverQueue) {
+        const queueConstruct = {
+          textChannel: msg.channel,
+          voiceChannel: voiceChannel,
+          connection: null,
+          songs: [], ////تعديل غير اساسي
+          volume: 25, //// تعديل درجة الصوت الاساسية
+          requester: msg.author,
+          playing: true,
+          repeating: false
+        };
+        active.set(msg.guild.id, queueConstruct);
+
+        queueConstruct.songs.push(song);
+
+        try {
+          var connection = await voiceChannel.join();
+          queueConstruct.connection = connection;
+          play(msg.guild, queueConstruct.songs[0]);
+        } catch (error) {
+          console.error(`I could not join the voice channel: ${error}`);
+          active.delete(msg.guild.id);
+          return msg.channel.send(`I cant join this voice channel`);
+        }
       } else {
-        queue.repeating = true;
-        return msg.channel.send(':arrows_counterclockwise: **Repeating Mode** (`True`)');
+        serverQueue.songs.push(song);
+
+        if (playlist) return undefined;
+        if (!args) return msg.channel.send("no results.");
+        else
+          return msg.channel
+            .send(":watch: Loading... [`" + args + "`]")
+            .then(m => {
+              setTimeout(() => {
+                //:watch: Loading... [let]
+                m.edit(
+                  `:notes: Added **${song.title}**` +
+                    "(` " +
+                    song.duration +
+                    ")`" +
+                    ` to the queue at position ` +
+                    `${serverQueue.songs.length}`
+                );
+              }, 500);
+            });
       }
+      return undefined;
+    }
 
-    } else if(cmd === 'forceskip') {
+    function play(guild, song) {
+      const serverQueue = active.get(guild.id);
 
-      let vCh = msg.member.voiceChannel;
-
-      if(!vCh || vCh !== msg.guild.me.voiceChannel) return msg.channel.send('You are not in my voice channel');
-
-      let queue = active.get(msg.guild.id);
-
-      if(queue.repeating) {
-
-        queue.repeating = false;
-
-        msg.channel.send('ForceSkipped, Repeating mode is on.')
-
-        queue.connection.dispatcher.end('ForceSkipping..')
-
-        queue.repeating = true;
-
+      if (!song) {
+        serverQueue.voiceChannel.leave();
+        active.delete(guild.id);
+        return;
+      }
+      //console.log(serverQueue.songs);
+      if (serverQueue.repeating) {
+        console.log("Repeating");
       } else {
-
-        queue.connection.dispatcher.end('ForceSkipping..')
-
-        msg.channel.send('ForceSkipped.')
-
+        serverQueue.textChannel.send(
+          ":notes: Added **" +
+            song.title +
+            "** (`" +
+            song.duration +
+            "`) to begin playing."
+        );
       }
+      const dispatcher = serverQueue.connection
+        .playStream(ytdl(song.url))
+        .on("end", reason => {
+          //if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
+          //else console.log(reason);
+          if (serverQueue.repeating) return play(guild, serverQueue.songs[0]);
+          serverQueue.songs.shift();
+          play(guild, serverQueue.songs[0]);
+        })
+        .on("error", error => console.error(error));
+      dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
+    }
+  } else if (cmd === "stop") {
+    if (msg.guild.me.voiceChannel !== msg.member.voiceChannel)
+      return msg.channel.send(
+        `You must be in ${msg.guild.me.voiceChannel.name}`
+      );
+    if (!msg.member.hasPermission("ADMINISTRATOR")) {
+      msg.react("❌");
+      return msg.channel.send("You don't have permission `ADMINSTRATOR`");
+    }
+    let queue = active.get(msg.guild.id);
+    if (queue.repeating)
+      return msg.channel.send(
+        "Repeating Mode is on, you can't stop the music, run `" +
+          `${prefix}repeat` +
+          "` to turn off it."
+      );
+    queue.songs = [];
+    queue.connection.dispatcher.end();
+    return msg.channel.send(
+      ":notes: The player has stopped and the queue has been cleared."
+    );
+  } else if (cmd === "skip") {
+    let vCh = msg.member.voiceChannel;
 
-     } else if(cmd === 'skipto') {
+    let queue = active.get(msg.guild.id);
 
-      let vCh = msg.member.voiceChannel;
+    if (!vCh)
+      return msg.channel.send(
+        "Sorry, but you can't because you are not in voice channel"
+      );
 
-      if(!vCh || vCh !== msg.guild.me.voiceChannel) return msg.channel.send('You are not in my voice channel');
+    if (!queue) return msg.channel.send("No music playing to skip it");
 
-      let queue = active.get(msg.guild.id);
+    if (queue.repeating)
+      return msg.channel.send(
+        "You can't skip it, because repeating mode is on, run " +
+          `\`${prefix}forceskip\``
+      );
 
-      if(!queue.songs || queue.songs < 2) return msg.channel.send('There is no music to skip to.');
+    let req = vCh.members.size - 1;
 
-    if(queue.repeating) return msg.channel.send('You can\'t skip, because repeating mode is on, run ' + `\`${prefix}repeat\` to turn off.`);
+    if (req == 1) {
+      msg.channel.send("**:notes: Skipped **" + args);
+      return queue.connection.dispatcher.end("Skipping ..");
+    }
 
-      if(!args[0] || isNaN(args[0])) return msg.channel.send('Please input song number to skip to it, run ' + prefix + `queue` + ' to see songs numbers.');
+    if (!queue.votes) queue.votes = [];
 
-      let sN = parseInt(args[0]) - 1;
+    if (queue.votes.includes(msg.member.id))
+      return msg.say(
+        `You already voted for skip! ${queue.votes.length}/${req}`
+      );
 
-      if(!queue.songs[sN]) return msg.channel.send('There is no song with this number.');
+    queue.votes.push(msg.member.id);
 
-      let i = 1;
+    if (queue.votes.length >= req) {
+      msg.channel.send("**:notes: Skipped **" + args);
 
-      msg.channel.send(`Skipped to: **${queue.songs[sN].title}[${queue.songs[sN].duration}]**`)
+      delete queue.votes;
 
-      while (i < sN) {
-        i++;
-        queue.songs.shift();
+      return queue.connection.dispatcher.end("Skipping ..");
+    }
+
+    msg.channel.send(
+      `**You have successfully voted for skip! ${queue.votes.length}/${req}**`
+    );
+  } else if (cmd === "pause") {
+    let queue = active.get(msg.guild.id);
+
+    let vCh = msg.member.voiceChannel;
+
+    if (!vCh || vCh !== msg.guild.me.voiceChannel)
+      return msg.channel.send(`You are not in my voice channel.`);
+
+    if (!queue) {
+      return msg.channel.send("No music playing to pause.");
+    }
+
+    if (!queue.playing)
+      return msg.channel.send(
+        ":no_entry_sign: There must be music playing to use that!"
+      );
+
+    let disp = queue.connection.dispatcher;
+
+    disp.pause("Pausing..");
+
+    queue.playing = false;
+
+    msg.channel.send(
+      ":notes: Paused " + args + ". **Type** `" + prefix + "resume` to unpause!"
+    );
+  } else if (cmd === "resume") {
+    let queue = active.get(msg.guild.id);
+
+    let vCh = msg.member.voiceChannel;
+
+    if (!vCh || vCh !== msg.guild.me.voiceChannel)
+      return msg.channel.send(`You are not in my voice channel.`);
+
+    if (!queue) return msg.channel.send(":notes: No music paused to resume.");
+
+    if (queue.playing)
+      return msg.channel.send(":notes: No music paused to resume.");
+
+    let disp = queue.connection.dispatcher;
+
+    disp.resume("Resuming..");
+
+    queue.playing = true;
+
+    msg.channel.send(":notes: Resumed.");
+  } else if (cmd === "volume") {
+    let queue = active.get(msg.guild.id);
+
+    if (!queue || !queue.songs)
+      return msg.channel.send(
+        ":notes: There is no music playing to set volume."
+      );
+
+    let vCh = msg.member.voiceChannel;
+
+    if (!vCh || vCh !== msg.guild.me.voiceChannel)
+      return msg.channel.send(":notes: You are not in my voice channel");
+
+    let disp = queue.connection.dispatcher;
+
+    if (isNaN(args[0])) return msg.channel.send(":notes: Numbers only!");
+
+    if (parseInt(args[0]) > 100)
+      return msg.channel.send("You can't set the volume more than **100**.");
+    //:speaker: Volume changed from 20 to 20 ! The volume has been changed from ${queue.volume} to ${args[0]}
+    msg.channel.send(
+      ":loud_sound: Volume has been **changed** from (`" +
+        queue.volume +
+        "`) to (`" +
+        args[0] +
+        "`)"
+    );
+
+    queue.volume = args[0];
+
+    disp.setVolumeLogarithmic(queue.volume / 100);
+  } else if (cmd === "queue") {
+    let queue = active.get(msg.guild.id);
+
+    if (!queue)
+      return msg.channel.send(
+        ":no_entry_sign: There must be music playing to use that!"
+      );
+
+    let embed = new Discord.RichEmbed().setAuthor(
+      `${client.user.username}`,
+      client.user.displayAvatarURL
+    );
+    let text = "";
+
+    for (var i = 0; i < queue.songs.length; i++) {
+      let num;
+      if (i > 8) {
+        let st = `${i + 1}`;
+        let n1 = converter.toWords(st[0]);
+        let n2 = converter.toWords(st[1]);
+        num = `:${n1}::${n2}:`;
+      } else {
+        let n = converter.toWords(i + 1);
+        num = `:${n}:`;
       }
+      text += `${num} ${queue.songs[i].title} [${queue.songs[i].duration}]\n`;
+    }
+    embed.setDescription(`Songs Queue | ${msg.guild.name}\n\n ${text}`);
+    msg.channel.send(embed);
+  } else if (cmd === "repeat") {
+    let vCh = msg.member.voiceChannel;
 
-      queue.connection.dispatcher.end('SkippingTo..')
+    if (!vCh || vCh !== msg.guild.me.voiceChannel)
+      return msg.channel.send("You are not in my voice channel");
 
-    } else if(cmd === 'Nowplaying') {
+    let queue = active.get(msg.guild.id);
 
-      let q = active.get(msg.guild.id);
+    if (!queue || !queue.songs)
+      return msg.channel.send("There is no music playing to repeat it.");
 
-      let now = npMsg(q)
+    if (queue.repeating) {
+      queue.repeating = false;
+      return msg.channel.send(
+        ":arrows_counterclockwise: **Repeating Mode** (`False`)"
+      );
+    } else {
+      queue.repeating = true;
+      return msg.channel.send(
+        ":arrows_counterclockwise: **Repeating Mode** (`True`)"
+      );
+    }
+  } else if (cmd === "forceskip") {
+    let vCh = msg.member.voiceChannel;
 
-      msg.channel.send(now.mes, now.embed)
-      .then(me => {
-        setInterval(() => {
-          let noww = npMsg(q)
-          me.edit(noww.mes, noww.embed)
-        }, 5000)
-      })
+    if (!vCh || vCh !== msg.guild.me.voiceChannel)
+      return msg.channel.send("You are not in my voice channel");
 
-      function npMsg(queue) {
+    let queue = active.get(msg.guild.id);
 
-        let m = !queue || !queue.songs[0] ? 'No music playing.' : "Now Playing..."
+    if (queue.repeating) {
+      queue.repeating = false;
+
+      msg.channel.send("ForceSkipped, Repeating mode is on.");
+
+      queue.connection.dispatcher.end("ForceSkipping..");
+
+      queue.repeating = true;
+    } else {
+      queue.connection.dispatcher.end("ForceSkipping..");
+
+      msg.channel.send("ForceSkipped.");
+    }
+  } else if (cmd === "skipto") {
+    let vCh = msg.member.voiceChannel;
+
+    if (!vCh || vCh !== msg.guild.me.voiceChannel)
+      return msg.channel.send("You are not in my voice channel");
+
+    let queue = active.get(msg.guild.id);
+
+    if (!queue.songs || queue.songs < 2)
+      return msg.channel.send("There is no music to skip to.");
+
+    if (queue.repeating)
+      return msg.channel.send(
+        "You can't skip, because repeating mode is on, run " +
+          `\`${prefix}repeat\` to turn off.`
+      );
+
+    if (!args[0] || isNaN(args[0]))
+      return msg.channel.send(
+        "Please input song number to skip to it, run " +
+          prefix +
+          `queue` +
+          " to see songs numbers."
+      );
+
+    let sN = parseInt(args[0]) - 1;
+
+    if (!queue.songs[sN])
+      return msg.channel.send("There is no song with this number.");
+
+    let i = 1;
+
+    msg.channel.send(
+      `Skipped to: **${queue.songs[sN].title}[${queue.songs[sN].duration}]**`
+    );
+
+    while (i < sN) {
+      i++;
+      queue.songs.shift();
+    }
+
+    queue.connection.dispatcher.end("SkippingTo..");
+  } else if (cmd === "Nowplaying") {
+    let q = active.get(msg.guild.id);
+
+    let now = npMsg(q);
+
+    msg.channel.send(now.mes, now.embed).then(me => {
+      setInterval(() => {
+        let noww = npMsg(q);
+        me.edit(noww.mes, noww.embed);
+      }, 5000);
+    });
+
+    function npMsg(queue) {
+      let m =
+        !queue || !queue.songs[0] ? "No music playing." : "Now Playing...";
 
       const eb = new Discord.RichEmbed();
 
-      eb.setColor(msg.guild.me.displayHexColor)
+      eb.setColor(msg.guild.me.displayHexColor);
 
-      if(!queue || !queue.songs[0]){
-
+      if (!queue || !queue.songs[0]) {
         eb.setTitle("No music playing");
-            eb.setDescription("\u23F9 "+bar(-1)+" "+volumeIcon(!queue?100:queue.volume));
-      } else if(queue.songs) {
-
-        if(queue.requester) {
-
+        eb.setDescription(
+          "\u23F9 " + bar(-1) + " " + volumeIcon(!queue ? 100 : queue.volume)
+        );
+      } else if (queue.songs) {
+        if (queue.requester) {
           let u = msg.guild.members.get(queue.requester.id);
 
-          if(!u)
-            eb.setAuthor('Unkown (ID:' + queue.requester.id + ')')
-          else
-            eb.setAuthor(u.user.tag, u.user.displayAvatarURL)
+          if (!u) eb.setAuthor("Unkown (ID:" + queue.requester.id + ")");
+          else eb.setAuthor(u.user.tag, u.user.displayAvatarURL);
         }
 
-        if(queue.songs[0]) {
-        try {
+        if (queue.songs[0]) {
+          try {
             eb.setTitle(queue.songs[0].title);
             eb.setURL(queue.songs[0].url);
-        } catch (e) {
-          eb.setTitle(queue.songs[0].title);
+          } catch (e) {
+            eb.setTitle(queue.songs[0].title);
+          }
         }
-}
-        eb.setDescription(embedFormat(queue))
-
+        eb.setDescription(embedFormat(queue));
       }
 
       return {
         mes: m,
         embed: eb
-      }
-
+      };
     }
 
-      function embedFormat(queue) {
+    function embedFormat(queue) {
+      if (!queue || !queue.songs) {
+        return "No music playing\n\u23F9 " + bar(-1) + " " + volumeIcon(100);
+      } else if (!queue.playing) {
+        return (
+          "No music playing\n\u23F9 " + bar(-1) + " " + volumeIcon(queue.volume)
+        );
+      } else {
+        let progress = queue.connection.dispatcher.time / queue.songs[0].msDur;
+        let prog = bar(progress);
+        let volIcon = volumeIcon(queue.volume);
+        let playIcon = queue.connection.dispatcher.paused ? "\u23F8" : "\u25B6";
+        let dura = queue.songs[0].duration;
 
-        if(!queue || !queue.songs) {
-          return "No music playing\n\u23F9 "+bar(-1)+" "+volumeIcon(100);
-        } else if(!queue.playing) {
-          return "No music playing\n\u23F9 "+bar(-1)+" "+volumeIcon(queue.volume);
+        return (
+          playIcon +
+          " " +
+          prog +
+          " `[" +
+          formatTime(queue.connection.dispatcher.time) +
+          "/" +
+          dura +
+          "]`" +
+          volIcon
+        );
+      }
+    }
+
+    function formatTime(duration) {
+      var milliseconds = parseInt((duration % 1000) / 100),
+        seconds = parseInt((duration / 1000) % 60),
+        minutes = parseInt((duration / (1000 * 60)) % 60),
+        hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      return (hours > 0 ? hours + ":" : "") + minutes + ":" + seconds;
+    }
+
+    function bar(precent) {
+      var str = "";
+
+      for (var i = 0; i < 12; i++) {
+        let pre = precent;
+        let res = pre * 12;
+
+        res = parseInt(res);
+
+        if (i == res) {
+          str += "\uD83D\uDD18";
         } else {
-
-          let progress = (queue.connection.dispatcher.time / queue.songs[0].msDur);
-          let prog = bar(progress);
-          let volIcon = volumeIcon(queue.volume);
-          let playIcon = (queue.connection.dispatcher.paused ? "\u23F8" : "\u25B6")
-          let dura = queue.songs[0].duration;
-
-          return playIcon + ' ' + prog + ' `[' + formatTime(queue.connection.dispatcher.time) + '/' + dura + ']`' + volIcon;
-
-
+          str += "▬";
         }
-
       }
 
-      function formatTime(duration) {
-  var milliseconds = parseInt((duration % 1000) / 100),
-    seconds = parseInt((duration / 1000) % 60),
-    minutes = parseInt((duration / (1000 * 60)) % 60),
-    hours = parseInt((duration / (1000 * 60 * 60)) % 24);
-
-  hours = (hours < 10) ? "0" + hours : hours;
-  minutes = (minutes < 10) ? "0" + minutes : minutes;
-  seconds = (seconds < 10) ? "0" + seconds : seconds;
-
-  return (hours > 0 ? hours + ":" : "") + minutes + ":" + seconds;
-}
-
-      function bar(precent) {
-
-        var str = '';
-
-        for (var i = 0; i < 12; i++) {
-
-          let pre = precent
-          let res = pre * 12;
-
-          res = parseInt(res)
-
-          if(i == res){
-            str+="\uD83D\uDD18";
-          }
-          else {
-            str+="▬";
-          }
-        }
-
-        return str;
-
-      }
-
-      function volumeIcon(volume) {
-
-        if(volume == 0)
-           return "\uD83D\uDD07";
-       if(volume < 30)
-           return "\uD83D\uDD08";
-       if(volume < 70)
-           return "\uD83D\uDD09";
-       return "\uD83D\uDD0A";
-
-      }
-
+      return str;
     }
 
+    function volumeIcon(volume) {
+      if (volume == 0) return "\uD83D\uDD07";
+      if (volume < 30) return "\uD83D\uDD08";
+      if (volume < 70) return "\uD83D\uDD09";
+      return "\uD83D\uDD0A";
+    }
+  }
 });
 
 //// مهم
-/// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل 
+/// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
 //// يجب ان يكون البوت رتبة اقل من رتبة البوتات الموثوقة والكبيرة مثل داينو بوت وبروبوت والاخرى لكي لا يعطيهم باند
 //// يجب اعطاء البوت جميع الصلاحيات
 //// البوت امن تماما من اي اخطاء في الحماية او حتى في اصل الاكواد
-//// تم تجربة البوت اكثر من 3 ايام 
+//// تم تجربة البوت اكثر من 3 ايام
 //// هذا البوت هو الاصدار الثاني من بوت السيستم من قناة اسامة بلس
 //// الاكواد مجمعة من سيرفرات كثير مثل الفا وتوكسك كودز
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
