@@ -840,7 +840,9 @@ client.on("message", message => {
 **\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده **
 **\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده**
 **\`${prefix}antibots on\` : منع دخول بوتات**
-**\`${prefix}antibots off\` : فتح دخول البوتات`);
+**\`${prefix}antibots off\` : فتح دخول البوتات
+شرح البوت : <https://youtu.be/6B9nrQp02Rk>
+`);
         })
         .then(e => {
           message.react("✅");
@@ -924,8 +926,8 @@ client.on("message", message => {
 **\`${prefix}np\` : عرض مايتم تشغيله الان [np] **
 **\`${prefix}repeat\` : تكرار الاغنية **
 **\`${prefix}Leave\` : الخروج من الروم الصوتي**
-
-
+_
+شرح البوت : <https://youtu.be/6B9nrQp02Rk>
 
 `);
         })
