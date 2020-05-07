@@ -92,8 +92,7 @@ client.on("message", message => {
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
-    if (message.guild.channels.exists("name", `ticket-` + message.author.id))
-      return message.channel.send(`You already have a ticket open.`);
+    if (message.guild.channels.filter (Channel => C))
     message.guild
       .createChannel(`ticket-${message.author.username}`, "text")
       .then(c => {
@@ -103,14 +102,13 @@ client.on("message", message => {
           SEND_MESSAGES: true,
           READ_MESSAGES: true
         });
-        c.overwritePermissions(role2, {
-          SEND_MESSAGES: false,
-          READ_MESSAGES: false
-        });
         c.overwritePermissions(message.author, {
           SEND_MESSAGES: true,
           READ_MESSAGES: true
         });
+      c.overwritePermissions (message.guild.id, {
+        READ_MESSAGES: false
+      })
         message.channel.send(
           `:white_check_mark: Your ticket has been created, #${c.name}.`
         );
@@ -2752,8 +2750,8 @@ client.on("message", async message => {
           `**:x: | Error , You Don't Have Enough Credit**`
         );
       if (args[2].includes("-")) return message.channel.send(`**:x: | Error**`);
-      let resulting = Math.floor(args[2] - args[2] * (5 / 100));
-      let tax = Math.floor(args[2] * (5 / 100));
+      let resulting =parseInt(args [2])==1 ? parseInt(args[2]) : Math.floor(args[2] - args[2] * (5 / 100));
+      let tax = parseInt(args [2])==1 ? parseInt(args[2]) : Math.floor(args[2] * (5 / 100));
       let first = Math.floor(Math.random() * 9);
       let second = Math.floor(Math.random() * 9);
       let third = Math.floor(Math.random() * 9);
