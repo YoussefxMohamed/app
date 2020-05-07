@@ -2424,41 +2424,39 @@ let saveSteve = () => {
     if(err) throw err;
   })
 }
-var julian = client;
-julian.on("message", codes => {
-  if (codes.content.startsWith(prefix + "antibots on")) {
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "antibots on")) {
     if (
-      codes.author.bot ||
-      !codes.channel.guild ||
-      codes.author.id != codes.guild.ownerID
+      message.author.bot ||
+      !message.channel.guild
     )
       return;
-    antibots.set(`${codes.guild.id}`, {
+   
+    antibots[message.guild.id] = {
       onoff: true
-    });
-
-    codes.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
+    };
+    saveSteve();
+    message.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
   }
-  if (codes.content.startsWith(prefix + "antibots off")) {
+  if (message.content.startsWith(prefix + "antibots off")) {
     if (
-      codes.author.bot ||
-      !codes.channel.guild ||
-      codes.author.id != codes.guild.ownerID
+      message.author.bot ||
+      !message.channel.guild ||
+      message.author.id != message.guild.ownerID
     )
       return;
-    antibots.set(`${codes.guild.id}`, {
+    antibots[message.guild.id] = {
       onoff: false
-    });
-    codes.channel.send("**AntiBots Join Is Off :unlock: **");
+    };
+    saveSteve();
+    message.channel.send("**AntiBots Join Is Off :unlock: **");
   }
 });
 
-julian.on("guildMemberAdd", member => {
-  antibots.ensure(`${member.guild.id}`, {
-      onoff: false
-    });
-  if (antibots.get(`${member.guild.id}`).onoff == false) return;
-  if (member.user.bot) return member.kick();
+client.on("guildMemberAdd", member => {
+  if (!antibots [member.guild.id]) return;
+  if (antibots [member.guild.id].onoff == false) return;
+  if (member.user.bot) return member.kick('Protection from Bots.');
 });
 
 client.on("message", async message => {
@@ -2884,7 +2882,8 @@ const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف
 
 client.on("guildMemberAdd", async member => {
   if (!welcome) return;
-  var findingWlcChannel = welcome[member.guild.id].channel[0];
+  if (!welcome [member.guild.id]) return;
+  var findingWlcChannel = welcome[member.guild.id].channel[0] || null;
   const channel = await member.guild.channels.find(
     r => r.name == findingWlcChannel
   );
@@ -3020,15 +3019,18 @@ var gg1;
 var gg2;
 
 client.on("guildMemberAdd", member => {
+ if (!welcome[member.guild.id])
+    welcome[member.guild.id] = {
+      by: "Off",
+      channel: null
+    };
+  
+  if (welcome[member.guild.id].by === "Off") return;
   let channel = member.guild.channels.find(
     c => c.name == welcome[member.guild.id].channel
   );
   if (!channel) return;
-  if (!welcome[member.guild.id])
-    welcome[member.guild.id] = {
-      by: "Off"
-    };
-  if (welcome[member.guild.id].by === "Off") return;
+  
   member.guild.fetchInvites().then(async guildInvites => {
     const ei = await invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
