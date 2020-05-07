@@ -354,7 +354,7 @@ client.on("message", message => {
   }
 });
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "avt")) {
+  if (message.content.split(' ')[0] === (prefix + "avt")) {
     if (message.author.bot || message.channel.type == "dm") return;
     var args = message.content.split(" ")[1];
     var avt = args || message.author.id;
@@ -2741,7 +2741,8 @@ client.on("message", async message => {
         `**${mention.username}, your :credit_card: balance is \`$${credits[mention.id].credits}\`**`
       );
     } else if (mentionn && args[2]) {
-      if (isNaN(args[2])) return message.channel.send(`**:x: | Error**`);
+      if (isNaN(args[2]) || [',', '.'].includes(args[2])) return message.channel.send(`**:x: | Error**`);
+      
       if (args[2] < 1) return message.channel.send(`**:x: | Error**`);
       if (mention.bot) return message.channel.send(`**:x: | Error**`);
       if (mentionn.id === message.author.id)
@@ -2758,6 +2759,7 @@ client.on("message", async message => {
       let third = Math.floor(Math.random() * 9);
       let fourth = Math.floor(Math.random() * 9);
       let num = `${first}${second}${third}${fourth}`;
+      let Canvas = require ('canvas');
       let canvas = Canvas.createCanvas(108, 40);
       let ctx = canvas.getContext("2d");
       const background = await Canvas.loadImage(
@@ -2774,9 +2776,9 @@ client.on("message", async message => {
           }, Transfer Fees: \`${tax}\`, Amount: \`$${resulting.toLocaleString()}\`**
 type these numbers to confirm: `
         )
-        .then(essss => {
-          ctx.fillText(num, canvas.width / 2.4, canvas.height / 1.7);
-          message.channel.sendFile(canvas.toBuffer()).then(m => {
+        .then(async essss => {
+        
+          message.channel.send(`\`\`\`${num}\`\`\``).then(m => {
             message.channel
               .awaitMessages(r => r.author.id === message.author.id, {
                 max: 1,
