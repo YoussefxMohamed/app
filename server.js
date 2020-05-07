@@ -2228,7 +2228,7 @@ client.on("guildBanAdd", async (guild, user) => {
       type: "MEMBER_BAN_ADD"
     })
     .then(audit => audit.entries.first());
-  console.log(entry1.executor.username);
+  console.log("ban: " + entry1.executor.username);
   const entry = entry1.executor;
   if (!config[guild.id])
     config[guild.id] = {
@@ -2243,24 +2243,23 @@ client.on("guildBanAdd", async (guild, user) => {
       actions: 1
     };
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = "0";
+      anti[guild.id + entry.id].actions = 0;
     }, config[guild.id].time * 1000);
   } else {
     anti[guild.id + entry.id].actions = Math.floor(
       anti[guild.id + entry.id].actions + 1
     );
-    console.log("TETS");
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = "0";
+      anti[guild.id + entry.id].actions = 0;
     }, config[guild.id].time * 1000);
-    if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
+    if (anti[guild.id + entry.id].actions >= 0) {
       guild.members
         .get(entry.id)
         .ban()
         .catch(e =>
           guild.owner.send(`**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`)
         );
-      anti[guild.id + entry.id].actions = "0";
+      anti[guild.id + entry.id].actions = 0;
       fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
         e
       ) {
@@ -2303,7 +2302,7 @@ client.on("guildKickAdd", async (guild, user) => {
       actions: 1
     };
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = "0";
+      anti[guild.id + entry.id].actions = 0;
     }, config[guild.id].time * 1000);
   } else {
     anti[guild.id + entry.id].actions = Math.floor(
@@ -2311,7 +2310,7 @@ client.on("guildKickAdd", async (guild, user) => {
     );
     console.log("TETS");
     setTimeout(() => {
-      anti[guild.id + entry.id].actions = "0";
+      anti[guild.id + entry.id].actions = 0;
     }, config[guild.id].time * 1000);
     if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
       guild.members
@@ -2320,7 +2319,7 @@ client.on("guildKickAdd", async (guild, user) => {
         .catch(e =>
           guild.owner.send(`**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`)
         );
-      anti[guild.id + entry.id].actions = "0";
+      anti[guild.id + entry.id].actions = 0;
       fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
         e
       ) {
@@ -2366,7 +2365,7 @@ client.on("guildMemberRemove", async member => {
         actions: 1
       };
       setTimeout(() => {
-        anti[member.guild.id + entry.id].actions = "0";
+        anti[member.guild.id + entry.id].actions = 0;
       }, config[member.guild.id].time * 1000);
     } else {
       anti[member.guild.id + entry.id].actions = Math.floor(
@@ -2374,7 +2373,7 @@ client.on("guildMemberRemove", async member => {
       );
       console.log("TETS");
       setTimeout(() => {
-        anti[member.guild.id + entry.id].actions = "0";
+        anti[member.guild.id + entry.id].actions = 0;
       }, config[member.guild.id].time * 1000);
       if (
         anti[member.guild.id + entry.id].actions >=
@@ -2388,7 +2387,7 @@ client.on("guildMemberRemove", async member => {
               `**⇏ | ${entry.username} حاول حظر جميع الأعضاء **`
             )
           );
-        anti[member.guild.id + entry.id].actions = "0";
+        anti[member.guild.id + entry.id].actions = 0;
         fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
           e
         ) {
@@ -3494,6 +3493,7 @@ client.on("message", message => {
 });
 
 client.on("message", async message => {
+  if (!message.guild) return;
   let mention = message.mentions.members.first();
   let role = message.content
     .split(" ")
