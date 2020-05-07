@@ -1520,13 +1520,13 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
 client.on("guildBanAdd", (guild, user) => {
   if (!guild.member(client.user).hasPermission("EMBED_LINKS")) return;
   if (!guild.member(client.user).hasPermission("VIEW_AUDIT_LOG")) return;
-  if (!log[user.guild.id])
-    log[guild.guild.id] = {
+  if (!log[guild.id])
+    log[guild.id] = {
       onoff: "Off"
     };
-  if (log[user.guild.id].onoff === "Off") return;
+  if (log[guild.id].onoff === "Off") return;
   var logChannel = guild.channels.find(
-    c => c.name === `${log[guild.guild.id].channel}`
+    c => c.name === `${log[guild.id].channel}`
   );
   if (!logChannel) return;
 
@@ -1552,13 +1552,13 @@ client.on("guildBanAdd", (guild, user) => {
 client.on("guildBanRemove", (guild, user) => {
   if (!guild.member(client.user).hasPermission("EMBED_LINKS")) return;
   if (!guild.member(client.user).hasPermission("VIEW_AUDIT_LOG")) return;
-  if (!log[guild.guild.id])
-    log[guild.guild.id] = {
+  if (!log[guild.id])
+    log[guild.id] = {
       onoff: "Off"
     };
-  if (log[guild.guild.id].onoff === "Off") return;
+  if (log[guild.id].onoff === "Off") return;
   var logChannel = guild.channels.find(
-    c => c.name === `${log[guild.guild.id].channel}`
+    c => c.name === `${log[guild.id].channel}`
   );
   if (!logChannel) return;
 
@@ -2252,7 +2252,7 @@ client.on("guildBanAdd", async (guild, user) => {
     setTimeout(() => {
       anti[guild.id + entry.id].actions = 0;
     }, config[guild.id].time * 1000);
-    if (anti[guild.id + entry.id].actions >= 0) {
+    if (anti[guild.id + entry.id].actions >= config[guild.id].banLimit) {
       guild.members
         .get(entry.id)
         .ban()
