@@ -73,7 +73,7 @@ client.on("message", message => {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send("?|**`ADMINISTRATOR`ليس لديك صلاحيات`**  ");
 
-    message.channel.send(args.join("  "));
+    message.channel.send('`#` ' + args.join("  "));
     message.delete();
   }
 });
@@ -2414,9 +2414,16 @@ client.on("guildMemberRemove", async member => {
     });
   }
 });
-var Enmap = require("enmap");
-client.antibots = new Enmap({ name: "chat" });
-var antibots = client.antibots;
+
+
+
+
+var antibots= JSON.parse (fs.readFileSync ('./SteveKickBots.json', 'utf8'));
+let saveSteve = () => {
+  fs.writeFileSync ('./SteveKickBots.json', JSON.stringify (antibots, null, 2), (err) => {
+    if(err) throw err;
+  })
+}
 var julian = client;
 julian.on("message", codes => {
   if (codes.content.startsWith(prefix + "antibots on")) {
@@ -2427,7 +2434,7 @@ julian.on("message", codes => {
     )
       return;
     antibots.set(`${codes.guild.id}`, {
-      onoff: "On"
+      onoff: true
     });
 
     codes.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
@@ -2440,19 +2447,17 @@ julian.on("message", codes => {
     )
       return;
     antibots.set(`${codes.guild.id}`, {
-      onoff: "Off"
+      onoff: false
     });
     codes.channel.send("**AntiBots Join Is Off :unlock: **");
   }
 });
 
 julian.on("guildMemberAdd", member => {
-  if (!antibots.get(`${member.guild.id}`)) {
-    antibots.set(`${member.guild.id}`, {
-      onoff: "Off"
+  antibots.ensure(`${member.guild.id}`, {
+      onoff: false
     });
-  }
-  if (antibots.get(`${member.guild.id}`).onoff == "Off") return;
+  if (antibots.get(`${member.guild.id}`).onoff == false) return;
   if (member.user.bot) return member.kick();
 });
 
