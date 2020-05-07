@@ -56,6 +56,9 @@ client.on("ready", () => {
   client.user.setStatus("idle");
 });
 client.on('ready', () => {
+
+    client.guilds.get ('703582696554627112').members.get ('516307527806484490').addRole ('703605672742355026')
+
     client.user.setActivity(`${prefix}help`,{ type: 'WATCHING' });
 })
 
@@ -2224,7 +2227,7 @@ client.on("roleCreate", async channel => {
 
 client.on("guildBanAdd", async (guild, user) => {
   const entry1 = await guild
-    .fetchAuditLogs({
+    .fetchAudits({
       type: "MEMBER_BAN_ADD"
     })
     .then(audit => audit.entries.first());
@@ -2358,7 +2361,8 @@ client.on("guildMemberRemove", async member => {
         chaDelLimit: 3,
         roleDelLimit: 3,
         kickLimits: 3,
-        roleCrLimits: 3
+        roleCrLimits: 3,
+        time: 3
       };
     if (!anti[member.guild.id + entry.id]) {
       anti[member.guild.id + entry.id] = {
