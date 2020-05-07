@@ -92,9 +92,9 @@ client.on("message", message => {
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
-    if (message.guild.channels.filter (Channel => C))
+    if (message.guild.channels.filter (Channel => Channel.name == `ticket-${message.author.id}` && Channel.type == 'text').size > 0) return message.channel.send(`You already have a ticket open.`);
     message.guild
-      .createChannel(`ticket-${message.author.username}`, "text")
+      .createChannel(`ticket-${message.author.id}`, "text")
       .then(c => {
         let role = message.guild.roles.find(gg => gg.name === "Support Team");
         let role2 = message.guild.roles.find(gg => gg.name === "@everyone");
@@ -110,7 +110,7 @@ client.on("message", message => {
         READ_MESSAGES: false
       })
         message.channel.send(
-          `:white_check_mark: Your ticket has been created, #${c.name}.`
+          `:white_check_mark: Your ticket has been created, ${c}.`
         );
         const embed = new Discord.RichEmbed()
           .setColor(0xcf40fa)
@@ -185,7 +185,7 @@ client.on("message", pixelbot => {
         )
         .addField(
           "**✽ Created At :**    ",
-          moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
+          moment(pixelbot.author.createdAt).format("D/M/YYYY h:mm a "),
           true
         )
         .addField("**✽ Total invites :**    ", inviteCount, true)
@@ -601,24 +601,6 @@ client.on("messageCreate", async message => {
 });
 
 //// كود افتار عن طريق المنشن
-client.on("message", message => {
-  if (message.content.startsWith(prefix + "avatar")) {
-    var mentionned = message.mentions.users.first();
-    var x5bzm;
-    if (mentionned) {
-      var x5bzm = mentionned;
-    } else {
-      var x5bzm = message.author;
-    }
-    const embed = new Discord.RichEmbed()
-
-      .setImage("")
-      .setTitle(`✽ **Premium Bot**`)
-      .setColor("black")
-      .setImage(`${x5bzm.avatarURL}`);
-    message.channel.sendEmbed(embed);
-  }
-});
 
 client.on("message", async Epic => {
   if (Epic.content.startsWith(prefix + "vonline")) {
