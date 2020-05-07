@@ -2886,7 +2886,7 @@ const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف
 client.on("guildMemberAdd", async member => {
   if (!welcome) return;
   if (!welcome [member.guild.id]) return;
-  var findingWlcChannel = welcome[member.guild.id].channel[0] || null;
+  var findingWlcChannel = welcome[member.guild.id] ?  welcome[member.guild.id].channel : 'null';
   const channel = await member.guild.channels.find(
     r => r.name == findingWlcChannel
   );
