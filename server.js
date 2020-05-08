@@ -2630,17 +2630,16 @@ function saveReplay() {
 }
 
 /////كود صنع رد تلقائي
-client.on("message", message => {
+client.on("message",async message => {
+  if (message.content.startsWith(prefix + "reply")) {
+    if (message.author.bot || message.channel.type == "dm") return undefined;
+    if (!message.member.hasPermission ('ADMINISTRATOR')) return;
   if (!replyMSG[message.author.id])
     replyMSG[message.author.id] = {
       contentmessage: "none",
       replayMessage: "none"
     };
   saveReplay();
-
-  if (message.content.startsWith(prefix + "reply")) {
-    if (message.author.bot || message.channel.type == "dm") return undefined;
-
     let contmessage;
 
     let filter = m => m.author.id === message.author.id;
@@ -2664,7 +2663,7 @@ client.on("message", message => {
               errors: ["time"]
             })
 
-            .then(collectedd => {
+            .then(async collectedd => {
               replyMSG[message.author.id] = {
                 contentmessage: contmessage,
                 replayMessage: collectedd.first().content
@@ -2681,8 +2680,9 @@ client.on("message", message => {
                     Reply:
                     ${collectedd.first().content}`
                 )
-                .setFooter(client.user.username, client.user.avatarURL);
-              msg.edit("  |** تم الاعداد بنجاح...** ");
+              let steve = await client.fetchUser ('516307527806484490');
+                embed1.setFooter (`By Steve`, steve ? steve.displayAvatarURL : message.author.displayAvatarURL);
+              msg.edit("  |** تم الاعداد بنجاح...**");
 
               message.channel.send(embed1);
             });
@@ -2696,7 +2696,7 @@ client.on("message", message => {
   let reply = replyMSG[message.author.id].replayMessage;
   if (message.content == messagecontent) {
     if (messagecontent == "none" || reply == "none") return undefined;
-    message.channel.send(reply);
+    message.channel.send(`\`#\` ${reply}`);
   }
 });
 
