@@ -228,6 +228,7 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "ban") {
+    if (message.author.bot) return;
     if (!message.channel.guild)
       return message.reply("** This command only for servers**");
 
@@ -318,6 +319,7 @@ client.on("message", message => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "kick") {
+    if (message.author.bot) return;
     if (!message.channel.guild)
       return message.reply("** This command only for servers**");
 
@@ -422,6 +424,7 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
 
   if (command === prefix + "unmute") {
+    if (message.author.bot) return;
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
@@ -485,6 +488,7 @@ client.on("message", message => {
   let command = message.content.split(" ")[0];
 
   if (command === prefix + "mute") {
+    if (message.author.bot) return;
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message
         .reply("** لا يوجد لديك برمشن 'Manage Roles' **")
