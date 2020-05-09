@@ -786,18 +786,19 @@ client.on("message", message => {
 
 الاوامر الإدارية ✽ 
 \`${prefix}clear\` : لمسح الشات 
-\`${prefix}ban\` : لتبنيد شخص
-\`${prefix}kick\` : لاعطاء كيك لشخص 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
 \`${prefix}open\` : لفتح الشات
 \`${prefix}close\` : لقفل الشات 
-\`${prefix}mute\` : لاعطاء ميوت لشخص 
-\`${prefix}unmute\` : لفك ميوت عن شخص 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
 \`${prefix}new\` : فتح التكت
+\`${prefix}closet\` : لحذف روم التكت
 \`${prefix}say\` : البوت يكرر كلامك
 \`${prefix}move\` : لسحب الشخص الى روومك
 \`${prefix}ccolors\` : لعمل الوان عشوائية 
 \`${prefix}reply\` : لصنع رد تلقائي
-\`${prefix}setLog\` :  تحديد روم اللوق
+\`${prefix}setLog\` : لتحديد روم السجلات 
 \`${prefix}setby\` : تحديد روم المغادرة
 \`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
 \`${prefix}setMessage\` : لتحديد رسالة الترحيب 
@@ -805,7 +806,7 @@ client.on("message", message => {
 \`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
 \`${prefix}ls\` : لإظهار جميع بوتات السيرفر
 \`${prefix}role\` : لاعطاء شخص رتبة
-\`${prefix}role all\` : لاعطاء االجميع رتبة معينة
+\`${prefix}role all\` : لـ إعطاء االجميع رتبة معينة
 
 \`\`اوامر التقديم\`\`
 \`${prefix}room1\` : لعمل روم التقديمات
@@ -3206,7 +3207,7 @@ client.on("message", message => {
       guild: message.guild.id
     };
     channelfind.setName(
-      `VoiceOnline : ${message.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تعديل اسم روم الفويس اونلاين
+      `Voice Online : ${message.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تعديل اسم روم الفويس اونلاين
     );
     message.channel.send("**Done The Voice Online  Is Turned On**");
   }
@@ -3240,7 +3241,7 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
     if (!channel) return;
     let guildid = vojson[oldMember.guild.id].guild;
     channel.setName(
-      `VoiceOnline: ${oldMember.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تغير اسم روم الفويس اونلاين
+      `Voice Online : ${oldMember.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تغير اسم روم الفويس اونلاين
     );
   }
   if (vojson[oldMember.guild.id].stats === "disable") {
