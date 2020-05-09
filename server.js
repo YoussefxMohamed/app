@@ -313,15 +313,15 @@ client.on("message", async message => {
         .setTitle(`:incoming_envelope: **[INVITE INFO]** ${Username}`)
         .addField(
           "**عدد الدعوات للسيرفر**",
-          `**➥** [ شخص **${Number(inviteCount)}** ]   `
+          `[ شخص **${Number(inviteCount)}** ]   `
         )
         .addField(
           "**تاريخ انضمامك لسيرفرنا **",
-          `**➥** [ منذ  **${daysJoined.toFixed(0)}** يوم ]   `
+          ` [ منذ  **${daysJoined.toFixed(0)}** يوم ]   `
         )
         .addField(
           "**رابط الدعوة الذي دخلت منه**  ",
-          `**➥** [ **https://discord.gg/${inviteCode || "Zm2U6we"}** ]   `
+          `[ **https://discord.gg/${inviteCode || "Zm2U6we"}** ]   `
         )
         .setImage("")
         .setColor("RANDOM")
@@ -821,7 +821,6 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`
- ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily${prefix} كل 6 ساعات \`
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
 مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
@@ -916,7 +915,6 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`
- ملاحظة : \`البوت لايدعم زيادة الكريدت عن طريق التفاعل ، انما فقط من امر daily${prefix} كل 6 ساعات \`
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
  مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
@@ -1978,51 +1976,51 @@ client.on("message", message => {
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
     if (message.content.startsWith(prefix + "settings limitsban")) {
-      if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
-      if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].banLimit = num;
       message.channel.send(
-        `**⇏ | تم التغيير اِلي : ${config[message.guild.id].banLimit} **`
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].banLimit} **`
       );
     }
     if (message.content.startsWith(prefix + "settings limitskick")) {
-      if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
-      if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].kickLimits = num;
       message.channel.send(
-        `**⇏ | تم التغيير اِلي : ${config[message.guild.id].kickLimits}**`
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].kickLimits}**`
       );
     }
     if (message.content.startsWith(prefix + "settings limitsroleD")) {
-      if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
-      if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleDelLimit = num;
       message.channel.send(
-        `**⇏ | تم التغيير اِلي : ${config[message.guild.id].roleDelLimit}**`
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "settings limitsroleC")) {
-      if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
-      if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleCrLimits = num;
       message.channel.send(
-        `**⇏ | تم التغيير اِلي : ${config[message.guild.id].roleCrLimits}**`
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleCrLimits}**`
       );
     }
     if (message.content.startsWith(prefix + "settings limitschannelD")) {
-      if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
-      if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaDelLimit = num;
       message.channel.send(
-        `**⇏ | تم التغيير اِلي : ${config[message.guild.id].chaDelLimit}**`
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaDelLimit}**`
       );
     }
     if (message.content.startsWith(prefix + "settings limitstime")) {
-      if (!num) return message.channel.send("**⇏ | أرسل رقم ! **");
-      if (isNaN(num)) return message.channel.send("**⇏ | أرقام فقط ! **");
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].time = num;
       message.channel.send(
-        `**⇏ | تم التغيير اِلي : ${config[message.guild.id].time}**`
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
