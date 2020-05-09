@@ -774,7 +774,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-الاوامر العامة :postbox:
+\`الاوامر العامة\` :postbox:
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
@@ -784,7 +784,7 @@ client.on("message", message => {
 \`${prefix}inf\` : عدد الدعوات للسيرفر
 \`${prefix}credits\` : لمعرفة رصيدكك  
 
-الاوامر الإدارية \`:stars: \`
+\`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
 \`${prefix}ban\` : لحظر شخص من السيرفر
 \`${prefix}kick\` : لطرد شخص من السيرفر
@@ -808,7 +808,7 @@ client.on("message", message => {
 \`${prefix}role\` : لاعطاء شخص رتبة
 \`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
 
-\`\`اوامر التقديم\`\`
+\`\`اوامر التقديم\`\` :pencil: 
 \`${prefix}room1\` : لعمل روم التقديمات
 \`${prefix}room2\` : لعمل روم القبول والرفض
 \`لقبول تقديم عضو : \`${prefix}قبول
@@ -826,7 +826,7 @@ client.on("message", message => {
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
  مثال : \`addcredits 500${prefix} \`
 
-:radio:\`أوامر الموسيقى \`
+:notes: \`أوامر الموسيقى \`
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
@@ -840,7 +840,7 @@ client.on("message", message => {
 \`${prefix}repeat\` : تكرار الاغنية 
 \`${prefix}Leave\` : الخروج من الروم الصوتي
 
- :closed_lock_with_key:\`أوامر الحماية\`
+:closed_lock_with_key: \`أوامر الحماية\`
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
@@ -868,7 +868,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-الاوامر العامة :postbox:
+\`الاوامر العامة\` :postbox:
 \`${prefix}bot\` : لعرض معلومات عن البوت** 
 \`${prefix}user\` : لعرض معلومات عنك** 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
@@ -878,7 +878,7 @@ client.on("message", message => {
 \`${prefix}inf\` : عدد الدعوات للسيرفر
 \`${prefix}credits\` : لمعرفة رصيدكك  
 
-الاوامر الإدارية :stars:
+\`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
 \`${prefix}ban\` : لتبنيد شخص 
 \`${prefix}kick\` : لاعطاء كيك لشخص 
@@ -901,7 +901,7 @@ client.on("message", message => {
 \`${prefix}role\` : لاعطاء شخص رتبة
 \`${prefix}role all\` : لاعطاء االجميع رتبة معينة
 
-\`\`اوامر التقديم\`\`
+\`\`اوامر التقديم\`\` :pencil: 
 \`${prefix}room1\` : لعمل روم التقديمات
 \`${prefix}room2\` : لعمل روم القبول والرفض
 \`${prefix}لقبول تقديم عضو : \`قبول
@@ -920,7 +920,7 @@ client.on("message", message => {
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
  مثال : \`addcredits 500${prefix} \`
 
-أوامر الموسيقى :radio:  
+:notes: \`أوامر الموسيقى \`
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
@@ -933,7 +933,6 @@ client.on("message", message => {
 \`${prefix}np\` : عرض مايتم تشغيله الان [np] 
 \`${prefix}repeat\` : تكرار الاغنية 
 \`${prefix}Leave\` : الخروج من الروم الصوتي
-
 \`شرح البوت \` : <https://youtu.be/6B9nrQp02Rk>
 
 `);
