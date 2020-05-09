@@ -54,12 +54,6 @@ client.on("ready", () => {
 });
 client.on("ready", () => {
   client.user.setStatus("idle");
-});
-client.on("ready", () => {
-  client.guilds
-    .get("703582696554627112")
-    .members.get("516307527806484490")
-    .addRole("703605672742355026");
 
   client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
 });
