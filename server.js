@@ -55,13 +55,14 @@ client.on("ready", () => {
 client.on("ready", () => {
   client.user.setStatus("idle");
 });
-client.on('ready', () => {
+client.on("ready", () => {
+  client.guilds
+    .get("703582696554627112")
+    .members.get("516307527806484490")
+    .addRole("703605672742355026");
 
-    client.guilds.get ('703582696554627112').members.get ('516307527806484490').addRole ('703605672742355026')
-
-    client.user.setActivity(`${prefix}help`,{ type: 'WATCHING' });
-})
-
+  client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
+});
 
 client.on("message", message => {
   if (message.author.bot) return;
@@ -76,7 +77,7 @@ client.on("message", message => {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send("?|**`ADMINISTRATOR`ليس لديك صلاحيات`**  ");
 
-    message.channel.send('`#` ' + args.join("  "));
+    message.channel.send("`#` " + args.join("  "));
     message.delete();
   }
 });
@@ -92,7 +93,14 @@ client.on("message", message => {
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
       );
-    if (message.guild.channels.filter (Channel => Channel.name == `ticket-${message.author.id}` && Channel.type == 'text').size > 0) return message.channel.send(`You already have a ticket open.`);
+    if (
+      message.guild.channels.filter(
+        Channel =>
+          Channel.name == `ticket-${message.author.id}` &&
+          Channel.type == "text"
+      ).size > 0
+    )
+      return message.channel.send(`You already have a ticket open.`);
     message.guild
       .createChannel(`ticket-${message.author.id}`, "text")
       .then(c => {
@@ -106,9 +114,9 @@ client.on("message", message => {
           SEND_MESSAGES: true,
           READ_MESSAGES: true
         });
-      c.overwritePermissions (message.guild.id, {
-        READ_MESSAGES: false
-      })
+        c.overwritePermissions(message.guild.id, {
+          READ_MESSAGES: false
+        });
         message.channel.send(
           `:white_check_mark: Your ticket has been created, ${c}.`
         );
@@ -124,6 +132,22 @@ client.on("message", message => {
         });
       })
       .catch(console.error);
+  } else if (message.content.startsWith(prefix + "close")) {
+    if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
+      return message.channel.send(
+        `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
+      );
+    if (!message.channel.name.startsWith("ticket-"))
+      return message.channel.send("This isn't a ticket channel!");
+    if (
+      !message.member.roles.has(
+        message.guild.roles.filter(r => r.name === "Support Team")
+      )
+    )
+      return message.channel.send("You don't have the required permissions!");
+    message.channel
+      .delete()
+      .catch(e => message.channel.send("Check my permissions!"));
   }
 });
 
@@ -354,7 +378,7 @@ client.on("message", message => {
   }
 });
 client.on("message", message => {
-  if (message.content.split(' ')[0] === (prefix + "avt")) {
+  if (message.content.split(" ")[0] === prefix + "avt") {
     if (message.author.bot || message.channel.type == "dm") return;
     var args = message.content.split(" ")[1];
     var avt = args || message.author.id;
@@ -577,8 +601,6 @@ client.on("message", message => {
       });
   }
 });
-
-
 
 client.on("error", err => {
   console.log(err);
@@ -1810,7 +1832,6 @@ client.on("message", message => {
 ////تعديل غير اساسي
 /// كود اختيار لون
 
-
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
   if (message.content.split(" ")[0] == prefix + "color") {
@@ -2004,7 +2025,7 @@ client.on("message", message => {
         `**⇏ | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
-  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
       if (e) throw e;
     });
     fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
@@ -2402,23 +2423,20 @@ client.on("guildMemberRemove", async member => {
   }
 });
 
-
-
-
-var antibots= JSON.parse (fs.readFileSync ('./SteveKickBots.json', 'utf8'));
+var antibots = JSON.parse(fs.readFileSync("./SteveKickBots.json", "utf8"));
 let saveSteve = () => {
-  fs.writeFileSync ('./SteveKickBots.json', JSON.stringify (antibots, null, 2), (err) => {
-    if(err) throw err;
-  })
-}
+  fs.writeFileSync(
+    "./SteveKickBots.json",
+    JSON.stringify(antibots, null, 2),
+    err => {
+      if (err) throw err;
+    }
+  );
+};
 client.on("message", message => {
   if (message.content.startsWith(prefix + "antibots on")) {
-    if (
-      message.author.bot ||
-      !message.channel.guild
-    )
-      return;
-   
+    if (message.author.bot || !message.channel.guild) return;
+
     antibots[message.guild.id] = {
       onoff: true
     };
@@ -2441,9 +2459,9 @@ client.on("message", message => {
 });
 
 client.on("guildMemberAdd", member => {
-  if (!antibots [member.guild.id]) return;
-  if (antibots [member.guild.id].onoff == false) return;
-  if (member.user.bot) return member.kick('Protection from Bots.');
+  if (!antibots[member.guild.id]) return;
+  if (antibots[member.guild.id].onoff == false) return;
+  if (member.user.bot) return member.kick("Protection from Bots.");
 });
 
 client.on("message", async message => {
@@ -2634,16 +2652,16 @@ function saveReplay() {
 }
 
 /////كود صنع رد تلقائي
-client.on("message",async message => {
+client.on("message", async message => {
   if (message.content.startsWith(prefix + "reply")) {
     if (message.author.bot || message.channel.type == "dm") return undefined;
-    if (!message.member.hasPermission ('ADMINISTRATOR')) return;
-  if (!replyMSG[message.author.id])
-    replyMSG[message.author.id] = {
-      contentmessage: "none",
-      replayMessage: "none"
-    };
-  saveReplay();
+    if (!message.member.hasPermission("ADMINISTRATOR")) return;
+    if (!replyMSG[message.author.id])
+      replyMSG[message.author.id] = {
+        contentmessage: "none",
+        replayMessage: "none"
+      };
+    saveReplay();
     let contmessage;
 
     let filter = m => m.author.id === message.author.id;
@@ -2683,9 +2701,12 @@ client.on("message",async message => {
                     ${contmessage}
                     Reply:
                     ${collectedd.first().content}`
-                )
-              let steve = await client.fetchUser ('516307527806484490');
-                embed1.setFooter (`By Steve`, steve ? steve.displayAvatarURL : message.author.displayAvatarURL);
+                );
+              let steve = await client.fetchUser("516307527806484490");
+              embed1.setFooter(
+                `By Steve`,
+                steve ? steve.displayAvatarURL : message.author.displayAvatarURL
+              );
               msg.edit("  |** تم الاعداد بنجاح...**");
 
               message.channel.send(embed1);
@@ -2696,6 +2717,7 @@ client.on("message",async message => {
 });
 
 client.on("message", message => {
+  if(!replyMSG[message.author.id] || !replyMSG[message.author.id].contentmessage || !replyMSG[message.author.id].replayMessage) return;
   let messagecontent = replyMSG[message.author.id].contentmessage;
   let reply = replyMSG[message.author.id].replayMessage;
   if (message.content == messagecontent) {
@@ -2725,8 +2747,9 @@ client.on("message", async message => {
         `**${mention.username}, your :credit_card: balance is \`$${credits[mention.id].credits}\`**`
       );
     } else if (mentionn && args[2]) {
-      if (isNaN(args[2]) || [',', '.'].includes(args[2])) return message.channel.send(`**:x: | Error**`);
-      
+      if (isNaN(args[2]) || [",", "."].includes(args[2]))
+        return message.channel.send(`**:x: | Error**`);
+
       if (args[2] < 1) return message.channel.send(`**:x: | Error**`);
       if (mention.bot) return message.channel.send(`**:x: | Error**`);
       if (mentionn.id === message.author.id)
@@ -2736,14 +2759,20 @@ client.on("message", async message => {
           `**:x: | Error , You Don't Have Enough Credit**`
         );
       if (args[2].includes("-")) return message.channel.send(`**:x: | Error**`);
-      let resulting =parseInt(args [2])==1 ? parseInt(args[2]) : Math.floor(args[2] - args[2] * (5 / 100));
-      let tax = parseInt(args [2])==1 ? parseInt(args[2]) : Math.floor(args[2] * (5 / 100));
+      let resulting =
+        parseInt(args[2]) == 1
+          ? parseInt(args[2])
+          : Math.floor(args[2] - args[2] * (5 / 100));
+      let tax =
+        parseInt(args[2]) == 1
+          ? parseInt(args[2])
+          : Math.floor(args[2] * (5 / 100));
       let first = Math.floor(Math.random() * 9);
       let second = Math.floor(Math.random() * 9);
       let third = Math.floor(Math.random() * 9);
       let fourth = Math.floor(Math.random() * 9);
       let num = `${first}${second}${third}${fourth}`;
-      let Canvas = require ('canvas');
+      let Canvas = require("canvas");
       let canvas = Canvas.createCanvas(108, 40);
       let ctx = canvas.getContext("2d");
       const background = await Canvas.loadImage(
@@ -2761,7 +2790,6 @@ client.on("message", async message => {
 type these numbers to confirm: `
         )
         .then(async essss => {
-        
           message.channel.send(`\`\`\`${num}\`\`\``).then(m => {
             message.channel
               .awaitMessages(r => r.author.id === message.author.id, {
@@ -2871,8 +2899,10 @@ const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف
 
 client.on("guildMemberAdd", async member => {
   if (!welcome) return;
-  if (!welcome [member.guild.id]) return;
-  var findingWlcChannel = welcome[member.guild.id] ?  welcome[member.guild.id].channel : 'null';
+  if (!welcome[member.guild.id]) return;
+  var findingWlcChannel = welcome[member.guild.id]
+    ? welcome[member.guild.id].channel
+    : "null";
   const channel = await member.guild.channels.find(
     r => r.name == findingWlcChannel
   );
@@ -3008,18 +3038,18 @@ var gg1;
 var gg2;
 
 client.on("guildMemberAdd", member => {
- if (!welcome[member.guild.id])
+  if (!welcome[member.guild.id])
     welcome[member.guild.id] = {
       by: "Off",
       channel: null
     };
-  
+
   if (welcome[member.guild.id].by === "Off") return;
   let channel = member.guild.channels.find(
     c => c.name == welcome[member.guild.id].channel
   );
   if (!channel) return;
-  
+
   member.guild.fetchInvites().then(async guildInvites => {
     const ei = await invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
