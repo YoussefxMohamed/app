@@ -390,7 +390,7 @@ client.on("message", message => {
           .setColor("#36393e")
           .setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
           .setImage(avt.avatarURL)
-          .setFooter(`Dar7kz.`, message.client.user.avatarURL);
+          .setFooter(`Avatar`, message.client.user.avatarURL);
         message.channel.send(avtEmbed);
       })
       .catch(() => message.channel.send(`Error`));
