@@ -308,7 +308,7 @@ client.on("message", async message => {
       let mem = message.guild.member(user);
       let millisJoined = new Date().getTime() - mem.joinedAt.getTime();
       let daysJoined = millisJoined / 1000 / 60 / 60 / 24;
-
+      console.log(inviteCode)
       var inviteInfo = new Discord.RichEmbed()
         .setTitle(`:incoming_envelope: **[INVITE INFO]** ${Username}`)
         .addField(
@@ -321,7 +321,7 @@ client.on("message", async message => {
         )
         .addField(
           "**رابط الدعوة الذي دخلت منه**  ",
-          `[ **${inviteCode.includes("discord.gg") ? inviteCode : `https://discord.gg/${inviteCode} || "Zm2U6we"`}** ]   `
+          `[ **${inviteCode && inviteCode.code && inviteCode.code.includes("discord.gg") ? inviteCode.code : `https://discord.gg/${inviteCode.code || "Zm2U6we"}`}** ]   `
         )
         .setImage("")
         .setColor("RANDOM")
