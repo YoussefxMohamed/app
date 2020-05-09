@@ -75,7 +75,7 @@ client.on("message", message => {
 
   if (command == "say") {
     if (!message.member.hasPermission("ADMINISTRATOR"))
-      return message.channel.send("?|**`ADMINISTRATOR`ليس لديك صلاحيات`**  ");
+      return message.channel.send("**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**");
 
     message.channel.send("`#` " + args.join("  "));
     message.delete();
@@ -1884,7 +1884,7 @@ client.on("message", ra3d => {
   if (ra3d.content.startsWith(prefix + "ccolors")) {
     if (!args) return ra3d.channel.send("`يرجي اختيار كم لون `");
     if (!ra3d.member.hasPermission("MANAGE_ROLES"))
-      return ra3d.channel.send("`**⚠ | `[MANAGE_ROLES]` لا يوجد لديك صلاحية**");
+      return ra3d.channel.send("**[MANAGE_ROLES] لا يوجد لديك صلاحية :rolling_eyes:**");
     ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
     setInterval(function() {});
     let count = 0;
@@ -2931,7 +2931,7 @@ client.on("guildMemberAdd", async member => {
     var imageRadius = 110; //نصف قطر الصورة الدائرية
 
     //Member Name
-    var nameSize = "12px"; //حجم خط الاسم
+    var nameSize = "12pt"; //حجم خط الاسم
     var nameKind = "Source Sans Pro (OT1)"; //نوع خط الاسم
     var nameColor = "#ff9933"; //لون خط الاسم
 
@@ -3192,7 +3192,7 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have the required permissions!")
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**ADMINISTRATOR ليس لديك صلاحية :rolling_eyes: ** ")
     let channelfind = message.guild.channels.find(c => c.name == channel);
     if (!channel)
       return message.channel.send(
@@ -3213,7 +3213,7 @@ client.on("message", message => {
   }
   if (message.content.startsWith(prefix + "vc off")) {
     // ايقاف الفويس اونلاين
-    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have the required permissions!")
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("ADMINISTRATOR ليس لديك صلاحية :rolling_eyes:")
 
     message.guild.channels
       .find(gg => gg.name === vojson[message.guild.id].chid)
@@ -3419,7 +3419,7 @@ client.on("message", message => {
   if (!message.guild) return;
   if (!msg.startsWith(prefix + "role")) return;
   if (!message.member.hasPermission("MANAGE_ROLES"))
-    return message.channel.send(" **__ليس لديك صلاحيات__**");
+    return message.channel.send(" **ليس لديك صلاحيات :rolling_eyes:**");
   if (msg.toLowerCase().startsWith(prefix + "rerole")) {
     if (!args[0])
       return message.reply("**:x: يرجى وضع الشخص المراد سحب منه الرتبة**");
