@@ -91,7 +91,7 @@ client.on("message", message => {
       .join(" ");
     if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
       return message.channel.send(
-        `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
+        `لازم تسوي رتبة اسمها \`Support Team\`.`
       );
     if (
       message.guild.channels.filter(
@@ -623,42 +623,6 @@ client.on("messageCreate", async message => {
       )
       .join("\n");
     await message.channel.sebd(`\`\`\`${rr}\`\`\``);
-  }
-});
-
-//// كود افتار عن طريق المنشن
-
-client.on("message", async Epic => {
-  if (Epic.content.startsWith(prefix + "vonline")) {
-    if (!Epic.guild.member(Epic.author).hasPermission("MANAGE_CHANNELS"))
-      return Epic.reply(":x: **I Dont Have Permissions**");
-    if (
-      !Epic.guild
-        .member(client.user)
-        .hasPermission(["MANAGE_CHANNELS", "MANAGE_ROLES_OR_PERMISSIONS"])
-    )
-      return Epic.reply(":x: **You Dont Have Permissions**");
-    Epic.guild
-      .createChannel(
-        `Voice Online : [ ${
-          Epic.guild.members.filter(m => m.voiceChannel).size
-        } ]`,
-        "voice"
-      )
-      .then(c => {
-        console.log(`Voice Online Is Activation In ${Epic.guild.name}`);
-        c.overwritePermissions(Epic.guild.id, {
-          CONNECT: false,
-          SPEAK: false
-        });
-        setInterval(() => {
-          c.setName(
-            `Voice Online :  ${
-              Epic.guild.members.filter(m => m.voiceChannel).size
-            } .`
-          );
-        }, 1000);
-      });
   }
 });
 
