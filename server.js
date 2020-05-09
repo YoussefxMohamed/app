@@ -132,7 +132,7 @@ client.on("message", message => {
         });
       })
       .catch(console.error);
-  } else if (message.content.startsWith(prefix + "close")) {
+  } else if (message.content.startsWith(prefix + "closet")) {
     if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
       return message.channel.send(
         `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
@@ -141,10 +141,10 @@ client.on("message", message => {
       return message.channel.send("This isn't a ticket channel!");
     if (
       !message.member.roles.has(
-        message.guild.roles.filter(r => r.name === "Support Team")
+        message.guild.roles.filter(r => r.name === "Support Team").first().id
       )
     )
-      return message.channel.send("You don't have the required permissions!");
+      return message.channel.send("You don't have the `Support Team` role!");
     message.channel
       .delete()
       .catch(e => message.channel.send("Check my permissions!"));
