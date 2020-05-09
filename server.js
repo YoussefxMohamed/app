@@ -321,7 +321,7 @@ client.on("message", async message => {
         )
         .addField(
           "**رابط الدعوة الذي دخلت منه**  ",
-          `[ **https://discord.gg/${inviteCode || "Zm2U6we"}** ]   `
+          `[ **${inviteCode.includes("discord.gg") ? inviteCode : `https://discord.gg/${inviteCode} || "Zm2U6we"`}** ]   `
         )
         .setImage("")
         .setColor("RANDOM")
@@ -3191,6 +3191,7 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have the required permissions!")
     let channelfind = message.guild.channels.find(c => c.name == channel);
     if (!channel)
       return message.channel.send(
@@ -3211,6 +3212,8 @@ client.on("message", message => {
   }
   if (message.content.startsWith(prefix + "vc off")) {
     // ايقاف الفويس اونلاين
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You don't have the required permissions!")
+
     message.guild.channels
       .find(gg => gg.name === vojson[message.guild.id].chid)
       .delete();
@@ -3840,10 +3843,10 @@ client.on("message", async msg => {
       return msg.channel.send(
         `You must be in ${msg.guild.me.voiceChannel.name}`
       );
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
-      msg.react("❌");
-      return msg.channel.send("You don't have permission `ADMINSTRATOR`");
-    }
+   // if (!msg.member.hasPermission("ADMINISTRATOR")) {
+  //    msg.react("❌");
+  //    return msg.channel.send("You don't have permission `ADMINSTRATOR`");
+  //  }
     let queue = active.get(msg.guild.id);
     if (queue.repeating)
       return msg.channel.send(
@@ -3874,33 +3877,33 @@ client.on("message", async msg => {
           `\`${prefix}forceskip\``
       );
 
-    let req = vCh.members.size - 1;
+   // let req = vCh.members.size - 1;
 
-    if (req == 1) {
+//if (req == 1) {
       msg.channel.send("**:notes: Skipped **" + args);
       return queue.connection.dispatcher.end("Skipping ..");
-    }
+   // }
 
-    if (!queue.votes) queue.votes = [];
+   // if (!queue.votes) queue.votes = [];
 
-    if (queue.votes.includes(msg.member.id))
-      return msg.say(
-        `You already voted for skip! ${queue.votes.length}/${req}`
-      );
+   // if (queue.votes.includes(msg.member.id))
+    //  return msg.say(
+    //    `You already voted for skip! ${queue.votes.length}/${req}`
+    //  );
 
-    queue.votes.push(msg.member.id);
+  //  queue.votes.push(msg.member.id);
 
-    if (queue.votes.length >= req) {
-      msg.channel.send("**:notes: Skipped **" + args);
+  //  if (queue.votes.length >= req) {
+ //     msg.channel.send("**:notes: Skipped **" + args);
 
-      delete queue.votes;
+ //     delete queue.votes;
 
-      return queue.connection.dispatcher.end("Skipping ..");
-    }
-
-    msg.channel.send(
-      `**You have successfully voted for skip! ${queue.votes.length}/${req}**`
-    );
+ //     return queue.connection.dispatcher.end("Skipping ..");
+ //   }
+//
+  //  msg.channel.send(
+    //  `**You have successfully voted for skip! ${queue.votes.length}/${req}**`
+   // );
   } else if (cmd === "pause") {
     let queue = active.get(msg.guild.id);
 
