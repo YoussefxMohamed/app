@@ -2931,7 +2931,7 @@ client.on("guildMemberAdd", async member => {
     var imageRadius = 110; //نصف قطر الصورة الدائرية
 
     //Member Name
-    var nameSize = "12pt"; //حجم خط الاسم
+    var nameSize = "12px"; //حجم خط الاسم
     var nameKind = "Source Sans Pro (OT1)"; //نوع خط الاسم
     var nameColor = "#ff9933"; //لون خط الاسم
 
