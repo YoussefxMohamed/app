@@ -2505,7 +2505,8 @@ client.on("guildMemberAdd", member => {
     if (!antibots[member.guild.id])
       config[member.guild.id] = {
       onoff: true
-      };  if (antibots[member.guild.id].onoff == false) return;
+      };
+  if (antibots[member.guild.id].onoff == false) return;
   if (member.user.bot) return member.kick("Protection from Bots.");
     saveSteve();
 });
