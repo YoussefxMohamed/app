@@ -807,7 +807,7 @@ client.on("message", async message => {
 \`${prefix}repeat\` : تكرار الاغنية 
 \`${prefix}Leave\` : الخروج من الروم الصوتي
 
-:closed_lock_with_key: \`أوامر الحماية\`
+\`أوامر الحماية\` :closed_lock_with_key:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
@@ -947,7 +947,7 @@ client.on("message", message => {
 \`${prefix}repeat\` : تكرار الاغنية 
 \`${prefix}Leave\` : الخروج من الروم الصوتي
 
-:closed_lock_with_key: \`أوامر الحماية\`
+\`أوامر الحماية\` :closed_lock_with_key:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
