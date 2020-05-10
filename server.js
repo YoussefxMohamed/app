@@ -395,7 +395,7 @@ client.on("message", message => {
           .setFooter(`Avatar`, message.client.user.avatarURL);
         message.channel.send(avtEmbed);
       })
-      .catch(() => message.channel.send(`Error`));
+      .catch(() => message.channel.send(`يجب عليك وضع ايدي الشخص`));
   } // Julian
 }); // Codes - Toxic Codes
 
