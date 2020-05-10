@@ -52,9 +52,7 @@ client.on("ready", () => {
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  console.log(client.user.guilds)
-});
-client.on("ready", () => {
+  console.log(client.guilds.map(c => `${c.name} : ${c.me.hasPermission(8)}`))
   client.user.setStatus("idle");
 
   client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
@@ -259,7 +257,7 @@ client.on("message", message => {
     let user = message.mentions.users.first();
 
     if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
-    if(message.mentions.members.first().highestRole.position >= message.member.highestRole.position) return message.channel.send("م تقدر تبند شخص رتبته اعلى منك!")
+    if(message.mentions.members.first().highestRole.position >= message.member.highestRole.position) return message.channel.send("ما تقدر تبند شخص رتبته اعلى منك!")
     if (!message.guild.member(user).bannable)
       return message.reply(
         "**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**"
@@ -764,7 +762,6 @@ client.on("message", async message => {
 \`${prefix}closet\` : لحذف روم التكت
 \`${prefix}say\` : البوت يكرر كلامك
 \`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}ccolors\` : لعمل الوان عشوائية 
 \`${prefix}reply\` : لصنع رد تلقائي
 \`${prefix}setLog\` : لتحديد روم السجلات 
 \`${prefix}setby\` : تحديد روم المغادرة
@@ -844,7 +841,6 @@ client.on("message", async message => {
 \`${prefix}closet\` : لحذف روم التكت
 \`${prefix}say\` : البوت يكرر كلامك
 \`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}ccolors\` : لعمل الوان عشوائية 
 \`${prefix}reply\` : لصنع رد تلقائي
 \`${prefix}setLog\` : لتحديد روم السجلات 
 \`${prefix}setby\` : تحديد روم المغادرة
@@ -904,7 +900,6 @@ client.on("message", message => {
 \`${prefix}closet\` : لحذف روم التكت
 \`${prefix}say\` : البوت يكرر كلامك
 \`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}ccolors\` : لعمل الوان عشوائية 
 \`${prefix}reply\` : لصنع رد تلقائي
 \`${prefix}setLog\` : لتحديد روم السجلات 
 \`${prefix}setby\` : تحديد روم المغادرة
@@ -1000,7 +995,6 @@ client.on("message", message => {
 \`${prefix}closet\` : لحذف روم التكت
 \`${prefix}say\` : البوت يكرر كلامك
 \`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}ccolors\` : لعمل الوان عشوائية 
 \`${prefix}reply\` : لصنع رد تلقائي
 \`${prefix}setLog\` : لتحديد روم السجلات 
 \`${prefix}setby\` : تحديد روم المغادرة
@@ -1990,27 +1984,6 @@ client.on("message", message => {
 ///test
 */
 
-/////كود عمل الوان
-client.on("message", ra3d => {
-  let args = ra3d.content
-    .split(" ")
-    .slice(1)
-    .join(" ");
-  if (ra3d.content.startsWith(prefix + "ccolors")) {
-    if (!args) return ra3d.channel.send("`يرجي اختيار كم لون `");
-    if (!ra3d.member.hasPermission("MANAGE_ROLES"))
-      return ra3d.channel.send(
-        "**[MANAGE_ROLES] لا يوجد لديك صلاحية :rolling_eyes:**"
-      );
-    ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
-    setInterval(function() {});
-    let count = 0;
-    let ecount = 0;
-    for (let x = 1; x < `${parseInt(args) + 1}`; x++) {
-      ra3d.guild.createRole({ name: x, color: "RANDOM" });
-    }
-  }
-});
 
 ///// كود خروج الاعضاء
 
