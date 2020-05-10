@@ -731,7 +731,144 @@ client.on("message", function(message) {
 });
 ///تعديل غير اساسي
 ////كود هيلب
+client.on ('message', async (message) => {
+  if (message.author.bot || !message.guild) return;
+  if (message.content.startsWith (prefix + "steveHelp")) {
+    message.author.send ('.').then (msg => {
+      msg.delete();
+      if (message.author.id == message.guild.ownerID){
+      message.author.send (          `   
+\`الاوامر العامة\` :postbox:
+\`${prefix}bot\` : لعرض معلومات عن البوت 
+\`${prefix}user\` : لعرض معلومات عنك 
+\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
+\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${prefix}color\` : لأختيار لونك في السيرفر 
+\`${prefix}colors\` : غير لونك 
+\`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}credits\` : لمعرفة رصيدكك  
 
+\`الاوامر الإدارية\` :stars:
+\`${prefix}clear\` : لمسح الشات 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
+\`${prefix}open\` : لفتح الشات
+\`${prefix}close\` : لقفل الشات 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
+\`${prefix}new\` : فتح التكت
+\`${prefix}closet\` : لحذف روم التكت
+\`${prefix}say\` : البوت يكرر كلامك
+\`${prefix}move\` : لسحب الشخص الى روومك
+\`${prefix}ccolors\` : لعمل الوان عشوائية 
+\`${prefix}reply\` : لصنع رد تلقائي
+\`${prefix}setLog\` : لتحديد روم السجلات 
+\`${prefix}setby\` : تحديد روم المغادرة
+\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
+\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
+\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
+\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
+\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${prefix}role\` : لاعطاء شخص رتبة
+\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+
+\`\`اوامر التقديم\`\` :pencil: 
+\`${prefix}room1\` : لعمل روم التقديمات
+\`${prefix}room2\` : لعمل روم القبول والرفض
+\`لقبول تقديم عضو : \`${prefix}قبول
+مثال: \`\`${prefix}قبول @منشن عضو \`\`
+لرفض عضو : ${prefix}رفض
+مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+:closed_lock_with_key: \`أوامر الحماية\`
+
+  `);
+message.author.send(`
+\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
+مثال : \` ${prefix}removecredits 500 \`
+\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
+ مثال : \`addcredits 500${prefix} \`
+
+:notes: \`أوامر الموسيقى \`
+\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${prefix}Pause\` : ايقاف مؤقت الاغنية
+\`${prefix}Resume\` : اكمال الاغنية 
+\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${prefix}Queue\` : عرض القائمة 
+\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${prefix}Skip\` : تخطي للاغنية التالية 
+\`${prefix}Volume\` : تغيير الصوت [vol] 
+\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${prefix}repeat\` : تكرار الاغنية 
+\`${prefix}Leave\` : الخروج من الروم الصوتي
+
+:closed_lock_with_key: \`أوامر الحماية\`
+\`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
+\`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
+\`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
+\`${prefix}settings limitsroleC\` : تحدد العدد الي تبيه لو حد صنع روم 3 او 4 البوت يبنده 
+\`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
+\`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
+\`${prefix}antibots on\` : منع دخول بوتات
+\`${prefix}antibots off\` : فتح دخول البوتات
+\`شرح البوت \` : <https://youtu.be/6B9nrQp02Rk>
+`);
+      }else {
+        message.author
+        .send(
+          `   
+\`الاوامر العامة\` :postbox:
+\`${prefix}bot\` : لعرض معلومات عن البوت 
+\`${prefix}user\` : لعرض معلومات عنك 
+\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي
+\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${prefix}color\` : لأختيار لونك في السيرفر 
+\`${prefix}colors\` : غير لونك 
+\`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}credits\` : لمعرفة رصيدكك  
+
+\`الاوامر الإدارية\` :stars:
+\`${prefix}clear\` : لمسح الشات 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
+\`${prefix}open\` : لفتح الشات
+\`${prefix}close\` : لقفل الشات 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
+\`${prefix}new\` : فتح التكت
+\`${prefix}closet\` : لحذف روم التكت
+\`${prefix}say\` : البوت يكرر كلامك
+\`${prefix}move\` : لسحب الشخص الى روومك
+\`${prefix}ccolors\` : لعمل الوان عشوائية 
+\`${prefix}reply\` : لصنع رد تلقائي
+\`${prefix}setLog\` : لتحديد روم السجلات 
+\`${prefix}setby\` : تحديد روم المغادرة
+\`${prefix}setWelcomer <channel name>\` : لتحديد روم الولكم 
+\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
+\`${prefix}setVc\` <channel name> : لتحديد روم الفويس اونلاين 
+\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
+\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${prefix}role\` : لاعطاء شخص رتبة
+\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+
+\`\`اوامر التقديم\`\` :pencil: 
+\`${prefix}room1\` : لعمل روم التقديمات
+\`${prefix}room2\` : لعمل روم القبول والرفض
+\`${prefix}لقبول تقديم عضو : \`قبول
+مثال: \`\`${prefix}قبول @منشن عضو \`\`
+ ${prefix}لرفض عضو : رفض
+مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
+
+
+
+  `
+        )
+      }
+    }).catch (err => {
+      return message.channel.send ('**افتح خاصك.**');
+    })
+  }
+})
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content.startsWith(prefix + "help")) {
@@ -2076,6 +2213,7 @@ client.on("channelDelete", async channel => {
 });
 
 client.on("channelCreate", async channel => {
+  if (!['text', 'category', 'voice'].includes (channel.type.toLowerCase()))return;
     if (!config[channel.guild.id]) config[channel.guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
@@ -2473,6 +2611,7 @@ let saveSteve = () => {
   );
 };
 client.on("message", message => {
+  if (!message.guild) return;
     if (!antibots[message.guild.id])
       config[message.guild.id] = {
       onoff: true
