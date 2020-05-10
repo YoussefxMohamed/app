@@ -1923,7 +1923,7 @@ client.on("message", message => {
   let user = anti[message.guild.id + message.author.id];
   let num = message.content
     .split(" ")
-    .slice()
+    .slice(1)
     .join(" ");
   if (!anti[message.guild.id + message.author.id])
     anti[message.guild.id + message.author.id] = {
@@ -1940,7 +1940,7 @@ client.on("message", message => {
       time: 30
     };
     if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
+      return;
     if (message.content.startsWith(prefix + "limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
@@ -2074,6 +2074,61 @@ client.on("channelDelete", async channel => {
   });
 });
 
+client.on("channelCreate", async channel => {
+    if (!config[channel.guild.id]) config[channel.guild.id] = {
+        banLimit: 3,
+        chaDelLimit: 3,
+        chaCrLimit: 3,
+        roleDelLimit: 3,
+        kickLimits: 3,
+        roleCrLimits: 3,
+        time: 30
+    }
+    const entry1 = await channel.guild.fetchAuditLogs({
+        type: 'CHANNEL_CREATE'
+    }).then(audit => audit.entries.first())
+    console.log(entry1.executor.username)
+    const entry = entry1.executor
+ 
+if (!anti[channel.guild.id + entry.id]) {
+        anti[channel.guild.id + entry.id] = {
+            actions: 1
+        }
+        setTimeout(() => {
+            anti[channel.guild.id + entry.id].actions = "0"
+        }, config[channel.guild.id].time * 1000)
+    } else {
+        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
+        console.log("TETS");
+        setTimeout(() => {
+            anti[channel.guild.id + entry.id].actions = "0"
+        }, config[channel.guild.id].time * 1000)
+        if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].chaCrLimit) {
+     channel.guild.members
+        .get(entry.id)
+        .ban()
+        .catch(e =>
+          channel.guild.owner.send(
+            `**⇏ | ${entry.username} قام بمسح الكثير من الرومات **`
+          )
+        );
+          anti[channel.guild.id + entry.id].actions = "0"
+            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
+                if (e) throw e;
+            });
+            fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
+                if (e) throw e;
+            });
+    }
+ 
+    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
+        if (e) throw e;
+    });
+    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
+        if (e) throw e;
+    });
+  }
+});
 client.on("roleDelete", async channel => {
   const entry1 = await channel.guild
     .fetchAuditLogs({
@@ -2350,7 +2405,7 @@ client.on("guildMemberRemove", async member => {
         roleDelLimit: 3,
         kickLimits: 3,
         roleCrLimits: 3,
-        time: 3
+        time: 30
       };
     if (!anti[member.guild.id + entry.id]) {
       anti[member.guild.id + entry.id] = {
