@@ -69,7 +69,9 @@ client.on("message", message => {
 
   if (command == "say") {
     if (!message.member.hasPermission("ADMINISTRATOR"))
-      return message.channel.send("**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**");
+      return message.channel.send(
+        "**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**"
+      );
 
     message.channel.send("`#` " + args.join("  "));
     message.delete();
@@ -84,9 +86,7 @@ client.on("message", message => {
       .slice(1)
       .join(" ");
     if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
-      return message.channel.send(
-        `لازم تسوي رتبة اسمها \`Support Team\`.`
-      );
+      return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\`.`);
     if (
       message.guild.channels.filter(
         Channel =>
@@ -302,7 +302,7 @@ client.on("message", async message => {
       let mem = message.guild.member(user);
       let millisJoined = new Date().getTime() - mem.joinedAt.getTime();
       let daysJoined = millisJoined / 1000 / 60 / 60 / 24;
-      console.log(inviteCode)
+      console.log(inviteCode);
       var inviteInfo = new Discord.RichEmbed()
         .setTitle(`:incoming_envelope: **[INVITE INFO]** ${Username}`)
         .addField(
@@ -315,7 +315,13 @@ client.on("message", async message => {
         )
         .addField(
           "**رابط الدعوة الذي دخلت منه**  ",
-          `[ **${inviteCode && inviteCode.code && inviteCode.code.includes("discord.gg") ? inviteCode.code : `https://discord.gg/${inviteCode.code || "Zm2U6we"}`}** ]   `
+          `[ **${
+            inviteCode &&
+            inviteCode.code &&
+            inviteCode.code.includes("discord.gg")
+              ? inviteCode.code
+              : `https://discord.gg/${inviteCode.code || "Zm2U6we"}`
+          }** ]   `
         )
         .setImage("")
         .setColor("RANDOM")
@@ -1842,7 +1848,9 @@ client.on("message", ra3d => {
   if (ra3d.content.startsWith(prefix + "ccolors")) {
     if (!args) return ra3d.channel.send("`يرجي اختيار كم لون `");
     if (!ra3d.member.hasPermission("MANAGE_ROLES"))
-      return ra3d.channel.send("**[MANAGE_ROLES] لا يوجد لديك صلاحية :rolling_eyes:**");
+      return ra3d.channel.send(
+        "**[MANAGE_ROLES] لا يوجد لديك صلاحية :rolling_eyes:**"
+      );
     ra3d.channel.send(`**✅ |Created __${args}__ Colors**`);
     setInterval(function() {});
     let count = 0;
@@ -2005,7 +2013,8 @@ client.on("channelDelete", async channel => {
       chaDelLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3
+      roleCrLimits: 3,
+      time: 30
     };
   if (!anti[channel.guild.id + entry.id]) {
     anti[channel.guild.id + entry.id] = {
@@ -2070,7 +2079,8 @@ client.on("roleDelete", async channel => {
       chaDelLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3
+      roleCrLimits: 3,
+      time: 30
     };
   if (!anti[channel.guild.id + entry.id]) {
     anti[channel.guild.id + entry.id] = {
@@ -2135,7 +2145,8 @@ client.on("roleCreate", async channel => {
       chaDelLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3
+      roleCrLimits: 3,
+      time: 30
     };
   if (!anti[channel.guild.id + entry.id]) {
     anti[channel.guild.id + entry.id] = {
@@ -2200,7 +2211,8 @@ client.on("guildBanAdd", async (guild, user) => {
       chaDelLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3
+      roleCrLimits: 3,
+      time: 30
     };
   if (!anti[guild.id + entry.id]) {
     anti[guild.id + entry.id] = {
@@ -2259,7 +2271,8 @@ client.on("guildKickAdd", async (guild, user) => {
       chaDelLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
-      roleCrLimits: 3
+      roleCrLimits: 3,
+      time: 30
     };
   if (!anti[guild.id + entry.id]) {
     anti[guild.id + entry.id] = {
@@ -2339,7 +2352,7 @@ client.on("guildMemberRemove", async member => {
       console.log("TETS");
       setTimeout(() => {
         anti[member.guild.id + entry.id].actions = 0;
-      }, config[member.guild.id].time * 1000);
+      }, config[member.guild.id].time * 1000 || 30000);
       if (
         anti[member.guild.id + entry.id].actions >=
         config[member.guild.id].kickLimits
@@ -2673,7 +2686,12 @@ client.on("message", async message => {
 });
 
 client.on("message", message => {
-  if(!replyMSG[message.author.id] || !replyMSG[message.author.id].contentmessage || !replyMSG[message.author.id].replayMessage) return;
+  if (
+    !replyMSG[message.author.id] ||
+    !replyMSG[message.author.id].contentmessage ||
+    !replyMSG[message.author.id].replayMessage
+  )
+    return;
   let messagecontent = replyMSG[message.author.id].contentmessage;
   let reply = replyMSG[message.author.id].replayMessage;
   if (message.content == messagecontent) {
@@ -3150,7 +3168,10 @@ client.on("message", message => {
       .split(" ")
       .slice(1)
       .join(" ");
-    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**ADMINISTRATOR ليس لديك صلاحية :rolling_eyes: ** ")
+    if (!message.member.hasPermission("MANAGE_GUILD"))
+      return message.channel.send(
+        "**ADMINISTRATOR ليس لديك صلاحية :rolling_eyes: ** "
+      );
     let channelfind = message.guild.channels.find(c => c.name == channel);
     if (!channel)
       return message.channel.send(
@@ -3171,7 +3192,10 @@ client.on("message", message => {
   }
   if (message.content.startsWith(prefix + "vc off")) {
     // ايقاف الفويس اونلاين
-    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("ADMINISTRATOR ليس لديك صلاحية :rolling_eyes:")
+    if (!message.member.hasPermission("MANAGE_GUILD"))
+      return message.channel.send(
+        "ADMINISTRATOR ليس لديك صلاحية :rolling_eyes:"
+      );
 
     message.guild.channels
       .find(gg => gg.name === vojson[message.guild.id].chid)
@@ -3201,7 +3225,9 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
     if (!channel) return;
     let guildid = vojson[oldMember.guild.id].guild;
     channel.setName(
-      `Voice Online : ${oldMember.guild.members.filter(m => m.voiceChannel).size}` ///تعديل غير اساسي تغير اسم روم الفويس اونلاين
+      `Voice Online : ${
+        oldMember.guild.members.filter(m => m.voiceChannel).size
+      }` ///تعديل غير اساسي تغير اسم روم الفويس اونلاين
     );
   }
   if (vojson[oldMember.guild.id].stats === "disable") {
@@ -3802,10 +3828,10 @@ client.on("message", async msg => {
       return msg.channel.send(
         `You must be in ${msg.guild.me.voiceChannel.name}`
       );
-   // if (!msg.member.hasPermission("ADMINISTRATOR")) {
-  //    msg.react("❌");
-  //    return msg.channel.send("You don't have permission `ADMINSTRATOR`");
-  //  }
+    // if (!msg.member.hasPermission("ADMINISTRATOR")) {
+    //    msg.react("❌");
+    //    return msg.channel.send("You don't have permission `ADMINSTRATOR`");
+    //  }
     let queue = active.get(msg.guild.id);
     if (queue.repeating)
       return msg.channel.send(
@@ -3836,33 +3862,33 @@ client.on("message", async msg => {
           `\`${prefix}forceskip\``
       );
 
-   // let req = vCh.members.size - 1;
+    // let req = vCh.members.size - 1;
 
-//if (req == 1) {
-      msg.channel.send("**:notes: Skipped **" + args);
-      return queue.connection.dispatcher.end("Skipping ..");
-   // }
+    //if (req == 1) {
+    msg.channel.send("**:notes: Skipped **" + args);
+    return queue.connection.dispatcher.end("Skipping ..");
+    // }
 
-   // if (!queue.votes) queue.votes = [];
+    // if (!queue.votes) queue.votes = [];
 
-   // if (queue.votes.includes(msg.member.id))
+    // if (queue.votes.includes(msg.member.id))
     //  return msg.say(
     //    `You already voted for skip! ${queue.votes.length}/${req}`
     //  );
 
-  //  queue.votes.push(msg.member.id);
+    //  queue.votes.push(msg.member.id);
 
-  //  if (queue.votes.length >= req) {
- //     msg.channel.send("**:notes: Skipped **" + args);
+    //  if (queue.votes.length >= req) {
+    //     msg.channel.send("**:notes: Skipped **" + args);
 
- //     delete queue.votes;
+    //     delete queue.votes;
 
- //     return queue.connection.dispatcher.end("Skipping ..");
- //   }
-//
-  //  msg.channel.send(
+    //     return queue.connection.dispatcher.end("Skipping ..");
+    //   }
+    //
+    //  msg.channel.send(
     //  `**You have successfully voted for skip! ${queue.votes.length}/${req}**`
-   // );
+    // );
   } else if (cmd === "pause") {
     let queue = active.get(msg.guild.id);
 
@@ -3958,11 +3984,11 @@ client.on("message", async msg => {
       let num;
       if (i > 8) {
         let st = `${i + 1}`;
-        let n1 = converter.toWords(st[0]);
-        let n2 = converter.toWords(st[1]);
+        let n1 = Converter.toWords(st[0]);
+        let n2 = Converter.toWords(st[1]);
         num = `:${n1}::${n2}:`;
       } else {
-        let n = converter.toWords(i + 1);
+        let n = Converter.toWords(i + 1);
         num = `:${n}:`;
       }
       text += `${num} ${queue.songs[i].title} [${queue.songs[i].duration}]\n`;
