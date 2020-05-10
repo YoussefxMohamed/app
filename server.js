@@ -1923,7 +1923,7 @@ client.on("message", message => {
   let user = anti[message.guild.id + message.author.id];
   let num = message.content
     .split(" ")
-    .slice(1)
+    .slice(2)
     .join(" ");
   if (!anti[message.guild.id + message.author.id])
     anti[message.guild.id + message.author.id] = {
@@ -1941,7 +1941,7 @@ client.on("message", message => {
     };
     if (message.author.id !== message.guild.owner.user.id)
       return;
-    if (message.content.startsWith(prefix + "limitsban")) {
+    if (message.content.startsWith(prefix + "settings limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].banLimit = num;
@@ -1949,7 +1949,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].banLimit} **`
       );
     }
-    if (message.content.startsWith(prefix + "limitskick")) {
+    if (message.content.startsWith(prefix + "settings limitskick")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].kickLimits = num;
@@ -1957,7 +1957,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "limitsroleD")) {
+    if (message.content.startsWith(prefix + "settings limitsroleD")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleDelLimit = num;
@@ -1965,7 +1965,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "limitsroleC")) {
+    if (message.content.startsWith(prefix + "settings limitsroleC")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleCrLimits = num;
@@ -1973,7 +1973,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleCrLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "limitschannelD")) {
+    if (message.content.startsWith(prefix + "settings limitschannelD")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaDelLimit = num;
@@ -1981,7 +1981,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "limitschannelC")) {
+    if (message.content.startsWith(prefix + "settings limitschannelC")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaCrLimit = num;
@@ -1989,7 +1989,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaCrLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "limitstime")) {
+    if (message.content.startsWith(prefix + "settings limitstime")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].time = num;
@@ -2472,6 +2472,10 @@ let saveSteve = () => {
   );
 };
 client.on("message", message => {
+    if (!antibots[message.guild.id])
+      config[message.guild.id] = {
+      onoff: true
+      };
   if (message.content.startsWith(prefix + "antibots on")) {
     if (message.author.bot || !message.channel.guild) return;
 
@@ -2494,12 +2498,16 @@ client.on("message", message => {
     saveSteve();
     message.channel.send("**AntiBots Join Is Off :unlock: **");
   }
+    saveSteve();
 });
 
 client.on("guildMemberAdd", member => {
-  if (!antibots[member.guild.id]) return;
-  if (antibots[member.guild.id].onoff == false) return;
+    if (!antibots[member.guild.id])
+      config[member.guild.id] = {
+      onoff: true
+      };  if (antibots[member.guild.id].onoff == false) return;
   if (member.user.bot) return member.kick("Protection from Bots.");
+    saveSteve();
 });
 
 client.on("message", async message => {
