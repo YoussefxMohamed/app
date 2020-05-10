@@ -3181,7 +3181,12 @@ client.on("guildMemberAdd",async member => {
   await member.guild.fetchInvites().then(async guildInvites => {
     const ei = await invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
-    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses).catch(err => {
+   channel.send( welcome[member.guild.id].msg.replace(
+      "[member]",
+      `<@!${member.id}>`
+    ).replace("[inviter]", `<@${member.guild.ownerID}>`));
+ });
     const inviter1 = await invite.inviter;
     const inviter =
       (await client.users.get(invite.inviter.id)) ||
