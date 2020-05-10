@@ -363,6 +363,7 @@ client.on("message", message => {
       return message.reply(
         "**لايمكنني طرد شخص اعلى من رتبتي يرجه اعطاء البوت رتبه عالي**"
       );
+    if(message.mentions.members.first().highestRole.position >= message.member.highestRole.position) return message.channel.send("ما تقدر تطرد شخص رتبته اعلى منك!")
 
     message.guild.member(user).kick();
 
@@ -1956,6 +1957,7 @@ client.on("message", message => {
 
     var a = message.guild.roles.find("name", `${args[0]}`);
     if (!a) return;
+    if(a.hasPermission(8)) return message.channel.send(embedd.setDescription("This color has administrator!"))
     const embed = new Discord.RichEmbed()
 
       .setFooter(
@@ -3639,6 +3641,8 @@ client.on("message", message => {
     if (!role1)
       return message.reply("**:x: يرجى وضع الرتبة المراد سحبها من الشخص**");
     if (message.mentions.members.first()) {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.mentions.members.first().removeRole(role1);
       return message.reply(
         "**:white_check_mark: [ " +
@@ -3649,11 +3653,15 @@ client.on("message", message => {
       );
     }
     if (args[0].toLowerCase() == "all") {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.guild.members.forEach(m => m.removeRole(role1));
       return message.reply(
         "**:white_check_mark: [ " + role1.name + " ] تم سحب من الكل رتبة**"
       );
     } else if (args[0].toLowerCase() == "bots") {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.guild.members
         .filter(m => m.user.bot)
         .forEach(m => m.removeRole(role1));
@@ -3661,6 +3669,8 @@ client.on("message", message => {
         "**:white_check_mark: [ " + role1.name + " ] تم سحب من البوتات رتبة**"
       );
     } else if (args[0].toLowerCase() == "humans") {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.guild.members
         .filter(m => !m.user.bot)
         .forEach(m => m.removeRole(role1));
@@ -3684,6 +3694,8 @@ client.on("message", message => {
     if (!role1)
       return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
     if (message.mentions.members.first()) {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.mentions.members.first().addRole(role1);
       return message.reply(
         "**:white_check_mark: [ " +
@@ -3694,11 +3706,14 @@ client.on("message", message => {
       );
     }
     if (args[0].toLowerCase() == "all") {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
       message.guild.members.forEach(m => m.addRole(role1));
       return message.reply(
         "**:white_check_mark: [ " + role1.name + " ] تم اعطاء الكل رتبة**"
       );
     } else if (args[0].toLowerCase() == "bots") {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.guild.members
         .filter(m => m.user.bot)
         .forEach(m => m.addRole(role1));
@@ -3706,6 +3721,8 @@ client.on("message", message => {
         "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البوتات رتبة**"
       );
     } else if (args[0].toLowerCase() == "humans") {
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+      
       message.guild.members
         .filter(m => !m.user.bot)
         .forEach(m => m.addRole(role1));
