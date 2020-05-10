@@ -3154,10 +3154,10 @@ client.on("guildMemberAdd", async member => {
 
 //تحديد روم الويلكم
 const wait = require("util").promisify(setTimeout);
-client.on("ready", () => {
+client.on("ready",async () => {
   wait(1000);
 
-  client.guilds.forEach(g => {
+ await client.guilds.forEach(g => {
     g.fetchInvites().then(guildInvites => {
       invites[g.id] = guildInvites;
     });
