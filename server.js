@@ -750,6 +750,7 @@ client.on("message", async message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
+\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -785,14 +786,14 @@ client.on("message", async message => {
   `);
           message.author.send(`
 \`أوامر الكريدت\` :credit_card: 
-\`${prefix}credits\` : لمعرفة رصيدكك  
+\`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
 مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
  مثال : \`addcredits 500${prefix} \`
 
-:notes: \`أوامر الموسيقى \`
+\`أوامر الموسيقى \` :notes:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
@@ -828,7 +829,7 @@ client.on("message", async message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}credits\` : لمعرفة رصيدكك  
+\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -887,7 +888,7 @@ client.on("message", message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}credits\` : لمعرفة رصيدكك  
+\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -925,14 +926,14 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 \`أوامر الكريدت\` :credit_card: 
-\`${prefix}credits\` : لمعرفة رصيدكك  
+\`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
 مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
  مثال : \`addcredits 500${prefix} \`
 
-:notes: \`أوامر الموسيقى \`
+\`أوامر الموسيقى \` :notes:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
@@ -982,7 +983,7 @@ client.on("message", message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}credits\` : لمعرفة رصيدكك  
+\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -1022,14 +1023,14 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 \`أوامر الكريدت\` :credit_card: 
-\`${prefix}credits\` : لمعرفة رصيدكك  
+\`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
 مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
  مثال : \`addcredits 500${prefix} \`
 
-:notes: \`أوامر الموسيقى \`
+\`أوامر الموسيقى \` :notes:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
 \`${prefix}Pause\` : ايقاف مؤقت الاغنية
 \`${prefix}Resume\` : اكمال الاغنية 
@@ -3660,7 +3661,7 @@ client.on("message", message => {
         "**:white_check_mark: [ " + role1.name + " ] تم سحب من الكل رتبة**"
       );
     } else if (args[0].toLowerCase() == "bots") {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.guild.members
         .filter(m => m.user.bot)
@@ -3669,7 +3670,7 @@ client.on("message", message => {
         "**:white_check_mark: [ " + role1.name + " ] تم سحب من البوتات رتبة**"
       );
     } else if (args[0].toLowerCase() == "humans") {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.guild.members
         .filter(m => !m.user.bot)
@@ -3694,7 +3695,7 @@ client.on("message", message => {
     if (!role1)
       return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
     if (message.mentions.members.first()) {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.mentions.members.first().addRole(role1);
       return message.reply(
@@ -3706,13 +3707,13 @@ client.on("message", message => {
       );
     }
     if (args[0].toLowerCase() == "all") {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       message.guild.members.forEach(m => m.addRole(role1));
       return message.reply(
         "**:white_check_mark: [ " + role1.name + " ] تم اعطاء الكل رتبة**"
       );
     } else if (args[0].toLowerCase() == "bots") {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.guild.members
         .filter(m => m.user.bot)
@@ -3721,7 +3722,7 @@ client.on("message", message => {
         "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البوتات رتبة**"
       );
     } else if (args[0].toLowerCase() == "humans") {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.guild.members
         .filter(m => !m.user.bot)
