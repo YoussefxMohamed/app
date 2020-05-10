@@ -320,7 +320,7 @@ client.on("message", async message => {
             inviteCode.code &&
             inviteCode.code.includes("discord.gg")
               ? inviteCode.code
-              : `https://discord.gg/${inviteCode.code || "Zm2U6we"}`
+              : `https://discord.gg/${inviteCode.code || "vHmbKTE"}`
           }** ]   `
         )
         .setImage("")
