@@ -746,7 +746,6 @@ client.on ('message', async (message) => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}credits\` : لمعرفة رصيدكك  
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -772,7 +771,7 @@ client.on ('message', async (message) => {
 \`${prefix}role\` : لاعطاء شخص رتبة
 \`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
 
-\`\`اوامر التقديم\`\` :pencil: 
+\`اوامر التقديم\` :pencil: 
 \`${prefix}room1\` : لعمل روم التقديمات
 \`${prefix}room2\` : لعمل روم القبول والرفض
 \`لقبول تقديم عضو : \`${prefix}قبول
@@ -783,6 +782,9 @@ client.on ('message', async (message) => {
 
   `);
 message.author.send(`
+\`أوامر الكريدت\` :credit_card: 
+\`${prefix}credits\` : لمعرفة رصيدكك  
+\`${prefix}daily\` : لأخذ جائزة يومية
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
 مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
@@ -923,6 +925,9 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`
+\`أوامر الكريدت\` :credit_card: 
+\`${prefix}credits\` : لمعرفة رصيدكك  
+\`${prefix}daily\` : لأخذ جائزة يومية
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
 مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
