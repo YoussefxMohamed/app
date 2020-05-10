@@ -778,7 +778,6 @@ client.on ('message', async (message) => {
 مثال: \`\`${prefix}قبول @منشن عضو \`\`
 لرفض عضو : ${prefix}رفض
 مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
-:closed_lock_with_key: \`أوامر الحماية\`
 
   `);
 message.author.send(`
@@ -919,7 +918,6 @@ client.on("message", message => {
 مثال: \`\`${prefix}قبول @منشن عضو \`\`
 لرفض عضو : ${prefix}رفض
 مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
-:closed_lock_with_key: \`أوامر الحماية\`
 
   `
         )
@@ -1023,8 +1021,11 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`
+\`أوامر الكريدت\` :credit_card: 
+\`${prefix}credits\` : لمعرفة رصيدكك  
+\`${prefix}daily\` : لأخذ جائزة يومية
 \`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
- مثال : \` ${prefix}removecredits 500 \`
+مثال : \` ${prefix}removecredits 500 \`
 \`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
  مثال : \`addcredits 500${prefix} \`
 
