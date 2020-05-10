@@ -2077,8 +2077,9 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 30
     };
-    if (message.author.id !== message.guild.owner.user.id)
-      return;
+      if (message.content.startsWith(prefix + "settings")) {
+  if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send("هذه الاوامر فقط للاونر");
     if (message.content.startsWith(prefix + "settings limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
@@ -2135,6 +2136,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
+      }
     fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
       if (e) throw e;
     });
@@ -2618,7 +2620,8 @@ client.on("message", message => {
       };
   if (message.content.startsWith(prefix + "antibots on")) {
     if (message.author.bot || !message.channel.guild) return;
-
+  if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send("هذه الاوامر فقط للاونر");
     antibots[message.guild.id] = {
       onoff: true
     };
@@ -2628,10 +2631,11 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "antibots off")) {
     if (
       message.author.bot ||
-      !message.channel.guild ||
-      message.author.id != message.guild.ownerID
+      !message.channel.guild
     )
       return;
+  if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send("هذه الاوامر فقط للاونر");
     antibots[message.guild.id] = {
       onoff: false
     };
