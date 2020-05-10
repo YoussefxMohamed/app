@@ -48,9 +48,11 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  console.log(client.user.guilds)
 });
 client.on("ready", () => {
   client.user.setStatus("idle");
@@ -257,6 +259,7 @@ client.on("message", message => {
     let user = message.mentions.users.first();
 
     if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+    if(message.mentions.members.first().highestRole.position >= message.member.highestRole.position) return message.channel.send("م تقدر تبند شخص رتبته اعلى منك!")
     if (!message.guild.member(user).bannable)
       return message.reply(
         "**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**"
@@ -731,13 +734,15 @@ client.on("message", function(message) {
 });
 ///تعديل غير اساسي
 ////كود هيلب
-client.on ('message', async (message) => {
+client.on("message", async message => {
   if (message.author.bot || !message.guild) return;
-  if (message.content.startsWith (prefix + "steveHelp")) {
-    message.author.send ('.').then (msg => {
-      msg.delete();
-      if (message.author.id == message.guild.ownerID){
-      message.author.send (          `   
+  if (message.content.startsWith(prefix + "steveHelp")) {
+    message.author
+      .send(".")
+      .then(msg => {
+        msg.delete();
+        if (message.author.id == message.guild.ownerID) {
+          message.author.send(`   
 \`الاوامر العامة\` :postbox:
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
@@ -780,7 +785,7 @@ client.on ('message', async (message) => {
 مثال: \`\`${prefix}رفض @منشن عضو لست متفاعل بشكل كافِ\`\`
 
   `);
-message.author.send(`
+          message.author.send(`
 \`أوامر الكريدت\` :credit_card: 
 \`${prefix}credits\` : لمعرفة رصيدكك  
 \`${prefix}daily\` : لأخذ جائزة يومية
@@ -814,10 +819,9 @@ message.author.send(`
 \`${prefix}antibots off\` : فتح دخول البوتات
 \`شرح البوت \` : <https://youtu.be/6B9nrQp02Rk>
 `);
-      }else {
-        message.author
-        .send(
-          `   
+        } else {
+          message.author.send(
+            `   
 \`الاوامر العامة\` :postbox:
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
@@ -863,13 +867,14 @@ message.author.send(`
 
 
   `
-        )
-      }
-    }).catch (err => {
-      return message.channel.send ('**افتح خاصك.**');
-    })
+          );
+        }
+      })
+      .catch(err => {
+        return message.channel.send("**افتح خاصك.**");
+      });
   }
-})
+});
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content.startsWith(prefix + "help")) {
@@ -1948,12 +1953,14 @@ client.on("message", message => {
       )
       .setDescription(`**There's No Color With This Number ** :x: `)
       .setColor(`ff0000`);
+    if(!args[0] )
+      return message.channel.sendEmbed(embedd);
+    if (isNaN(args[0]))
+      return message.channel.sendEmbed(embedd.setDescription("Please select a number :x:"));
+    if (!message.guild.roles.find("name", `${args[0]}`))
+      return message.channel.sendEmbed(embedd);
 
-    if (!isNaN(args) && args.length > 0)
-      if (!message.guild.roles.find("name", `${args}`))
-        return message.channel.sendEmbed(embedd);
-
-    var a = message.guild.roles.find("name", `${args}`);
+    var a = message.guild.roles.find("name", `${args[0]}`);
     if (!a) return;
     const embed = new Discord.RichEmbed()
 
@@ -1965,14 +1972,14 @@ client.on("message", message => {
 
       .setColor(`${a.hexColor}`);
     message.channel.sendEmbed(embed);
-    if (!args) return;
+    if (!args[0]) return;
     setInterval(function() {});
     let count = 0;
     let ecount = 0;
     for (let x = 1; x < 201; x++) {
       message.member.removeRole(message.guild.roles.find("name", `${x}`));
     }
-    message.member.addRole(message.guild.roles.find("name", `${args}`));
+    message.member.addRole(message.guild.roles.find("name", `${args[0]}`));
   }
 });
 
@@ -2060,7 +2067,7 @@ client.on("message", message => {
   }
 });
 
-let anti = JSON.parse(fs.readFileSync("./antigreff.json", "UTF8"));
+let anti = JSON.parse(fs.readFileSync("./antigrefff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./server.json", "UTF8"));
 client.on("message", message => {
   if (!message.channel.guild) return;
@@ -2077,15 +2084,17 @@ client.on("message", message => {
     config[message.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit:3,
+      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
       time: 30
     };
-      if (message.content.startsWith(prefix + "settings")) {
-  if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send("**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**");
+  if (message.content.startsWith(prefix + "settings")) {
+    if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send(
+        "**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**"
+      );
     if (message.content.startsWith(prefix + "settings limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
@@ -2142,16 +2151,13 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
-      }
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
-      if (e) throw e;
-    });
-    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
-      e
-    ) {
-      if (e) throw e;
-    });
-  
+  }
+  fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+    if (e) throw e;
+  });
+  fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
+    if (e) throw e;
+  });
 });
 client.on("channelDelete", async channel => {
   const entry1 = await channel.guild
@@ -2165,7 +2171,7 @@ client.on("channelDelete", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit:3,
+      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2221,37 +2227,46 @@ client.on("channelDelete", async channel => {
 });
 
 client.on("channelCreate", async channel => {
-  if (!['text', 'category', 'voice'].includes (channel.type.toLowerCase()))return;
-    if (!config[channel.guild.id]) config[channel.guild.id] = {
-        banLimit: 3,
-        chaDelLimit: 3,
-        chaCrLimit: 3,
-        roleDelLimit: 3,
-        kickLimits: 3,
-        roleCrLimits: 3,
-        time: 30
-    }
-    const entry1 = await channel.guild.fetchAuditLogs({
-        type: 'CHANNEL_CREATE'
-    }).then(audit => audit.entries.first())
-    console.log(entry1.executor.username)
-    const entry = entry1.executor
- 
-if (!anti[channel.guild.id + entry.id]) {
-        anti[channel.guild.id + entry.id] = {
-            actions: 1
-        }
-        setTimeout(() => {
-            anti[channel.guild.id + entry.id].actions = "0"
-        }, config[channel.guild.id].time * 1000)
-    } else {
-        anti[channel.guild.id + entry.id].actions = Math.floor(anti[channel.guild.id + entry.id].actions + 1)
-        console.log("TETS");
-        setTimeout(() => {
-            anti[channel.guild.id + entry.id].actions = "0"
-        }, config[channel.guild.id].time * 1000)
-        if (anti[channel.guild.id + entry.id].actions >= config[channel.guild.id].chaCrLimit) {
-     channel.guild.members
+  if (!["text", "category", "voice"].includes(channel.type.toLowerCase()))
+    return;
+  if (!config[channel.guild.id])
+    config[channel.guild.id] = {
+      banLimit: 3,
+      chaDelLimit: 3,
+      chaCrLimit: 3,
+      roleDelLimit: 3,
+      kickLimits: 3,
+      roleCrLimits: 3,
+      time: 30
+    };
+  const entry1 = await channel.guild
+    .fetchAuditLogs({
+      type: "CHANNEL_CREATE"
+    })
+    .then(audit => audit.entries.first());
+  console.log(entry1.executor.username);
+  const entry = entry1.executor;
+
+  if (!anti[channel.guild.id + entry.id]) {
+    anti[channel.guild.id + entry.id] = {
+      actions: 1
+    };
+    setTimeout(() => {
+      anti[channel.guild.id + entry.id].actions = "0";
+    }, config[channel.guild.id].time * 1000);
+  } else {
+    anti[channel.guild.id + entry.id].actions = Math.floor(
+      anti[channel.guild.id + entry.id].actions + 1
+    );
+    console.log("TETS");
+    setTimeout(() => {
+      anti[channel.guild.id + entry.id].actions = "0";
+    }, config[channel.guild.id].time * 1000);
+    if (
+      anti[channel.guild.id + entry.id].actions >=
+      config[channel.guild.id].chaCrLimit
+    ) {
+      channel.guild.members
         .get(entry.id)
         .ban()
         .catch(e =>
@@ -2259,20 +2274,26 @@ if (!anti[channel.guild.id + entry.id]) {
             `**⇏ | ${entry.username} قام بمسح الكثير من الرومات **`
           )
         );
-          anti[channel.guild.id + entry.id].actions = "0"
-            fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
-                if (e) throw e;
-            });
-            fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
-                if (e) throw e;
-            });
+      anti[channel.guild.id + entry.id].actions = "0";
+      fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(
+        e
+      ) {
+        if (e) throw e;
+      });
+      fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
+        e
+      ) {
+        if (e) throw e;
+      });
     }
- 
-    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function (e) {
-        if (e) throw e;
+
+    fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
+      if (e) throw e;
     });
-    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function (e) {
-        if (e) throw e;
+    fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(
+      e
+    ) {
+      if (e) throw e;
     });
   }
 });
@@ -2288,7 +2309,7 @@ client.on("roleDelete", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit:3,
+      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2355,7 +2376,7 @@ client.on("roleCreate", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit:3,
+      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2422,7 +2443,7 @@ client.on("guildBanAdd", async (guild, user) => {
     config[guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit:3,
+      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2483,7 +2504,7 @@ client.on("guildKickAdd", async (guild, user) => {
     config[guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
-      chaCrLimit:3,
+      chaCrLimit: 3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2548,7 +2569,7 @@ client.on("guildMemberRemove", async member => {
       config[guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
-        chaCrLimit:3,
+        chaCrLimit: 3,
         roleDelLimit: 3,
         kickLimits: 3,
         roleCrLimits: 3,
@@ -2620,14 +2641,16 @@ let saveSteve = () => {
 };
 client.on("message", message => {
   if (!message.guild) return;
-    if (!antibots[message.guild.id])
-      config[message.guild.id] = {
+  if (!antibots[message.guild.id])
+    config[message.guild.id] = {
       onoff: true
-      };
+    };
   if (message.content.startsWith(prefix + "antibots on")) {
     if (message.author.bot || !message.channel.guild) return;
-  if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send("**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**");
+    if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send(
+        "**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**"
+      );
     antibots[message.guild.id] = {
       onoff: true
     };
@@ -2635,30 +2658,28 @@ client.on("message", message => {
     message.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
   }
   if (message.content.startsWith(prefix + "antibots off")) {
-    if (
-      message.author.bot ||
-      !message.channel.guild
-    )
-      return;
-  if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send("**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**");
+    if (message.author.bot || !message.channel.guild) return;
+    if (message.author.id !== message.guild.owner.user.id)
+      return message.channel.send(
+        "**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**"
+      );
     antibots[message.guild.id] = {
       onoff: false
     };
     saveSteve();
     message.channel.send("**AntiBots Join Is Off :unlock: **");
   }
-    saveSteve();
+  saveSteve();
 });
 
 client.on("guildMemberAdd", member => {
-    if (!antibots[member.guild.id])
-      config[member.guild.id] = {
+  if (!antibots[member.guild.id])
+    config[member.guild.id] = {
       onoff: true
-      };
+    };
   if (antibots[member.guild.id].onoff == false) return;
   if (member.user.bot) return member.ban("Protection from Bots.");
-    saveSteve();
+  saveSteve();
 });
 
 client.on("message", async message => {
@@ -3160,10 +3181,10 @@ client.on("guildMemberAdd", async member => {
 
 //تحديد روم الويلكم
 const wait = require("util").promisify(setTimeout);
-client.on("ready",async () => {
+client.on("ready", async () => {
   wait(1000);
 
- await client.guilds.forEach(g => {
+  await client.guilds.forEach(g => {
     g.fetchInvites().then(guildInvites => {
       invites[g.id] = guildInvites;
     });
@@ -3171,7 +3192,7 @@ client.on("ready",async () => {
 });
 var gg2;
 
-client.on("guildMemberAdd",async member => {
+client.on("guildMemberAdd", async member => {
   if (!welcome[member.guild.id])
     welcome[member.guild.id] = {
       by: "Off",
@@ -3187,7 +3208,7 @@ client.on("guildMemberAdd",async member => {
   await member.guild.fetchInvites().then(async guildInvites => {
     const ei = await invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
-    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses)
+    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter1 = await invite.inviter;
     const inviter =
       (await client.users.get(invite.inviter.id)) ||
@@ -3196,7 +3217,7 @@ client.on("guildMemberAdd",async member => {
       channel => channel.name === `${welcome[member.guild.id].channel}`
     );
     if (!logChannel) return console.log("I can't find welcomeChannel");
-   let gg1 = await welcome[member.guild.id].msg.replace(
+    let gg1 = await welcome[member.guild.id].msg.replace(
       "[member]",
       `<@!${member.id}>`
     );
@@ -3281,7 +3302,6 @@ client.on("message", async message => {
     }
   }
 });
-
 
 client.on("message", async message => {
   let messageArray = message.content.split(" ");
