@@ -35,10 +35,10 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"); //تعديل اساسي سوي اي بي اي جديد
+const youtube = new YouTube("AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyAA7Fw4s2ra3165VriaCDa4Pg36uLXrbDk"; ///تعديل اساسي سوي اي بي اي جديد
+const yt_api_key = "AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY"; ///تعديل اساسي سوي اي بي اي جديد
 const pretty = require("pretty-ms");
 client.login(process.env.TOKEN);
 const queue = new Map();
@@ -229,7 +229,7 @@ client.on("message", message => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@416602464020594698>`, true) // تعديل اساسي غير الايدي لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@359541019836022784>`, true) // تعديل اساسي غير الايدي لايدي حسابك
       .setImage("")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
@@ -731,9 +731,10 @@ client.on("message", function(message) {
 });
 ///تعديل غير اساسي
 ////كود هيلب
+
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content === prefix + "help") {
+  if (message.content.startsWith(prefix + "help")) {
     if (message.author.id == message.guild.ownerID) {
       message.author
         .send(
