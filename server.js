@@ -2079,7 +2079,7 @@ client.on("message", message => {
     };
       if (message.content.startsWith(prefix + "settings")) {
   if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send("هذه الاوامر فقط للاونر");
+      return message.channel.send("**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**");
     if (message.content.startsWith(prefix + "settings limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
@@ -2621,7 +2621,7 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "antibots on")) {
     if (message.author.bot || !message.channel.guild) return;
   if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send("هذه الاوامر فقط للاونر");
+      return message.channel.send("**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**");
     antibots[message.guild.id] = {
       onoff: true
     };
@@ -2635,7 +2635,7 @@ client.on("message", message => {
     )
       return;
   if (message.author.id !== message.guild.owner.user.id)
-      return message.channel.send("هذه الاوامر فقط للاونر");
+      return message.channel.send("**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**");
     antibots[message.guild.id] = {
       onoff: false
     };
@@ -2651,7 +2651,7 @@ client.on("guildMemberAdd", member => {
       onoff: true
       };
   if (antibots[member.guild.id].onoff == false) return;
-  if (member.user.bot) return member.kick("Protection from Bots.");
+  if (member.user.bot) return member.ban("Protection from Bots.");
     saveSteve();
 });
 
