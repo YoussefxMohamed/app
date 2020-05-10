@@ -3165,7 +3165,7 @@ client.on("ready",async () => {
 });
 var gg2;
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd",async member => {
   if (!welcome[member.guild.id])
     welcome[member.guild.id] = {
       by: "Off",
@@ -3178,7 +3178,7 @@ client.on("guildMemberAdd", member => {
   );
   if (!channel) return;
 
-  member.guild.fetchInvites().then(async guildInvites => {
+  await member.guild.fetchInvites().then(async guildInvites => {
     const ei = await invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
