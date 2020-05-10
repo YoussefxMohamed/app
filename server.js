@@ -3153,7 +3153,64 @@ client.on("guildMemberAdd", async member => {
 });
 
 //تحديد روم الويلكم
+const wait = require("util").promisify(setTimeout);
 
+client.on("ready", () => {
+  wait(1000);
+
+  client.guilds.forEach(g => {
+    g.fetchInvites().then(guildInvites => {
+      invites[g.id] = guildInvites;
+    });
+  });
+});
+var gg2;
+
+client.on("guildMemberAdd", member => {
+  if (!welcome[member.guild.id])
+    welcome[member.guild.id] = {
+      by: "Off",
+      channel: null
+    };
+
+  if (welcome[member.guild.id].by === "Off") return;
+  let channel = member.guild.channels.find(
+    c => c.name == welcome[member.guild.id].channel
+  );
+  if (!channel) return;
+
+  member.guild.fetchInvites().then(async guildInvites => {
+    const ei = await invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter1 = await invite.inviter;
+    const inviter =
+      (await client.users.get(invite.inviter.id)) ||
+      client.users.get(member.guild.owner.user.id);
+    const logChannel = member.guild.channels.find(
+      channel => channel.name === `${welcome[member.guild.id].channel}`
+    );
+    if (!logChannel) return console.log("I can't find welcomeChannel");
+   let gg1 = await welcome[member.guild.id].msg.replace(
+      "[member]",
+      `<@!${member.id}>`
+    );
+    if (!inviter1 || !inviter1.id) {
+      gg2 = await gg1.replace("[inviter]", `<@${member.guild.ownerID}>`);
+    } else {
+      gg2 = await gg1.replace("[inviter]", `<@${inviter1.id}>`);
+    }
+    setTimeout(() => {
+      logChannel.send(`${gg2}`);
+    }, 2000);
+    fs.writeFile("./welcome.json", JSON.stringify(welcome), err => {
+      if (err)
+        console.error(err).catch(err => {
+          console.error(err);
+        });
+    });
+  });
+});
 client.on("message", async message => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
@@ -3219,65 +3276,7 @@ client.on("message", async message => {
     }
   }
 });
-const wait = require("util").promisify(setTimeout);
 
-client.on("ready", () => {
-  wait(1000);
-
-  client.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
-    });
-  });
-});
-var gg1;
-var gg2;
-
-client.on("guildMemberAdd", member => {
-  if (!welcome[member.guild.id])
-    welcome[member.guild.id] = {
-      by: "Off",
-      channel: null
-    };
-
-  if (welcome[member.guild.id].by === "Off") return;
-  let channel = member.guild.channels.find(
-    c => c.name == welcome[member.guild.id].channel
-  );
-  if (!channel) return;
-
-  member.guild.fetchInvites().then(async guildInvites => {
-    const ei = await invites[member.guild.id];
-    invites[member.guild.id] = guildInvites;
-    const invite = await guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const inviter1 = await invite.inviter;
-    const inviter =
-      (await client.users.get(invite.inviter.id)) ||
-      client.users.get(member.guild.owner.user.id);
-    const logChannel = member.guild.channels.find(
-      channel => channel.name === `${welcome[member.guild.id].channel}`
-    );
-    if (!logChannel) return console.log("I can't find welcomeChannel");
-    gg1 = await welcome[member.guild.id].msg.replace(
-      "[member]",
-      `<@!${member.id}>`
-    );
-    if (!inviter1 || !inviter1.id) {
-      gg2 = await gg1.replace("[inviter]", `<@${member.guild.ownerID}>`);
-    } else {
-      gg2 = await gg1.replace("[inviter]", `<@${inviter1.id}>`);
-    }
-    setTimeout(() => {
-      logChannel.send(`${gg2}`);
-    }, 2000);
-    fs.writeFile("./welcome.json", JSON.stringify(welcome), err => {
-      if (err)
-        console.error(err).catch(err => {
-          console.error(err);
-        });
-    });
-  });
-});
 
 client.on("message", async message => {
   let messageArray = message.content.split(" ");
