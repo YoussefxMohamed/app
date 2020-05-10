@@ -2265,7 +2265,7 @@ client.on("roleCreate", async channel => {
 
 client.on("guildBanAdd", async (guild, user) => {
   const entry1 = await guild
-    .fetchAudits({
+    .fetchAuditLogs({
       type: "MEMBER_BAN_ADD"
     })
     .then(audit => audit.entries.first());
@@ -2426,7 +2426,7 @@ client.on("guildMemberRemove", async member => {
         anti[member.guild.id + entry.id].actions >=
         config[member.guild.id].kickLimits
       ) {
-        member.members
+        member.guild.members
           .get(entry.id)
           .ban()
           .catch(e =>
