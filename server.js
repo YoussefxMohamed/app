@@ -3154,7 +3154,6 @@ client.on("guildMemberAdd", async member => {
 
 //تحديد روم الويلكم
 const wait = require("util").promisify(setTimeout);
-
 client.on("ready", () => {
   wait(1000);
 
