@@ -1923,7 +1923,7 @@ client.on("message", message => {
   let user = anti[message.guild.id + message.author.id];
   let num = message.content
     .split(" ")
-    .slice(2)
+    .slice()
     .join(" ");
   if (!anti[message.guild.id + message.author.id])
     anti[message.guild.id + message.author.id] = {
@@ -1933,15 +1933,15 @@ client.on("message", message => {
     config[message.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
+      chaCrLimit:3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
       time: 30
     };
-  if (message.content.startsWith(prefix + "settings limits")) {
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(`**لا تستطيع استخدام هذا الامر**`);
-    if (message.content.startsWith(prefix + "settings limitsban")) {
+    if (message.content.startsWith(prefix + "limitsban")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].banLimit = num;
@@ -1949,7 +1949,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].banLimit} **`
       );
     }
-    if (message.content.startsWith(prefix + "settings limitskick")) {
+    if (message.content.startsWith(prefix + "limitskick")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].kickLimits = num;
@@ -1957,7 +1957,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].kickLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "settings limitsroleD")) {
+    if (message.content.startsWith(prefix + "limitsroleD")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleDelLimit = num;
@@ -1965,7 +1965,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "settings limitsroleC")) {
+    if (message.content.startsWith(prefix + "limitsroleC")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleCrLimits = num;
@@ -1973,7 +1973,7 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].roleCrLimits}**`
       );
     }
-    if (message.content.startsWith(prefix + "settings limitschannelD")) {
+    if (message.content.startsWith(prefix + "limitschannelD")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaDelLimit = num;
@@ -1981,7 +1981,15 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaDelLimit}**`
       );
     }
-    if (message.content.startsWith(prefix + "settings limitstime")) {
+    if (message.content.startsWith(prefix + "limitschannelC")) {
+      if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
+      if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
+      config[message.guild.id].chaCrLimit = num;
+      message.channel.send(
+        `**:lock: | تم التغيير اِلي : ${config[message.guild.id].chaCrLimit}**`
+      );
+    }
+    if (message.content.startsWith(prefix + "limitstime")) {
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].time = num;
@@ -1997,7 +2005,7 @@ client.on("message", message => {
     ) {
       if (e) throw e;
     });
-  }
+  
 });
 client.on("channelDelete", async channel => {
   const entry1 = await channel.guild
@@ -2011,6 +2019,7 @@ client.on("channelDelete", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
+      chaCrLimit:3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2077,6 +2086,7 @@ client.on("roleDelete", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
+      chaCrLimit:3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2143,6 +2153,7 @@ client.on("roleCreate", async channel => {
     config[channel.guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
+      chaCrLimit:3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2209,6 +2220,7 @@ client.on("guildBanAdd", async (guild, user) => {
     config[guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
+      chaCrLimit:3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2269,6 +2281,7 @@ client.on("guildKickAdd", async (guild, user) => {
     config[guild.id] = {
       banLimit: 3,
       chaDelLimit: 3,
+      chaCrLimit:3,
       roleDelLimit: 3,
       kickLimits: 3,
       roleCrLimits: 3,
@@ -2333,6 +2346,7 @@ client.on("guildMemberRemove", async member => {
       config[guild.id] = {
         banLimit: 3,
         chaDelLimit: 3,
+        chaCrLimit:3,
         roleDelLimit: 3,
         kickLimits: 3,
         roleCrLimits: 3,
