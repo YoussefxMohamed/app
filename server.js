@@ -3641,7 +3641,7 @@ client.on("message", message => {
     if (!role1)
       return message.reply("**:x: يرجى وضع الرتبة المراد سحبها من الشخص**");
     if (message.mentions.members.first()) {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send(" اانت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.mentions.members.first().removeRole(role1);
       return message.reply(
@@ -3653,7 +3653,7 @@ client.on("message", message => {
       );
     }
     if (args[0].toLowerCase() == "all") {
-    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية!")
+    if(role1.position >= message.member.highestRole.position) return message.channel.send("انت لا تمتلك الصلاحيات الكافية :rolling_eyes:")
       
       message.guild.members.forEach(m => m.removeRole(role1));
       return message.reply(
