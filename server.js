@@ -2461,10 +2461,10 @@ client.on("guildMemberRemove", async member => {
   }
 });
 
-var antibots = JSON.parse(fs.readFileSync("./SteveKickBots.json", "utf8"));
+var antibots = JSON.parse(fs.readFileSync("./KickBots.json", "utf8"));
 let saveSteve = () => {
   fs.writeFileSync(
-    "./SteveKickBots.json",
+    "./KickBots.json",
     JSON.stringify(antibots, null, 2),
     err => {
       if (err) throw err;
