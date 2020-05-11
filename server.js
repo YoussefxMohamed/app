@@ -2854,6 +2854,7 @@ type these numbers to confirm: `
               })
               .then(collected => {
                 if (collected.first().content === num) {
+                  essss.delete()
                   message.channel.send(
                     `**:moneybag: | ${
                       message.author.username
