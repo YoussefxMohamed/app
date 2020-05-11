@@ -785,13 +785,10 @@ client.on("message", async message => {
 
   `);
           message.author.send(`
+
 \`أوامر الكريدت\` :credit_card: 
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
-\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
-مثال : \` ${prefix}removecredits 500 \`
-\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
- مثال : \`addcredits 500${prefix} \`
 
 \`أوامر الموسيقى \` :notes:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
@@ -805,7 +802,6 @@ client.on("message", async message => {
 \`${prefix}Volume\` : تغيير الصوت [vol] 
 \`${prefix}np\` : عرض مايتم تشغيله الان [np] 
 \`${prefix}repeat\` : تكرار الاغنية 
-\`${prefix}Leave\` : الخروج من الروم الصوتي
 
 \`أوامر الحماية\` :closed_lock_with_key:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
@@ -925,13 +921,10 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`
+
 \`أوامر الكريدت\` :credit_card: 
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
-\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
-مثال : \` ${prefix}removecredits 500 \`
-\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
- مثال : \`addcredits 500${prefix} \`
 
 \`أوامر الموسيقى \` :notes:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
@@ -945,7 +938,6 @@ client.on("message", message => {
 \`${prefix}Volume\` : تغيير الصوت [vol] 
 \`${prefix}np\` : عرض مايتم تشغيله الان [np] 
 \`${prefix}repeat\` : تكرار الاغنية 
-\`${prefix}Leave\` : الخروج من الروم الصوتي
 
 \`أوامر الحماية\` :closed_lock_with_key:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
@@ -1022,13 +1014,10 @@ client.on("message", message => {
         )
         .then(() => {
           message.author.send(`
+
 \`أوامر الكريدت\` :credit_card: 
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
-\`${prefix}removecredits\` : لحذف كريدت من رصيدك ، لايمكنك حذف من شخص 
-مثال : \` ${prefix}removecredits 500 \`
-\`${prefix}addcredits\` : لـ أضافة كريدت لرصيدك ، لايمكنك اضافة لاحد فقط بالتحويل العادي 
- مثال : \`addcredits 500${prefix} \`
 
 \`أوامر الموسيقى \` :notes:
 \`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
@@ -1042,7 +1031,6 @@ client.on("message", message => {
 \`${prefix}Volume\` : تغيير الصوت [vol] 
 \`${prefix}np\` : عرض مايتم تشغيله الان [np] 
 \`${prefix}repeat\` : تكرار الاغنية 
-\`${prefix}Leave\` : الخروج من الروم الصوتي
 \`شرح البوت \` : <https://youtu.be/6B9nrQp02Rk>
 
 `);
