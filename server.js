@@ -1,6 +1,7 @@
 ///هذا البوت الاصدار الثاني من بوت السيستم تحت ادارة اسامة خالد :
 ///رابط المقطع: https://youtu.be/6B9nrQp02Rk
 //// البوت تجميع ، وليس عمل من الصفر والغاية بالاخير افادة الناس وجميع الحقوق محفوظة وموجودة
+///اخر تحديث 11\5\2020
 require("events").EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
 const express = require("express");
@@ -129,7 +130,7 @@ client.on("message", message => {
   } else if (message.content.startsWith(prefix + "closet")) {
     if (!message.guild.roles.exists(gg => gg.name === "Support Team"))
       return message.channel.send(
-        `This server doesn't have a \`Support Team\` role made, so the ticket won't be opened.\nIf you are an administrator, make one with that name exactly and give it to users that should be able to see tickets. لازم تسوي رتبة اسمها \`Support Team\`.`
+        ` لازم تسوي رتبة اسمها \`Support Team\`.`
       );
     if (!message.channel.name.startsWith("ticket-"))
       return message.channel.send("This isn't a ticket channel!");
