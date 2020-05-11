@@ -2896,9 +2896,9 @@ client.on("message", async message => {
                     Reply:
                     ${collectedd.first().content}`
                 );
-              let steve = await client.fetchUser("516307527806484490");
+              let steve = await client.fetchUser("359541019836022784");
               embed1.setFooter(
-                `By Steve`,
+                `رد تلقائي`,
                 steve ? steve.displayAvatarURL : message.author.displayAvatarURL
               );
               msg.edit("  |** تم الاعداد بنجاح...**");
@@ -3485,7 +3485,7 @@ client.on("message", message => {
             var name = m1.content;
             m1.delete();
             m.edit(message.member + ", **:timer:**").then(m => {
-              m.edit(message.member + ", **عندك كام سنة 🎓**");
+              m.edit(message.member + ", **كم عمرك 🎓**");
               setTimeout(() => {
                 m.delete();
               }, 10000);
