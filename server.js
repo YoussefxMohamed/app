@@ -750,7 +750,7 @@ client.on("message", async message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -829,7 +829,7 @@ client.on("message", async message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -888,7 +888,7 @@ client.on("message", message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -983,7 +983,7 @@ client.on("message", message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
-\`رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -3352,7 +3352,7 @@ client.on("message", message => {
 ////تعديل غير اساسي
 
 client.on("message", message => {
-  if (message.content.startsWith("رابط")) {
+  if (message.content.split(" ")[0] === prefix + "رابط") {
     message.channel
       .createInvite({
         thing: true,
