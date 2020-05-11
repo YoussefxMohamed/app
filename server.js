@@ -2843,7 +2843,7 @@ client.on("message", async message => {
 type these numbers to confirm: `
         )
         .then(async essss => {
-          message.channel.send(`\`\`\`${num}\`\`\``).then(m => {
+          message.channel.send(`\`${num}\``).then(m => {
             message.channel
               .awaitMessages(r => r.author.id === message.author.id, {
                 max: 1,
@@ -2858,7 +2858,7 @@ type these numbers to confirm: `
                     }, Done Trans \`$${resulting.toLocaleString()}\` To ${mentionn}**`
                   );
                   mention.send(
-                    `**:money_with_wings: | Transfer Receipt \`\`\`You Have Received \`$${resulting.toLocaleString()}\` From User ${
+                    `**:money_with_wings: | Transfer Receipt **\`\`\`You Have Received \`$${resulting.toLocaleString()}\` From User ${
                       message.author.username
                     }; (ID (${message.author.id})\`\`\``
                   );
