@@ -2691,14 +2691,7 @@ client.on("message", async message => {
 
 ///كود حذف الروابط
 /// تعديل اساسي حذف روابط الديسكورد
-
-client.on("message", async message => {
-  if (message.content.includes("discord.gg")) {
-    if (message.member.hasPermission("MANAGE_GUILD")) return;
-    if (!message.channel.guild) return;
-    message.delete();
-  }
-});
+/// تم حذف الكود لانه يسبب مشاكل مثلا يحذف كل الروابط حتى من الادارة ، يمكنك استخدام بوت بروبوت في الحماية من الروابط
 
 const replyMSG = JSON.parse(fs.readFileSync("./replyMSG.json", "utf8"));
 
