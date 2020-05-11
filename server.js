@@ -53,7 +53,7 @@ client.on("ready", () => {
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(client.guilds.map(c => `${c.name} : ${c.me.hasPermission(8)}`))
-  client.user.setStatus("idle");
+  client.user.setStatus("online");
 
   client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
 });
@@ -811,7 +811,7 @@ client.on("message", async message => {
 \`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
 \`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
 \`${prefix}antibots on\` : منع دخول بوتات
-\`${prefix}antibots off\` : فتح دخول البوتات
+\`${prefix}antibots off\` : السماح للبوتات بالدخول
 \`شرح البوت \` : <https://youtu.be/6B9nrQp02Rk>
 `);
         } else {
@@ -947,7 +947,7 @@ client.on("message", message => {
 \`${prefix}settings limitschannelD\` : تحدد العدد الي تبيه لو حد مسح روم 3 او 4 البوت يبنده 
 \`${prefix}settings limitstime\` : تحديد الوقت الذي من خلالة يتم التبنيد كـ مثال اذا شخص بند 5 في دقيقة البوت يبنده
 \`${prefix}antibots on\` : منع دخول بوتات
-\`${prefix}antibots off\` : فتح دخول البوتات
+\`${prefix}antibots off\` : السماح للبوتات بالدخول
 \`شرح البوت \` : <https://youtu.be/6B9nrQp02Rk>
 `);
         })
