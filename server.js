@@ -1866,7 +1866,7 @@ client.on("message", message => {
       return message.channel.send("**ليس لديك صلاحيات . ❌**");
     message.channel.send(
       `**${args}.  | :ballot_box_with_check: |لقد تم شغيل المغادرة هنا**`
-    ); //By ItzTexo
+    ); 
     client.on("guildMemberAdd", member => {
       if (member.user.bot) return;
       var embed = new Discord.RichEmbed()
