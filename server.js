@@ -3005,7 +3005,6 @@ client.on("guildMemberAdd", async member => {
       .setColor(nameColor)
       .addText(name, nameX, nameY)
       .toBuffer();
-
     const filename = `Baron-wlc-${member.id}.jpg`;
     const attachment = new Attachment(buffer, filename);
     await channel.send(attachment);
