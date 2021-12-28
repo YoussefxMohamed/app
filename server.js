@@ -36,10 +36,10 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY"); //تعديل اساسي سوي اي بي اي جديد
+const youtube = new YouTube("AIzaSyBm-K4ugWhcVaYEoOV4069iMxbXG50rO2w"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyAXaeBh837k38o_lwSADet8UTO7X21DGsY"; ///تعديل اساسي سوي اي بي اي جديد
+const yt_api_key = "AIzaSyBm-K4ugWhcVaYEoOV4069iMxbXG50rO2w"; ///تعديل اساسي سوي اي بي اي جديد
 const pretty = require("pretty-ms");
 client.login(process.env.TOKEN);
 const queue = new Map();
@@ -55,7 +55,7 @@ client.on("ready", () => {
   console.log(client.guilds.map(c => `${c.name} : ${c.me.hasPermission(8)}`));
   client.user.setStatus("online");
 
-  client.user.setActivity(`${prefix}help`, { type: "WATCHING" });
+  client.user.setActivity(`${prefix}helpT`, { type: "Playing" });
 });
 
 client.on("message", message => {
@@ -112,13 +112,13 @@ client.on("message", message => {
           READ_MESSAGES: false
         });
         message.channel.send(
-          `:white_check_mark: Your ticket has been created, ${c}.`
+          `:white_check_mark: تم إنشاء تذكرتك, ${c}.`
         );
         const embed = new Discord.RichEmbed()
           .setColor(0xcf40fa)
           .addField(
             `Hey ${message.author.username}!`,
-            `Please try explain why you opened this ticket with as much detail as possible. Our **Support Staff** will be here soon to help.`
+            `يرجى محاولة شرح سبب فتح هذه التذكرة بأكبر قدر ممكن من التفاصيل. سيكون ** موظفو الدعم ** لدينا هنا قريبًا للمساعدة.`
           )
           .setTimestamp();
         c.send({
@@ -227,7 +227,7 @@ client.on("message", message => {
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
       .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@359541019836022784>`, true) // تعديل اساسي غير الايدي لايدي حسابك
+      .addField("**Bot Owner** :  ", `» <@736038771535118377>`, true) // تعديل اساسي غير الايدي لايدي حسابك
       .setImage("")
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
@@ -741,7 +741,7 @@ client.on("message", function(message) {
 ////كود هيلب
 client.on("message", message => {
   if (message.author.bot) return;
-  if (message.content.startsWith(prefix + "help")) {
+  if (message.content.startsWith(prefix + "helpT")) {
     if (message.author.id == message.guild.ownerID) {
       message.author
         .send(
@@ -3869,7 +3869,7 @@ client.on("message", async msg => {
           voiceChannel: voiceChannel,
           connection: null,
           songs: [], ////تعديل غير اساسي
-          volume: 25, //// تعديل درجة الصوت الاساسية
+          volume: 50, //// تعديل درجة الصوت الاساسية
           requester: msg.author,
           playing: true,
           repeating: false
