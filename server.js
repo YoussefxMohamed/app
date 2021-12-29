@@ -3783,7 +3783,7 @@ client.on("message", async msg => {
     const voiceChannel = msg.member.voiceChannel;
     if (!voiceChannel)
       return msg.channel.send(
-        `:no_entry_sign: You must be listening in a voice channel to use that!`
+        `:no_entry_sign: **يجب أن تنضم الي قناة صوتية لاستخدام ذلك!**`
       );
     const permissions = voiceChannel.permissionsFor(msg.client.user);
     if (!permissions.has("CONNECT")) {
