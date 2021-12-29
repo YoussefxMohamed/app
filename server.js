@@ -3788,7 +3788,7 @@ client.on("message", async msg => {
     const permissions = voiceChannel.permissionsFor(msg.client.user);
     if (!permissions.has("CONNECT")) {
       return msg.channel.send(
-        `:no_entry_sign: I can't join Your voiceChannel because i don't have ` +
+        `:no_entry_sign:** لا يمكنني الانضمام إلى قناتك الصوتية لأنني لا أملكها** ` +
           "`" +
           "`CONNECT`" +
           "`" +
