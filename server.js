@@ -3798,7 +3798,7 @@ client.on("message", async msg => {
 
     if (!permissions.has("SPEAK")) {
       return msg.channel.send(
-        `:no_entry_sign: I can't SPEAK in your voiceChannel because i don't have ` +
+        `:no_entry_sign: لا أستطيع التحدث في قناتك الصوتية لأنني لا أملك ` +
           "`" +
           "`SPEAK`" +
           "`" +
