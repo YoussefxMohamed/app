@@ -36,10 +36,10 @@ const { get } = require("snekfetch");
 const guild = require("guild");
 const dateFormat = require("dateformat");
 const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyBm-K4ugWhcVaYEoOV4069iMxbXG50rO2w"); //تعديل اساسي سوي اي بي اي جديد
+const youtube = new YouTube("AIzaSyBGtbgG-QWkof0eInOgxKS6AXDiuzLA6Hs"); //تعديل اساسي سوي اي بي اي جديد
 const hastebins = require("hastebin-gen");
 const getYoutubeID = require("get-youtube-id");
-const yt_api_key = "AIzaSyBm-K4ugWhcVaYEoOV4069iMxbXG50rO2w"; ///تعديل اساسي سوي اي بي اي جديد
+const yt_api_key = "AIzaSyBGtbgG-QWkof0eInOgxKS6AXDiuzLA6Hs"; ///تعديل اساسي سوي اي بي اي جديد
 const pretty = require("pretty-ms");
 client.login(process.env.TOKEN);
 const queue = new Map();
@@ -3826,7 +3826,7 @@ client.on("message", async msg => {
           var video = await youtube.getVideoByID(videos[0].id);
         } catch (err) {
           console.error(err);
-          return msg.channel.send("I can't find any thing");
+          return msg.channel.send("**لا أجد أي شيء**");
         }
       }
 
