@@ -797,6 +797,19 @@ client.on("message", message => {
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
+\`أوامر الموسيقى \` :notes:
+\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${prefix}Pause\` : ايقاف مؤقت الاغنية
+\`${prefix}Resume\` : اكمال الاغنية 
+\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${prefix}Queue\` : عرض القائمة 
+\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${prefix}Skip\` : تخطي للاغنية التالية 
+\`${prefix}Volume\` : تغيير الصوت [vol] 
+\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${prefix}repeat\` : تكرار الاغنية 
+
 \`أوامر الحماية\` :closed_lock_with_key:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
@@ -876,6 +889,19 @@ client.on("message", message => {
 \`${prefix}credits\` : لمعرفة رصيدك  
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
+
+\`أوامر الموسيقى \` :notes:
+\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
+\`${prefix}Pause\` : ايقاف مؤقت الاغنية
+\`${prefix}Resume\` : اكمال الاغنية 
+\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
+\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
+\`${prefix}Queue\` : عرض القائمة 
+\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
+\`${prefix}Skip\` : تخطي للاغنية التالية 
+\`${prefix}Volume\` : تغيير الصوت [vol] 
+\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
+\`${prefix}repeat\` : تكرار الاغنية 
 
 `);
         })
@@ -3692,7 +3718,7 @@ client.on("message", async msg => {
 //// تغير غير اساسي
 ///// كود ميوزك
 
-/*let cmds = {
+let cmds = {
   play: { cmd: "play", a: ["p", "شغل"] },
   skip: { cmd: "skip", a: ["s", "تخطى"] },
   stop: { cmd: "stop", a: ["ايقاف"] },
@@ -3704,7 +3730,7 @@ client.on("message", async msg => {
   forceskip: { cmd: "forceskip", a: ["تخطي الكل", "fskip"] },
   skipto: { cmd: "skipto", a: ["st", "اذهب الى"] },
   nowplaying: { cmd: "Nowplaying", a: ["np", "الان"] }
-};*/
+};
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
