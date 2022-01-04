@@ -2,4 +2,11 @@
   "872242482442809476": {
     "onoff": true
   }
+}"chaDelLimit": 3,
+    "chaCrLimit": 3,
+    "roleDelLimit": 3,
+    "kickLimits": 3,
+    "roleCrLimits": 3,
+    "time": 30
+  }
 }
