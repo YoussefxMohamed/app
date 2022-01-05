@@ -50,6 +50,39 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on{'message', async message =>{
+   let p = db.fetch{'prefix_${mmessage.guild.id}'}
+
+
+   if(!p) p = prefix;
+
+if(message.author.bot) return undefined;
+   const args = message.content.split("");
+   if(args[0].tolowerCase() == '${p}set-lang'){
+   if(!message.member.hasPermission("ADMINISTRATOR")) return;
+   await db.fetch('langguild_${message.guild.id}');
+   if(!args[1]){
+   message.reply('**Usage: ${prefix}set_lang ar/en**');
+   }
+    else if(args[1]=="ar"){
+      message.reply('**تم التغيير اللغة بنجاح إلي اللغة العربية**');
+   db.set('langguild_${message.guild.id}', "arabic");
+   }
+    else if(args[1]=="en"){
+      message.reply('**The language was chosen successfully**');
+   db.set('langguild_${message.guild.id}', "english");
+   }
+    else {
+    let lang = await db.fetch("langguild_${message.guild.id}');
+       if(lang == "arabic") return message.reply('**لم يتم العثور علي اللغة**');
+       else message.reply('**Not Found this language**');
+       }
+    }
+})
+
+
+
+
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
