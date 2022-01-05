@@ -12,7 +12,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`http://turbo-bot-finsal.glitch.me/`);
+  http.get(`https://turbo-bot-finsal.glitch.me/`);
 }, 280000);
 
 ////بكجات
@@ -50,8 +50,8 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on{'message', async message =>{
-   let p = db.fetch{'prefix_${mmessage.guild.id}'}
+client.on('message', async message =>{
+   let p = db.fetch('prefix_${mmessage.guild.id}')
 
 
    if(!p) p = prefix;
@@ -73,7 +73,7 @@ if(message.author.bot) return undefined;
    db.set('langguild_${message.guild.id}', "english");
    }
     else {
-    let lang = await db.fetch("langguild_${message.guild.id}');
+    let lang = await db.fetch('langguild_${message.guild.id}');
        if(lang == "arabic") return message.reply('**لم يتم العثور علي اللغة**');
        else message.reply('**Not Found this language**');
        }
