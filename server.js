@@ -79,19 +79,7 @@ client.on("message", message => {
   }
 });
 
-/// ضريبة
-client.on('message', message => {
-        if(message.content.startsWith(prefix+'tax')){
-                var args = message.content.split(' ').slice(1);
-                let tax = Math.round(Number(args[0])*5/100);
-                let total = Math.round(Number(args[0])+tax);
-                var embed = new Discord.MessageEmbed()
-                .setTitle('الضريبة')
-                .addField('Tax:', `${tax}`, false)
-                .addField('Toatal', `${total}`, false)
-                message.channel.send(embed)
-        }
-})
+
 
 ////كود تيكت
 client.on("message", message => {
