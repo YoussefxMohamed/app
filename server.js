@@ -800,18 +800,6 @@ client.on("message", message => {
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
-\`أوامر الموسيقى \` :notes:
-\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
-\`${prefix}Pause\` : ايقاف مؤقت الاغنية
-\`${prefix}Resume\` : اكمال الاغنية 
-\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
-\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
-\`${prefix}Queue\` : عرض القائمة 
-\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
-\`${prefix}Skip\` : تخطي للاغنية التالية 
-\`${prefix}Volume\` : تغيير الصوت [vol] 
-\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
-\`${prefix}repeat\` : تكرار الاغنية 
 
 \`أوامر الحماية\` :closed_lock_with_key:
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
@@ -825,7 +813,7 @@ client.on("message", message => {
 `);
         })
         .then(e => {
-          message.react("✅");
+          message.react("<a:verifed:922517096896790568>");
         })
         .catch(() => {
           return message.channel
@@ -849,6 +837,7 @@ client.on("message", message => {
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
 \`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}tax\` : لمعرفة ضريبة ProBot
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -893,23 +882,12 @@ client.on("message", message => {
 \`${prefix}daily\` : لأخذ جائزة يومية
 \`يمكن التحويل من شخص لشخص + يزيد الكريدت فقط من امر دايلي\`
 
-\`أوامر الموسيقى \` :notes:
-\`${prefix}Play\` : تشغيل الاغنية او اضافتها للقائمة او اكمال الاغنية [p]
-\`${prefix}Pause\` : ايقاف مؤقت الاغنية
-\`${prefix}Resume\` : اكمال الاغنية 
-\`${prefix}stop\` : لأيقاف الأغنية وخروج البوت من الروم
-\`${prefix}forceskip\` : لتخطي الأغنية بشكل مباشر
-\`${prefix}Queue\` : عرض القائمة 
-\`${prefix}skipto\` : لتخطي الأغنية الى الأغنية القادمة في طابور الموسيقى القادمة
-\`${prefix}Skip\` : تخطي للاغنية التالية 
-\`${prefix}Volume\` : تغيير الصوت [vol] 
-\`${prefix}np\` : عرض مايتم تشغيله الان [np] 
-\`${prefix}repeat\` : تكرار الاغنية 
+ 
 
 `);
         })
         .then(e => {
-          message.react("✅");
+          message.react("<a:verified:922517096896790568>");
         })
         .catch(() => {
           return message.channel
