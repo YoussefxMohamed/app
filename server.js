@@ -757,7 +757,9 @@ client.on("message", message => {
 \`${prefix}color\` : لأختيار لونك في السيرفر 
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}tax\` : لمعرفة ضريبة ProBot
 \`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+
 
 \`الاوامر الإدارية\` :stars:
 \`${prefix}clear\` : لمسح الشات 
@@ -813,7 +815,7 @@ client.on("message", message => {
 `);
         })
         .then(e => {
-          message.react("<a:verifed:922517096896790568>");
+          message.react("✅");
         })
         .catch(() => {
           return message.channel
@@ -887,7 +889,7 @@ client.on("message", message => {
 `);
         })
         .then(e => {
-          message.react("<a:verified:922517096896790568>");
+          message.react("✅");
         })
         .catch(() => {
           return message.channel
