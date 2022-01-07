@@ -214,7 +214,7 @@ client.on("message", pixelbot => {
     });
   }
 }); // itzZa1D - Codes Team.
-
+/*
 ////كود معلومات البوت
 client.on("message", message => {
   if (message.content === prefix + "bot") {
@@ -235,7 +235,7 @@ client.on("message", message => {
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
   }
-});
+});*/
 
 client.on("message", message => {
   if (message.author.codes) return;
@@ -1866,7 +1866,7 @@ client.on("message", message => {
     });
   }
 });
-
+/*
 /////كود سرعة البوت او البينق
 client.on("message", message => {
   if (!message.channel.guild) return;
@@ -1885,7 +1885,7 @@ client.on("message", message => {
       .setColor("RANDOM");
     message.channel.send(E1ping);
   }
-});
+});*/
 
 let anti = JSON.parse(fs.readFileSync("./antigrefff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./server.json", "UTF8"));
