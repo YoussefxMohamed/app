@@ -2878,7 +2878,7 @@ type these numbers to confirm: `
       message.channel.send(
         `**:stopwatch: |  ${
           message.author.username
-        }, your daily :dollar: credits refreshes in ${pretty(times, {
+        }, your daily :credit_card: credits refreshes in ${pretty(times, {
           verbose: true
         })}.**`
       );
@@ -2890,7 +2890,7 @@ type these numbers to confirm: `
       credits[author].credits += ammount;
       time[message.author.id] = Date.now();
       message.channel.send(
-        `**:atm:  | ${message.author.username}, you received your :yen: ${ammount} daily credits!**`
+        `**:atm:  | ${message.author.username}, you received your :credit_card: ${ammount} daily credits!**`
       );
       fs.writeFile("./credits.json", JSON.stringify(credits), function(e) {
         if (e) throw e;
