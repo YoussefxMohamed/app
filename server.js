@@ -4300,6 +4300,33 @@ client.on("message", async msg => {
     }
   }
 });
+//// ضريبة
+const probot = require("probot-tax");
+client.on("message", message => {
+    if(message.content.startsWith( prefix + 'tax')) {
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
+    let embed = new Discord.MessageEmbed()
+    .setColor('YELLOW')
+    .addFields(
+      {
+      name:"`المبلغ المراد دفعه : `", value:`**${args}**`
+ 
+    },
+    {
+      name:"`المبلغ شامل الضريبة :  `", value:`**${probot.taxs(args)}**`
+ 
+    },
+    
+ 
+    )
+    .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+    .setThumbnail(message.author.displayAvatarURL())
+    .setTimestamp()
+ 
+        message.channel.send(embed)
+    }
+});
 
 //// مهم
 /// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
