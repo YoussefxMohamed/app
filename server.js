@@ -3700,7 +3700,7 @@ client.on("message", async msg => {
 
 //// تغير غير اساسي
 ///// كود ميوزك
-
+/*
 let cmds = {
   play: { cmd: "play", a: ["p", "شغل"] },
   skip: { cmd: "skip", a: ["s", "تخطى"] },
@@ -4299,7 +4299,7 @@ client.on("message", async msg => {
       return "\uD83D\uDD0A";
     }
   }
-});
+});*/
 //// ضريبة
 
 
