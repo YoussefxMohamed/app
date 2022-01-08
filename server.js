@@ -271,21 +271,15 @@ client.on("message", message => {
     message.guild.member(user).ban(7, user);
 
     const banembed = new Discord.RichEmbed()
-      .setAuthor(`BANNED!`, user.displayAvatarURL)
+	.setDescription('**:white_check_mark: ${user.tag} banned from the server ! :airplane: **')
       .setColor("RED")
       .setTimestamp()
-      .addField("**User:**", "**[ " + `${user.tag}` + " ]**")
-      .addField("**By:**", "**[ " + `${message.author.tag}` + " ]**")
-    	.setImage('https://i.imgur.com/AfFp7pu.png')
+    	.setImage('https://i.imgur.com/pgXofXt.gif')
     message.channel.send({
       embed: banembed
     });
 
-    message.channel.send(
-      `**:white_check_mark: ${user.tag} banned from the server ! :airplane: **
-https://cdn.glitch.global/68e463c8-a27e-44d3-8dfb-33a5b38bf9aa/Ban.gif?v=1641616939730  `
-     
-    );
+/// كود الانفايت
   }
 });
 client.on("message", async message => {
