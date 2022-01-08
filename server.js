@@ -50,6 +50,48 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+///Embed 
+client.on("message", embed => {
+  // itzZa1D - Codes Team.
+  if (embed.content.startsWith(prefix + "user")) {
+    // itzZa1D - Codes Team.
+    if (embed.author.bot) return;
+    if (!embed.guild)
+      return embed.reply("**:x: - This Command is only done on Servers**");
+    embed.guild.fetchInvites().then(invites => {
+      // itzZa1D - Codes Team.
+      let personalInvites = invites.filter(
+        i => i.inviter.id === embed.author.id
+      );
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var roles = embed.member.roles
+        .map(roles => `**__${roles.name}__ |**`)
+        .join(` `);
+      let embed = new Discord.RichEmbed() // itzZa1D - Codes Team.
+        .setColor("#00000")
+        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
+        .setAuthor(embed.author.username, embed.author.avatarURL)
+        .addField("**✽ Name :**   ", embed.author.username, true)
+        .addField("**✽ Tag :**   ", embed.author.discriminator, true)
+        .addField("**✽ ID :** ", embed.author.id, true) // itzZa1D - Codes Team.
+        .addField(
+          "**✽ Joined At :**   ",
+          moment(embed.joinedAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+        .addField(
+          "**✽ Created At :**    ",
+          moment(pixelbot.author.createdAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+        .addField("**✽ Total invites :**    ", inviteCount, true)
+        .setTimestamp(); // itzZa1D - Codes Team.
+
+      pixelbot.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
+    });
+  }
+});
+
 
 
 //كود تغيير الحالة
