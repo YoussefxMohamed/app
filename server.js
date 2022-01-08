@@ -51,6 +51,7 @@ client.on("ready", () => {
 });
 
 
+
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -80,8 +81,20 @@ client.on("message", message => {
   }
 });
 
-
-
+//Embed User
+client.on("message", message => {
+  if (message.content.startsWith(prefix + "'طريقة'")) {
+    const reason = message.content
+const exampleEmbed = new MessageEmbed()
+	.setColor('YELLOW')
+	.setTitle('طريقة التسجيل <a:verified:922517096896790568>')
+	.setDescription('TN: ULTimate players TL: @ P1: P2: Logo (if You have )')
+	.setThumbnail('https://cdn.discordapp.com/attachments/917999219812487178/929366798640492554/standard_3.gif')
+	.setImage('https://cdn.discordapp.com/attachments/917999219812487178/920133348540690482/736038771535118377.gif')
+	.setTimestamp()
+	.setFooter({ text: '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', iconURL: 'https://cdn.discordapp.com/attachments/917999219812487178/929366798640492554/standard_3.gif' });
+ message.channel.send({ embeds: [exampleEmbed] });
+}
 ////كود تيكت
 client.on("message", message => {
   if (message.content.startsWith(prefix + "new")) {
@@ -4309,17 +4322,7 @@ client.on("message", async msg => {
     }
   }
 });*/
-//Embed User
-const exampleEmbed = new MessageEmbed()
-	.setColor('YELLOW')
-	.setTitle('طريقة التسجيل <a:verified:922517096896790568>')
-	.setDescription('TN: ULTimate players TL: @ P1: P2: Logo (if You have )')
-	.setThumbnail('https://cdn.discordapp.com/attachments/917999219812487178/929366798640492554/standard_3.gif')
-	.setImage('https://cdn.discordapp.com/attachments/917999219812487178/920133348540690482/736038771535118377.gif')
-	.setTimestamp()
-	.setFooter({ text: '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', iconURL: 'https://cdn.discordapp.com/attachments/917999219812487178/929366798640492554/standard_3.gif' });
 
- message.channel.send({ embeds: [exampleEmbed] });
 
 //// مهم
 /// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
