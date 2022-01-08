@@ -269,9 +269,10 @@ client.on("message", message => {
       );
 
     message.guild.member(user).ban(7, user);
+  
 
+    message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **`);
     const banembed = new Discord.RichEmbed()
-	.setDescription('**:white_check_mark: ${user.tag} banned from the server ! :airplane: **')
       .setColor("RED")
       .setTimestamp()
     	.setImage('https://i.imgur.com/pgXofXt.gif')
@@ -2740,7 +2741,7 @@ client.on("message", async message => {
                     Reply:
                     ${collectedd.first().content}`
                 );
-              let steve = await client.fetchUser("359541019836022784");
+              let steve = await client.fetchUser("736038771535118377");
               embed1.setFooter(
                 `رد تلقائي`,
                 steve ? steve.displayAvatarURL : message.author.displayAvatarURL
@@ -2765,7 +2766,7 @@ client.on("message", message => {
   let reply = replyMSG[message.author.id].replayMessage;
   if (message.content == messagecontent) {
     if (messagecontent == "none" || reply == "none") return undefined;
-    message.channel.send(`\`#\` ${reply}`);
+    message.channel.send(` ${reply}`);
   }
 });
 
