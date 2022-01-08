@@ -50,47 +50,7 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-///Embed 
-client.on("message", embed => {
-  // itzZa1D - Codes Team.
-  if (embed.content.startsWith(prefix + "طريقة التسجيل")) {
-    // itzZa1D - Codes Team.
-    if (embed.author.bot) return;
-    if (!embed.guild)
-      return embed.reply("**:x: - This Command is only done on Servers**");
-   /* embed.guild.fetchInvites().then(invites => {
-      // itzZa1D - Codes Team.
-      let personalInvites = invites.filter(
-        i => i.inviter.id === embed.author.id
-      );
-      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-      var roles = embed.member.roles
-        .map(roles => `**__${roles.name}__ |**`)
-        .join(` `);*/
-      let embed = new Discord.RichEmbed() // itzZa1D - Codes Team.
-        .setColor("#00000")
-        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
-        .setAuthor(embed.author.username, embed.author.avatarURL)
-        .addField("**✽ Name :**   ", embed.author.username, true)
-        .addField("**✽ Tag :**   ", embed.author.discriminator, true)
-        .addField("**✽ ID :** ", embed.author.id, true) // itzZa1D - Codes Team.
-        .addField(
-          "**✽ Joined At :**   ",
-          moment(embed.joinedAt).format("D/M/YYYY h:mm a "),
-          true
-        )
-        .addField(
-          "**✽ Created At :**    ",
-          moment(embed.author.createdAt).format("D/M/YYYY h:mm a "),
-          true
-        )
-        .addField("**✽ Total invites :**    ", inviteCount, true)
-        .setTimestamp(); // itzZa1D - Codes Team.
 
-      embed.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
- /   );*/
-  }
-});
 
 
 
@@ -3750,6 +3710,7 @@ client.on("message", async msg => {
   }
 });
 
+
 //// تغير غير اساسي
 ///// كود ميوزك
 /*
@@ -4363,3 +4324,44 @@ client.on("message", async msg => {
 //// هذا البوت هو الاصدار الثاني من بوت السيستم من قناة اسامة بلس
 //// الاكواد مجمعة من سيرفرات كثير مثل الفا وتوكسك كودز
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
+///Embed 
+client.on("message", Embed1 => {
+  // itzZa1D - Codes Team.
+  if (Embed1.content.startsWith(prefix + "user")) {
+    // itzZa1D - Codes Team.
+    if (Embed1.author.bot) return;
+    if (!Embed1.guild)
+      return Embed1.reply("**:x: - This Command is only done on Servers**");
+    Embed1.guild.fetchInvites().then(invites => {
+      // itzZa1D - Codes Team.
+      let personalInvites = invites.filter(
+        i => i.inviter.id === Embed1.author.id
+      );
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+      var roles = Embed1.member.roles
+        .map(roles => `**__${roles.name}__ |**`)
+        .join(` `);
+      let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
+        .setColor("#FFEB3B")
+        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
+        .setAuthor(Embed1.author.username, Embed1.author.avatarURL)
+        .addField("**✽ Name :**   ", Embed1.author.username, true)
+        .addField("**✽ Tag :**   ", Embed1.author.discriminator, true)
+        .addField("**✽ ID :** ", Embed1.author.id, true) // itzZa1D - Codes Team.
+        .addField(
+          "**✽ Joined At :**   ",
+          moment(Embed1.joinedAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+        .addField(
+          "**✽ Created At :**    ",
+          moment(Embed1.author.createdAt).format("D/M/YYYY h:mm a "),
+          true
+        )
+        .addField("**✽ Total invites :**    ", inviteCount, true)
+        .setTimestamp(); // itzZa1D - Codes Team.
+
+      Embed1.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
+    });
+  }
+});
