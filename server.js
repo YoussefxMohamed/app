@@ -6,6 +6,7 @@ require("events").EventEmitter.defaultMaxListeners = 200;
 const http = require("http");
 const express = require("express");
 const app = express();
+const { MessageEmbed } = require('discord.js');
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
@@ -4308,8 +4309,17 @@ client.on("message", async msg => {
     }
   }
 });*/
-//// ضريبة
+//Embed User
+const exampleEmbed = new MessageEmbed()
+	.setColor('YELLOW')
+	.setTitle('طريقة التسجيل <a:verified:922517096896790568>')
+	.setDescription('TN: ULTimate players TL: @ P1: P2: Logo (if You have )')
+	.setThumbnail('https://cdn.discordapp.com/attachments/917999219812487178/929366798640492554/standard_3.gif')
+	.setImage('https://cdn.discordapp.com/attachments/917999219812487178/920133348540690482/736038771535118377.gif')
+	.setTimestamp()
+	.setFooter({ text: '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', iconURL: 'https://cdn.discordapp.com/attachments/917999219812487178/929366798640492554/standard_3.gif' });
 
+ message.channel.send({ embeds: [exampleEmbed] });
 
 //// مهم
 /// {} عند عمل ريمكس للبوت احذف مايوجد بملفات الجيسون وحط قوسين مثل
