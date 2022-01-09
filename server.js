@@ -4324,7 +4324,9 @@ client.on("message", async msg => {
 //// هذا البوت هو الاصدار الثاني من بوت السيستم من قناة اسامة بلس
 //// الاكواد مجمعة من سيرفرات كثير مثل الفا وتوكسك كودز
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
-///Embed 
+
+
+///Embed Message
 client.on("message", embed1 => {
   if (embed1.content === prefix + "embed1") {
     const bot = new Discord.RichEmbed()
@@ -4336,8 +4338,8 @@ Team Name :
 Team Leader :
 P1 :
 P2:
-Logo (if you have )`, true)
-	   .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+Logo `, " **(if you have )**")
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
     embed1.channel.send(bot);
   }
 });
