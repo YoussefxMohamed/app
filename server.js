@@ -78,7 +78,7 @@ client.on("message", message => {
         "**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**"
       );
 
-    message.channel.send("`#` " + args.join("  "));
+    message.channel.send(" " + args.join("  "));
     message.delete();
   }
 });
@@ -4339,7 +4339,29 @@ Team Leader :
 P1 :
 P2:
 Logo `, " **(if you have )**")
+     .setImage('https://cdn.discordapp.com/attachments/917999219812487178/929664532358520842/Scrim_TDM.gif')
 	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
     embed1.channel.send(bot);
+  }
+});
+
+///Embed 2
+client.on("message", embed2 => {
+  if (embed2.content === prefix + "embed2") {
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
+      .addField( `
+Team Name :
+Team Leader :
+P1:
+P2:
+P3:
+P4:
+Logo `, " **(if you have )**")
+     .setImage('https://cdn.discordapp.com/attachments/917999219812487178/929664095513358426/Scrim_Mixed.gif')
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+    embed2.channel.send(bot);
   }
 });
