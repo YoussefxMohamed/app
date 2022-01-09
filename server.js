@@ -4509,7 +4509,7 @@ client.on("message", embed6 => {
 client.on("message", embed7 => {
   if (embed7.content === prefix + "helpG") {
     const bot = new Discord.RichEmbed()
-      .setColor("#03A9F4")
+      .setColor("#FFEB3B")
 	    .setTitle('Turbo Bot Giveaway Commands 🎁')
 	    .setDescription(`**
 ・Giveaway
@@ -4531,29 +4531,3 @@ client.on("message", embed7 => {
   }
 });
 
-
-///Embed 8
-client.on("message", embed8 => {
-  if (embed8.content === prefix + "helpG") {
-    const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
-	    .setTitle('Turbo Bot Ticket Commands 🎟')
-	    .setDescription(`**
-・Giveaway
-!start [channel-name] [Time] [winners] [Prize]
-
-!reroll [prize name]
-
-!end [prize name]
-────────────────────────────
-・Examples
-!start #giveaway 5m 1 Testing
-
-!end Testing
-
-!reroll Testing
-**`)
-      .setTimestamp()
-    embed8.channel.send(bot);
-  }
-});
