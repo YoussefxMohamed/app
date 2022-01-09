@@ -4533,6 +4533,7 @@ client.on("message", embed7 => {
 !volume - تغير حجم صوت الموسيقي
 !youtube - يبدأ جلسة YouTube معًا
 **`)
+      .setTimestamp()
     embed7.channel.send(bot);
   }
 });
@@ -4559,6 +4560,7 @@ client.on("message", embed8 => {
 
 !reroll Testing
 **`)
+      .setTimestamp()
     embed8.channel.send(bot);
   }
 });
