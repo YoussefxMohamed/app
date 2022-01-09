@@ -4437,3 +4437,68 @@ client.on("message", embed4 => {
     embed4.channel.send(bot);
   }
 });
+
+///Embed 5
+client.on("message", embed5 => {
+  if (embed5.content === prefix + "embed5") {
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+	    .setTitle('POINT SYSTEM <a:grs:922517063774400563> ')
+	    .setDescription(`**
+1 st Place 15 Points
+
+2 nd Place 12 Points
+
+3 rd Place 10 Points
+
+4 th Place 8 Points
+
+5 th Place 6 Points
+
+6 th Place 4 Points
+
+7 th Place 2 Points
+
+8-12 th Place 1 Points
+
+13-16 th Place 0 Points
+
+Kill 1 Point
+** تحذير <a:rule:880872686279094372> **
+فايت اول زون = بان اسبوع**`)
+      .setImage('https://probot.media/JadMOeIOtg.gif')
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+    embed5.channel.send(bot);
+  }
+});
+
+///Embed 6
+client.on("message", embed6 => {
+  if (embed6.content === prefix + "embed6") {
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+	    .setTitle('POINT SYSTEM <a:grs:922517063774400563> ')
+	    .setDescription(`**
+<a:Right2:922517061895352350>
+مسموح البيستول
+مسموح الفيست والخوذة
+<a:Right3:922517061979222086>
+ممنوع استخدام أسلحه غير الامفور
+ممنوع استخدام الامفور التلجي فوق لفل 3
+ممنوع التحالف
+ممنوع استخدام النيدات
+ممنوع التأخر عن معاد الروم اكتر من خمس دقائق
+ممنوع الزحلقه
+ممنوع فتح مايك العام
+ممنوع الوقوف في البييز اكثر من عشر ثواني
+
+** تحذير <a:rule:880872686279094372> **
+التزم بالقوانين لتجنب البان
+لازم التصوير <a:dabos:922517076885798962>**`)
+      .setImage('https://probot.media/Cv77UM4buz.gif')
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+    embed6.channel.send(bot);
+  }
+});
