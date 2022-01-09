@@ -4326,15 +4326,12 @@ client.on("message", async msg => {
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
 ///Embed 
 client.on("message", embed1 => {
-  if (embed1.content === prefix + "طريقة التسجيل") {
+  if (embed1.content === prefix + "embed1") {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
-      .setColor("#00000")
-      .addField(
-        "✽ **Bot Ping** : ",
-        `» ${Date.now() - client.createdTimestamp}` + " ms",
-        false
-      )
+      .setColor("#FFEB3B")
+	    .setDescription("Some description here
+")
       .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
