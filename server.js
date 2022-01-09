@@ -4328,16 +4328,16 @@ client.on("message", async msg => {
 client.on("message", embed1 => {
   if (embed1.content === prefix + "embed1") {
     const bot = new Discord.RichEmbed()
-      .setAuthor(client.user.username, client.user.avatarURL)
       .setColor("#FFEB3B")
-	    .setDescription("Some description here")
-      .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
-      .addField("**Channels** : ", `» ${client.channels.size} `, true)
-      .addField("**Users** : ", `» ${client.users.size} `, true)
-      .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
-      .addField("**Bot Owner** :  ", `» <@736038771535118377>`, true) // تعديل اساسي غير الايدي لايدي حسابك
-      .setImage("")
-      .setFooter(embed1.author.username, embed1.client.avatarURL);
+    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
+      .addField( `
+Team Name :
+Team Leader :
+P1 :
+P2:
+Logo (if you have )`, true)
+	   .setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
     embed1.channel.send(bot);
   }
 });
