@@ -4325,43 +4325,23 @@ client.on("message", async msg => {
 //// الاكواد مجمعة من سيرفرات كثير مثل الفا وتوكسك كودز
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
 ///Embed 
-client.on("message", Embed1 => {
-  // itzZa1D - Codes Team.
-  if (Embed1.content.startsWith(prefix + "user")) {
-    // itzZa1D - Codes Team.
-    if (Embed1.author.bot) return;
-    if (!Embed1.guild)
-      return Embed1.reply("**:x: - This Command is only done on Servers**");
-    Embed1.guild.fetchInvites().then(invites => {
-      // itzZa1D - Codes Team.
-      let personalInvites = invites.filter(
-        i => i.inviter.id === Embed1.author.id
-      );
-      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
-      var roles = Embed1.member.roles
-        .map(roles => `**__${roles.name}__ |**`)
-        .join(` `);
-      let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
-        .setColor("#FFEB3B")
-        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
-        .setAuthor(Embed1.author.username, Embed1.author.avatarURL)
-        .addField("**✽ Name :**   ", Embed1.author.username, true)
-        .addField("**✽ Tag :**   ", Embed1.author.discriminator, true)
-        .addField("**✽ ID :** ", Embed1.author.id, true) // itzZa1D - Codes Team.
-        .addField(
-          "**✽ Joined At :**   ",
-          moment(Embed1.joinedAt).format("D/M/YYYY h:mm a "),
-          true
-        )
-        .addField(
-          "**✽ Created At :**    ",
-          moment(Embed1.author.createdAt).format("D/M/YYYY h:mm a "),
-          true
-        )
-        .addField("**✽ Total invites :**    ", inviteCount, true)
-        .setTimestamp(); // itzZa1D - Codes Team.
-
-      Embed1.channel.sendEmbed(pixeluser).then(c => {}); // itzZa1D - Codes Team.
-    });
+client.on("message", embed1 => {
+  if (embed1.content === prefix + "طريقة التسجيل") {
+    const bot = new Discord.RichEmbed()
+      .setAuthor(client.user.username, client.user.avatarURL)
+      .setColor("#00000")
+      .addField(
+        "✽ **Bot Ping** : ",
+        `» ${Date.now() - client.createdTimestamp}` + " ms",
+        false
+      )
+      .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
+      .addField("**Channels** : ", `» ${client.channels.size} `, true)
+      .addField("**Users** : ", `» ${client.users.size} `, true)
+      .addField("**Bot Name** :  ", `» ${client.user.tag} `, true)
+      .addField("**Bot Owner** :  ", `» <@736038771535118377>`, true) // تعديل اساسي غير الايدي لايدي حسابك
+      .setImage("")
+      .setFooter(embed1.author.username, embed1.client.avatarURL);
+    embed1.channel.send(bot);
   }
 });
