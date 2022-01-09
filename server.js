@@ -4330,8 +4330,7 @@ client.on("message", embed1 => {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
       .setColor("#FFEB3B")
-	    .setDescription("Some description here
-")
+	    .setDescription("Some description here")
       .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
