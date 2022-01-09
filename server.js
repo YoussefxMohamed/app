@@ -4348,7 +4348,7 @@ Logo `, " **(if you have )**")
 ///Embed 2
 client.on("message", embed2 => {
   if (embed2.content === prefix + "embed2") {
-    const bot = new Discord.RichEmbed()
+    const bot2 = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
 	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
@@ -4360,8 +4360,29 @@ P2:
 P3:
 P4:
 Logo `, " **(if you have )**")
-     .setImage('https://cdn.discordapp.com/attachments/917999219812487178/929664095513358426/Scrim_Mixed.gif')
+     .setImage('https://cdn.discordapp.com/attachments/872242483420094505/929666026109562880/Scrim_Mixed.gif')
 	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
-    embed2.channel.send(bot);
+    embed2.channel.send(bot2);
+  }
+});
+
+///Embed 3
+client.on("message", embed3 => {
+  if (embed3.content === prefix + "embed3") {
+    const bot3 = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
+      .addField( `
+Team Name :
+Team Leader :
+P1:
+P2:
+P3:
+P4:
+Logo `, " **(if you have )**")
+     .setImage('https://cdn.discordapp.com/attachments/872242483420094505/929666026109562880/Scrim_Mixed.gif')
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+    embed3.channel.send(bot3);
   }
 });
