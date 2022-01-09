@@ -4503,35 +4503,28 @@ client.on("message", embed6 => {
   }
 });
 
+
+
 ///Embed 7
 client.on("message", embed7 => {
-  if (embed7.content === prefix + "helpT") {
+  if (embed7.content === prefix + "helpG") {
     const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
-	    .setTitle('Music commands for Turbo Bot 💦')
+      .setColor("#03A9F4")
+	    .setTitle('Turbo Bot Giveaway Commands 🎁')
 	    .setDescription(`**
-!bassboost - لتمكين تأثير الصوت العالي جدا
-!config - تعديل إعدادات البوت | ADMINISTRATOR Only 
-!disconnect - ايقاف الموسيقي ومغادرة channel
-!grab - يحفظ الأغنية الحالية في رسائلك الخاصّة
-!helpM - للحصول علي جميع أوامر البوت
-!invite - للدعوة الي الخادم
-!loop - قم بتكرار الأغنية الحالية
-!loopqueue - تكرار قائمة الانتظار باكملها
-!lyrics - يظهر كلمات الأغنية التي تم البحث عنها
-!nowplaying - معرفة ما هي الأغنية التي يتم تشغيلها حاليا
-!pause - يوقف الأغنية مؤقتًا
-!play - قم بتشغيل أغانيك المفضلة
-!queue - يظهر كل الأغاني المدرجة حاليا في قائمة الانتظار
-!remove - إزالة أغنية من قائمة الانتظار
-!resume - إستئناف الأغنية
-!search - يبحث عن الأغاني
-!seek - ابحث عن كلمة في الأغنية
-!shuffle - خلط قائمة الانتظار
-!skip - تخطي الأغنية الحالية
-!skipto - تخطي إلى أغنية في قائمة الانتظار
-!volume - تغير حجم صوت الموسيقي
-!youtube - يبدأ جلسة YouTube معًا
+・Giveaway
+!start [channel-name] [Time] [winners] [Prize]
+
+!reroll [prize name]
+
+!end [prize name]
+────────────────────────────
+・Examples
+!start #giveaway 5m 1 Testing
+
+!end Testing
+
+!reroll Testing
 **`)
       .setTimestamp()
     embed7.channel.send(bot);
@@ -4541,10 +4534,10 @@ client.on("message", embed7 => {
 
 ///Embed 8
 client.on("message", embed8 => {
-  if (embed8.content === prefix + "helpT") {
+  if (embed8.content === prefix + "helpG") {
     const bot = new Discord.RichEmbed()
-      .setColor("#03A9F4")
-	    .setTitle('Turbo Bot Giveaway Commands 🎁')
+      .setColor("#FFEB3B")
+	    .setTitle('Turbo Bot Ticket Commands 🎟')
 	    .setDescription(`**
 ・Giveaway
 !start [channel-name] [Time] [winners] [Prize]
