@@ -4532,5 +4532,74 @@ client.on("message", embed7 => {
 });
 
 
+///Embed 8
+client.on("message", embed8 => {
+  if (embed8.content === prefix + "list") {
+    const bot = new Discord.RichEmbed()
+      .setColor("#00BCD4")
+	    .setTitle('                              ­<a:gna7sh:930187075649679401> ** Scrim List ** <a:gna7ym:930187081299423263>')
+	    .setDescription(`**
+> <a:shmec:930187069169479740> > 𝐓𝐄𝐀𝐌 1 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 2 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 3 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 4 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 5 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 6 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 7 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 8 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 9 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 10 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 11 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 12 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 13 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 14 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 15 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 16 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 17 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 18 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 19 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 20 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 21 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 22 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 23 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 24 : 
+
+:Rarrow: > 𝐓𝐄𝐀𝐌 25 : 
+ 
+ 
+🔹 Failure To Attend Without An Excuse Will Ban You From Participating In The Next Scrims.
+ 🔹 عدم الحضور بدون عذر سوف يعرضك للحظر من المشاركة في السكريمات القادمة. 
+ 
+ 
+ @everyone
+**`)
+      .setTimestamp()
+    embed8.channel.send(bot);
+  }
+});
+
 
 
