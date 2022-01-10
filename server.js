@@ -1186,7 +1186,7 @@ client.on("messageDelete", message => {
   if (!logChannel) return;
 
   let messageDelete = new Discord.RichEmbed()
-    .setTitle("**[MESSAGE DELETE]**")
+    .setTitle("**MESSAGE DELETE**")
     .setColor("RED")
     .setThumbnail(message.author.avatarURL)
     .setDescription(
@@ -1247,7 +1247,7 @@ client.on("roleCreate", role => {
     var userAvatar = logs.entries.first().executor.avatarURL;
 
     let roleCreate = new Discord.RichEmbed()
-      .setTitle("**[ROLE CREATE]**")
+      .setTitle("**ROLE CREATE**")
       .setThumbnail(userAvatar)
       .setDescription(
         `**\n**:white_check_mark: Successfully \`\`CREATE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
@@ -1277,7 +1277,7 @@ client.on("roleDelete", role => {
     var userAvatar = logs.entries.first().executor.avatarURL;
 
     let roleDelete = new Discord.RichEmbed()
-      .setTitle("**[ROLE DELETE]**")
+      .setTitle("**ROLE DELETE**")
       .setThumbnail(userAvatar)
       .setDescription(
         `**\n**:white_check_mark: Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
@@ -1310,7 +1310,7 @@ client.on("roleUpdate", (oldRole, newRole) => {
     if (oldRole.name !== newRole.name) {
       if (log[oldRole.guild.id].onoff === "Off") return;
       let roleUpdateName = new Discord.RichEmbed()
-        .setTitle("**[ROLE NAME UPDATE]**")
+        .setTitle("**ROLE NAME UPDATE**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
@@ -1376,7 +1376,7 @@ client.on("channelCreate", channel => {
     var userAvatar = logs.entries.first().executor.avatarURL;
 
     let channelCreate = new Discord.RichEmbed()
-      .setTitle("**[CHANNEL CREATE]**")
+      .setTitle("**CHANNEL CREATE**")
       .setThumbnail(userAvatar)
       .setDescription(
         `**\n**:white_check_mark: Successfully \`\`CREATE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
@@ -1416,7 +1416,7 @@ client.on("channelDelete", channel => {
     var userAvatar = logs.entries.first().executor.avatarURL;
 
     let channelDelete = new Discord.RichEmbed()
-      .setTitle("**[CHANNEL DELETE]**")
+      .setTitle("**CHANNEL DELETE**")
       .setThumbnail(userAvatar)
       .setDescription(
         `**\n**:white_check_mark: Successfully \`\`DELETE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
@@ -1623,7 +1623,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
         };
       if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
       let roleRemoved = new Discord.RichEmbed()
-        .setTitle("**[REMOVED ROLE FROM MEMBER]**")
+        .setTitle("**REMOVED ROLE FROM MEMBER**")
         .setThumbnail(oldMember.guild.iconURL)
         .setColor("RED")
         .setDescription(
@@ -1676,7 +1676,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
 
     if (voiceOld.serverMute === false && voiceNew.serverMute === true) {
       let serverMutev = new Discord.RichEmbed()
-        .setTitle("**[VOICE MUTE]**")
+        .setTitle("**VOICE MUTE**")
         .setThumbnail(
           "https://images-ext-1.discordapp.net/external/pWQaw076OHwVIFZyeFoLXvweo0T_fDz6U5C9RBlw_fQ/https/cdn.pg.sa/UosmjqDNgS.png"
         )
@@ -1696,7 +1696,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
         };
       if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
       let serverUnmutev = new Discord.RichEmbed()
-        .setTitle("**[VOICE UNMUTE]**")
+        .setTitle("**VOICE UNMUTE**")
         .setThumbnail(
           "https://images-ext-1.discordapp.net/external/u2JNOTOc1IVJGEb1uCKRdQHXIj5-r8aHa3tSap6SjqM/https/cdn.pg.sa/Iy4t8H4T7n.png"
         )
@@ -1716,7 +1716,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
         };
       if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
       let serverDeafv = new Discord.RichEmbed()
-        .setTitle("**[VOICE DEAF]**")
+        .setTitle("**VOICE DEAF**")
         .setThumbnail(
           "https://images-ext-1.discordapp.net/external/7ENt2ldbD-3L3wRoDBhKHb9FfImkjFxYR6DbLYRjhjA/https/cdn.pg.sa/auWd5b95AV.png"
         )
@@ -1736,7 +1736,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
         };
       if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
       let serverUndeafv = new Discord.RichEmbed()
-        .setTitle("**[VOICE UNDEAF]**")
+        .setTitle("**VOICE UNDEAF**")
         .setThumbnail(
           "https://images-ext-2.discordapp.net/external/s_abcfAlNdxl3uYVXnA2evSKBTpU6Ou3oimkejx3fiQ/https/cdn.pg.sa/i7fC8qnbRF.png"
         )
