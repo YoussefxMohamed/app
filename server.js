@@ -697,7 +697,7 @@ client.on("message", message => {
     }
   }
 });
-
+/*
 client.on("message", function(message) {
   if (!message.channel.guild) return;
   if (message.author.bot) return;
@@ -751,7 +751,7 @@ client.on("message", function(message) {
         return;
       }
   }
-});
+});*/
 ///تعديل غير اساسي
 ////كود هيلب
 client.on("message", message => {
