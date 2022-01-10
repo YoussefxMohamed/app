@@ -770,7 +770,7 @@ client.on("message", message => {
 \`${prefix}colors\` : غير لونك 
 \`${prefix}inf\` : عدد الدعوات للسيرفر
 \`${prefix}tax\` : لمعرفة ضريبة ProBot
-\`${prefix}رابط\` : اكتب رابط بالشات يجيك رابط السيرفر خاص
+\`${prefix}invite\` : لانشاء رابط دعوة البوت
 
 
 \`الاوامر الإدارية\` :stars:
@@ -3199,7 +3199,7 @@ client.on("message", message => {
 
 ////كود رابط
 ////تعديل غير اساسي
-
+/*
 client.on("message", message => {
   if (message.content.split(" ")[0] === prefix + "رابط") {
     message.channel
@@ -3227,7 +3227,7 @@ client.on("message", message => {
 
     message.author.sendEmbed(Embed11);
   }
-});
+});*/
 
 ////لايحتاج تعديل
 ////كود الفويس اونلاين
@@ -3308,8 +3308,8 @@ client.on("voiceStateUpdate", (oldMember, newMember) => {
 
 client.on("ready", () => {
   console.log("hi");
-});*/
-
+});
+*/
 ////تعديل غير اساسي
 
 client.on("message", message => {
