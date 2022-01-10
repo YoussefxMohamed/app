@@ -606,7 +606,7 @@ client.on("message", message => {
         SEND_MESSAGES: false
       })
       .then(() => {
-        message.reply("**تم قفل الشات :no_entry: **");
+        message.reply("> **تم قفل التشانل    <a:s7gamda:929797437193867304>**");
       });
   }
   if (message.content === prefix + "open") {
@@ -620,7 +620,10 @@ client.on("message", message => {
         SEND_MESSAGES: true
       })
       .then(() => {
-        message.reply("**تم فتح الشات :white_check_mark:**");
+    const bot = new Discord.RichEmbed()
+                .setColor("#FFEB3B")
+                .setTitle(`> **تم فتح التشانل    <a:s7gamda:929797437193867304>**`)
+    message.channel.send(bot);
       });
   }
 });
