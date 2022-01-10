@@ -84,7 +84,7 @@ client.on("message", message => {
 });
 
 
-
+/*
 ////كود تيكت
 client.on("message", message => {
   if (message.content.startsWith(prefix + "new")) {
@@ -176,7 +176,7 @@ client.on("message", async message => {
     }
   }
 });
-
+*/
 //// كود معلومات الشخص او اليوزر
 client.on("message", pixelbot => {
   // itzZa1D - Codes Team.
@@ -218,18 +218,13 @@ client.on("message", pixelbot => {
     });
   }
 }); // itzZa1D - Codes Team.
-/*
+
 ////كود معلومات البوت
 client.on("message", message => {
   if (message.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL)
-      .setColor("#00000")
-      .addField(
-        "✽ **Bot Ping** : ",
-        `» ${Date.now() - client.createdTimestamp}` + " ms",
-        true
-      )
+      .setColor("#4CAF50")
       .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
       .addField("**Users** : ", `» ${client.users.size} `, true)
@@ -239,7 +234,7 @@ client.on("message", message => {
       .setFooter(message.author.username, message.client.avatarURL);
     message.channel.send(bot);
   }
-});*/
+});
 
 client.on("message", message => {
   if (message.author.codes) return;
