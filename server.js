@@ -663,9 +663,9 @@ client.on("message", message => {
           var usermentioned = message.mentions.members.first().id;
           var embed = new Discord.RichEmbed()
             .setTitle("Succes!")
-            .setColor("#000000")
+            .setColor("#03A9F4")
             .setDescription(
-              `✅ You Have Moved <@${usermentioned}> To Your Channel `
+              `<a:s7gamda:929797437193867304> You Have Moved <@${usermentioned}> To Your Channel `
             );
           var embed = new Discord.RichEmbed()
             .setTitle(`You are Moved in ${message.guild.name} `)
