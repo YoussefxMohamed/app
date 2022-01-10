@@ -606,8 +606,10 @@ client.on("message", message => {
         SEND_MESSAGES: false
       })
       .then(() => {
-        message.reply("> **تم قفل التشانل    <a:s7gamda:929797437193867304>**");
-      });
+    const bot = new Discord.RichEmbed()
+                .setColor("#FFEB3B")
+                .setTitle(`> **تم قفل التشانل    <a:s7gamda:929797437193867304>**`)
+    message.channel.send(bot);      });
   }
   if (message.content === prefix + "open") {
     if (!message.channel.guild)
@@ -4334,7 +4336,7 @@ client.on("message", embed1 => {
   if (embed1.content === prefix + "embed1") {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
 	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
       .addField( `
 Team Name :
@@ -4342,8 +4344,8 @@ Team Leader :
 P1 :
 P2:
 Logo `, " **(if you have )**")
-     .setImage('https://cdn.discordapp.com/attachments/917999219812487178/929664532358520842/Scrim_TDM.gif')
-	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+     .setImage('https://i.imgur.com/P9QVop4.gif')
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed1.channel.send(bot);
   }
 });
@@ -4353,7 +4355,7 @@ client.on("message", embed2 => {
   if (embed2.content === prefix + "embed2") {
     const bot2 = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
 	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
       .addField( `
 Team Name :
@@ -4363,8 +4365,8 @@ P2:
 P3:
 P4:
 Logo `, " **(if you have )**")
-     .setImage('https://cdn.discordapp.com/attachments/872242483420094505/929666026109562880/Scrim_Mixed.gif')
-	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+     .setImage('https://i.imgur.com/NmrD2dX.gif')
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed2.channel.send(bot2);
   }
 });
@@ -4374,7 +4376,7 @@ client.on("message", embed3 => {
   if (embed3.content === prefix + "embed3") {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
 	    .setTitle('**SERVER RULES <a:HyperTada:922517074771865600> **')
 	    .setDescription(`**
 1 - عدم أثارة المشاكل بالسيرفر او عالخاص
@@ -4405,7 +4407,7 @@ client.on("message", embed3 => {
 
 14 - في حالة تخطي قوانين السيرفر يتم طردك من السيرفر**`)
       .setImage('https://probot.media/FCI8yRTiYE.gif')
-	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed3.channel.send(bot);
   }
 });
@@ -4415,7 +4417,7 @@ client.on("message", embed4 => {
   if (embed4.content === prefix + "embed4") {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
 	    .setTitle('SCRIM RULES <a:rule:880872686279094372> ')
 	    .setDescription(`**
 ممنوع التفنيش بوكسات او طاسة الا في حالة عدم وجود سلاح و طلق
@@ -4436,7 +4438,7 @@ client.on("message", embed4 => {
 
 اي مخالفة لل قواعد هتأدي ل استبعاد ال تيم كلو**`)
       .setImage('https://probot.media/0Nl8JidD17.gif')
-	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed4.channel.send(bot);
   }
 });
@@ -4446,7 +4448,7 @@ client.on("message", embed5 => {
   if (embed5.content === prefix + "embed5") {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
 	    .setTitle('POINT SYSTEM <a:grs:922517063774400563> ')
 	    .setDescription(`**
 1 st Place 15 Points
@@ -4471,7 +4473,7 @@ Kill 1 Point
 ** تحذير <a:rule:880872686279094372> **
 فايت اول زون = بان اسبوع**`)
       .setImage('https://probot.media/JadMOeIOtg.gif')
-	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed5.channel.send(bot);
   }
 });
@@ -4481,7 +4483,7 @@ client.on("message", embed6 => {
   if (embed6.content === prefix + "embed6") {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-    	.setThumbnail('https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif')
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
 	    .setTitle('POINT SYSTEM <a:grs:922517063774400563> ')
 	    .setDescription(`**
 <a:s7:929681264984858664>
@@ -4501,7 +4503,7 @@ client.on("message", embed6 => {
 التزم بالقوانين لتجنب البان
 لازم التصوير <a:dabos:922517076885798962>**`)
       .setImage('https://probot.media/Cv77UM4buz.gif')
-	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://cdn.discordapp.com/attachments/884193681672925204/929660110186373180/standard_3.gif' );
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed6.channel.send(bot);
   }
 });
