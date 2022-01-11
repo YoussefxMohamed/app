@@ -4355,35 +4355,6 @@ client.on("message", message => {
     
 });
 
-///اخفاء واظهار
-client.on('message', message =>{
-if(message.content === prefix +"hide"){
-if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply(' ** You dont have `MANAGE_CHANNELS` permission **');
-let everyone = message.guild.roles.cache.find(hyper => hyper.name === '@everyone');
-        message.channel.createOverwrite(everyone, {
-              VIEW_CHANNEL : false
-            }).then(() => {
-                const embed = new Discord.MessageEmbed()
-                .setColor("YELLOW")
-                .setTitle(`> **تم اخفاء التشانل    <a:s7gamda:929797437193867304>**`)
-                message.channel.send(embed)
-                })
-}
-});
-client.on('message', message =>{
-if(message.content === prefix +"show"){
-if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply(' ** You dont have `MANAGE_CHANNELS` permission **');
-let everyone = message.guild.roles.cache.find(hyper => hyper.name === '@everyone');
-        message.channel.createOverwrite(everyone, {
-               VIEW_CHANNEL: true
-            }).then(() => {
-                const embed = new Discord.MessageEmbed()
-                .setColor("YELLOW")
-                .setTitle(`> **تم اظهار التشانل <a:s7gamda:929797437193867304>**`)
-                message.channel.send(embed)
-                })
-}
-});
 
 
 ///Embed Message
