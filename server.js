@@ -788,10 +788,6 @@ client.on("message", message => {
 \`${prefix}reply\` : لصنع رد تلقائي
 \`${prefix}setLog\` : لتحديد روم السجلات 
 \`${prefix}setby\` : تحديد روم المغادرة
-\`${prefix}setWelcomer \` : لتحديد روم الولكم 
-\`${prefix}setMessage\` : لتحديد رسالة الترحيب 
-\`${prefix}setVc\`  : لتحديد روم الفويس اونلاين 
-\`${prefix}vc off\` : لإغلاق روم الفويس اونلاين
 \`${prefix}ls\` : لإظهار جميع بوتات السيرفر
 \`${prefix}role\` : لاعطاء شخص رتبة
 \`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
