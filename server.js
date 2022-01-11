@@ -4325,6 +4325,66 @@ client.on("message", async msg => {
 //// الاكواد مجمعة من سيرفرات كثير مثل الفا وتوكسك كودز
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
 
+/// ضريبة
+const probot = require("probot-tax");
+client.on("message", message => {
+    if(message.content.startsWith( prefix + 'tax')) {
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
+    let embed = new Discord.MessageEmbed()
+    .setColor('YELLOW')
+    .addFields(
+      {
+      name:"`المبلغ المراد دفعه : `", value:`**${args}**`
+ 
+    },
+    {
+      name:"`المبلغ شامل الضريبة :  `", value:`**${probot.taxs(args)}**`
+ 
+    },
+    
+ 
+    )
+    .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+    .setThumbnail(message.author.displayAvatarURL())
+    .setTimestamp()
+ 
+        message.channel.send(embed)
+    }
+
+    
+});
+
+///اخفاء واظهار
+client.on('message', message =>{
+if(message.content === prefix +"hide"){
+if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply(' ** You dont have `MANAGE_CHANNELS` permission **');
+let everyone = message.guild.roles.cache.find(hyper => hyper.name === '@everyone');
+        message.channel.createOverwrite(everyone, {
+              VIEW_CHANNEL : false
+            }).then(() => {
+                const embed = new Discord.MessageEmbed()
+                .setColor("YELLOW")
+                .setTitle(`> **تم اخفاء التشانل    <a:s7gamda:929797437193867304>**`)
+                message.channel.send(embed)
+                })
+}
+});
+client.on('message', message =>{
+if(message.content === prefix +"show"){
+if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply(' ** You dont have `MANAGE_CHANNELS` permission **');
+let everyone = message.guild.roles.cache.find(hyper => hyper.name === '@everyone');
+        message.channel.createOverwrite(everyone, {
+               VIEW_CHANNEL: true
+            }).then(() => {
+                const embed = new Discord.MessageEmbed()
+                .setColor("YELLOW")
+                .setTitle(`> **تم اظهار التشانل <a:s7gamda:929797437193867304>**`)
+                message.channel.send(embed)
+                })
+}
+});
+
 
 ///Embed Message
 client.on("message", embed1 => {
