@@ -235,7 +235,7 @@ client.on("message", message => {
     message.channel.send(bot);
   }
 });
-
+*/
 client.on("message", message => {
   if (message.author.codes) return;
   if (!message.content.startsWith(prefix)) return;
@@ -911,7 +911,7 @@ client.on("message", message => {
     }
   }
 });
-
+/*
 ////كود قيف اوي
 client.on("message", async message => {
   var room;
@@ -1036,12 +1036,12 @@ client.on("message", async message => {
           });
       });
   }
-});
+});*/
 //all copyrighit for revenge https://github.com/Bowlingtoolkit
 
 ///تعديل غير اساسي
 ///تقدر الصورة الخلفية ، شوف الشرح الرابط فوق اول الكود
-/// كود الوان
+/*/// كود الوان
 client.on("message", message => {
   if (!message.guild || message.author.bot) return;
   if (message.content == prefix + "colors") {
@@ -1098,7 +1098,7 @@ client.on("message", message => {
       message.channel.sendFile(xd.toBuffer());
     });
   }
-});
+});*/
 
 /// كود تعين اللوق
 const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
@@ -1786,7 +1786,7 @@ client.on("message", message => {
 });
 
 ////تعديل غير اساسي
-/// كود اختيار لون
+/*/// كود اختيار لون
 
 client.on("message", message => {
   let args = message.content.split(" ").slice(1);
@@ -1832,7 +1832,7 @@ client.on("message", message => {
     message.member.addRole(message.guild.roles.find("name", `${args[0]}`));
   }
 });
-
+*/
 ///تعديل اساسي
 ///لو تبي تعطل كود بدون حذفه حط هذي الرموز
 
