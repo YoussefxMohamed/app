@@ -84,7 +84,7 @@ client.on("message", message => {
 });
 
 
-/*
+
 ////كود تيكت
 client.on("message", message => {
   if (message.content.startsWith(prefix + "new")) {
@@ -176,7 +176,7 @@ client.on("message", async message => {
     }
   }
 });
-*/
+/*
 //// كود معلومات الشخص او اليوزر
 client.on("message", pixelbot => {
   // itzZa1D - Codes Team.
@@ -2945,7 +2945,7 @@ const fsn = require("fs-nextra");
 const welcome = JSON.parse(fs.readFileSync("./welcomer.json", "utf8")); //ملف تخزين كود الويلكم
 
 //كود الويلكم
-
+/*
 client.on("guildMemberAdd", async member => {
   if (!welcome) return;
   if (!welcome[member.guild.id]) return;
@@ -3183,7 +3183,7 @@ Ex :
       });
   }
 });
-
+*/
 ///كود منشن بوتات
 
 client.on("message", message => {
@@ -4353,7 +4353,9 @@ client.on("message", message => {
     }
 
     
-});
+});/*
+if(message.content.startsWith( prefix + 'tax1) {
+    let args = message.content.split(" ").slice(1).join(" ");*/
 
 
 
@@ -4630,6 +4632,7 @@ client.on("message", embed8 => {
     embed8.channel.send(bot);
   }
 });
+
 
 
 
