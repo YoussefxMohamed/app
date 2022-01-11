@@ -84,7 +84,7 @@ client.on("message", message => {
 });
 
 
-
+/*
 ////كود تيكت
 client.on("message", message => {
   if (message.content.startsWith(prefix + "new")) {
