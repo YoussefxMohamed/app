@@ -53,6 +53,7 @@ dependencies:
   pretty-ms: 4.0.0
   pretty-seconds: 1.0.0
   probot-tax: 1.0.3
+  probot-tax-npm: 1.0.5
   queue: 6.0.1
   replace: 1.1.5
   short-number: 1.0.7
@@ -4829,6 +4830,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-dG2w7WtovUa4SiYTdWn9H8Bd4JNdei2djtkP/Bk9fXq81j5Q15ZPHYSwhUVvBRbp5zMkGtu0Yk62HuMcly0pRw==
+  /probot-tax-npm/1.0.5:
+    dev: false
+    resolution:
+      integrity: sha512-/uCTzeF5A6Rpae796+8tgToNGv0XqB47aEE7ti1Q0jFPRbDO86LnisyFXGbgAo3iWzSLo91WWfoY78Te+z4Apg==
   /probot-tax/1.0.3:
     dev: false
     resolution:
@@ -6612,6 +6617,7 @@ specifiers:
   pretty-ms: ^4.0.0
   pretty-seconds: ^1.0.0
   probot-tax: ^1.0.3
+  probot-tax-npm: ^1.0.5
   queue: ^6.0.1
   replace: ^1.1.0
   short-number: ^1.0.6
