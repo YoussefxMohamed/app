@@ -4711,6 +4711,7 @@ client.on("message", embed9 => {
 `)
     embed9.channel.send(bot2);
   }
+    return embed9.reply("**Type Credit**");
 });
 
 ///Embed 10
