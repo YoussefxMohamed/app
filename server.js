@@ -218,7 +218,7 @@ client.on("message", pixelbot => {
     });
   }
 }); // itzZa1D - Codes Team.
-
+*/
 ////كود معلومات البوت
 client.on("message", message => {
   if (message.content === prefix + "bot") {
@@ -235,7 +235,7 @@ client.on("message", message => {
     message.channel.send(bot);
   }
 });
-*/
+
 client.on("message", message => {
   if (message.author.codes) return;
   if (!message.content.startsWith(prefix)) return;
@@ -270,7 +270,7 @@ client.on("message", message => {
     message.guild.member(user).ban(7, user);
   
 
-    message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! :airplane: **`);
+    message.channel.send(`**<a:s7gamda:929797437193867304> ${user.tag} banned from the server ! :airplane: **`);
     const banembed = new Discord.RichEmbed()
       .setColor("RED")
       .setTimestamp()
@@ -317,7 +317,7 @@ client.on("message", async message => {
       let daysJoined = millisJoined / 1000 / 60 / 60 / 24;
       console.log(inviteCode);
       var inviteInfo = new Discord.RichEmbed()
-        .setTitle(`:incoming_envelope: **[INVITE INFO]** ${Username}`)
+        .setTitle(`:incoming_envelope: **INVITE INFO** ${Username}`)
         .addField(
           "**عدد الدعوات للسيرفر**",
           `[ شخص **${Number(inviteCount)}** ]   `
@@ -508,7 +508,7 @@ client.on("message", message => {
 
     if (message.guild.member(user).removeRole(muteRole.id)) {
       return message
-        .reply("**:white_check_mark: .. تم فك الميوت عن الشخص **")
+        .reply("**<a:s7gamda:929797437193867304> .. تم فك الميوت عن الشخص **")
         .catch(console.error);
     } else {
       message.guild
@@ -516,7 +516,7 @@ client.on("message", message => {
         .removeRole(muteRole)
         .then(() => {
           return message
-            .reply("**:white_check_mark: .. تم فك الميوت عن الشخص **")
+            .reply("**<a:s7gamda:929797437193867304> .. تم فك الميوت عن الشخص **")
             .catch(console.error);
         });
     }
@@ -546,7 +546,7 @@ client.on("message", message => {
         .catch(console.error);
     if (message.mentions.users.size < 1)
       return message
-        .reply("** يجب عليك منشنت شخص اولاً**")
+        .reply("** يجب عليك تمنشن شخص اولاً**")
         .catch(console.error);
 
     const embed = new Discord.RichEmbed()
@@ -573,7 +573,7 @@ client.on("message", message => {
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
       return message
-        .reply("**:white_check_mark: .. تم اعطاء العضو ميوت**")
+        .reply("**<a:s7gamda:929797437193867304> .. تم اعطاء العضو ميوت**")
         .catch(console.error);
     } else {
       message.guild
@@ -581,7 +581,7 @@ client.on("message", message => {
         .addRole(muteRole)
         .then(() => {
           return message
-            .reply("**:white_check_mark: .. تم اعطاء العضو ميوت كتابي**")
+            .reply("**<a:s7gamda:929797437193867304> .. تم اعطاء العضو ميوت كتابي**")
             .catch(console.error);
         });
     }
@@ -697,7 +697,7 @@ client.on("message", message => {
     }
   }
 });
-/*
+
 client.on("message", function(message) {
   if (!message.channel.guild) return;
   if (message.author.bot) return;
@@ -751,7 +751,7 @@ client.on("message", function(message) {
         return;
       }
   }
-});*/
+});
 ///تعديل غير اساسي
 ////كود هيلب
 client.on("message", message => {
@@ -1246,7 +1246,7 @@ client.on("roleCreate", role => {
       .setTitle("**ROLE CREATE**")
       .setThumbnail(userAvatar)
       .setDescription(
-        `**\n**:white_check_mark: Successfully \`\`CREATE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`CREATE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
       )
       .setColor("GREEN")
       .setTimestamp()
@@ -1276,7 +1276,7 @@ client.on("roleDelete", role => {
       .setTitle("**ROLE DELETE**")
       .setThumbnail(userAvatar)
       .setDescription(
-        `**\n**:white_check_mark: Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`DELETE\`\` Role.\n\n**Role Name:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
       )
       .setColor("RED")
       .setTimestamp()
@@ -1310,7 +1310,7 @@ client.on("roleUpdate", (oldRole, newRole) => {
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`EDITED\`\` Role Name.\n\n**Old Name:** \`\`${oldRole.name}\`\`\n**New Name:** \`\`${newRole.name}\`\`\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`EDITED\`\` Role Name.\n\n**Old Name:** \`\`${oldRole.name}\`\`\n**New Name:** \`\`${newRole.name}\`\`\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
         .setFooter(oldRole.guild.name, oldRole.guild.iconURL);
@@ -1330,11 +1330,11 @@ client.on("roleUpdate", (oldRole, newRole) => {
       }
       if (log[oldRole.guild.id].onoff === "Off") return;
       let roleUpdateColor = new Discord.RichEmbed()
-        .setTitle("**[ROLE COLOR UPDATE]**")
+        .setTitle("**ROLE COLOR UPDATE**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
         .setFooter(oldRole.guild.name, oldRole.guild.iconURL);
@@ -1375,7 +1375,7 @@ client.on("channelCreate", channel => {
       .setTitle("**CHANNEL CREATE**")
       .setThumbnail(userAvatar)
       .setDescription(
-        `**\n**:white_check_mark: Successfully \`\`CREATE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
+        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`CREATE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
       )
       .setColor("GREEN")
       .setTimestamp()
@@ -1415,7 +1415,7 @@ client.on("channelDelete", channel => {
       .setTitle("**CHANNEL DELETE**")
       .setThumbnail(userAvatar)
       .setDescription(
-        `**\n**:white_check_mark: Successfully \`\`DELETE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
+        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`DELETE\`\` **${roomType}** channel.\n\n**Channel Name:** \`\`${channel.name}\`\` (ID: ${channel.id})\n**By:** <@${userID}> (ID: ${userID})`
       )
       .setColor("RED")
       .setTimestamp()
@@ -1598,11 +1598,11 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
         };
       if (log[oldMember.guild.id].onoff === "Off") return;
       let roleAdded = new Discord.RichEmbed()
-        .setTitle("**[ADDED ROLE TO MEMBER]**")
+        .setTitle("**ADDED ROLE TO MEMBER**")
         .setThumbnail(oldMember.guild.iconURL)
         .setColor("GREEN")
         .setDescription(
-          `**\n**:white_check_mark: Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}> (ID: ${oldMember.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}> (ID: ${oldMember.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
         .setFooter(userTag, userAvatar);
@@ -1642,7 +1642,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       .setThumbnail(oldMember.guild.iconURL)
       .setColor("GREEN")
       .setDescription(
-        `**\n**:white_check_mark: Successfully \`\`TRANSFER\`\` The Owner Ship.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`
+        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`TRANSFER\`\` The Owner Ship.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`
       )
       .setTimestamp()
       .setFooter(oldMember.guild.name, oldMember.guild.iconURL);
@@ -1846,13 +1846,13 @@ client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
     let args = message.mentions.channels.first();
     if (!args)
-      message.channel.send("** منشن روم . ❌**").then(m => {
+      message.channel.send("** منشن روم . <a:glt:929681265752412180>**").then(m => {
         m.delete(1500);
       });
     if (
       !message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")
     )
-      return message.channel.send("**ليس لديك صلاحيات . ❌**");
+      return message.channel.send("**ليس لديك صلاحيات . <a:glt:929681265752412180>**");
     message.channel.send(
       `**${args}.  | :ballot_box_with_check: |لقد تم شغيل المغادرة هنا**`
     ); 
@@ -3460,7 +3460,7 @@ client.on("message", message => {
         SEND_MESSAGES: false
       });
     });
-    message.channel.send("**✅ تم انشاء روم التقديمات بنجاح**");
+    message.channel.send("**<a:s7gamda:929797437193867304> تم انشاء روم التقديمات بنجاح**");
   }
 });
 
@@ -3494,7 +3494,7 @@ client.on("message", message => {
 
       message.mentions.members.first().removeRole(role1);
       return message.reply(
-        "**:white_check_mark: [ " +
+        "**<a:s7gamda:929797437193867304> [ " +
           role1.name +
           " ] رتبة [ " +
           args[0] +
@@ -3509,7 +3509,7 @@ client.on("message", message => {
 
       message.guild.members.forEach(m => m.removeRole(role1));
       return message.reply(
-        "**:white_check_mark: [ " + role1.name + " ] تم سحب من الكل رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم سحب من الكل رتبة**"
       );
     } else if (args[0].toLowerCase() == "bots") {
       if (role1.position >= message.member.highestRole.position)
@@ -3521,7 +3521,7 @@ client.on("message", message => {
         .filter(m => m.user.bot)
         .forEach(m => m.removeRole(role1));
       return message.reply(
-        "**:white_check_mark: [ " + role1.name + " ] تم سحب من البوتات رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم سحب من البوتات رتبة**"
       );
     } else if (args[0].toLowerCase() == "humans") {
       if (role1.position >= message.member.highestRole.position)
@@ -3533,7 +3533,7 @@ client.on("message", message => {
         .filter(m => !m.user.bot)
         .forEach(m => m.removeRole(role1));
       return message.reply(
-        "**:white_check_mark: [ " + role1.name + " ] تم سحب من البشريين رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم سحب من البشريين رتبة**"
       );
     }
   } else {
@@ -3559,7 +3559,7 @@ client.on("message", message => {
 
       message.mentions.members.first().addRole(role1);
       return message.reply(
-        "**:white_check_mark: [ " +
+        "**<a:s7gamda:929797437193867304> [ " +
           role1.name +
           " ] رتبة [ " +
           args[0] +
@@ -3573,7 +3573,7 @@ client.on("message", message => {
         );
       message.guild.members.forEach(m => m.addRole(role1));
       return message.reply(
-        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء الكل رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم اعطاء الكل رتبة**"
       );
     } else if (args[0].toLowerCase() == "bots") {
       if (role1.position >= message.member.highestRole.position)
@@ -3585,7 +3585,7 @@ client.on("message", message => {
         .filter(m => m.user.bot)
         .forEach(m => m.addRole(role1));
       return message.reply(
-        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البوتات رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم اعطاء البوتات رتبة**"
       );
     } else if (args[0].toLowerCase() == "humans") {
       if (role1.position >= message.member.highestRole.position)
@@ -3597,7 +3597,7 @@ client.on("message", message => {
         .filter(m => !m.user.bot)
         .forEach(m => m.addRole(role1));
       return message.reply(
-        "**:white_check_mark: [ " + role1.name + " ] تم اعطاء البشريين رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم اعطاء البشريين رتبة**"
       );
     }
   }
@@ -3674,7 +3674,7 @@ client.on("message", message => {
         SEND_MESSAGES: false
       });
     });
-    message.channel.send("**✅ تم انشاء روم القبول والرفض بنجاح**");
+    message.channel.send("**<a:s7gamda:929797437193867304> تم انشاء روم القبول والرفض بنجاح**");
   }
 });
 client.on("message", async msg => {
