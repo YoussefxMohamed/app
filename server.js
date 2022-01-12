@@ -4322,18 +4322,14 @@ client.on("message", async msg => {
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
 
 /// ضريبة
-    const probot = require("probot-tax");
-    client.on("message", tax => {
-  if (tax.content === prefix + "tax") {
-    let args = tax.content.split(" ").slice(1).join(" ");
-    if(!args) return tax.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
+const probot = require("probot-tax");
+client.on("message", message => {
+    if(message.content.startsWith( prefix + 'tax')) {
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
     let embed = new Discord.MessageEmbed()
     .setColor('YELLOW')
-    .setDescription(`
-المبلغ المراد دفعه :  **${args}**
-المبلغ شامل الضريبه : **${prbot`)
     .addFields(
-
       {
       name:"`المبلغ المراد دفعه : `", value:`**${args}**`
  
@@ -4345,11 +4341,11 @@ client.on("message", async msg => {
     
  
     )
-    .setFooter(`By  : ${tax.author.username}`, `${tax.author.avatarURL}`)
-    .setThumbnail(tax.author.avatarURL)
+    .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+    .setThumbnail(message.author.displayAvatarURL())
     .setTimestamp()
  
-        tax.channel.send(embed)
+        message.channel.send(embed)
     }
 
     
