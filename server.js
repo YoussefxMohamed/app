@@ -4322,18 +4322,18 @@ client.on("message", async msg => {
 ////شكر خاص لـ سرحان ولوفي ومرتجى على المساعدة لو لله وهم ماكان خلصنا هذا البوت الرهيب وما انسى بارون
 
 /// ضريبة
-const probot = require("probot-tax");
-client.on("message", message => {
-    if(message.content.startsWith( prefix + 'tax')) {
-    let args = message.content.split(" ").slice(1).join(" ");
-    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
+    const probot = require("probot-tax");
+    client.on("message", tax => {
+  if (tax.content === prefix + "tax") {
+    let args = tax.content.split(" ").slice(1).join(" ");
+    if(!args) return tax.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
     let embed = new Discord.MessageEmbed()
     .setColor('YELLOW')
+    .setDescription(`
+المبلغ المراد دفعه :  **${args}**
+المبلغ شامل الضريبه : **${prbot`)
     .addFields(
-    { name: 'المبلغ المراد دفعه :', value: '**${args}**' },
-		{ name: '\u200B', value: '\u200B' },
-		{ name: 'Inline field title', value: 'Some value here', inline: true },
-		{ name: 'Inline field title', value: 'Some value here', inline: true },
+
       {
       name:"`المبلغ المراد دفعه : `", value:`**${args}**`
  
@@ -4345,17 +4345,15 @@ client.on("message", message => {
     
  
     )
-    .setFooter(`By  : ${message.author.username}`, `${message.author.avatarURL()}`)
-    .setThumbnail(message.author.avatarURL())
+    .setFooter(`By  : ${tax.author.username}`, `${tax.author.avatarURL}`)
+    .setThumbnail(tax.author.avatarURL)
     .setTimestamp()
  
-        message.channel.send(embed)
+        tax.channel.send(embed)
     }
 
     
-});/*
-if(message.content.startsWith( prefix + 'tax1) {
-    let args = message.content.split(" ").slice(1).join(" ");*/
+});
 
 ///اخفاء واظهار
 client.on("message", message => {
