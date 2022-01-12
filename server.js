@@ -4629,6 +4629,25 @@ client.on("message", embed8 => {
   }
 });
 
+///Embed 9
+client.on("message", embed9 => {
+  if (embed9.content === prefix + "idTDM") {
+    const bot2 = new Discord.RichEmbed()
+      .setColor("#00BCD4")
+      .setTitle("<a:s_:")
+      .setDescription( `**
+> <a:shm2:930795173351407676>MAP :
+> <a:shm:929797416876650557>ID :
+> <a:shm:929797416876650557>PASSWORD : 
+> <a:shm:929797416876650557>START :**
+
+طبعاا الكريزمات تخش عشان متنورش البلاك ليست <a:shb:930193756114808872>
+`)
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
+    embed9.channel.send(bot2);
+  }
+});
+
 
 
 
