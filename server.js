@@ -4353,6 +4353,69 @@ client.on("message", message => {
 if(message.content.startsWith( prefix + 'tax1) {
     let args = message.content.split(" ").slice(1).join(" ");*/
 
+///اخفاء واظهار
+client.on("message", message => {
+  if (message.content === prefix + "hide") {
+    if (!message.channel.guild)
+      return message.reply(" هذا الامر فقط للسيرفرات !!");
+
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+      return message.reply(" ليس لديك صلاحيات");
+    message.channel
+      .overwritePermissions(message.guild.id, {
+              VIEW_CHANNEL : false
+      })
+      .then(() => {
+    const bot = new Discord.RichEmbed()
+                .setColor("#FFEB3B")
+                .setTitle(`> **تم اخفاء التشانل    <a:s7gamda:929797437193867304>**`)
+    message.channel.send(bot);      });
+  }
+  if (message.content === prefix + "show") {
+    if (!message.channel.guild)
+      return message.reply(" هذا الامر فقط للسيرفرات !!");
+
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+      return message.reply("ليس لديك صلاحيات");
+    message.channel
+      .overwritePermissions(message.guild.id, {
+              VIEW_CHANNEL : true
+      })
+      .then(() => {
+    const bot = new Discord.RichEmbed()
+                .setColor("#FFEB3B")
+                .setTitle(`> **تم اظهار التشانل    <a:s7gamda:929797437193867304>**`)
+    message.channel.send(bot);
+      });
+  }
+});
+
+client.on("error", err => {
+  console.log(err);
+});
+
+client.on("messageCreate", async message => {
+  let args = message.cleanContent.split(" ");
+  if (args[0] == `${prefix}roles`) {
+    let space = "                         ";
+    let roles = message.guild.roles
+      .map(r => r)
+      .sort((a, b) => b.position - a.position);
+    let rr = roles
+      .map(
+        r =>
+          `${r.name +
+            space.substring(r.name.length) +
+            message.guild.members.filter(m => m.roles.includes(r.id))
+              .length} members`
+      )
+      .join("\n");
+    await message.channel.sebd(`\`\`\`${rr}\`\`\``);
+  }
+});
+//
+
+
 
 
 ///Embed Message
