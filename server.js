@@ -4330,6 +4330,10 @@ client.on("message", message => {
     let embed = new Discord.MessageEmbed()
     .setColor('YELLOW')
     .addFields(
+    { name: 'المبلغ المراد دفعه :', value: '**${args}**' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
+		{ name: 'Inline field title', value: 'Some value here', inline: true },
       {
       name:"`المبلغ المراد دفعه : `", value:`**${args}**`
  
@@ -4341,8 +4345,8 @@ client.on("message", message => {
     
  
     )
-    .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
-    .setThumbnail(message.author.displayAvatarURL())
+    .setFooter(`By  : ${message.author.username}`, `${message.author.avatarURL()}`)
+    .setThumbnail(message.author.avatarURL())
     .setTimestamp()
  
         message.channel.send(embed)
@@ -4693,10 +4697,10 @@ client.on("message", embed9 => {
   if (embed9.content === prefix + "idTDM") {
     const bot2 = new Discord.RichEmbed()
       .setColor("#00BCD4")
-      .setTitle("**<a:gna7sh:930187075649679401><a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586><a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210>­<a:gna7ym:930187081299423263>**")
+      .setTitle("**<a:gna7sh:930187075649679401>.<a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586>­<a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210>.<a:gna7ym:930187081299423263>**")
       .setDescription( `
 
-­
+
 **<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
 > <a:shm2:930795173351407676>MAP : TDM
 <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
@@ -4707,7 +4711,7 @@ client.on("message", embed9 => {
 > <a:shm2:930795173351407676>START :
 <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
 
-طبعاا الكريزمات تخش عشان متنورش البلاك ليست <a:shb:930193756114808872>**
+طبعاا الكاريزماات تخش عشان متنورش البلاك ليست <a:shb:930193756114808872>**
 `)
     embed9.channel.send(bot2);
   }
