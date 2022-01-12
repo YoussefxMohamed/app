@@ -724,7 +724,7 @@ client.on("message", function(message) {
                   ": عدد الرسائل التي تم مسحها" +
                   "```**"
               )
-              .then(m => m.delete(5000));
+              .then(m => m.delete(10000));
           });
         } else {
           let messagecount = parseInt(args[1]);
@@ -740,7 +740,7 @@ client.on("message", function(message) {
                 ": عدد الرسائل التي تم مسحها" +
                 "```**"
             )
-            .then(m => m.delete(5000));
+            .then(m => m.delete(10000));
           message.delete(60000);
         }
       } else {
