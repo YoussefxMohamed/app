@@ -1851,6 +1851,7 @@ client.on("message", message => {
 
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
+      message.delete()
     let args = message.mentions.channels.first();
     if (!args)
       message.channel.send("** منشن روم . <a:glt:929681265752412180>**").then(m => {
@@ -1925,12 +1926,14 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 30
     };
-  if (message.content.startsWith(prefix + "settings")) {
+  if (message.content.startsWith(prefix + "settings")) 
+      message.delete()
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
         "**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**"
       );
     if (message.content.startsWith(prefix + "settings limitsban")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].banLimit = num;
@@ -1939,6 +1942,7 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitskick")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].kickLimits = num;
@@ -1947,6 +1951,7 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitsroleD")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleDelLimit = num;
@@ -1955,6 +1960,7 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitsroleC")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleCrLimits = num;
@@ -1963,6 +1969,7 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitschannelD")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaDelLimit = num;
@@ -1971,6 +1978,7 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitschannelC")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaCrLimit = num;
@@ -1979,6 +1987,7 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitstime")) {
+      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].time = num;
@@ -2481,6 +2490,7 @@ client.on("message", message => {
       onoff: true
     };
   if (message.content.startsWith(prefix + "antibots on")) {
+      message.delete()
     if (message.author.bot || !message.channel.guild) return;
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
@@ -2493,6 +2503,7 @@ client.on("message", message => {
     message.channel.send("**AntiBots Join Is On :closed_lock_with_key: **");
   }
   if (message.content.startsWith(prefix + "antibots off")) {
+      message.delete()
     if (message.author.bot || !message.channel.guild) return;
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
@@ -2544,6 +2555,7 @@ client.on("message", async message => {
 
   var filter = m => m.author.id === message.author.id;
   if (message.content.startsWith(prefix + "gcreate")) {
+      message.delete()
     let embed1 = new Discord.RichEmbed()
       .setColor()
       .setDescription("Missing the following permission `MANAGE_GUILD`");
