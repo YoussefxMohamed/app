@@ -4755,10 +4755,39 @@ client.on("message", embed11 => {
  
 Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag:929797450061987880>
 
-@ID・PASS**`)
+@here **`)
    /*   .setImage()*/
 	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed11.channel.send(bot);
+  }
+});
+/*
+اضغط علي الرياكشن يا كاريزمه بدل متاخد بال  */
+
+
+///Embed 12
+client.on("message", embed12 => {
+  if (embed12.content === prefix + "test") {
+    return embed12.channel.send(`دوس علي الريأكشن يا كاريزمه بدل متاخد بال <a:shb:930193756114808872>`)
+    me.react("✅");
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://i.imgur.com/uUqpetM.gif')
+	    .setDescription(`**
+<a:hypeshiny:930187068125118474> ༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡 𝙎𝘾𝙍𝙄𝙈𝙎 <a:hypeshiny:930187068125118474>
+ 
+
+<a:shm2:930795173351407676> 𝙈𝙑𝙋 𝙏𝙚𝙖𝙢 𝙁𝙤𝙧 𝙇𝙖𝙨𝙩 𝙎𝙘𝙧𝙞𝙢 
+ 
+<a:shm2:930795173351407676> <a:shm2:930795173351407676> <a:gna7sh:930187075649679401> WINNER <a:gna7ym:930187081299423263> 
+ 
+ 
+Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag:929797450061987880>
+
+@here **`)
+   /*   .setImage()*/
+	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
+    embed12.channel.send(bot);
   }
 });
 
