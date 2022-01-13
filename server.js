@@ -1318,12 +1318,12 @@ client.on("roleUpdate", (oldRole, newRole) => {
       logChannel.send(roleUpdateName);
     }
     if (oldRole.hexColor !== newRole.hexColor) {
-      if (oldRole.hexColor === "#000000") {
+      if (oldRole.hexColor === "#FFEB3B") {
         var oldColor = "`Default`";
       } else {
         var oldColor = oldRole.hexColor;
       }
-      if (newRole.hexColor === "#000000") {
+      if (newRole.hexColor === "#FFEB3B") {
         var newColor = "`Default`";
       } else {
         var newColor = newRole.hexColor;
@@ -1450,7 +1450,7 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
 
     if (oldChannel.name !== newChannel.name) {
       let newName = new Discord.RichEmbed()
-        .setTitle("**[CHANNEL EDIT]**")
+        .setTitle("**CHANNEL EDIT**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
@@ -1464,7 +1464,7 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
     if (oldChannel.topic !== newChannel.topic) {
       if (log[oldChannel.guild.id].onoff === "Off") return;
       let newTopic = new Discord.RichEmbed()
-        .setTitle("**[CHANNEL EDIT]**")
+        .setTitle("**CHANNEL EDIT**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
@@ -1534,7 +1534,7 @@ client.on("guildBanRemove", (guild, user) => {
     if (userID === client.user.id) return;
 
     let unBanInfo = new Discord.RichEmbed()
-      .setTitle("**[UNBANNED]**")
+      .setTitle("**UNBANNED**")
       .setThumbnail(userAvatar)
       .setColor("GREEN")
       .setDescription(
@@ -1577,7 +1577,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       }
 
       let updateNickname = new Discord.RichEmbed()
-        .setTitle("**[UPDATE MEMBER NICKNAME]**")
+        .setTitle("**UPDATE MEMBER NICKNAME**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
@@ -1638,7 +1638,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       };
     if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
     let newOwner = new Discord.RichEmbed()
-      .setTitle("**[UPDATE GUILD OWNER]**")
+      .setTitle("**UPDATE GUILD OWNER**")
       .setThumbnail(oldMember.guild.iconURL)
       .setColor("GREEN")
       .setDescription(
@@ -1758,7 +1758,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
       };
     if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
     let voiceLeave = new Discord.RichEmbed()
-      .setTitle("**[CHANGED VOICE ROOM]**")
+      .setTitle("**CHANGED VOICE ROOM**")
       .setColor("GREEN")
       .setThumbnail(voiceOld.user.avatarURL)
       .setDescription(
@@ -1781,6 +1781,12 @@ client.on("ready", () => {
 client.on("message", message => {
   if (message.content === "السلام عليكم") {
     message.channel.send("**:heart:وعليكم السلام ورحمة الله وبركاته:heart:**");
+    message.channel.sendFile("");
+  }
+});
+client.on("message", message => {
+  if (message.content === "خط") {
+    message.channel.send("");
     message.channel.sendFile("");
   }
 });
