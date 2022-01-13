@@ -4714,6 +4714,7 @@ client.on("message", embed9 => {
 ///Embed 10
 client.on("message", embed10 => {
   if (embed10.content === prefix + "id") {
+   return embed10.reply(" هذا الامر فقط للسيرفرات !!");
     const bot2 = new Discord.RichEmbed()
       .setColor("#00BCD4")
       .setDescription( `**<a:gna7sh:930187075649679401><a:s_:930190463535816735><a:c_:930191251897217096><a:r_:930190480996728922><a:i_:930190442862112778><a:m_:930190482162712586><a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210><a:gna7ym:930187081299423263>
