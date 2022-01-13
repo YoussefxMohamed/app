@@ -1780,7 +1780,7 @@ client.on("ready", () => {
 });
 client.on("message", message => {
   if (message.content === "السلام عليكم") {
-    message.channel.send("**:heart:وعليكم السلام ورحمة الله وبركاته:heart:**");
+    message.channel.send("**:heart:وعليكم السلام ورحمة الله وبركاته **");
     message.channel.sendFile("");
   }
 });
