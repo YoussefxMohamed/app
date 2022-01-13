@@ -1787,7 +1787,8 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.content === "خط") {
     message.channel.send("");
-    message.channel.sendFile("");
+    message.channel.sendFile("https://i.imgur.com/GzMoqJh.gif");
+    message.delete();
   }
 });
 
