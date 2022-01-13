@@ -1926,14 +1926,12 @@ client.on("message", message => {
       roleCrLimits: 3,
       time: 30
     };
-  if (message.content.startsWith(prefix + "settings")) 
-      message.delete()
+  if (message.content.startsWith(prefix + "settings")) {
     if (message.author.id !== message.guild.owner.user.id)
       return message.channel.send(
         "**:closed_lock_with_key: لأسباب تتعلق بالحماية تم حصر أوامر الحماية فقط للأونر**"
       );
     if (message.content.startsWith(prefix + "settings limitsban")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].banLimit = num;
@@ -1942,7 +1940,6 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitskick")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].kickLimits = num;
@@ -1951,7 +1948,6 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitsroleD")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleDelLimit = num;
@@ -1960,7 +1956,6 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitsroleC")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].roleCrLimits = num;
@@ -1969,7 +1964,6 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitschannelD")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaDelLimit = num;
@@ -1978,7 +1972,6 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitschannelC")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].chaCrLimit = num;
@@ -1987,7 +1980,6 @@ client.on("message", message => {
       );
     }
     if (message.content.startsWith(prefix + "settings limitstime")) {
-      message.delete()
       if (!num) return message.channel.send("**:1234: | أرسل رقم ! **");
       if (isNaN(num)) return message.channel.send("**:1234: | أرقام فقط ! **");
       config[message.guild.id].time = num;
@@ -1995,17 +1987,17 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
-}
+  }
   fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
     if (e) throw e;
   });
   fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
-    if 
-client.on("channelDelete", async channel => {
-  const entry1 = await channel.guild
-    .fetchAuditLogs({(e) throw e;
+    if (e) throw e;
   });
 });
+client.on("channelDelete", async channel => {
+  const entry1 = await channel.guild
+    .fetchAuditLogs({
       type: "CHANNEL_DELETE"
     })
     .then(audit => audit.entries.first());
@@ -4345,9 +4337,9 @@ const probot = require("probot-tax");
 client.on("message", message => {
     if(message.content.startsWith( prefix + 'tax')) {
     let args = message.content.split(" ").slice(1).join(" ");
-    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
+    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000>')
     let embed = new Discord.MessageEmbed()
-    .setColor('YELLOW')
+    .setColor('RED')
     .addFields(
       {
       name:"`المبلغ المراد دفعه : `", value:`**${args}**`
@@ -4357,7 +4349,7 @@ client.on("message", message => {
       name:"`المبلغ شامل الضريبة :  `", value:`**${probot.taxs(args)}**`
  
     },
-    
+    ///ممنوع السرقة youssefgames
  
     )
     .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
@@ -4366,10 +4358,7 @@ client.on("message", message => {
  
         message.channel.send(embed)
     }
-
-    
 });
-
 ///اخفاء واظهار
 client.on("message", message => {
   if (message.content === prefix + "hide") {
