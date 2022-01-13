@@ -693,7 +693,7 @@ client.on("message", message => {
         );
       }
     } else {
-      message.react("❌");
+      message.react("a:glt:929681265752412180");
     }
   }
 });
@@ -823,7 +823,7 @@ client.on("message", message => {
 `);
         })
         .then(e => {
-          message.react("✅");
+          message.react("a:s7gamda:929797437193867304");
         })
         .catch(() => {
           return message.channel
@@ -831,7 +831,7 @@ client.on("message", message => {
               "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
             )
             .then(() => {
-              return message.react("❌");
+              return message.react("a:glt:929681265752412180");
             });
         });
     } else {
@@ -897,7 +897,7 @@ client.on("message", message => {
 `);
         })
         .then(e => {
-          message.react("✅");
+          message.react("a:s7gamda:929797437193867304");
         })
         .catch(() => {
           return message.channel
@@ -905,7 +905,7 @@ client.on("message", message => {
               "**يجب السماح بأستقبال الرسائل في الخاص ، لأتمكن من ارسال الاوامر لك **"
             )
             .then(() => {
-              return message.react("❌");
+              return message.react("a:glt:929681265752412180");
             });
         });
     }
@@ -2608,7 +2608,7 @@ client.on("message", async message => {
                           .setColor()
                           .setTitle(`${title}`)
                           .setDescription(
-                            `React With 🎉 To Enter! \nTime remaining : ${duration} \n **Created at :** ${hours}:${minutes}:${seconds} ${suffix}`
+                            `React With <a:HyperTada:922517074771865600> To Enter! \nTime remaining : ${duration} \n **Created at :** ${hours}:${minutes}:${seconds} ${suffix}`
                           );
                         //.setFooter(message.author.username, message.author.avatarURL);
                         message.guild.channels
@@ -2617,9 +2617,9 @@ client.on("message", async message => {
                             embed: giveEmbed
                           })
                           .then(m => {
-                            let re = m.react("🎉");
+                            let re = m.react("a:HyperTada:922517074771865600");
                             setTimeout(() => {
-                              let users = m.reactions.get("🎉").users;
+                              let users = m.reactions.get("a:HyperTada:922517074771865600").users;
                               let list = users
                                 .array()
                                 .filter(
@@ -2638,7 +2638,7 @@ client.on("message", async message => {
                                   )
                                   .setFooter("Ended at :")
                                   .setTimestamp();
-                                m.edit("** 🎉 GIVEAWAY ENDED 🎉**", {
+                                m.edit("** <a:HyperTada:922517074771865600> GIVEAWAY ENDED <a:HyperTada:922517074771865600>**", {
                                   embed: endEmbed
                                 });
                               } else {
@@ -2648,7 +2648,7 @@ client.on("message", async message => {
                                   .setDescription(`Winners : ${gFilter}`)
                                   .setFooter("Ended at :")
                                   .setTimestamp();
-                                m.edit("** 🎉 GIVEAWAY ENDED 🎉**", {
+                                m.edit("** <a:HyperTada:922517074771865600> GIVEAWAY ENDED <a:HyperTada:922517074771865600>**", {
                                   embed: endEmbed
                                 });
                               }
@@ -3654,13 +3654,13 @@ client.on("message", async message => {
     if (!message.guild.member(message.author).hasPermission("MANAGE_ROLES"))
       return;
     if (!mention) return message.reply("منشن شخص");
-    message.react("✅");
+    message.react("a:s7gamda:929797437193867304");
     acRoom
       .send(
         `**${mention} تم رفضك للأسف **
 السبب : \`${reason}\``
       )
-      .then(m => m.react("✅"));
+      .then(m => m.react("a:s7gamda:929797437193867304"));
   }
 });
 client.on("message", message => {
@@ -3940,7 +3940,7 @@ client.on("message", async msg => {
         `You must be in ${msg.guild.me.voiceChannel.name}`
       );
     // if (!msg.member.hasPermission("ADMINISTRATOR")) {
-    //    msg.react("❌");
+    //    msg.react("a:glt:929681265752412180");
     //    return msg.channel.send("You don't have permission `ADMINSTRATOR`");
     //  }
     let queue = active.get(msg.guild.id);
@@ -4768,26 +4768,9 @@ Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag
 ///Embed 12
 client.on("message", embed12 => {
   if (embed12.content === prefix + "test") {
+    embed12.react("a:s7gamda:929797437193867304");
     return embed12.channel.send(`دوس علي الريأكشن يا كاريزمه بدل متاخد بال <a:shb:930193756114808872>`)
-    me.react("✅");
-    const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
-    	.setThumbnail('https://i.imgur.com/uUqpetM.gif')
-	    .setDescription(`**
-<a:hypeshiny:930187068125118474> ༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡 𝙎𝘾𝙍𝙄𝙈𝙎 <a:hypeshiny:930187068125118474>
- 
 
-<a:shm2:930795173351407676> 𝙈𝙑𝙋 𝙏𝙚𝙖𝙢 𝙁𝙤𝙧 𝙇𝙖𝙨𝙩 𝙎𝙘𝙧𝙞𝙢 
- 
-<a:shm2:930795173351407676> <a:shm2:930795173351407676> <a:gna7sh:930187075649679401> WINNER <a:gna7ym:930187081299423263> 
- 
- 
-Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag:929797450061987880>
-
-@here **`)
-   /*   .setImage()*/
-	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
-    embed12.channel.send(bot);
   }
 });
 
