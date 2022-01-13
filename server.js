@@ -1995,17 +1995,17 @@ client.on("message", message => {
         `**:lock: | تم التغيير اِلي : ${config[message.guild.id].time}**`
       );
     }
-  }
+}
   fs.writeFile("./config.json", JSON.stringify(config, null, 2), function(e) {
     if (e) throw e;
   });
   fs.writeFile("./antigreff.json", JSON.stringify(anti, null, 2), function(e) {
-    if (e) throw e;
-  });
-});
+    if 
 client.on("channelDelete", async channel => {
   const entry1 = await channel.guild
-    .fetchAuditLogs({
+    .fetchAuditLogs({(e) throw e;
+  });
+});
       type: "CHANNEL_DELETE"
     })
     .then(audit => audit.entries.first());
