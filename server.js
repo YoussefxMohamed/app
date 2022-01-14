@@ -2811,9 +2811,9 @@ client.on("message", async message => {
         return message.channel.send(`**<a:glt:929681265752412180> | Error**`);
       if (args[2] > credits[author].credits)
         return message.channel.send(
-          `**:x: | Error , You Don't Have Enough Credit**`
+          `**<a:glt:929681265752412180> | Error , You Don't Have Enough Credit**`
         );
-      if (args[2].includes("-")) return message.channel.send(`**:x: | Error**`);
+      if (args[2].includes("-")) return message.channel.send(`**<a:glt:929681265752412180> | Error**`);
       let resulting =
         parseInt(args[2]) == 1
           ? parseInt(args[2])
@@ -2885,7 +2885,7 @@ type these numbers to confirm: `
         });
     } else {
       message.channel.send(
-        `**:x: | Error , Please Command True Ex: \`${prefix}credits [MentionUser] [Balance]\`**`
+        `**<a:glt:929681265752412180> | Error , Please Command True Ex: \`${prefix}credits [MentionUser] [Balance]\`**`
       );
     }
   }
@@ -3484,9 +3484,9 @@ client.on("message", message => {
     return message.channel.send(" **ليس لديك صلاحيات :rolling_eyes:**");
   if (msg.toLowerCase().startsWith(prefix + "rerole")) {
     if (!args[0])
-      return message.reply("**:x: يرجى وضع الشخص المراد سحب منه الرتبة**");
+      return message.reply("**<a:glt:929681265752412180> يرجى وضع الشخص المراد سحب منه الرتبة**");
     if (!args[1])
-      return message.reply("**:x: يرجى وضع الرتبة المراد سحبها من الشخص**");
+      return message.reply("**<a:glt:929681265752412180> يرجى وضع الرتبة المراد سحبها من الشخص**");
     var role = msg
       .split(" ")
       .slice(2)
@@ -3496,7 +3496,7 @@ client.on("message", message => {
       .filter(r => r.name.toLowerCase().indexOf(role) > -1)
       .first();
     if (!role1)
-      return message.reply("**:x: يرجى وضع الرتبة المراد سحبها من الشخص**");
+      return message.reply("**<a:glt:929681265752412180> يرجى وضع الرتبة المراد سحبها من الشخص**");
     if (message.mentions.members.first()) {
       if (role1.position >= message.member.highestRole.position)
         return message.channel.send(
@@ -3549,9 +3549,9 @@ client.on("message", message => {
     }
   } else {
     if (!args[0])
-      return message.reply("**:x: يرجى وضع الشخص المراد اعطائها الرتبة**");
+      return message.reply("**<a:glt:929681265752412180> يرجى وضع الشخص المراد اعطائها الرتبة**");
     if (!args[1])
-      return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
+      return message.reply("**<a:glt:929681265752412180> يرجى وضع الرتبة المراد اعطائها للشخص**");
     var role = msg
       .split(" ")
       .slice(2)
@@ -3561,7 +3561,7 @@ client.on("message", message => {
       .filter(r => r.name.toLowerCase().indexOf(role) > -1)
       .first();
     if (!role1)
-      return message.reply("**:x: يرجى وضع الرتبة المراد اعطائها للشخص**");
+      return message.reply("**<a:glt:929681265752412180> يرجى وضع الرتبة المراد اعطائها للشخص**");
     if (message.mentions.members.first()) {
       if (role1.position >= message.member.highestRole.position)
         return message.channel.send(
