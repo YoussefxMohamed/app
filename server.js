@@ -4362,6 +4362,7 @@ client.on("message", message => {
 ///اخفاء واظهار
 client.on("message", message => {
   if (message.content === prefix + "hide") {
+    message.delete()
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
 
@@ -4378,6 +4379,7 @@ client.on("message", message => {
     message.channel.send(bot);      });
   }
   if (message.content === prefix + "show") {
+    message.delete()
     if (!message.channel.guild)
       return message.reply(" هذا الامر فقط للسيرفرات !!");
 
@@ -4427,6 +4429,7 @@ client.on("messageCreate", async message => {
 ///Embed Message
 client.on("message", embed1 => {
   if (embed1.content === prefix + "embed1") {
+    embed1.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
@@ -4446,6 +4449,7 @@ Logo `, " **(if you have )**")
 ///Embed 2
 client.on("message", embed2 => {
   if (embed2.content === prefix + "embed2") {
+    embed2.delete()
     const bot2 = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
@@ -4467,6 +4471,7 @@ Logo `, " **(if you have )**")
 ///Embed 3
 client.on("message", embed3 => {
   if (embed3.content === prefix + "embed3") {
+    embed3.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
@@ -4508,6 +4513,7 @@ client.on("message", embed3 => {
 ///Embed 4
 client.on("message", embed4 => {
   if (embed4.content === prefix + "embed4") {
+    embed4.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
@@ -4539,6 +4545,7 @@ client.on("message", embed4 => {
 ///Embed 5
 client.on("message", embed5 => {
   if (embed5.content === prefix + "embed5") {
+      embed5.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
@@ -4574,6 +4581,7 @@ Kill 1 Point
 ///Embed 6
 client.on("message", embed6 => {
   if (embed6.content === prefix + "embed6") {
+      embed6.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
     	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
@@ -4603,6 +4611,7 @@ client.on("message", embed6 => {
 ///Embed 7
 client.on("message", embed7 => {
   if (embed7.content === prefix + "helpG") {
+      embed7.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
 	    .setTitle('Turbo Bot Giveaway Commands 🎁')
@@ -4630,6 +4639,7 @@ client.on("message", embed7 => {
 ///Embed 8
 client.on("message", embed8 => {
   if (embed8.content === prefix + "list") {
+      embed8.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#00BCD4")
 	    .setDescription(`**
@@ -4697,6 +4707,7 @@ client.on("message", embed8 => {
 ///Embed 9
 client.on("message", embed9 => {
   if (embed9.content === prefix + "idTDM") {
+      embed9.delete()
     const bot2 = new Discord.RichEmbed()
       .setColor("#00BCD4")
       .setTitle("**<a:gna7sh:930187075649679401>.<a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586>­<a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210>.<a:gna7ym:930187081299423263>**")
@@ -4722,6 +4733,7 @@ client.on("message", embed9 => {
 ///Embed 10
 client.on("message", embed10 => {
   if (embed10.content === prefix + "id") {
+      embed10.delete()
 /*   return embed10.channel.send(`**TEST**`);*/
     const bot2 = new Discord.RichEmbed()
       .setColor("#00BCD4")
@@ -4777,6 +4789,7 @@ Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag
 ///Embed 12
 client.on("message", embed12 => {
   if (embed12.content === prefix + "test") {
+      embed12.delete()
     embed12.react("a:s7gamda:929797437193867304");
     return embed12.channel.send(`دوس علي <a:s7gamda:929797437193867304> يا كاريزمه بدل متاخد بال <a:shb:930193756114808872>`)
 
