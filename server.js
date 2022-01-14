@@ -2757,7 +2757,7 @@ client.on("message", async message => {
                 `رد تلقائي`,
                 steve ? steve.displayAvatarURL : message.author.displayAvatarURL
               );
-              msg.edit("  |** تم الاعداد بنجاح...**");
+              msg.edit(" <a:s7gamda:929797437193867304> |** تم الاعداد بنجاح...**");
 
               message.channel.send(embed1);
             });
@@ -2803,12 +2803,12 @@ client.on("message", async message => {
       );
     } else if (mentionn && args[2]) {
       if (isNaN(args[2]) || [",", "."].includes(args[2]))
-        return message.channel.send(`**:x: | Error**`);
+        return message.channel.send(`**<a:glt:929681265752412180> | Error**`);
 
-      if (args[2] < 1) return message.channel.send(`**:x: | Error**`);
-      if (mention.bot) return message.channel.send(`**:x: | Error**`);
+      if (args[2] < 1) return message.channel.send(`**<a:glt:929681265752412180> | Error**`);
+      if (mention.bot) return message.channel.send(`**<a:glt:929681265752412180> | Error**`);
       if (mentionn.id === message.author.id)
-        return message.channel.send(`**:x: | Error**`);
+        return message.channel.send(`**<a:glt:929681265752412180> | Error**`);
       if (args[2] > credits[author].credits)
         return message.channel.send(
           `**:x: | Error , You Don't Have Enough Credit**`
