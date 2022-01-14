@@ -708,7 +708,7 @@ client.on("message", function(message) {
   var args = message.content.substring(prefix.length).split(" ");
   switch (args[0].toLocaleLowerCase()) {
     case "clear":
-      message.delete();
+      message.delete()
       if (!message.channel.guild) return;
       if (message.member.hasPermission(0x2000)) {
         if (!args[1]) {
