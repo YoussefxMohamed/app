@@ -4762,8 +4762,8 @@ client.on("message", embed11 => {
  
  
 Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag:929797450061987880>
-
-@MMSxYØUSSEF#9972  **`)
+@here
+ **`)
    /*   .setImage()*/
 	    .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
     embed11.channel.send(bot);
