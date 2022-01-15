@@ -754,26 +754,7 @@ client.on("message", function(message) {
 });
 ///تعديل غير اساسي
 ////كود هيلب
-client.on("message", helpT => {
- if (helpT.content.startsWith(prefix + "helpT")) {
-    helpT.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
-    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
-	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
-      .addField( `
-Team Name :
-Team Leader :
-P1 :
-P2:
-Logo `, " **(if you have )**")
-     .setImage('https://i.imgur.com/P9QVop4.gif')
-	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
-    helpT.channel.send(bot);
 
-
-  }
-});
 
 
 client.on("message", message => {
@@ -4806,6 +4787,62 @@ client.on("message", embed12 => {
  if (embed12.content.startsWith(prefix + "test")) {
     embed12.react("a:s7gamda:929797437193867304");
     return embed12.channel.send(`دوس علي <a:s7gamda:929797437193867304> يا كاريزمه بدل متاخد بال <a:shb:930193756114808872>`)
+
+  }
+});
+
+client.on("message", helpT => {
+ if (helpT.content.startsWith(prefix + "helpT")) {
+    helpT.react("a:s7gamda:929797437193867304");
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://i.imgur.com/NRYF2ma.png')
+	    .setTitle('**TURBO BOT Commands <a:grs: **')
+      .setDescription( `
+<a:gna7sh:930187075649679401> الأوامر العامة <a:gna7ym:930187081299423263>
+\`${prefix}bot\` : لعرض معلومات عن البوت 
+\`${prefix}user\` : لعرض معلومات عنك 
+\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
+\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${prefix}color\` : لأختيار لونك في السيرفر 
+\`${prefix}credits\` : لمعرفة رصيدك  
+\`${prefix}daily\` : لأخذ جائزة يومية
+\`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}tax\` : لمعرفة ضريبة ProBot
+\`${prefix}invite\` : لانشاء رابط دعوة البوت
+
+<a:tag:929797450061987880> الأوامر الإدارية <a:tag:929797450061987880>
+\`${prefix}clear\` : لمسح الشات 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
+\`${prefix}open\` : لفتح الشات
+\`${prefix}close\` : لقفل الشات 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
+\`${prefix}new\` : فتح التكت
+\`${prefix}closet\` : لحذف روم التكت
+\`${prefix}say\` : البوت يكرر كلامك
+\`${prefix}move\` : لسحب الشخص الى روومك
+\`${prefix}reply\` : لصنع رد تلقائي
+\`${prefix}setLog\` : لتحديد روم السجلات 
+\`${prefix}setby\` : تحديد روم المغادرة
+\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${prefix}role\` : لاعطاء شخص رتبة
+\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+
+<a:rule:880872686279094372> أوامر التقديم <a:rule:880872686279094372>
+\`${prefix}room1\` : لعمل روم التقديمات
+\`${prefix}room2\` : لعمل روم القبول والرفض
+\`${prefix}قبول\` : لقبول تقديم عضو
+\`${prefix}رفض\` : لرفض عضو
+
+<a:prv:932029032629956618> أوامر الحماية <a:prv:932029032629956618>
+\`${prefix}antibots on\` : منع دخول بوتات
+\`${prefix}antibots off\` : السماح للبوتات بالدخول
+`)
+     .setImage('https://i.imgur.com/Ewfi7jU.gif')
+    helpT.channel.send(bot);
+
 
   }
 });
