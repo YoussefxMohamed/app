@@ -4788,8 +4788,7 @@ Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag
 
 ///Embed 12
 client.on("message", embed12 => {
-  if (embed12.content === prefix + "test") {
-      embed12.delete()
+ if (embed12.content.startsWith(prefix + "test")) {
     embed12.react("a:s7gamda:929797437193867304");
     return embed12.channel.send(`دوس علي <a:s7gamda:929797437193867304> يا كاريزمه بدل متاخد بال <a:shb:930193756114808872>`)
 
