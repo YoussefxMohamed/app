@@ -3387,7 +3387,7 @@ client.on("message", message => {
         .filter(m => !m.user.bot)
         .forEach(m => m.removeRole(role1));
       return message.reply(
-        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم سحب من البشريين رتبة**"
+        "**<a:s7gamda:929797437193867304> [ " + role1.name + " ] تم سحب من الميمبر رتبة**"
       );
     }
   } else {
