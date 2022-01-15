@@ -754,6 +754,28 @@ client.on("message", function(message) {
 });
 ///تعديل غير اساسي
 ////كود هيلب
+client.on("message", helpT => {
+ if (helpT.content.startsWith(prefix + "helpT")) {
+    helpT.react("a:s7gamda:929797437193867304");
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+    	.setThumbnail('https://i.imgur.com/gCWiLdT.gif')
+	    .setTitle('**طريقة التسجيل <a:verified:922517096896790568> **')
+      .addField( `
+Team Name :
+Team Leader :
+P1 :
+P2:
+Logo `, " **(if you have )**")
+     .setImage('https://i.imgur.com/P9QVop4.gif')
+	   .setFooter( '༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡', 'https://i.imgur.com/gCWiLdT.gif' );
+    helpT.channel.send(bot);
+
+
+  }
+});
+
+
 client.on("message", message => {
   if (message.author.bot) return;
   if (message.content.startsWith(prefix + "helpT")) {
@@ -804,7 +826,7 @@ client.on("message", message => {
         .then(() => {
           message.author.send(`
 
-\`أوامر الحماية\` :closed_lock_with_key:
+<a:prv:932029032629956618> أوامر الحماية <a:prv:932029032629956618>
 \`${prefix}settings limitsban\` : تحدد العدد الي تبيه لو حد بند  البوت يبنده 
 \`${prefix}settings limitskick\` : تحدد العدد الي تبيه لو حد طرد 3 او 4 البوت يبنده 
 \`${prefix}settings limitsroleD\` : تحدد العدد الي تبيه لو حد مسح رول 3 او 4 البوت يبنده 
