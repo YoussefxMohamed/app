@@ -761,7 +761,7 @@ client.on("message", message => {
       message.author
         .send(
           `   
-\`الاوامر العامة\` :postbox:
+<a:gna7sh:930187075649679401> الأوامر العامة <a:gna7ym:930187081299423263>
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
