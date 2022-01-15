@@ -273,8 +273,8 @@ client.on("message", message => {
     message.channel.send(`**<a:s7gamda:929797437193867304> ${user.tag} banned from the server ! :airplane: **`);
     const banembed = new Discord.RichEmbed()
       .setColor("RED")
-      .setTimestamp()
     	.setImage('https://i.imgur.com/pgXofXt.gif')
+      .setFooter("علوبي")
     message.channel.send({
       embed: banembed
     });
@@ -1502,7 +1502,7 @@ client.on("guildBanAdd", (guild, user) => {
     if (userID === client.user.id) return;
 
     let banInfo = new Discord.RichEmbed()
-      .setTitle("**[BANNED]**")
+      .setTitle("**BANNED**")
       .setThumbnail(userAvatar)
       .setColor("DARK_RED")
       .setDescription(
