@@ -1692,7 +1692,7 @@ client.on("message", message => {
 */
 
 ///// كود خروج الاعضاء
-
+/*
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
       message.delete()
@@ -1725,7 +1725,7 @@ client.on("message", message => {
       channel.send({ embed: embed });
     });
   }
-});
+});*/
 /*
 /////كود سرعة البوت او البينق
 client.on("message", message => {
@@ -4677,7 +4677,6 @@ client.on("message", helpT => {
 \`${prefix}move\` : لسحب الشخص الى روومك
 \`${prefix}reply\` : لصنع رد تلقائي
 \`${prefix}setLog\` : لتحديد روم السجلات 
-\`${prefix}setby\` : تحديد روم المغادرة
 \`${prefix}ls\` : لإظهار جميع بوتات السيرفر
 \`${prefix}role\` : لاعطاء شخص رتبة
 \`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
