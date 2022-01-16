@@ -4651,7 +4651,7 @@ client.on("message", helpT => {
     	.setThumbnail('https://i.imgur.com/NRYF2ma.png')
 	    .setTitle('**TURBO BOT Commands <a:grs:922517063774400563> **')
       .setDescription( `**
-<a:gna7sh:930187075649679401> الأوامر العامة <a:gna7ym:930187081299423263>
+<a:gna7ym:930187081299423263> الأوامر العامة <a:gna7sh:930187075649679401> 
 \`${prefix}bot\` : لعرض معلومات عن البوت 
 \`${prefix}user\` : لعرض معلومات عنك 
 \`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
