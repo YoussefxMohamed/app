@@ -2519,7 +2519,7 @@ client.on("message", async message => {
                           });
                       } catch (e) {
                         message.channel.send(
-                          `:heavy_multiplication_x:| **i Don't Have Prem**`
+                          `<a:glt:929681265752412180>| **i Don't Have Prem**`
                         );
                         console.log(e);
                       }
