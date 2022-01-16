@@ -790,6 +790,7 @@ client.on("message", async message => {
             msgg.edit("**اكتب مدة القيف اواي بالدقائق**").then(msg => {
               message.channel
                 .awaitMessages(filter, {
+                
                   max: 1, //HactorMC
                   time: 20000,
                   errors: ["time"]
