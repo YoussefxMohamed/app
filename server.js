@@ -4700,6 +4700,22 @@ client.on("message", helpT => {
 });
 
 
+///Embed 14
+client.on("message", embed14 => {
+  if (embed14.content === prefix + "listTDM") {
+      embed14.delete()
+    return embed14.channel.send(`**
+> <a:1_:932038094088183808> |  ``VS``
+> <a:2_:932038094612471890> |  ``VS``
+**`)
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+	    .setDescription("**> <a:1_:932038094088183808> |  ``VS``\n > <a:2_:932038094612471890> |  ``VS``**")
+    embed14.channel.send(bot);
+  }
+});
+
+
 
 
 
