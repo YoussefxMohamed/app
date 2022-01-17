@@ -4703,21 +4703,25 @@ client.on("message", helpT => {
 client.on("message", embed14 => {
   if (embed14.content === prefix + "listTDM") {
       embed14.delete()
- /*   return embed14.channel.send(`**
-> <a:1_:932038094088183808> |  ``VS``
-> <a:2_:932038094612471890> |  ``VS``
-**`)*/
-    const bot = new Discord.RichEmbed()
+      return embed14.channel.send(`**
+> <a:1_:932038094088183808>  ­­­­­­ <a:vs:932717790106910771>
+
+> <a:2_:932038094612471890>  ­­­­­­       <a:vs:932717790106910771>
+
+> <a:3_:932038094952210432>  ­­­­­­ <a:vs:932717790106910771>
+
+**`)
+    /*const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
 	    .setDescription(`
-> <a:1_:932038094088183808>  ­­ VS
+> <a:1_:932038094088183808>  ­­­­­­ <a:vs:932717790106910771>
 
-> <a:2_:932038094612471890>  ­­ VS
+> <a:2_:932038094612471890>  ­­­­­­ <a:vs:932717790106910771>
 
-> <a:3_:932038094952210432>  ­­ VS <a:vs:885979415199248445>
+> <a:3_:932038094952210432>  ­­­­­­ <a:vs:932717790106910771>
 
 `)
-    embed14.channel.send(bot);
+    embed14.channel.send(bot);*/
   }
 });
 
