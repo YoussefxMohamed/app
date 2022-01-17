@@ -4710,8 +4710,13 @@ client.on("message", embed14 => {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
 	    .setDescription(`
-> <a:1_:932038094088183808>   ``VS``\n > <a:2_:932038094612471890> 
->   ``VS```)
+> <a:1_:932038094088183808>  ­­ VS
+
+> <a:2_:932038094612471890>  ­­ VS
+
+> <a:3_:932038094952210432>  ­­ VS <a:vs:885979415199248445>
+
+`)
     embed14.channel.send(bot);
   }
 });
