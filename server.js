@@ -184,7 +184,7 @@ client.on("message", pixelbot => {
     // itzZa1D - Codes Team.
     if (pixelbot.author.bot) return;
     if (!pixelbot.guild)
-      return pixelbot.reply("**:x: - This Command is only done on Servers**");
+      return pixelbot.reply("**<a:glt:929681265752412180> - This Command is only done on Servers**");
     pixelbot.guild.fetchInvites().then(invites => {
       // itzZa1D - Codes Team.
       let personalInvites = invites.filter(
@@ -195,7 +195,7 @@ client.on("message", pixelbot => {
         .map(roles => `**__${roles.name}__ |**`)
         .join(` `);
       let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
-        .setColor("#00000")
+        .setColor("#FF000000")
         .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
         .addField("**✽ Name :**   ", pixelbot.author.username, true)
@@ -1698,7 +1698,7 @@ client.on("message", message => {
 */
 
 ///// كود خروج الاعضاء
-/*
+
 client.on("message", message => {
   if (message.content.startsWith(prefix + "setby")) {
       message.delete()
@@ -1731,7 +1731,7 @@ client.on("message", message => {
       channel.send({ embed: embed });
     });
   }
-});*/
+});
 /*
 /////كود سرعة البوت او البينق
 client.on("message", message => {
@@ -4713,7 +4713,7 @@ client.on("message", embed14 => {
       embed14.delete()
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-	    .setDescription(`<a:shm2:930795173351407676><a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586><a:hypeshiny:930187068125118474><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7sh:930187075649679401> 
+	    .setDescription(`<a:gna7sh:930187075649679401><a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586><a:hypeshiny:930187068125118474><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>
 
 > <a:1_:932038094088183808>  ­­­­­­  <a:vs:932717790106910771>
 
@@ -4739,7 +4739,7 @@ return خخخخ.channel.send(`**البوت دا طاهر وهيفضل طول ع�
 ///Embed 16
 client.on("message", خخخخ => {
  if (خخخخ.content.startsWith("خخخ")) {
-return خخخخ.channel.send(`**البوت دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`)
+return خخخخ.channel.send(`**السيرفر دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`)
 
   }
 });
