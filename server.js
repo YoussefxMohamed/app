@@ -455,7 +455,7 @@ client.on("message", message => {
       .addField(":earth_africa:✽** Region **", ` ${message.guild.region}`, true)
       .setImage("")
 
-      .setColor("#000000");
+      .setColor("#FF0000");
     message.channel.sendEmbed(embed);
   }
 });
