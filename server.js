@@ -754,7 +754,7 @@ client.on("message", function(message) {
 });
 
 
-
+/*
 ////كود قيف اوي
 client.on("message", async message => {
   var room;
@@ -880,7 +880,7 @@ client.on("message", async message => {
           });
       });
   }
-});
+});*/
 //all copyrighit for revenge https://github.com/Bowlingtoolkit
 
 ///تعديل غير اساسي
