@@ -507,6 +507,7 @@ client.on("message", message => {
         .catch(console.error);
 
     if (message.guild.member(user).removeRole(muteRole.id)) {
+const
       return message
         .reply("**<a:s7gamda:929797437193867304> .. تم فك الميوت عن الشخص **")
         .catch(console.error);
