@@ -4723,14 +4723,9 @@ client.on("message", embed14 => {
 
 ///Embed 15
 client.on("message", خخخخ => {
- if (خخخخ.content.startsWith("خخخ")) {
-    خخخخ.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
-    	.setThumbnail('https://i.imgur.com/NRYF2ma.png')
-	    .setTitle('**TURBO BOT Commands <a:grs:922517063774400563> **')
-      .setDescription( `** السيرفر دا طاهر وهيفضل طول عمره طاهر <a:`)
-    خخخخ.channel.send(bot);
+ if (خخخخ.content.startsWith("!say خخ")) {
+return خخخخ.channel.send(`**البوت دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`)
+
   }
 });
 
