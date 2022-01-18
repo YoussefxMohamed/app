@@ -84,10 +84,10 @@ client.on("message", message => {
 });
 
 
-/*
+
 ////كود تيكت
 client.on("message", message => {
-  if (message.content.startsWith(prefix + "new")) {
+  if (message.content.startsWith(prefix + "بس يابااااااااااااااااااا")) {
     const reason = message.content
       .split(" ")
       .slice(1)
@@ -4671,8 +4671,9 @@ client.on("message", helpT => {
 \`${prefix}close\` : لقفل الشات 
 \`${prefix}mute\` : لإسكات شخص
 \`${prefix}unmute\` : لـ فك إسكات شخص
-\`${prefix}new\` : فتح التكت
+\`${prefix}setup\` : إنشاء تيكت
 \`${prefix}closet\` : لحذف روم التكت
+\`${prefix}start\` : لإنشاء جيفاواي
 \`${prefix}say\` : البوت يكرر كلامك
 \`${prefix}move\` : لسحب الشخص الى روومك
 \`${prefix}reply\` : لصنع رد تلقائي
