@@ -605,6 +605,7 @@ client.on("message", message => {
         SEND_MESSAGES: false
       })
       .then(() => {
+    message.delete()
     const bot = new Discord.RichEmbed()
                 .setColor("#FFEB3B")
                 .setTitle(`> **تم قفل التشانل    <a:s7gamda:929797437193867304>**`)
@@ -621,6 +622,7 @@ client.on("message", message => {
         SEND_MESSAGES: true
       })
       .then(() => {
+    message.delete()
     const bot = new Discord.RichEmbed()
                 .setColor("#FFEB3B")
                 .setTitle(`> **تم فتح التشانل    <a:s7gamda:929797437193867304>**`)
