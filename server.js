@@ -4744,19 +4744,21 @@ return خخخخ.channel.send(`**البوت دا طاهر وهيفضل طول ع�
 
 ///Embed 17
 client.on("message", embed17 => {
- if (embed17.content.startsWith("!say خخ")) {
+ if (embed17.content.startsWith(prefix + "اثبت نفسك")) {
+    embed17.delete()
     const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
+      .setColor("#03A9F4")
 	    .setDescription(`
 **DJ | لاخذ رول تشغيل الأغاني في السيرفر | :musical_note: 
 PC | لو انت كمبيوتر مش محتاجه يعني |  :desktop: 
 Mobile | لو انت موبايل سهله اهي | :mobile_phone: 
-90 Frame | :90fps: 
-60 Frame | :60fps: 
+90 Frame | :heart_on_fire: 
+60 Frame |  :pirate_flag:  
 **
 
 `)
-    embed14.channel.send(bot);
+      .setImage("")
+    embed17.channel.send(bot);
   }
 });
 
