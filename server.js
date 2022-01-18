@@ -455,7 +455,7 @@ client.on("message", message => {
       .addField(":earth_africa:✽** Region **", ` ${message.guild.region}`, true)
       .setImage("")
 
-      .setColor("#FF0000");
+      .setColor("#000000");
     message.channel.sendEmbed(embed);
   }
 });
@@ -507,18 +507,19 @@ client.on("message", message => {
         .catch(console.error);
 
     if (message.guild.member(user).removeRole(muteRole.id)) {
-const
-      return message
-        .reply("**<a:s7gamda:929797437193867304> .. تم فك الميوت عن الشخص **")
-        .catch(console.error);
+const avtEmbed = new Discord.RichEmbed()
+          .setColor("#FFEB3B")
+          .setDescription(`> **<a:s7gamda:929797437193867304>    تم فك الميوت عن الشخص **`)
+        message.channel.send(avtEmbed);
     } else {
       message.guild
         .member(user)
         .removeRole(muteRole)
         .then(() => {
-          return message
-            .reply("**<a:s7gamda:929797437193867304> .. تم فك الميوت عن الشخص **")
-            .catch(console.error);
+          const avtEmbed = new Discord.RichEmbed()
+          .setColor("#FFEB3B")
+          .setDescription(`> **<a:s7gamda:929797437193867304>    تم فك الميوت عن الشخص **`)
+      message.channel.send(avtEmbed);
         });
     }
   }
