@@ -79,7 +79,6 @@ client.on("message", message => {
       );
 
     message.channel.send(" " + args.join("  "));
-    message.delete();
   }
 });
 
@@ -147,6 +146,7 @@ client.on("message", message => {
     message.channel
       .delete()
       .catch(e => message.channel.send("Check my permissions!"));
+
   }
 });
 
@@ -176,7 +176,7 @@ client.on("message", async message => {
     }
   }
 });
-/*
+
 //// كود معلومات الشخص او اليوزر
 client.on("message", pixelbot => {
   // itzZa1D - Codes Team.
@@ -218,7 +218,7 @@ client.on("message", pixelbot => {
     });
   }
 }); // itzZa1D - Codes Team.
-*/
+
 ////كود معلومات البوت
 client.on("message", message => {
   if (message.content === prefix + "bot") {
@@ -455,7 +455,7 @@ client.on("message", message => {
       .addField(":earth_africa:✽** Region **", ` ${message.guild.region}`, true)
       .setImage("")
 
-      .setColor("#000000");
+      .setColor("#FC0000");
     message.channel.sendEmbed(embed);
   }
 });
@@ -574,17 +574,19 @@ client.on("message", message => {
         .catch(console.error);
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
-      return message
-        .reply("**<a:s7gamda:929797437193867304> .. تم اعطاء العضو ميوت**")
-        .catch(console.error);
+          const avtEmbed = new Discord.RichEmbed()
+          .setColor("#FF1100")
+          .setDescription(`> **<a:s7gamda:929797437193867304>    تم اعطاء العضو ميوت **`)
+      message.channel.send(avtEmbed);
     } else {
       message.guild
         .member(user)
         .addRole(muteRole)
         .then(() => {
-          return message
-            .reply("**<a:s7gamda:929797437193867304> .. تم اعطاء العضو ميوت كتابي**")
-            .catch(console.error);
+          const avtEmbed = new Discord.RichEmbed()
+          .setColor("#FF1100")
+          .setDescription(`> **<a:s7gamda:929797437193867304>    تم اعطاء العضو ميوت كتابي**`)
+      message.channel.send(avtEmbed);
         });
     }
   }
