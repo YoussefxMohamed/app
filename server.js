@@ -4734,6 +4734,35 @@ return خخخخ.channel.send(`**البوت دا طاهر وهيفضل طول ع�
 });
 
 
+///Embed 16
+client.on("message", خخخخ => {
+ if (خخخخ.content.startsWith("خخخ")) {
+return خخخخ.channel.send(`**البوت دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`)
+
+  }
+});
+
+///Embed 17
+client.on("message", embed17 => {
+ if (embed17.content.startsWith("!say خخ")) {
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+	    .setDescription(`
+**DJ | لاخذ رول تشغيل الأغاني في السيرفر | :musical_note: 
+PC | لو انت كمبيوتر مش محتاجه يعني |  :desktop: 
+Mobile | لو انت موبايل سهله اهي | :mobile_phone: 
+90 Frame | :90fps: 
+60 Frame | :60fps: 
+**
+
+`)
+    embed14.channel.send(bot);
+  }
+});
+
+
+
+
 
 
 
