@@ -12,7 +12,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(`https://turbo-bot-finsal.glitch.me/`);
+  http.get(`https://turbo-bot-finsal.glitch.me`);
 }, 280000);
 
 ////بكجات
