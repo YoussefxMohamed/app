@@ -3116,7 +3116,7 @@ client.on("message", (message) => {
 
 ////كود رابط
 ////تعديل غير اساسي
-/*
+
 client.on("message", message => {
   if (message.content.split(" ")[0] === prefix + "رابط") {
     message.channel
@@ -3144,7 +3144,7 @@ client.on("message", message => {
 
     message.author.sendEmbed(Embed11);
   }
-});*/
+});
 
 ////لايحتاج تعديل
 ////كود الفويس اونلاين
