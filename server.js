@@ -4782,14 +4782,20 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 
 
 ///warn
-client.on("message", message => {
-  if (message.content === prefix + "listTDM") {
-      message.delete()
-      const bot = new Discord.RichEmbed()
+const db = require("old-wio.db");
+module.exports = {
+    config: {
+        name: "warn",
+        description: "warn members",
+        category: 'mod',
+        usage: "m/warn <mention member/member id> [reason]",
+        aliases: []
+    },
+    run: async (bot, message, args) => {
+        let warnPermErr = new MessageEmbed()
         .setTitle("**User Permission Error!**")
         .setDescription("**Sorry, you don't have permissions to use this! ❌**")
-            if(!message.channel.permissionsFor(message.member).has(['MANAGE_MESSAGES'])) 
-           return message.channel.send(warnPermErr);
+            if(!message.channel.permissionsFor(message.member).has(['MANAGE_MESSAGES'])) return message.channel.send(warnPermErr);
     
             let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
             if(!member) return message.reply("Please mention a valid member of this server");
@@ -4797,7 +4803,7 @@ client.on("message", message => {
             let reason = args.slice(1).join(' ');
             if(!reason) reason = "(No Reason Provided)";
             
-        /*    let warnings = await db.fetch(`warnings_${message.guild.id}_${member.id}`)*/
+            let warnings = await db.fetch(`warnings_${message.guild.id}_${member.id}`)
             
             if(warnings === 3) {
       return message.channel.send(`${member} already reached his/her limit with 3 warnings`)
@@ -4832,9 +4838,9 @@ client.on("message", message => {
 
             message.channel.send(ddEmbed)
     }
-  }
+
+    }
 }
-          
 
 
 
