@@ -184,7 +184,7 @@ client.on("message", (pixelbot) => {
         .join(` `);
       let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
         .setColor("#FFEB3B")
-        .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
+        .setTitle(" :beginner: | User Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
         .addField("**✽ Name :**   ", pixelbot.author.username, true)
         .addField("**✽ Tag :**   ", pixelbot.author.discriminator, true)
@@ -192,7 +192,7 @@ client.on("message", (pixelbot) => {
         .addField(
           "**✽ Joined At :**   ",
           moment(pixelbot.joinedAt).format("D/M/YYYY h:mm a "),
-          true
+          false
         )
         .addField(
           "**✽ Created At :**    ",
