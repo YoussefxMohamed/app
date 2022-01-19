@@ -183,7 +183,7 @@ client.on("message", (pixelbot) => {
         .map((roles) => `**__${roles.name}__ |**`)
         .join(` `);
       let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
-        .setColor("#FF000000")
+        .setColor("#FFEB3B")
         .setTitle(" :beginner: :heartpulse:   | Use  r Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
         .addField("**✽ Name :**   ", pixelbot.author.username, true)
