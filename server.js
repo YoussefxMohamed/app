@@ -3126,7 +3126,7 @@ client.on("message", message => {
         maxAge: 86400
       })
       .then(invite => message.author.send(invite.url));
-    const embed = new Discord.RichEmbed()
+   /* const embed = new Discord.RichEmbed()
       .setColor("RANDOM")
       .setDescription(
         "** تم ارسال الرابط على الخاص ، اذا لم يصلك افتح الخاص  **"
@@ -3137,7 +3137,7 @@ client.on("message", message => {
 
     message.channel.sendEmbed(embed).then(message => {
       message.delete(10000);
-    });
+    });*/
     const Embed11 = new Discord.RichEmbed().setColor("RANDOM")
       .setDescription(`** مدة الرابط : يوم 
  عدد استخدامات الرابط : 5 **`);
