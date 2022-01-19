@@ -4780,7 +4780,7 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
   }
 });
 
-
+/*
 ///warn
 const db = require("old-wio.db");
 module.exports = {
@@ -4840,8 +4840,96 @@ module.exports = {
     }
 
     }
-}
+}*/
 
+///warn2
+client.on("message", message => {
+if(!message.member.hasPermission("ADMINISTRATOR")) {
+      return message.channel.send("You should have admin perms to use this command!")
+    }
+    
+    const user = message.mentions.members.first()
+    
+     if(!user) {
+      return message.channel.send("Please Mention the person to who you want to warn - warn @mention <reaosn>")
+    }
+
+
+ if(message.mentions.users.first().bot) {
+      return message.channel.send("You can not warn bots")
+    }
+
+ if(message.author.id === user.id) {
+      return message.channel.send("You can not warn yourself")
+    }
+
+    if(message.author.id === message.guild.owner.id) {
+      return message.channel.send("You jerk, how you can warn server owner -_-")
+    }
+
+const reason = args.slice(1).join(" ")
+
+  if(!reason) {
+      return message.channel.send("Please provide reason to warn - warn @mention <reason>")
+    }
+
+ let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
+
+ if(warnings === 3) {
+      return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
+    }
+
+ if(warnings === null) {
+        db.set(`warnings_${message.guild.id}_${user.id}`, 1)
+       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
+      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)//DO NOT FORGET TO USE ASYNC FUNCTION
+    }
+
+else if(warnings !== null) {
+        db.add(`warnings_${message.guild.id}_${user.id}`, 1)
+       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
+      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`) //DO NOT FORGET TO USE ASYNC FUNCTION
+    }
+
+const user = message.mentions.members.first() || message.author
+let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
+
+ if(warnings === null) warnings = 0;
+
+ message.channel.send(`${user} have **${warnings}** warning(s)`)
+
+    if(!message.member.hasPermission("ADMINISTRATOR")) {
+      return message.channel.send("Yopu should have admin perms to use this command")
+    }
+    
+    const user = message.mentions.members.first()
+    
+    if(!user) {
+    return message.channel.send("Please mention the person whose warning you want to reset")
+    }
+    
+    if(message.mentions.users.first().bot) {
+      return message.channel.send("Bot are not allowed to have warnings")
+    }
+
+ if(message.author.id === user.id) {
+      return message.channel.send("You are not allowed to reset your warnings")
+    }
+    
+    let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
+    
+
+ if(warnings === null) {
+      return message.channel.send(`${message.mentions.users.first().username} do not have any warnings`)
+    }
+
+ db.delete(`warnings_${message.guild.id}_${user.id}`)
+    user.send(`Your all warnings are reseted by ${message.author.username} from ${message.guild.name}`)
+    await message.channel.send(`Reseted all warnings of ${message.mentions.users.first().username}`) //DO NOT FORGET TO USE ASYNC FUNCTION
+    
+
+}
+});
 
 
 
