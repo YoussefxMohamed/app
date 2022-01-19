@@ -4780,156 +4780,63 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
   }
 });
 
-/*
 ///warn
-const db = require("old-wio.db");
+const db = require("quick.db")
+
 module.exports = {
-    config: {
-        name: "warn",
-        description: "warn members",
-        category: 'mod',
-        usage: "m/warn <mention member/member id> [reason]",
-        aliases: []
-    },
-    run: async (bot, message, args) => {
-        let warnPermErr = new MessageEmbed()
-        .setTitle("**User Permission Error!**")
-        .setDescription("**Sorry, you don't have permissions to use this! ❌**")
-            if(!message.channel.permissionsFor(message.member).has(['MANAGE_MESSAGES'])) return message.channel.send(warnPermErr);
+  name: "warn",
+  category: "moderation",
+  usage: "warn <@mention> <reason>",
+  description: "Warn anyone who do not obey the rules",
+  run: async (client, message, args) => {
     
-            let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-            if(!member) return message.reply("Please mention a valid member of this server");
-        
-            let reason = args.slice(1).join(' ');
-            if(!reason) reason = "(No Reason Provided)";
-            
-            let warnings = await db.fetch(`warnings_${message.guild.id}_${member.id}`)
-            
-            if(warnings === 3) {
-      return message.channel.send(`${member} already reached his/her limit with 3 warnings`)
-    }
-    
-    if(warnings === null) {
-            
-            db.set(`warnings_${message.guild.id}_${member.id}`, 1)
-            
-            member.send(`You have been warned by <${message.author.username}> for this reason: ${reason}`)
-            .catch(error => message.channel.send(`Sorry <${message.author}> I couldn't n't warn because of : ${error}`));
-            let warnEmbed = new MessageEmbed()
-            .setTitle("**__Warn Report__**")
-            .setDescription(`**<@${member.user.id}> has been warned by <@${message.author.id}>**`)
-            .addField(`**Reason:**`, `\`${reason}\``)
-            .addField(`**Action:**`, `\`Warn\``)
-            .addField(`**Moderator:**`, `${message.author}`)
-
-            message.channel.send(warnEmbed).then(msg => msg.delete({
-              timeout: 5000
-            }));
-    } else if (warnings !== null) {
-      db.add(`warnings_${message.guild.id}_${member.id}`, 1)
-      member.send(`You have been warned by <${message.author.username}> for this reason: ${reason}`)
-            .catch(error => message.channel.send(`Sorry <${message.author}> I couldn't n't warn because of : ${error}`));
-            let ddEmbed = new MessageEmbed()
-            .setTitle("**__Warn Report__**")
-            .setDescription(`**<@${member.user.id}> has been warned by <@${message.author.id}>**`)
-            .addField(`**Reason:**`, `\`${reason}\``)
-            .addField(`**Action:**`, `\`Warn\``)
-            .addField(`**Moderator:**`, `${message.author}`)
-
-            message.channel.send(ddEmbed)
-    }
-
-    }
-}*/
-
-///warn2
-client.on("message", message => {
-if(!message.member.hasPermission("ADMINISTRATOR")) {
+    if(!message.member.hasPermission("ADMINISTRATOR")) {
       return message.channel.send("You should have admin perms to use this command!")
     }
     
     const user = message.mentions.members.first()
     
-     if(!user) {
-      return message.channel.send("Please Mention the person to who you want to warn - warn @mention <reaosn>")
-    }
-
-
- if(message.mentions.users.first().bot) {
-      return message.channel.send("You can not warn bots")
-    }
-
- if(message.author.id === user.id) {
-      return message.channel.send("You can not warn yourself")
-    }
-
-    if(message.author.id === message.guild.owner.id) {
-      return message.channel.send("You jerk, how you can warn server owner -_-")
-    }
-
-const reason = args.slice(1).join(" ")
-
-  if(!reason) {
-      return message.channel.send("Please provide reason to warn - warn @mention <reason>")
-    }
-
- let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
-
- if(warnings === 3) {
-      return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
-    }
-
- if(warnings === null) {
-        db.set(`warnings_${message.guild.id}_${user.id}`, 1)
-       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
-      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)//DO NOT FORGET TO USE ASYNC FUNCTION
-    }
-
-else if(warnings !== null) {
-        db.add(`warnings_${message.guild.id}_${user.id}`, 1)
-       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
-      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`) //DO NOT FORGET TO USE ASYNC FUNCTION
-    }
-
-const user = message.mentions.members.first() || message.author
-let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
-
- if(warnings === null) warnings = 0;
-
- message.channel.send(`${user} have **${warnings}** warning(s)`)
-
-    if(!message.member.hasPermission("ADMINISTRATOR")) {
-      return message.channel.send("Yopu should have admin perms to use this command")
-    }
-    
-    const user = message.mentions.members.first()
-    
     if(!user) {
-    return message.channel.send("Please mention the person whose warning you want to reset")
+      return message.channel.send("Please Mention the person to who you want to warn - warn @mention <reaosn>")
     }
     
     if(message.mentions.users.first().bot) {
-      return message.channel.send("Bot are not allowed to have warnings")
+      return message.channel.send("You can not warn bots")
     }
-
- if(message.author.id === user.id) {
-      return message.channel.send("You are not allowed to reset your warnings")
+    
+    if(message.author.id === user.id) {
+      return message.channel.send("You can not warn yourself")
+    }
+    
+    if(user.id === message.guild.owner.id) {
+      return message.channel.send("You jerk, how you can warn server owner -_-")
+    }
+    
+    const reason = args.slice(1).join(" ")
+    
+    if(!reason) {
+      return message.channel.send("Please provide reason to warn - warn @mention <reason>")
     }
     
     let warnings = db.get(`warnings_${message.guild.id}_${user.id}`)
     
-
- if(warnings === null) {
-      return message.channel.send(`${message.mentions.users.first().username} do not have any warnings`)
+    if(warnings === 3) {
+      return message.channel.send(`${message.mentions.users.first().username} already reached his/her limit with 3 warnings`)
     }
-
- db.delete(`warnings_${message.guild.id}_${user.id}`)
-    user.send(`Your all warnings are reseted by ${message.author.username} from ${message.guild.name}`)
-    await message.channel.send(`Reseted all warnings of ${message.mentions.users.first().username}`) //DO NOT FORGET TO USE ASYNC FUNCTION
     
-
+    if(warnings === null) {
+      db.set(`warnings_${message.guild.id}_${user.id}`, 1)
+      user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
+      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
+    } else if(warnings !== null) {
+        db.add(`warnings_${message.guild.id}_${user.id}`, 1)
+       user.send(`You have been warned in **${message.guild.name}** for ${reason}`)
+      await message.channel.send(`You warned **${message.mentions.users.first().username}** for ${reason}`)
+    }
+    
+  
+  } 
 }
-});
 
 
 
