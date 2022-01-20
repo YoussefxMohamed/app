@@ -69,10 +69,11 @@ client.on("message", (message) => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "say") {
-    if (!message.member.hasPermission("ADMINISTRATOR"))
+message.delete()
+   /* if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         "**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**"
-      );
+      );*/
 
     message.channel.send(" " + args.join("  "));
   }
@@ -4859,12 +4860,8 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 
 
 /// TEST
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+const clientt = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 const db = require("quick.db")
-
-
-
-const prefix = "!"
 
 client.on("message", async message => {
   if(message.content.startsWith(prefix + "react")){
@@ -4875,7 +4872,7 @@ client.on("message", async message => {
     if(!args[3]) return message.channel.send("Please include the id of the role ID");
     if(isNaN(args[3])) return message.channel.send("Please include a valid ID for the role that should be given upon reaction.");
     let emoji = ReactionEmojiGrab(args[1]);
-    if(!isNaN(emoji)) emoji = client.emojis.cache.get(emoji);
+    if(!isNaN(emoji)) emoji = clientt.emojis.cache.get(emoji);
     try{
       const msg = await message.channel.messages.fetch(args[2]);
       await msg.react(emoji);
