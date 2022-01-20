@@ -3118,31 +3118,15 @@ client.on("message", (message) => {
 ////تعديل غير اساسي
 
 client.on("message", message => {
-  if (message.content.split(" ")[0] === prefix + "رابط") {
+  if (message.content.split(" ")[0] === "رابط") {
     message.channel
       .createInvite({
         thing: true,
         maxUses: 5,
         maxAge: 86400
       })
-      .then(invite => message.author.send(invite.url));
-   /* const embed = new Discord.RichEmbed()
-      .setColor("RANDOM")
-      .setDescription(
-        "** تم ارسال الرابط على الخاص ، اذا لم يصلك افتح الخاص  **"
-      )
-      .setAuthor(client.user.username, client.user.avatarURL)
-      .setAuthor(client.user.username, client.user.avatarURL)
-      .setFooter("طلب بواسطة: " + message.author.tag);
-
-    message.channel.sendEmbed(embed).then(message => {
-      message.delete(10000);
-    });*/
-    const Embed11 = new Discord.RichEmbed().setColor("RANDOM")
-      .setDescription(`** مدة الرابط : يوم 
- عدد استخدامات الرابط : 5 **`);
-
-    message.author.sendEmbed(Embed11);
+return message.reply 
+      .then( invite => message.channel.send(invite.url));
   }
 });
 
