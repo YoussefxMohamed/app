@@ -1474,7 +1474,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
         .setThumbnail(oldMember.guild.iconURL)
         .setColor("RED")
         .setDescription(
-          `**\n**:negative_squared_cross_mark: Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> (ID: ${oldMember.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> (ID: ${oldMember.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
         .setFooter(userTag, userAvatar);
