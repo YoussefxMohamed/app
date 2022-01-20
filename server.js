@@ -237,14 +237,13 @@ client.on("message", (message) => {
   if (command == "ban") {
     if (message.author.bot) return;
     if (!message.channel.guild)
-      return message.reply("** This command only for servers**");
+      return message.send("** This command only for servers**");
 
     if (!message.guild.member(message.author).hasPermission("BAN_MEMBERS"))
       return message.reply("**انت لا تملك الصلاحيات المطلوبه**");
     if (!message.guild.member(client.user).hasPermission("BAN_MEMBERS"))
-      return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
+      return message.reply("**انا لا امتلك ` BAN_MEMBERS ` Permission**");
     let user = message.mentions.users.first();
-message.delete()
     if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
     if (
       message.mentions.members.first().highestRole.position >=
