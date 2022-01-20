@@ -235,7 +235,6 @@ client.on("message", (message) => {
   let args = message.content.split(" ").slice(1);
 
   if (command == "ban") {
-message.delte()
     if (message.author.bot) return;
     if (!message.channel.guild)
       return message.reply("** This command only for servers**");
@@ -245,7 +244,7 @@ message.delte()
     if (!message.guild.member(client.user).hasPermission("BAN_MEMBERS"))
       return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
     let user = message.mentions.users.first();
-
+message.delete()
     if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
     if (
       message.mentions.members.first().highestRole.position >=
