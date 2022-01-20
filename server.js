@@ -3119,14 +3119,13 @@ client.on("message", (message) => {
 
 client.on("message", message => {
   if (message.content.split(" ")[0] === "رابط") {
-    message.send(`<a:rks:933077528933990401><a:rks:933077528933990401>`)
-    message.channel
-      .createInvite({
-        thing: true,
-        maxUses: 5,
-        maxAge: 86400
-      })
-      .then( invite => message.channel.send(invite.url));
+return message.channel.send(`
+> <a:rks:933077528933990401><a:rks:933077528933990401><a:rks:933077528933990401>
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+> https://discord.gg/mqkaUdE5dK
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+`)
+
   }
 });
 
