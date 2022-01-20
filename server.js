@@ -244,14 +244,14 @@ client.on("message", (message) => {
     if (!message.guild.member(client.user).hasPermission("BAN_MEMBERS"))
       return message.reply("**انا لا امتلك ` BAN_MEMBERS ` Permission**");
     let user = message.mentions.users.first();
-    if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+    if (message.mentions.users.size < 1) return message.send("**منشن شخص**");
     if (
       message.mentions.members.first().highestRole.position >=
       message.member.highestRole.position
     )
       return message.channel.send("ما تقدر تبند شخص رتبته اعلى منك!");
     if (!message.guild.member(user).bannable)
-      return message.reply(
+      return message.send(
         "**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**"
       );
 
