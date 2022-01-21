@@ -4857,73 +4857,32 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 });
 
 
+///Embed 11
+client.on("message", (embed18) => {
+  if (embed18.content === prefix + "helpT") {
+    embed18.delete();
+    const bot = new Discord.RichEmbed()
+      .setColor("#03A9F4")
+      .setThumbnail("https://i.imgur.com/uUqpetM.gif")
+      .setDescription(
+        `**
+<a:hypeshiny:930187068125118474> ༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡 𝙎𝘾𝙍𝙄𝙈𝙎 <a:hypeshiny:930187068125118474>
+ 
 
-/// TEST
-const clientt = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
-const db = require("quick.db")
-
-client.on("message", async message => {
-  if(message.content.startsWith(prefix + "react")){
-    const args = message.content.split(" ");
-    if(!args[1]) return message.channel.send("Please include an emoji");
-    if(!args[2]) return message.channel.send("There must be an id for the message");
-    if(isNaN(args[2])) return message.channel.send("Please include a valid message id");
-    if(!args[3]) return message.channel.send("Please include the id of the role ID");
-    if(isNaN(args[3])) return message.channel.send("Please include a valid ID for the role that should be given upon reaction.");
-    let emoji = ReactionEmojiGrab(args[1]);
-    if(!isNaN(emoji)) emoji = clientt.emojis.cache.get(emoji);
-    try{
-      const msg = await message.channel.messages.fetch(args[2]);
-      await msg.react(emoji);
-      
-      db.push(`${message.guild.id}.reactionroles`, 
-        {
-          message: msg.id,
-          emoji: emoji.id || emoji,
-          role: args[3]
-        }
-      );
-    }catch(e){
-      message.channel.send("Error\n" + e);
-    }
+<a:shm2:930795173351407676> 𝙈𝙑𝙋 𝙏𝙚𝙖𝙢 𝙁𝙤𝙧 𝙇𝙖𝙨𝙩 𝙎𝙘𝙧𝙞𝙢 
+ 
+<a:shm2:930795173351407676> <a:shm2:930795173351407676> <a:gna7sh:930187075649679401> WINNER <a:gna7ym:930187081299423263> 
+ 
+ 
+Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag:929797450061987880>
+@here
+ **`
+      )
+      /*   .setImage()*/
+      .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
+    embed18.channel.send(bot);
   }
-})
+});
 
-client.on("messageReactionAdd", (reaction, user) => {
-  if(user.bot) return;
-  const reactionRoles = db.get(`${reaction.message.guild.id}.reactionroles`);
-  if(!reactionRoles) return;
-  reactionRoles.forEach(async reactionRole => {
-    if((reactionRole.emoji === reaction._emoji.name || reactionRole.emoji == reaction._emoji.id) && reactionRole.message == reaction.message.id){
-      try{
-        await reaction.message.guild.members.cache.get(user.id).roles.add(reactionRole.role)
-      }catch(e){
-        console.log(e);
-      }
-    }
-  });
-})
 
-client.on("messageReactionRemove", (reaction, user) => {
-  if(user.bot) return;
-  const reactionRoles = db.get(`${reaction.message.guild.id}.reactionroles`);
-  if(!reactionRoles) return;
-  reactionRoles.forEach(async reactionRole => {
-    if((reactionRole.emoji === reaction._emoji.name || reactionRole.emoji == reaction._emoji.id) && reactionRole.message == reaction.message.id){
-      try{
-        await reaction.message.guild.members.cache.get(user.id).roles.remove(reactionRole.role)
-      }catch(e){
-        console.log(e);
-      }
-    }
-  });
-})
 
-function ReactionEmojiGrab(reactionArg){
-  const contents = reactionArg.substring(1, reactionArg.length - 1).split(":");
-  if(contents.length > 1){
-    return contents[2];
-  }else{
-    return reactionArg;
-  }
-}
