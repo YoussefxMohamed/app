@@ -4861,21 +4861,16 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 client.on("message", (embed18) => {
   if (embed18.content === prefix + "helpT") {
     embed18.delete();
+    embed18.react("a:s7gamda:929797437193867304");
     const bot = new Discord.RichEmbed()
-      .setColor("#03A9F4")
-      .setThumbnail("https://i.imgur.com/uUqpetM.gif")
+            .setAuthor(
+              `Music Commands 🎶`,"https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif"
+            )
+      .setColor("#FFEB3B")
+      .setThumbnail("https://i.imgur.com/NRYF2ma.png")
       .setDescription(
         `**
-<a:hypeshiny:930187068125118474> ༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡 𝙎𝘾𝙍𝙄𝙈𝙎 <a:hypeshiny:930187068125118474>
- 
-
-<a:shm2:930795173351407676> 𝙈𝙑𝙋 𝙏𝙚𝙖𝙢 𝙁𝙤𝙧 𝙇𝙖𝙨𝙩 𝙎𝙘𝙧𝙞𝙢 
- 
-<a:shm2:930795173351407676> <a:shm2:930795173351407676> <a:gna7sh:930187075649679401> WINNER <a:gna7ym:930187081299423263> 
- 
- 
-Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag:929797450061987880>
-@here
+TEST
  **`
       )
       /*   .setImage()*/
