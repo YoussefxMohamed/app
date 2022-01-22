@@ -26,7 +26,7 @@
     "discord.js": "^11.6.4",
     "old-wio.db": "^4.0.10",
     "enmap": "^4.8.1",
-    "express": "^4.17.1",
+    "express": "^4.17.2",
     "ffmpeg": "^0.0.4",
     "ffmpeg-binaries": "^4.0.0",
     "figlet": "^1.2.1",
