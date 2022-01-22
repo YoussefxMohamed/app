@@ -4919,7 +4919,7 @@ client.on("message", (embed18) => {
 
 
 ///test
-  if(message.author.bot || !message.guild || !message.content.startsWith(prefix)) return;
+  if(message.author.bot || !message.guild || !message.content.startsWith(prefix));
 const args = message.content.slice(prefix.length).trim().split(/ +/), commandName = args.shift().toLowerCase();
 if(commandName == 'setline'){
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(``);
@@ -4957,21 +4957,17 @@ client.on("ready", () => {
 
 client.on('message', message => {
   if(message.content.startsWith(prefix + 'info')) {
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
 try{  
     if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("");
       if (message.guild.id != `${linedata[message['guild'].id].serverId}`) return message.channel.send("This info Not Found");
       if(message.author.bot) return;
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
       if(message.author.id != `${linedata[message['guild'].id].by}`) return message.channel.send("You are Not owner ship info");
     
     const infoEmbed = new Discord.MessageEmbed()
       .setTitle(`Info ${message.guild.name} Server Line 
 
       `)
-      .setC
+      .setColor("#00BCD4F")
 
       .setImage(`${linedata[message['guild'].id].images}`)
       .setDescription(`
