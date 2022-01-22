@@ -1657,7 +1657,7 @@ client.on("message", (message) => {
   if (message.content === "خط_بارت") {
     message.delete();
     const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
+      .setColor("#F44336")
       .setImage(`https://i.imgur.com/GoOgpUO.gif`)
     message.channel.send(bot);
   }
@@ -1666,8 +1666,8 @@ client.on("message", (message) => {
   if (message.content === "خط_ايدي") {
     message.delete();
     const bot = new Discord.RichEmbed()
-      .setColor("#00BCD4")
-      .setImage(`https://i.imgur.com/GoOgpUO.gif`)
+      .setColor("#FF5722")
+      .setImage(`https://i.imgur.com/hy5IrC0.gif`)
     message.channel.send(bot);
   }
 });
