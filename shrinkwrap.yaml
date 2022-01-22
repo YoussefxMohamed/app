@@ -9,8 +9,8 @@ dependencies:
   canvas-prebuilt: 1.6.11
   cleverbot.io: 1.0.4
   common-tags: 1.8.0
-  dateformat: 5.0.2
-  delay: 4.3.0
+  dateformat: 3.0.3
+  delay: 5.0.0
   discord-anti-spam: 2.4.0
   discord.js: 11.6.4
   discord.js-v12: 12.5.3
@@ -1962,12 +1962,10 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
-  /dateformat/5.0.2:
+  /dateformat/3.0.3:
     dev: false
-    engines:
-      node: '>=12.20'
     resolution:
-      integrity: sha512-h9vywpuz+ReixnJTwFx5JLtZpS8eLCbRm8shwwKkCKOZA547N6yoMtD3W91Z6+NFZ8wOaZlcaCcK/w+kELhSVg==
+      integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
   /debug/2.2.0:
     dependencies:
       ms: 0.7.1
@@ -2195,12 +2193,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-817qfXBekzuvE7LwOz+D2SFAOz4=
-  /delay/4.3.0:
+  /delay/5.0.0:
     dev: false
     engines:
-      node: '>=6'
+      node: '>=10'
     resolution:
-      integrity: sha512-Lwaf3zVFDMBop1yDuFZ19F9WyGcZcGacsbdlZtWjQmM50tOcMntm1njF/Nb/Vjij3KaSvCF+sEYGKrrjObu2NA==
+      integrity: sha512-ReEBKkIfe4ya47wlPYf/gu5ib6yUG0/Aez0JQZQz94kiWtRQvZIQbTiehsnwHvLSWJnQdhVeqYue7Id1dKr0qw==
   /delayed-stream/0.0.5:
     dev: false
     engines:
@@ -8091,8 +8089,8 @@ specifiers:
   canvas-prebuilt: ^1.6.11
   cleverbot.io: ^1.0.4
   common-tags: ^1.8.0
-  dateformat: ^5.0.2
-  delay: ^4.1.0
+  dateformat: ^3.0.3
+  delay: ^5.0.0
   discord-anti-spam: ^2.0.0
   discord.js: ^11.6.4
   discord.js-v12: ^12.5.3
