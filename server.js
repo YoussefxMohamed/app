@@ -4343,7 +4343,7 @@ client.on("messageCreate", async (message) => {
 
 ///Embed Message
 client.on("message", (embed1) => {
-  if (embed1.content === prefix + "embed1") {
+  if (embed1.content === prefix + "Ttdm") {
     embed1.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
@@ -4361,6 +4361,7 @@ Logo `,
       .setImage("https://i.imgur.com/P9QVop4.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed1.channel.send(bot);
+return embed1.channel.send("@everyone")
   }
 });
 
@@ -4386,12 +4387,13 @@ Logo `,
       .setImage("https://i.imgur.com/NmrD2dX.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed2.channel.send(bot2);
+return embed2.channel.send("@everyone")
   }
 });
 
 ///Embed 3
 client.on("message", (embed3) => {
-  if (embed3.content === prefix + "embed3") {
+  if (embed3.content === prefix + "serverRULE") {
     embed3.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
@@ -4430,12 +4432,13 @@ client.on("message", (embed3) => {
       .setImage("https://probot.media/FCI8yRTiYE.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed3.channel.send(bot);
+return embed3.channel.send("@everyone")
   }
 });
 
 ///Embed 4
 client.on("message", (embed4) => {
-  if (embed4.content === prefix + "embed4") {
+  if (embed4.content === prefix + "claLIST") {
     embed4.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
@@ -4464,6 +4467,7 @@ client.on("message", (embed4) => {
       .setImage("https://probot.media/0Nl8JidD17.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed4.channel.send(bot);
+return embed4.channel.send("@everyone")
   }
 });
 
@@ -4502,6 +4506,7 @@ Kill 1 Point
       .setImage("https://probot.media/JadMOeIOtg.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed5.channel.send(bot);
+return embed5.channel.send("@everyone")
   }
 });
 
@@ -4532,6 +4537,7 @@ client.on("message", (embed6) => {
       .setImage("https://probot.media/Cv77UM4buz.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed6.channel.send(bot);
+return embed6.channel.send("@everyone")
   }
 });
 
@@ -4561,6 +4567,7 @@ client.on("message", (embed7) => {
       )
       .setTimestamp();
     embed7.channel.send(bot);
+return embed7.channel.send("@everyone")
   }
 });
 
@@ -4568,7 +4575,9 @@ client.on("message", (embed7) => {
 client.on("message", (embed8) => {
   if (embed8.content === prefix + "list") {
     embed8.delete();
-    const bot = new Discord.RichEmbed().setColor("#00BCD4").setDescription(`**
+    const bot = new Discord.RichEmbed()
+    .setColor("#00BCD4")
+    .setDescription(`**
 **<a:gna7sh:930187075649679401><a:s_:930190463535816735><a:c_:930191251897217096><a:r_:930190480996728922><a:i_:930190442862112778><a:m_:930190482162712586><a:love:930190460683685978><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>**
 
 
@@ -4627,6 +4636,7 @@ client.on("message", (embed8) => {
 الكاريزمات الي مش هتخش التلت رومات هياخدوا ناحو <a:BlobBanHammer:922517087098921000>
 **`);
     embed8.channel.send(bot);
+return embed8.channel.send("@everyone")
   }
 });
 
@@ -4707,6 +4717,8 @@ Congratulations to you <a:g_:931289400246145054><a:g_:931289400246145054> <a:tag
       /*   .setImage()*/
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed11.channel.send(bot);
+   return embed11.channel.send("@everyone")
+
   }
 });
 /*
@@ -4797,6 +4809,7 @@ client.on("message", (embed14) => {
 
 `);
     embed14.channel.send(bot);
+   return embed14.channel.send("@everyone")
   }
 });
 
@@ -4860,6 +4873,8 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
       )
       .setImage("https://i.imgur.com/qmcdwmQ.gif");
     embed17.channel.send(bot);
+   return embed17.channel.send("@everyone")
+
   }
 });
 
@@ -4875,10 +4890,11 @@ client.on("message", (embed18) => {
             )
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/NRYF2ma.png")
-      .setDescription("`!autoplay` - التشغيل التلقائي للموسيقي \n `!test` - \n TEST ")
+      .setDescription("`!autoplay` - التشغيل التلقائي للموسيقي \n `!test` - \n TEST \n @everyone ")
       /*   .setImage()*/
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed18.channel.send(bot);
+   return embed18.channel.send("@everyone")
   }
 });
 
