@@ -4541,15 +4541,13 @@ return embed6.channel.send("@everyone")
 
 ///Embed 7
 client.on("message", (embed7) => {
-  if (embed7.content === prefix + "helpG") {
+  if (embed7.content === prefix + "helpT") {
     embed7.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-      .setTitle("Turbo Bot Giveaway Commands 🎁")
-      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
-      .setTimestamp();
+      .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
+      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
     embed7.channel.send(bot);
-return embed7.channel.send("@everyone")
   }
 });
 
