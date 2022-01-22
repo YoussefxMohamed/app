@@ -7,6 +7,7 @@ const http = require("http");
 const express = require("express");
 const app = express();
 const { MessageEmbed } = require("discord.js");
+
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
@@ -4915,6 +4916,176 @@ client.on("message", (embed18) => {
    return embed18.channel.send("@everyone")
   }
 });
+
+///test
+  if(message.author.bot || !message.guild || !message.content.startsWith(prefix)) return;
+
+const args = message.content.slice(prefix.length).trim().split(/ +/), commandName = args.shift().toLowerCase();
+if(commandName == 'setline'){
+if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(``);
+const [ cha, image ] = args;
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+
+let channel = (cha);
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+if(!channel) return message.channel.send(`\`\`\`Not Found Channel\`\`\``);
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+if(!cha || !image) return message.channel.send(`**Usage: ${prefix}setLine \`<Channel Id>\` \`<Image Link>\`**`);
+        linedata[message.guild.id] = {
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+            channel: channel,
+            images: image,
+            serverId: message.guild.id,
+            by: message.author.id
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+        };           
+        message.channel.send(`**تم تعيين الخط التلقائي <a:s7gamda:929797437193867304>**`);
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+        fs.writeFile("./linedata.json", JSON.stringify(linedata,null,4), (err) => {
+            if(err) console.error(err)
+        });
+    }
+});
+
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+
+const { server_id } = require("./linedata.json")
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+client.on("ready", () => {
+  console.log(` ${client.user.username}`);
+}).on("message", async user => {
+  if (user.guild.id != `${linedata[user['guild'].id].serverId}`) return;
+  if (user.channel.id != `${linedata[user['guild'].id].channel}`) return;
+  if(user.author.bot) return;
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+  if (user.author.send) {
+    return user.channel.send({ files: [`${linedata[user['guild'].id].images}`] })
+  }
+})
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+
+
+
+client.on('message', message => {
+  if(message.content.startsWith(prefix + 'info')) {
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+try{  
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("");
+      if (message.guild.id != `${linedata[message['guild'].id].serverId}`) return message.channel.send("This info Not Found");
+      if(message.author.bot) return;
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+      if(message.author.id != `${linedata[message['guild'].id].by}`) return message.channel.send("You are Not owner ship info");
+    
+    const infoEmbed = new Discord.MessageEmbed()
+      .setTitle(`Info ${message.guild.name} Server Line 
+
+      `)
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+
+      .setImage(`${linedata[message['guild'].id].images}`)
+      .setDescription(`
+
+
+
+      Creator Auto Line : <@${linedata[message['guild'].id].by}>
+      
+      channel : <#${linedata[message['guild'].id].channel}>
+      
+      Line Image : `);
+      
+
+    message.channel.send(infoEmbed)
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+}catch(e){
+  message.channel.send("هذا الخط غير موجود")
+  console.log(e)
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+}
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+  }
+});
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+client.on('message', message => {
+  if(message.content.startsWith(prefix + 'delete')) {
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+    if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send("");
+try{  
+
+    const infoEmbed = new Discord.MessageEmbed()
+      .setTitle(`تم حذف ${linedata[message['guild'].id].serverId} Form data 
+      
+      `)
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+      .setImage(`${linedata[message['guild'].id].images}`)
+      .setDescription(`
+
+
+
+      Delete By : <@${message.author.id}>
+      
+      channel : <#${linedata[message['guild'].id].channel}>
+      
+      Line Image : `);
+      
+      if (message.guild.id != `${linedata[message['guild'].id].serverId}`) return message.channel.send("هذا الخط غير موجود");
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+      if(message.author.bot) return;
+      if(message.author.id != `${linedata[message['guild'].id].by}`) return message.channel.send("انت لست اونر السيرفر");
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+linedata[message.guild.id] = {
+    channel: "delted",
+    images: "delted",
+    serverId: "delted",
+    by: "delted"
+};  
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+message.channel.send(infoEmbed)
+fs.writeFile("./linedata.json", JSON.stringify(linedata,null,4), (err) => {
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+    if(err) console.error(err)
+});
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+
+    
+
+}catch(e){
+  message.channel.send("لم اجد اي خط")
+  console.log(e)
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+
+}
+// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
+//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
+  }
+});
+
+
+var _0x634a=["\x42\x79\x20\x3A\x20\x44\x69\x73\x63\x6F\x72\x64\x20\x4F\x66\x20\x57\x6F\x72\x6C\x64\x20\x4F\x72\x20\x44\x69\x73\x63\x6F\x72\x20\x3A\x20\x4F\x6C\x69\x76\x65\x72\x2E\x23\x37\x33\x30\x35","\x6C\x6F\x67"];console[_0x634a[1]](_0x634a[0])
 
 
 
