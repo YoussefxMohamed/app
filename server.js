@@ -4617,7 +4617,7 @@ Failure to attend without an excuse will ban you from participating in the next 
 
 > <a:shmec:930187069169479740> > 𝐓𝐄𝐀𝐌 25 : EMPTY
 
-
+MAP  ➥ MIRAMAR - ERANGEL- SANHOK
  
  خش في مكانك بدل ما تاخد بال <a:shb:930193756114808872>
 
