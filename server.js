@@ -4349,8 +4349,7 @@ client.on("message", (embed1) => {
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("**طريقة التسجيل <a:s7:929681264984858664> **")
-      .setDescription(`**
-        
+      .setDescription(`**        
 Team Name :
 Team Leader :
 P1 :
