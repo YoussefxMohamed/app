@@ -4918,7 +4918,7 @@ client.on("message", (embed18) => {
 });
 
 ///test
-  if(message.author.bot || !message.guild || !message.content.startsWith(prefix)) return;
+  if(message.author.bot || !message.guild || !message.content.startsWith(prefix)) 
 
 const args = message.content.slice(prefix.length).trim().split(/ +/), commandName = args.shift().toLowerCase();
 if(commandName == 'setline'){
