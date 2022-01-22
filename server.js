@@ -4909,7 +4909,7 @@ client.on("message", (embed18) => {
             )
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/NRYF2ma.png")
-      .setDescription("`!autoplay` - التشغيل التلقائي للموسيقي \n `!dj` - Set Dj Role To Controle The Bot \n `` \n ")
+      .setDescription("`!autoplay` - التشغيل التلقائي للموسيقي \n `!dj` - Set Dj Role To Controle The Bot \n `!join` - 24/7 in the channel \n `!jump` - skip a specific song \n `!lang` - Change The Bot Lang In The Guild \n `!leave` - leave the 24/7 channel \n `!loop` - Loop Queue/Song \n `!lyrics` - Song lyrics \n `!music-data` - get all the playing music data \n `!nowplaying` - What is paying \n `!pause` - Pause The Music \n `` ")
       /*   .setImage()*/
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed18.channel.send(bot);
