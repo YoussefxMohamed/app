@@ -605,7 +605,7 @@ client.on("message", (message) => {
       .then(() => {
         message.delete();
         const bot = new Discord.RichEmbed()
-          .setColor("#FFEB3B")
+          .setColor("#FF1100")
           .setTitle(`> **تم قفل التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
       });
@@ -623,7 +623,7 @@ client.on("message", (message) => {
       .then(() => {
         message.delete();
         const bot = new Discord.RichEmbed()
-          .setColor("#FFEB3B")
+          .setColor("#FF1100")
           .setTitle(`> **تم فتح التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
       });
@@ -4290,7 +4290,7 @@ client.on("message", (message) => {
       })
       .then(() => {
         const bot = new Discord.RichEmbed()
-          .setColor("#FFEB3B")
+          .setColor("#FF1100")
           .setTitle(`> **تم اخفاء التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
       });
@@ -4308,7 +4308,7 @@ client.on("message", (message) => {
       })
       .then(() => {
         const bot = new Discord.RichEmbed()
-          .setColor("#FFEB3B")
+          .setColor("#FF1100")
           .setTitle(`> **تم اظهار التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
       });
@@ -4348,16 +4348,15 @@ client.on("message", (embed1) => {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
-      .setTitle("**طريقة التسجيل <a:verified:922517096896790568> **")
-      .addField(
-        `
+      .setTitle("**طريقة التسجيل <a:s7:929681264984858664> **")
+      .setDescription(`**
+        
 Team Name :
 Team Leader :
 P1 :
 P2:
-Logo `,
-        " **(if you have )**"
-      )
+Logo 
+     **` )
       .setImage("https://i.imgur.com/P9QVop4.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed1.channel.send(bot);
@@ -4367,12 +4366,12 @@ return embed1.channel.send("@everyone")
 
 ///Embed 2
 client.on("message", (embed2) => {
-  if (embed2.content === prefix + "embed2") {
+  if (embed2.content === prefix + "Tcla") {
     embed2.delete();
     const bot2 = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
-      .setTitle("**طريقة التسجيل <a:verified:922517096896790568> **")
+      .setTitle("**طريقة التسجيل <a:s7:929681264984858664> **")
       .addField(
         `
 Team Name :
@@ -4393,7 +4392,7 @@ return embed2.channel.send("@everyone")
 
 ///Embed 3
 client.on("message", (embed3) => {
-  if (embed3.content === prefix + "serverRULE") {
+  if (embed3.content === prefix + "serRULE") {
     embed3.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
@@ -4438,7 +4437,7 @@ return embed3.channel.send("@everyone")
 
 ///Embed 4
 client.on("message", (embed4) => {
-  if (embed4.content === prefix + "claLIST") {
+  if (embed4.content === prefix + "claRULE") {
     embed4.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
@@ -4473,7 +4472,7 @@ return embed4.channel.send("@everyone")
 
 ///Embed 5
 client.on("message", (embed5) => {
-  if (embed5.content === prefix + "embed5") {
+  if (embed5.content === prefix + "claINFO") {
     embed5.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
@@ -4512,7 +4511,7 @@ return embed5.channel.send("@everyone")
 
 ///Embed 6
 client.on("message", (embed6) => {
-  if (embed6.content === prefix + "embed6") {
+  if (embed6.content === prefix + "tdmRULE") {
     embed6.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
