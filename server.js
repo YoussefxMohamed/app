@@ -1637,9 +1637,11 @@ client.on("message", (message) => {
 });
 client.on("message", (message) => {
   if (message.content === "خط") {
-    message.channel.send("");
-    message.channel.sendFile("https://i.imgur.com/GzMoqJh.gif");
     message.delete();
+    const bot = new Discord.RichEmbed()
+      .setColor("#F44336")
+      .setImage(`https://i.imgur.com/GzMoqJh.gif`)
+    message.channel.send(bot);
   }
 });
 
