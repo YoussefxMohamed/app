@@ -4530,7 +4530,7 @@ client.on("message", (embed6) => {
 
 ** تحذير <a:rule:880872686279094372> **
 التزم بالقوانين لتجنب البان
-لازم التصوير <a:dabos:922517076885798962>**`
+||لازم التصوير <a:dabos:922517076885798962>||**`
       )
       .setImage("https://probot.media/Cv77UM4buz.gif")
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
@@ -4546,28 +4546,14 @@ client.on("message", (embed7) => {
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setTitle("Turbo Bot Giveaway Commands 🎁")
-      .setDescription(
-        `**
-・Giveaway
-!start [channel-name] [Time] [winners] [Prize]
-
-!reroll [prize name]
-
-!end [prize name]
-────────────────────────────
-・Examples
-!start #giveaway 5m 1 Testing
-
-!end Testing
-
-!reroll Testing
-**`
-      )
+      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
       .setTimestamp();
     embed7.channel.send(bot);
 return embed7.channel.send("@everyone")
   }
 });
+
+
 
 ///Embed 8
 client.on("message", (embed8) => {
