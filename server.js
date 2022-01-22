@@ -4917,62 +4917,41 @@ client.on("message", (embed18) => {
   }
 });
 
-///test
-  if(message.author.bot || !message.guild || !message.content.startsWith(prefix)) 
 
+///test
+  if(message.author.bot || !message.guild || !message.content.startsWith(prefix)) return;
 const args = message.content.slice(prefix.length).trim().split(/ +/), commandName = args.shift().toLowerCase();
 if(commandName == 'setline'){
 if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(``);
 const [ cha, image ] = args;
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
-
 let channel = (cha);
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
 if(!channel) return message.channel.send(`\`\`\`Not Found Channel\`\`\``);
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
 if(!cha || !image) return message.channel.send(`**Usage: ${prefix}setLine \`<Channel Id>\` \`<Image Link>\`**`);
         linedata[message.guild.id] = {
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
             channel: channel,
             images: image,
             serverId: message.guild.id,
             by: message.author.id
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
         };           
         message.channel.send(`**تم تعيين الخط التلقائي <a:s7gamda:929797437193867304>**`);
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
         fs.writeFile("./linedata.json", JSON.stringify(linedata,null,4), (err) => {
             if(err) console.error(err)
         });
     }
 });
 
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
 
 const { server_id } = require("./linedata.json")
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
 client.on("ready", () => {
   console.log(` ${client.user.username}`);
 }).on("message", async user => {
   if (user.guild.id != `${linedata[user['guild'].id].serverId}`) return;
   if (user.channel.id != `${linedata[user['guild'].id].channel}`) return;
   if(user.author.bot) return;
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
   if (user.author.send) {
     return user.channel.send({ files: [`${linedata[user['guild'].id].images}`] })
   }
 })
-// By Discord Of World In Youtube : https://www.youtube.com/channel/UCBAj9F4cIy2SM6m6D5sXLmg
-//discord server : https://discord.gg/jVbcMxbj , Name : Oliver.#7305 
 
 
 
