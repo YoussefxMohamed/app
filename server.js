@@ -4803,6 +4803,7 @@ client.on("message", (embed14) => {
 ///Embed 15
 client.on("message", (خخخخ) => {
   if (خخخخ.content.startsWith("!say خخ")) {
+     خخخخ.delete()
     return خخخخ.channel.send(
       `**البوت دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`
     );
@@ -4812,6 +4813,7 @@ client.on("message", (خخخخ) => {
 ///Embed 16
 client.on("message", (خخخخ) => {
   if (خخخخ.content.startsWith("خخخ")) {
+    خخخخ.delete()
     return خخخخ.channel.send(
       `**السيرفر دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`
     );
