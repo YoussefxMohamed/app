@@ -1639,11 +1639,39 @@ client.on("message", (message) => {
   if (message.content === "خط") {
     message.delete();
     const bot = new Discord.RichEmbed()
-      .setColor("#F44336")
+      .setColor("#FD1100")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
   }
 });
+client.on("message", (message) => {
+  if (message.content === "خط_جيف") {
+    message.delete();
+    const bot = new Discord.RichEmbed()
+      .setColor("#E91E63")
+      .setImage(`https://i.imgur.com/WMP2z2T.gif`)
+    message.channel.send(bot);
+  }
+});
+client.on("message", (message) => {
+  if (message.content === "خط_بارت") {
+    message.delete();
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+      .setImage(`https://i.imgur.com/GoOgpUO.gif`)
+    message.channel.send(bot);
+  }
+});
+client.on("message", (message) => {
+  if (message.content === "خط_ايدي") {
+    message.delete();
+    const bot = new Discord.RichEmbed()
+      .setColor("#00BCD4")
+      .setImage(`https://i.imgur.com/GoOgpUO.gif`)
+    message.channel.send(bot);
+  }
+});
+
 
 ////تعديل غير اساسي
 /*/// كود اختيار لون
