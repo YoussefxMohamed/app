@@ -4286,6 +4286,7 @@ client.on("message", message => {
       {name:'`المبلغ المراد دفعه : `', value:'`**${args}**`'},
       {name:'`المبلغ شامل الضريبة :  `', value:'`**${probot.taxs(args)}**`'},
 )
+    .addField('`المبلغ المراد دفعه  :`', value:'**${probot.taxs(args)}**')
     .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
     .setThumbnail(message.author.displayAvatarURL())
     .setTimestamp()
@@ -4934,4 +4935,19 @@ client.on("message", message => {
   if (message.channel.id !== "872242483420094506") return;
   if(message.author.id === client.user.id) return
     const bot = new Discord.RichEmbed()
-      .setColor("#FFEB3B")
+      .setColor("#F44336")
+      .setImage(`https://i.imgur.com/GzMoqJh.gif`)
+    message.channel.send(bot);
+
+});
+
+//Embed20
+client.on("message", message => {
+  if (message.channel.id !== "918004475640287262") return;
+  if(message.author.id === client.user.id) return
+    const bot = new Discord.RichEmbed()
+      .setColor("#F44336")
+      .setImage(`https://i.imgur.com/GzMoqJh.gif`)
+    message.channel.send(bot);
+
+});
