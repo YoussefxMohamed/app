@@ -3392,7 +3392,7 @@ client.on("message", (message) => {
     if (message.author.bot) return;
     if (!message.member.hasPermission("`MANAGE_CHANNELS"))
       return message.reply("**تحتاج الى `MANAGE_CHANNELS`**");
-    message.guild.createChannel("التقديمات", "text").then((c) => {
+    message.guild.createChannel("التقديمات", { type: 'text'}).then((c) => {
       c.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false,
       });
