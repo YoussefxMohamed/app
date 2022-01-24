@@ -4952,3 +4952,44 @@ client.on("message", message => {
     message.channel.send(bot);
 
 });
+
+
+/// Warn
+ ///وارن
+client.on("message", message => {
+     if(message.content.startsWith(prefix + "warn")) {
+      if(!message.member.hasPermission("MUTE_MEMBERS"))
+ return message.channel.send(`>>> You Don't have the permission `);
+ let args = message.content.split(" ").slice(1);
+ 
+    var user = message.mentions.users.first();
+    var reason = args.slice(1).join(' ');
+    const embed = new Discord.RichEmbed()
+        .setColor('#0083ff')
+        .setTimestamp();
+ 
+    if (!user) {
+        embed.addField("**منشن الشخص** ", ` ${message.author.tag}?`)
+            .setTimestamp();
+        return message.channel.send(embed);
+    } if (!reason) {
+        embed.addField("**لماذا تريد اعطاء الشخص أنذار** ? ", ` ${user.tag}?`)
+        return message.channel.send(embed);
+        return message.channel.send(embed);
+    }
+    embed.addField("**تم ارسال الانذار** ", ` ${user.tag}!`)
+        .setTimestamp();
+    message.channel.send(embed);
+    const embed1 = new Discord.RichEmbed()
+        .setColor('#0083ff')
+        .setTimestamp()
+        .addField("لقد اخذت انذار", `
+ 
+          السبب : **${reason}**`)
+        .setDescription("انذار بواسطة ${message.author.tag}`)
+        .setFooter(`
+        انذار بواسطة ${message.author.tag}.`);
+    user.send(embed1);
+    message.delete();
+}
+});
