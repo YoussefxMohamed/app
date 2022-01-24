@@ -54,7 +54,9 @@ client.on("ready", () => {
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));
+client.guilds.cache.forEach((guild) => {
+    console.log(guild.name);
+});
   client.user.setStatus("idle");
 
   client.user.setActivity(`${prefix}helpT`, { type: "Playing" });
@@ -956,7 +958,7 @@ const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 client.on("message", (message) => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
-  let findroom = message.guild.channels.find((r) => r.name == room);
+  let findroom = message.guild.channels.cache.find((r) => r.name == room);
   if (message.content.startsWith(prefix + "setLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
@@ -3561,7 +3563,7 @@ client.on("message", async (message) => {
   if (!message.guild) return;
   let mention = message.mentions.members.first();
   let role = message.content.split(" ").slice(2).join(" ");
-  let mySupport = message.guild.roles.find((gg) => gg.name === role);
+  let mySupport = message.guild.roles.cache.find((gg) => gg.name === role);
   if (message.content.startsWith(prefix + "قبول")) {
     let acRoom = message.guild.channels.find(
       (gg) => gg.name === "القبول-الرفض"
@@ -4276,37 +4278,35 @@ client.on("message", async msg => {
 
 /// ضريبة
 const probot = require("probot-tax");
-client.on("message", (message) => {
-  if (message.content.startsWith(prefix + "tax")) {
+client.on("message", message => {
+    if(message.content.startsWith( prefix + 'tax')) {
     let args = message.content.split(" ").slice(1).join(" ");
-    if (!args)
-      return message.reply(
-        "متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000>"
-      );
-    let embed = new Discord.RichEmbed()
-      .setColor("RED")
-      .addFields([
-        {
-          name: "`المبلغ المراد دفعه : `",
-          value: `**${args}**`,
-        },
-        {
-          name: "`المبلغ شامل الضريبة :  `",
-          value: `**${probot.taxs(args)}**`,
-        },
-        ],
-      )
-      .setFooter(
-        `By  : ${message.author.username}`,
-        `${message.author.displayAvatarURL()}`
-      )
-      .setThumbnail(message.author.displayAvatarURL())
-      .setTimestamp();
+    if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
+    const embed = new Discord.RichEmbed()
+    .setColor('YELLOW')
+    .addFields(
+      {
+      name:"`المبلغ المراد دفعه : `", value:`**${args}**`
+ 
+    },
+    {
+      name:"`المبلغ شامل الضريبة :  `", value:`**${probot.taxs(args)}**`
+ 
+    },
+    
+ 
+    )
+    .setFooter(`By  : ${message.author.username}`, `${message.author.displayAvatarURL()}`)
+    .setThumbnail(message.author.displayAvatarURL())
+    .setTimestamp()
+ 
+        message.channel.send(embed)
+    }
 
-    message.channel.send(embed);
-  }
-
+    
 });
+
+
 ///اخفاء واظهار
 client.on("message", (message) => {
   if (message.content === prefix + "hide") {
