@@ -12,6 +12,7 @@ dependencies:
   dateformat: 3.0.3
   delay: 5.0.0
   discord-anti-spam: 2.4.0
+  discord-buttons: 4.0.0
   discord.js: 11.6.4
   discord.js-v12: 12.5.3
   enmap: 4.8.7
@@ -2273,6 +2274,11 @@ packages:
       node: '>=12'
     resolution:
       integrity: sha512-T5PdMQ+Y1MEECYMV5wmyi9VEYPagEDEi4S0amgsszpWY0VB9JJ/hEvM6BgLhbdnKky4gfmZEXtEEtojN8ZKJQQ==
+  /discord-buttons/4.0.0:
+    deprecated: 'New lib is coming! Join our support server for more help: https://discord.gg/KUS5pjyA4J'
+    dev: false
+    resolution:
+      integrity: sha512-E/eQX4Ktj7nKwNDsTfCezBNCu73FtPWJfQcpKohfl0jct/ucMUO+7uhL2MhGsZr4SCfojk7OzccAznuntB564w==
   /discord.js-v12/12.5.3:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -8092,6 +8098,7 @@ specifiers:
   dateformat: ^3.0.3
   delay: ^5.0.0
   discord-anti-spam: ^2.0.0
+  discord-buttons: ^4.0.0
   discord.js: ^11.6.4
   discord.js-v12: ^12.5.3
   enmap: ^4.8.1

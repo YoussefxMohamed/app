@@ -5007,3 +5007,61 @@ client.on("message", message => {
     message.delete();
 }
 });
+
+
+///Profile
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "profile")) {
+        var args = message.content.split(" ").slice(1);
+        var men = message.mentions.users.first();
+        let user = message.mentions.users.first() || message.author;
+        message.guild.fetchInvites().then(invites => {
+            let personalInvites = invites.filter(
+                i => i.inviter.id === message.mentions.users.first() || message.author.id
+            );
+            let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+            var he;
+            if (men) {
+                he = men
+            } else {
+                he = message.author
+            }
+            var mon = message.mentions.members.first();
+            var h;
+            if (mon) {
+                h = mon
+            } else {
+                h = message.member
+            }
+            var baderp = new Discord.RichEmbed()
+                .setColor('Random')
+                .setImage(`https://api.probot.io/profile/${user.id}`)
+            message.channel.send(baderp)
+        });
+    }
+});
+
+ ///invite
+const but = require("discord-buttons")
+but(client)
+let link = [
+  "https://discord.com/api/oauth2/authorize?client_id=880647915595518023&permissions=8&scope=bot",////رابط ادخال البوت ل ا سيرفر
+]
+client.on('message', message => {
+    if (message.content.startsWith(prefix +'invite')) {
+ let embe = new Discord.RichEmbed()
+      .setDescription(`invite me`)
+      .setColor(`RANDOM`)
+ const disbut = require("discord-buttons")
+ let button = new disbut.MessageButton()
+        .setStyle('url')
+        .setLabel('Support Server')
+        .setURL('https://discord.gg/uJuyJ724x4');////سيرفرك
+
+ let button1 = new disbut.MessageButton()
+        .setStyle('url')
+        .setLabel('Invite')
+        .setURL(`${link}`);
+    message.channel.send(embe)
+ }
+})
