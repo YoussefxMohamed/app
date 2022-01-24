@@ -20,7 +20,7 @@ setInterval(() => {
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const { prefix, devs } = require("./config");
-const client = new Client({ disableEveryone: false });
+const client = new Client({ allowedMention: 'everyone' });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
 const convert = require("hh-mm-ss");
@@ -204,7 +204,7 @@ client.on("message", (pixelbot) => {
         .addField("**✽ Total invites :**    ", inviteCount, true)
         .setTimestamp(); // itzZa1D - Codes Team.
 
-      pixelbot.channel.sendEmbed(pixeluser).then((c) => {}); // itzZa1D - Codes Team.
+      pixelbot.channel.send(pixeluser).then((c) => {}); // itzZa1D - Codes Team.
     });
   }
 }); // itzZa1D - Codes Team.
@@ -447,7 +447,7 @@ client.on("message", (message) => {
       .setImage("")
 
       .setColor("#FC0000");
-    message.channel.sendEmbed(embed);
+    message.channel.send(embed);
   }
 });
 
@@ -686,7 +686,7 @@ client.on("message", (message) => {
             .get(usermentioned)
             .setVoiceChannel(authorchannel)
             .then((m) => message.channel.send(embed));
-          message.guild.members.get(usermentioned).send(embed);
+          message.guild.members.cache.get(usermentioned).send(embed);
         } else {
           message.channel.send(
             "`You Cant Move" +
@@ -754,7 +754,7 @@ client.on("message", function (message) {
         var manage = new Discord.RichEmbed()
           .setDescription("You Do Not Have Permission MANAGE_MESSAGES :(")
           .setColor("RANDOM");
-        message.channel.sendEmbed(manage);
+        message.channel.send(manage);
         return;
       }
   }
@@ -973,7 +973,7 @@ client.on("message", (message) => {
       .addField("Requested By:", `${message.author}`)
       .setThumbnail(message.author.avatarURL)
       .setFooter(`${client.user.username}`);
-    message.channel.sendEmbed(embed);
+    message.channel.send(embed);
     log[message.guild.id] = {
       channel: room,
       onoff: "On",
@@ -2686,7 +2686,7 @@ client.on("message", async (message) => {
                     Reply:
                     ${collectedd.first().content}`
                 );
-              let steve = await client.fetchUser("736038771535118377");
+              let steve = await client.users.fetch("736038771535118377");
               embed1.setFooter(
                 `رد تلقائي`,
                 steve ? steve.displayAvatarURL : message.author.displayAvatarURL
