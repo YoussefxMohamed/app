@@ -5041,27 +5041,3 @@ client.on('message', message => {
     }
 });
 
- ///invite
-const but = require("discord-buttons")
-but(client)
-let link = [
-  "https://discord.com/api/oauth2/authorize?client_id=880647915595518023&permissions=8&scope=bot",////رابط ادخال البوت ل ا سيرفر
-]
-client.on('message', message => {
-    if (message.content.startsWith(prefix +'invite')) {
- let embe = new Discord.RichEmbed()
-      .setDescription(`invite me`)
-      .setColor(`RANDOM`)
- const disbut = require("discord-buttons")
- let button = new disbut.MessageButton()
-        .setStyle('url')
-        .setLabel('Support Server')
-        .setURL('https://discord.gg/uJuyJ724x4');////سيرفرك
-
- let button1 = new disbut.MessageButton()
-        .setStyle('url')
-        .setLabel('Invite')
-        .setURL(`${link}`);
-    message.channel.send(embe)
- }
-})
