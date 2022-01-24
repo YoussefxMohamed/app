@@ -13,7 +13,7 @@ app.get("/", (request, response) => {
 });
 app.listen(process.env.PORT);
 setInterval(() => {
-  http.get(process.env.Domin);
+  http.get(`https://turbo-bot-finsal.glitch.me/`);
 }, 280000);
 
 ////بكجات
@@ -4286,15 +4286,8 @@ client.on("message", (message) => {
     let embed = new Discord.MessageEmbed()
       .setColor("RED")
       .addFields(
-        {
-          name: "`المبلغ المراد دفعه : `",
-          value: `**${args}**`,
-        },
-        {
-          name: "`المبلغ شامل الضريبة :  `",
-          value: `**${probot.taxs(args)}**`,
-        }
-        ///ممنوع السرقة youssefgames
+		{ name: '`المبلغ المراد دفعه :  `', value: `**${args}**` },
+		{ name: '`المبلغ شامل الضريبة :  `', value: `**${probot.taxs(args)}**` }
       )
       .setFooter(
         `By  : ${message.author.username}`,
