@@ -1399,33 +1399,33 @@ client.on("guildBanRemove", (guild, user) => {
   });
 });
 
-client.on("guildMemberUpdate", (oldPresence, newPresence) => {
-  if (!oldPresence.guild) return;
-  if (!log[oldPresence.guild.id])
-    log[oldPresence.guild.id] = {
+client.on("guildMemberUpdate", (oldMember, newMember) => {
+  if (!oldMember.guild) return;
+  if (!log[oldMember.guild.id])
+    log[oldMember.guild.id] = {
       onoff: "Off",
     };
-  if (log[oldPresence.guild.id].onoff === "Off") return;
-  var logChannel = oldPresence.guild.channels.find(
-    (c) => c.name === `${log[(oldPresence, newPresence.guild.id)].channel}`
+  if (log[oldMember.guild.id].onoff === "Off") return;
+  var logChannel = oldMember.guild.channels.find(
+    (c) => c.name === `${log[(oldMember, newMember.guild.id)].channel}`
   );
   if (!logChannel) return;
 
-  oldPresence.guild.fetchAuditLogs().then((logs) => {
+  oldMember.guild.fetchAuditLogs().then((logs) => {
     var userID = logs.entries.first().executor.id;
     var userAvatar = logs.entries.first().executor.avatarURL;
     var userTag = logs.entries.first().executor.tag;
 
-    if (oldPresence.nickname !== newPresence.nickname) {
-      if (oldPresence.nickname === null) {
+    if (oldMember.nickname !== newMember.nickname) {
+      if (oldMember.nickname === null) {
         var oldNM = "`اسمه الاصلي`";
       } else {
-        var oldNM = oldPresence.nickname;
+        var oldNM = oldMember.nickname;
       }
-      if (newPresence.nickname === null) {
+      if (newMember.nickname === null) {
         var newNM = "`اسمه الاصلي`";
       } else {
-        var newNM = newPresence.nickname;
+        var newNM = newMember.nickname;
       }
 
       let updateNickname = new Discord.RichEmbed()
@@ -1433,49 +1433,49 @@ client.on("guildMemberUpdate", (oldPresence, newPresence) => {
         .setThumbnail(userAvatar)
         .setColor("BLUE")
         .setDescription(
-          `**\n**:spy: Successfully \`\`CHANGE\`\` Member Nickname.\n\n**User:** ${oldPresence} (ID: ${oldPresence.id})\n**Old Nickname:** ${oldNM}\n**New Nickname:** ${newNM}\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**:spy: Successfully \`\`CHANGE\`\` Member Nickname.\n\n**User:** ${oldMember} (ID: ${oldMember.id})\n**Old Nickname:** ${oldNM}\n**New Nickname:** ${newNM}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
-        .setFooter(oldPresence.guild.name, oldPresence.guild.iconURL());
+        .setFooter(oldMember.guild.name, oldMember.guild.iconURL());
 
       logChannel.send(updateNickname);
     }
-    if (oldPresence.roles.size < newPresence.roles.size) {
-      let role = newPresence.roles
-        .filter((r) => !oldPresence.roles.has(r.id))
+    if (oldMember.roles.size < newMember.roles.size) {
+      let role = newMember.roles
+        .filter((r) => !oldMember.roles.has(r.id))
         .first();
-      if (!log[oldPresence.guild.id])
-        log[oldPresence.guild.id] = {
+      if (!log[oldMember.guild.id])
+        log[oldMember.guild.id] = {
           onoff: "Off",
         };
-      if (log[oldPresence.guild.id].onoff === "Off") return;
+      if (log[oldMember.guild.id].onoff === "Off") return;
       let roleAdded = new Discord.RichEmbed()
         .setTitle("**ADDED ROLE TO MEMBER**")
-        .setThumbnail(oldPresence.guild.iconURL())
+        .setThumbnail(oldMember.guild.iconURL())
         .setColor("GREEN")
         .setDescription(
-          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`ADDED\`\` Role to **${oldPresence.user.username}**\n\n**User:** <@${oldPresence.id}> (ID: ${oldPresence.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}> (ID: ${oldMember.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
         .setFooter(userTag, userAvatar);
 
       logChannel.send(roleAdded);
     }
-    if (oldPresence.roles.size > newPresence.roles.size) {
-      let role = oldPresence.roles
-        .filter((r) => !newPresence.roles.has(r.id))
+    if (oldMember.roles.size > newMember.roles.size) {
+      let role = oldMember.roles
+        .filter((r) => !newMember.roles.has(r.id))
         .first();
-      if (!log[oldPresence.guild.id])
-        log[oldPresence.guild.id] = {
+      if (!log[oldMember.guild.id])
+        log[oldMember.guild.id] = {
           onoff: "Off",
         };
-      if (log[(oldPresence, newPresence.guild.id)].onoff === "Off") return;
+      if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
       let roleRemoved = new Discord.RichEmbed()
         .setTitle("**REMOVED ROLE FROM MEMBER**")
-        .setThumbnail(oldPresence.guild.iconURL())
+        .setThumbnail(oldMember.guild.iconURL())
         .setColor("RED")
         .setDescription(
-          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`REMOVED\`\` Role from **${oldPresence.user.username}**\n\n**User:** <@${oldPresence.user.id}> (ID: ${oldPresence.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> (ID: ${oldMember.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
         .setFooter(userTag, userAvatar);
@@ -1483,21 +1483,21 @@ client.on("guildMemberUpdate", (oldPresence, newPresence) => {
       logChannel.send(roleRemoved);
     }
   });
-  if (oldPresence.guild.owner.id !== newPresence.guild.owner.id) {
-    if (!log[oldPresence.guild.id])
-      log[oldPresence.guild.id] = {
+  if (oldMember.guild.owner.id !== newMember.guild.owner.id) {
+    if (!log[oldMember.guild.id])
+      log[oldMember.guild.id] = {
         onoff: "Off",
       };
-    if (log[(oldPresence, newPresence.guild.id)].onoff === "Off") return;
+    if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
     let newOwner = new Discord.RichEmbed()
       .setTitle("**UPDATE GUILD OWNER**")
-      .setThumbnail(oldPresence.guild.iconURL())
+      .setThumbnail(oldMember.guild.iconURL())
       .setColor("GREEN")
       .setDescription(
-        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`TRANSFER\`\` The Owner Ship.\n\n**Old Owner:** <@${oldPresence.user.id}> (ID: ${oldPresence.user.id})\n**New Owner:** <@${newPresence.user.id}> (ID: ${newPresence.user.id})`
+        `**\n**<a:s7gamda:929797437193867304> Successfully \`\`TRANSFER\`\` The Owner Ship.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`
       )
       .setTimestamp()
-      .setFooter(oldPresence.guild.name, oldPresence.guild.iconURL());
+      .setFooter(oldMember.guild.name, oldMember.guild.iconURL());
 
     logChannel.send(newOwner);
   }
