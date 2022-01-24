@@ -4977,18 +4977,16 @@ client.on("message", message => {
         return message.channel.send(embed);
         return message.channel.send(embed);
     }
-    embed.addField("**تم ارسال الانذار** ", ` ${user.tag}!`)
+    embed.addField("**تم ارسال الانذار** ", ` **${user.tag}!**`)
         .setTimestamp();
     message.channel.send(embed);
     const embed1 = new Discord.RichEmbed()
-        .setColor('#0083ff')
+        .setColor('#FF1100')
         .setTimestamp()
-        .addField("لقد اخذت انذار", `
- 
-          السبب : **${reason}**`)
-        .setDescription("انذار بواسطة ${message.author.tag}`)
-        .setFooter(`
-        انذار بواسطة ${message.author.tag}.`);
+        .setTitle("**تم تنذيرك <a:BlobBanHammer:922517087098921000>**")
+        .setDescription(`**
+لقد أخذت إنذار بسبب  :** **${reason}**
+** بواسطة** **${message.author.tag}**`)
     user.send(embed1);
     message.delete();
 }
