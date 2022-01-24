@@ -4808,7 +4808,8 @@ client.on("message", (helpT) => {
 client.on("message", (embed14) => {
   if (embed14.content === prefix + "listTDM") {
     embed14.delete();
-    const bot = new Discord.RichEmbed().setColor("#FFEB3B")
+    const bot = new Discord.RichEmbed()
+.setColor("#FFEB3B")
       .setDescription(`<a:gna7sh:930187075649679401><a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586><a:hypeshiny:930187068125118474><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>
 
 > <a:1_:932038094088183808>  ­­­­­­  <a:vs:932717790106910771>
@@ -4908,24 +4909,29 @@ client.on("message", (embed18) => {
   }
 });
 
-/// Embed 19
-client.on('message' , message => {
-    var args = message.content.split(" ").slice(1);
-    var msg = args.join(" ");
-  if(message.content.startsWith(prefix + "embed" )){
-    let embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setDescription(msg)
-    message.channel.send(embed)
-  }
-})
 
 /// Reaction Auto
 client.on("message", message => {
-  if (message.channel.id != "ntoidroom") return;
+  if (message.channel.id !== "918004475640287262") return;
   if(message.author.id === client.user.id) return
-message.react("ايدي الايموجي");
+message.react("880872686891450479");
+message.react("933077528933990401");
+message.react("929797397318623262");
+});
 
-//:SNTO12: 
+client.on("message", message => {
+  if (message.channel.id !== "872242483420094506") return;
+  if(message.author.id === client.user.id) return
+message.react("880872686891450479");
+message.react("933077528933990401");
+message.react("929797397318623262");
+
 
 });
+
+//Embed19
+client.on("message", message => {
+  if (message.channel.id !== "872242483420094506") return;
+  if(message.author.id === client.user.id) return
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
