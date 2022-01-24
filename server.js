@@ -4283,11 +4283,18 @@ client.on("message", (message) => {
       return message.reply(
         "متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000>"
       );
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.RichEmbed()
       .setColor("RED")
-      .addFields(
-		{ name: '`المبلغ المراد دفعه :  `', value: `**${args}**` },
-		{ name: '`المبلغ شامل الضريبة :  `', value: `**${probot.taxs(args)}**` }
+      .addFields([
+        {
+          name: "`المبلغ المراد دفعه : `",
+          value: `**${args}**`,
+        },
+        {
+          name: "`المبلغ شامل الضريبة :  `",
+          value: `**${probot.taxs(args)}**`,
+        },
+        ],
       )
       .setFooter(
         `By  : ${message.author.username}`,
@@ -4298,6 +4305,7 @@ client.on("message", (message) => {
 
     message.channel.send(embed);
   }
+
 });
 ///اخفاء واظهار
 client.on("message", (message) => {
