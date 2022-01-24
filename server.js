@@ -4840,13 +4840,29 @@ client.on("message", (خخخخ) => {
 client.on("message", (خخخخ) => {
   if (خخخخ.content.startsWith("خخخ")) {
     خخخخ.delete()
-if (!خخخخ.member.hasPermission("ADMINISTRATOR"))
-      return خخخخ.channel.send(
-        "**ولا يهمك <a:rks:<a:rks:933077528933990401>**"
-      );
+if (خخخخ.member.hasPermission("ADMINISTRATOR")){
+خخخخ.delete()
+       خخخخ.channel.send(
+        "**براحتك خااااااالص <a:rks:933077528933990401>**"
+      )}
 else
     return خخخخ.channel.send(
       `**السيرفر دا طاهر وهيفضل طول عمره طاهر <a:rks:933077528933990401>**`
+    );
+  }
+});
+
+client.on("message", (خخخخ) => {
+  if (خخخخ.content.startsWith("كس")) {
+    خخخخ.delete()
+if (خخخخ.member.hasPermission("ADMINISTRATOR")){
+خخخخ.delete()
+       خخخخ.channel.send(
+        "**خلاص يبو عمو عندي انا دي <a:rks:933077528933990401>**"
+      )}
+else
+    return خخخخ.channel.send(
+      `**كسمين امك يا ابن المتناكة **`
     );
   }
 });
