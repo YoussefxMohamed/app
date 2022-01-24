@@ -4280,8 +4280,8 @@ client.on("message", message => {
     if(message.content.startsWith( prefix + 'tax')) {
     let args = message.content.split(" ").slice(1).join(" ");
     if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
-    const embed = new Discord.RichEmbed()
-    .setColor('YELLOW')
+    let embed = new Discord.RichEmbed()
+    .setColor('#FFEB3B')
     .addFields(
       {name:'`المبلغ المراد دفعه : `', value:'`**${args}**`'},
       {name:'`المبلغ شامل الضريبة :  `', value:'`**${probot.taxs(args)}**`'},
@@ -4889,7 +4889,7 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 });
 
 
-///Embed 11
+///Embed 18
 client.on("message", (embed18) => {
   if (embed18.content === prefix + "helpT") {
     embed18.delete();
@@ -4906,4 +4906,26 @@ client.on("message", (embed18) => {
     embed18.channel.send(bot);
    return embed18.channel.send("@everyone")
   }
+});
+
+/// Embed 19
+client.on('message' , message => {
+    var args = message.content.split(" ").slice(1);
+    var msg = args.join(" ");
+  if(message.content.startsWith(prefix + "embed" )){
+    let embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(msg)
+    message.channel.send(embed)
+  }
+})
+
+/// Reaction Auto
+client.on("message", message => {
+  if (message.channel.id != "ntoidroom") return;
+  if(message.author.id === client.user.id) return
+message.react("ايدي الايموجي");
+
+//:SNTO12: 
+
 });
