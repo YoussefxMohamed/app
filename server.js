@@ -5098,7 +5098,7 @@ client.on("messageReactionAdd", (reaction, user) => {
   reactionRoles.forEach(async reactionRole => {
     if((reactionRole.emoji === reaction._emoji.name || reactionRole.emoji == reaction._emoji.id) && reactionRole.message == reaction.message.id){
       try{
-        await reaction.message.guild.members.cache.get(user.id).roles.add(reactionRole.role)
+        await reaction.message.guild.members.get(user.id).addRoles(reactionRole.role)
       }catch(e){
         console.log(e);
       }
