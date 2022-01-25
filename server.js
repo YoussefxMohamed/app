@@ -3230,11 +3230,11 @@ client.on("message", (message) => {
   if (msg.toLowerCase().startsWith(prefix + "rerole")) {
     if (!args[0])
       return message.reply(
-        "**<a:glt:929681265752412180> يرجى وضع الشخص المراد سحب منه الرتبة**"
+        "**<a:glt:929681265752412180> يرجى وضع منشن الشخص المراد سحب منه الرتبة**"
       );
     if (!args[1])
       return message.reply(
-        "**<a:glt:929681265752412180> يرجى وضع الرتبة المراد سحبها من الشخص**"
+        "**<a:glt:929681265752412180> يرجى وضع اسم الرتبة المراد سحبها من الشخص**"
       );
     var role = msg.split(" ").slice(2).join(" ").toLowerCase();
     var role1 = message.guild.roles
@@ -3303,11 +3303,11 @@ client.on("message", (message) => {
   } else {
     if (!args[0])
       return message.reply(
-        "**<a:glt:929681265752412180> يرجى وضع الشخص المراد اعطائها الرتبة**"
+        "**<a:glt:929681265752412180> يرجى وضع منشن الشخص المراد اعطائها الرتبة**"
       );
     if (!args[1])
       return message.reply(
-        "**<a:glt:929681265752412180> يرجى وضع الرتبة المراد اعطائها للشخص**"
+        "**<a:glt:929681265752412180> يرجى وضع اسم الرتبة المراد اعطائها للشخص**"
       );
     var role = msg.split(" ").slice(2).join(" ").toLowerCase();
     var role1 = message.guild.roles
@@ -3315,7 +3315,7 @@ client.on("message", (message) => {
       .first();
     if (!role1)
       return message.reply(
-        "**<a:glt:929681265752412180> يرجى وضع الرتبة المراد اعطائها للشخص**"
+        "**<a:glt:929681265752412180> يرجى وضع اسم الرتبة المراد اعطائها للشخص**"
       );
     if (message.mentions.members.first()) {
       if (role1.position >= message.member.highestRole.position)
@@ -3324,6 +3324,19 @@ client.on("message", (message) => {
         );
 
       message.mentions.members.first().addRole(role1);
+oldMember.guild.fetchAuditLogs().then((logs) => {
+    var userID = logs.entries.first().executor.id;}
+      let roleAdded = new Discord.RichEmbed()
+        .setTitle("**ADDED ROLE TO MEMBER**")
+        .setThumbnail(guild.iconURL)
+        .setColor("GREEN")
+        .setDescription(
+          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`ADDED\`\` Role to **${message.user.username}**\n\n**User:** <@${message.id}> (ID: ${message.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
+        )
+        .setTimestamp()
+        .setFooter("Turbo Bot  ⚡#3042", "https://i.imgur.com/NRYF2ma.png");
+
+      message.channel.send(roleAdded);
       return message.reply(
         "**<a:s7gamda:929797437193867304> [ " +
           role1.name +
@@ -4929,69 +4942,4 @@ client.on('ready', () => {
 });
 */
 
-/// add Role
-client.on('message', async(msg) => {
-    if (msg.content.startsWith(prefix + "role")) {
-        var args = msg.content.split(" ");
-        var time = args[3];
-        var user = msg.mentions.members.first() || client.users.find(args[1]);
-        var member = msg.guild.member(user);
-        var role = msg.guild.roles.find(r => r.name === args[2]) || msg.mentions.roles.first() || msg.guild.roles.find(r => r.id === args[2])
-        if (!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(
-            new Discord.RichEmbed()
-            .setAuthor('❌ | Error', msg.author.avatarURL)
-            .setColor("RED")
-            .setDescription(`**❌ | You Don't Have Permission!.**`)
-            .setThumbnail(msg.author.avatarURL)
-            .setTimestamp()
-            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
-        );
-        if (!user) return msg.channel.send(
-            new Discord.RichEmbed()
-            .setAuthor('❌ | Error', msg.author.avatarURL)
-            .setColor("RED")
-            .setDescription(`**❌ | Please Mention/Id Sameone!.**`)
-            .setThumbnail(msg.author.avatarURL)
-            .setTimestamp()
-            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
-        );
-        if (!role) return msg.channel.send(
-            new Discord.RichEmbed()
-            .setAuthor('❌ | Error', msg.author.avatarURL)
-            .setColor("RED")
-            .setDescription(`**❌ | Please Mention/Id/Name The Role!.**`)
-            .setThumbnail(msg.author.avatarURL)
-            .setTimestamp()
-            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
-        );
-        if (!time) time = "24h"
-        if (user.id === msg.author.id) return msg.channel.send(
-            new Discord.RichEmbed()
-            .setAuthor('❌ | Error', msg.author.avatarURL)
-            .setColor("RED")
-            .setDescription(`**❌ | You Can't Give Your Self A Role!.**`)
-            .setThumbnail(msg.author.avatarURL)
-            .setTimestamp()
-            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
-        );
-        if (user.id === client.user.id) return msg.channel.send(
-            new Discord.RichEmbed()
-            .setAuthor('❌ | Error', msg.author.avatarURL)
-            .setColor("RED")
-            .setDescription(`**❌ | You Can't Give Me A Role!.**`)
-            .setThumbnail(msg.author.avatarURL)
-            .setTimestamp()
-            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
-        );
-        member.roles.add(role);
-        msg.channel.send(
-            new Discord.RichEmbed()
-            .setAuthor('✅ | Done', msg.author.avatarURL)
-            .setColor("GREEN")
-            .setDescription(`**✅ | <@!${user.id}> Has Been Gived <@!${role.id}> For ${ms(ms(time))}.**`)
-            .setThumbnail(msg.author.avatarURL)
-            .setTimestamp()
-            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
-        );
-    }
-});
+
