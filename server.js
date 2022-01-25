@@ -5072,18 +5072,15 @@ let MADE = message.content.split(" ");
 let BY = message.content.split(" ");*/
 let BESHO = message.content.split(" ")
 if (command === "embed") {
- /*   if (!BY[1])
-      return message.channel.send(`> :x: **Usage: ${prefix}embed \`(image-link)\` \`(color)\` \`(description)\` **\n error image link not found لا يمكننى العثور على صوره`).catch(console.error);
-    if (!MADE[2])
-      return message.channel.send(`> :x: **Usage: ${prefix}embed \`(image-link)\` \`(color)\` \`(description)\` **\n error i can't find color or hax لا يمكننى العثور على لون`).catch(console.error);*/
     if (!BESHO[1])
-      return message.channel.send(`> :x: **Usage: ${prefix}embed \`(image-link)\` \`(color)\` \`(description)\` **\n error i can't find description لا يمكننى العثور على وصف`).catch(console.error);
+      return message.channel.send(`> ** اكتبلك انا ؟**`).catch(console.error);
 message.delete()
   message.channel.send(new Discord.RichEmbed()
 .setDescription(`${BESHO[1]}`)
 .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
 .setColor("#03A9F4") )
-/*.setFooter(message.user.username, message.user.avatarURL)*/
 .catch(console.error);
 }
 });
+
+
