@@ -4930,3 +4930,27 @@ client.on('ready', () => {
 */
 
 
+/// Delete Message
+client.on("message",async message =>{
+let command = message.content.toLowerCase().split(" ")[0];
+if (command == `${prefix}clear` || command == `${prefix}مسح` || command == `${prefix}cr`) { 
+message.delete({timeout: 20000})
+    if(!message.channel.guild) return message.reply(`** This Command For Servers Only**`); 
+     if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`> ** You don't have perms :x:**`);
+     if(!message.guild.member(client.user).hasPermission('MANAGE_GUILD')) return message.channel.send(`> ** I don't have perms :x:**`);
+ 
+    let args = message.content.split(" ").slice(1)
+    let messagecount = parseInt(args);
+    if (args > 100) return message.channel.send(`\`\`\`javascript
+لا أستطيع حذف أكثر من 100 رسالة 
+\`\`\``).then(messages => messages.delete(10000))
+if(!messagecount) messagecount = '100';
+    message.channel.fetchMessages({limit: 100 }).then(messages => message.channel.bulkDelete(messagecount)).then(msgs => {
+    message.channel.send(`\`\`\`js
+${msgs.size} عدد الرسائل التي تم مسحها
+\`\`\``).then(messages => 
+messages.delete({timeout:60000}));
+    })
+  }    
+});
+
