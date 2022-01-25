@@ -73,7 +73,7 @@ client.on("message", (message) => {
 message.delete()
    /* if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
-        "**ADMINISTRATOR ليس لديك صلاحيات :rolling_eyes:**"
+        "­"
       );*/
 
     message.channel.send(" " + args.join("  "));
@@ -4681,20 +4681,6 @@ else
   }
 });
 
-client.on("message", (خخخخ) => {
-  if (خخخخ.content.startsWith("كس")) {
-    خخخخ.delete()
-if (خخخخ.member.hasPermission("ADMINISTRATOR")){
-خخخخ.delete()
-       خخخخ.channel.send(
-        "**خلاص يبو عمو عندي انا دي <a:rks:933077528933990401>**"
-      )}
-else
-    return خخخخ.channel.send(
-      `**كسمين امك يا ابن المتناكة **`
-    );
-  }
-});
 
 ///Embed 17
 client.on("message", (embed17) => {
@@ -5070,7 +5056,7 @@ client.on("message", message => {
     .setTitle('NEW MESSAGE IN DM')
     .setColor("RED")
     .setAuthor(message.author.tag , message.author.avatarURL)
-    .setFooter(client.user.username , client.user.avatarURL({dynamic: true)
+    .setFooter(client.user.username , client.user.avatarURL)
     .setTimestamp()
     .addField(`Message :`, ` \`\`\`\n- ${message.content} \`\`\` `)
     developer.send(`**Message By : ${message.author}**\n**ID : ${message.author.id}**`,embed)
