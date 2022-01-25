@@ -20,7 +20,7 @@ setInterval(() => {
 const { Client, RichEmbed } = require("discord.js");
 var { Util } = require("discord.js");
 const { prefix, devs } = require("./config");
-const client = new Client({ allowedMention: 'everyone' });
+const client = new Client({ disableEveryone: false });
 const ytdl = require("ytdl-core");
 const canvas = require("canvas");
 const convert = require("hh-mm-ss");
@@ -265,9 +265,7 @@ client.on("message", (message) => {
       .setColor("RED")
       .setImage("https://i.imgur.com/pgXofXt.gif")
       .setFooter("علوبي");
-    message.channel.send({
-      embed: banembed,
-    });
+    message.channel.send(banembed);
 
     /// كود الانفايت
   }
@@ -377,9 +375,7 @@ client.on("message", (message) => {
       .addField("**User:**", "**[ " + `${user.tag}` + " ]**")
       .addField("**By:**", "**[ " + `${message.author.tag}` + " ]**")
       .addField("**Reason:**", "**[ " + `${reason}` + " ]**");
-    message.channel.send({
-      embed: kickembed,
-    });
+    message.channel.send(kickembed);
   }
 });
 client.on("message", (message) => {
@@ -686,7 +682,7 @@ client.on("message", (message) => {
             .get(usermentioned)
             .setVoiceChannel(authorchannel)
             .then((m) => message.channel.send(embed));
-          message.guild.members.cache.get(usermentioned).send(embed);
+          message.guild.members.get(usermentioned).send(embed);
         } else {
           message.channel.send(
             "`You Cant Move" +
@@ -1039,7 +1035,7 @@ client.on("messageDelete", (message) => {
       `**\n**:wastebasket: Successfully \`\`DELETE\`\` **MESSAGE** In ${message.channel}\n\n**Channel:** \`\`${message.channel.name}\`\` (ID: ${message.channel.id})\n**Message ID:** ${message.id}\n**Sent By:** <@${message.author.id}> (ID: ${message.author.id})\n**Message:**\n\`\`\`${message}\`\`\``
     )
     .setTimestamp()
-    .setFooter(message.guild.name, message.guild.iconURL());
+    .setFooter(message.guild.name, message.guild.iconURL);
 
   logChannel.send(messageDelete);
 });
@@ -1633,9 +1629,7 @@ client.on("ready", () => {
 client.on("message", (message) => {
   if (message.content === "السلام عليكم") {
     message.channel.send("**:heart:وعليكم السلام ورحمة الله وبركاته **");
-message.channel.send({
-	files: ['https://cdn.discordapp.com/icons/222078108977594368/6e1019b3179d71046e463a75915e7244.png']
- });  }
+message.channel.sendFile();  }
 });
 client.on("message", (message) => {
   if (message.content === "خط") {
@@ -1765,7 +1759,7 @@ client.on("message", (message) => {
 
       var channel = member.guild.channels.find((gg) => gg.name === "log"); //// تعديل اساسي
       if (!channel) return;
-      channel.send({ embed: embed });
+      channel.send(embed);
     });
   }
 });
@@ -2687,7 +2681,7 @@ client.on("message", async (message) => {
                     Reply:
                     ${collectedd.first().content}`
                 );
-              let steve = await client.users.fetch("736038771535118377");
+              let steve = await client.fetchUser("736038771535118377");
               embed1.setFooter(
                 `رد تلقائي`,
                 steve ? steve.displayAvatarURL : message.author.displayAvatarURL
@@ -3152,6 +3146,7 @@ client.on("message", (message) => {
 client.on("message", message => {
   if (message.content.split(" ")[0] === "رابط") {
 return message.channel.send(`
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
 > <a:rks:933077528933990401><a:rks:933077528933990401><a:rks:933077528933990401>
 <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
 > https://discord.gg/mqkaUdE5dK
@@ -4392,7 +4387,7 @@ return embed1.channel.send("@everyone")
 client.on("message", (embed2) => {
   if (embed2.content === prefix + "Tcla") {
     embed2.delete();
-    const bot2 = new Discord.MessageEmbed()
+    const bot2 = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("**طريقة التسجيل <a:s7:929681264984858664> **")
@@ -4418,7 +4413,7 @@ return embed2.channel.send("@everyone")
 client.on("message", (embed3) => {
   if (embed3.content === prefix + "serRULE") {
     embed3.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("**SERVER RULES <a:hypeshiny:930187068125118474> **")
@@ -4463,7 +4458,7 @@ return embed3.channel.send("@everyone")
 client.on("message", (embed4) => {
   if (embed4.content === prefix + "claRULE") {
     embed4.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("SCRIM RULES <a:rule:880872686279094372> ")
@@ -4498,7 +4493,7 @@ return embed4.channel.send("@everyone")
 client.on("message", (embed5) => {
   if (embed5.content === prefix + "claINFO") {
     embed5.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("POINT SYSTEM <a:grs:922517063774400563> ")
@@ -4537,7 +4532,7 @@ return embed5.channel.send("@everyone")
 client.on("message", (embed6) => {
   if (embed6.content === prefix + "tdmRULE") {
     embed6.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("TDM RULES <a:grs:922517063774400563> ")
@@ -4568,7 +4563,7 @@ return embed6.channel.send("@everyone")
 client.on("message", (embed7) => {
   if (embed7.content === prefix + "helpT") {
     embed7.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
       .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
@@ -4582,7 +4577,7 @@ client.on("message", (embed7) => {
 client.on("message", (embed8) => {
   if (embed8.content === prefix + "list") {
     embed8.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
     .setColor("#00BCD4")
     .setDescription(`**
 **<a:gna7sh:930187075649679401><a:s_:930190463535816735><a:c_:930191251897217096><a:r_:930190480996728922><a:i_:930190442862112778><a:m_:930190482162712586><a:love:930190460683685978><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>**
@@ -4657,7 +4652,7 @@ return embed8.channel.send("@everyone")
 client.on("message", (embed9) => {
   if (embed9.content === prefix + "idTDM") {
     embed9.delete();
-    const bot2 = new Discord.MessageEmbed()
+    const bot2 = new Discord.RichEmbed()
       .setColor("#00BCD4")
       .setTitle(
         "**<a:gna7sh:930187075649679401>.<a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586>­<a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210>.<a:gna7ym:930187081299423263>**"
