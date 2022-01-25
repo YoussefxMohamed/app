@@ -3324,12 +3324,12 @@ client.on("message", (message) => {
         );
 
 
-      return message.reply(
+      return message.send(
         "**<a:s7gamda:929797437193867304> [ " +
+          args[0] +
+          " ] تم اعطاء [ " +
           role1.name +
-          " ] رتبة [ " +
-          args[0] ] +[
-          " ] تم اعطاء **"
+          " ] رتبة **"
         )
     }
     if (args[0].toLowerCase() == "all") {
@@ -3338,7 +3338,7 @@ client.on("message", (message) => {
           "انت لا تمتلك الصلاحيات الكافية :rolling_eyes:"
         );
       message.guild.members.forEach((m) => m.addRole(role1));
-      return message.reply(
+      return message.send(
         "**<a:s7gamda:929797437193867304> [ " +
           role1.name +
           " ] تم اعطاء الكل رتبة**"
