@@ -4795,14 +4795,20 @@ client.on("message", (embed12) => {
 ///تعديل غير اساسي
 ////كود هيلب
 
-client.on("message", (embed7) => {
-  if (embed7.content === prefix + "helpT") {
-    embed7.delete();
+client.on("message", (embed13) => {
+  if (embed13.content === prefix + "helpT") {
+    embed13.delete();
+    embed13.react("a:s7gamda:929797437193867304");
     const bot = new Discord.RichEmbed()
+            .setAuthor(
+              `Music Commands ⚡`,"https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif"
+            )
       .setColor("#FFEB3B")
-      .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
-      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
-    embed7.channel.send(bot);
+      .setThumbnail("https://i.imgur.com/NRYF2ma.png")
+      .setDescription("**`!autoplay` - التشغيل التلقائي للموسيقي \n `!dj` - Set Dj Role To Controle The Bot \n `!join` - 24/7 in the channel \n `!jump` - skip a specific song \n `!lang` - Change The Bot Lang In The Guild \n `!leave` - leave the 24/7 channel \n `!loop` - Loop Queue/Song \n `!lyrics` - Song lyrics \n `!music-data` - get all the playing music data \n `!nowplaying` - What is paying \n `!pause` - Pause The Music \n `!ping` - معرفة سرعة البوت \n `!play-playlist` - تشغيل قائمة التشغيل الخاصة بك \n `!play` - لتشغيل الأغاني \n `!queue` - معاينة قائمة انتظار الخادم \n `!resume` - لاستئناف الأغنية \n `!say` - اجعل البوت يقول أي شيء في القناة الصوتية \n `!search` - اجعل البوت يبحث عن اي شيء \n `!seek` - الذهاب الي وقت معين في الأغنية \n `!setup` - قم باعداد قناة جمع الاغاني \n `!skip` - تخطي الأغنية \n `!stop` - ايقاف الاغنية \n ``**")
+      /*   .setImage()*/
+      .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
+    embed13.channel.send(bot);
   }
 });
 
@@ -4911,34 +4917,17 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 
 ///Embed 18
 
-client.on("message", (embed7) => {
-  if (embed7.content === prefix + "helpT") {
-    embed7.delete();
+client.on("message", (embed18) => {
+  if (embed18.content === prefix + "helpT") {
+    embed18.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
       .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
-    embed7.channel.send(bot);
-  }
-});
-
-
-client.on("message", (embed18) => {
-  if (embed18.content === prefix + "helpT") {
-    embed18.delete();
-    embed18.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.RichEmbed()
-            .setAuthor(
-              `Music Commands ⚡`,"https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif"
-            )
-      .setColor("#FFEB3B")
-      .setThumbnail("https://i.imgur.com/NRYF2ma.png")
-      .setDescription("**`!autoplay` - التشغيل التلقائي للموسيقي \n `!dj` - Set Dj Role To Controle The Bot \n `!join` - 24/7 in the channel \n `!jump` - skip a specific song \n `!lang` - Change The Bot Lang In The Guild \n `!leave` - leave the 24/7 channel \n `!loop` - Loop Queue/Song \n `!lyrics` - Song lyrics \n `!music-data` - get all the playing music data \n `!nowplaying` - What is paying \n `!pause` - Pause The Music \n `!ping` - معرفة سرعة البوت \n `!play-playlist` - تشغيل قائمة التشغيل الخاصة بك \n `!play` - لتشغيل الأغاني \n `!queue` - معاينة قائمة انتظار الخادم \n `!resume` - لاستئناف الأغنية \n `!say` - اجعل البوت يقول أي شيء في القناة الصوتية \n `!search` - اجعل البوت يبحث عن اي شيء \n `!seek` - الذهاب الي وقت معين في الأغنية \n `!setup` - قم باعداد قناة جمع الاغاني \n `!skip` - تخطي الأغنية \n `!stop` - ايقاف الاغنية \n ``**")
-      /*   .setImage()*/
-      .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed18.channel.send(bot);
   }
 });
+
 
 
 /// Reaction Auto
@@ -4984,7 +4973,6 @@ client.on("message", message => {
 
 
 /// Warn
- ///وارن
 client.on("message", message => {
      if(message.content.startsWith(prefix + "warn")) {
       if(!message.member.hasPermission("MUTE_MEMBERS"))
@@ -5054,3 +5042,90 @@ client.on('message', message => {
     }
 });
 
+
+/// Spin 
+client.on('message', (msg) => {
+  var word = [
+    "You won Nitro Classic",
+    "You won Nitro Gaming",
+    "You won 10k Credits",
+    "You won 20k Credits",
+    "You won 40k Credits",
+    "You won 50k Credits",
+    "You won 100k Credits"
+  ]
+  if (msg.author.bot) return
+  if (msg.content === prefix + "spin") {
+    var result = word[Math.floor(Math.random() * word.length)];
+    msg.channel.send(result)
+  }
+})
+
+
+/// Reaction Role
+const db = require("quick.db")
+client.on("message", async message => {
+  if(message.content.startsWith(prefix + "react")){
+    const args = message.content.split(" ");
+    if(!args[1]) return message.channel.send("حط ايموجي");
+    if(!args[2]) return message.channel.send("حط ID الرسالة");
+    if(isNaN(args[2])) return message.channel.send("حط ID الرسالة صح بدل ما ارنك");
+    if(!args[3]) return message.channel.send("حط Id الرول يلاا");
+    if(isNaN(args[3])) return message.channel.send("حط ID الرول صح متقرفنيش");
+    let emoji = ReactionEmojiGrab(args[1]);
+    if(!isNaN(emoji)) emoji = client.emojis.get(emoji);
+    try{
+      const msg = await message.channel.fetchMessage(args[2]);
+      await msg.react(emoji);
+      
+      db.push(`${message.guild.id}.reactionroles`, 
+        {
+          message: msg.id,
+          emoji: emoji.id || emoji,
+          role: args[3]
+        }
+      );
+    }catch(e){
+      message.channel.send("Error\n" + e);
+    }
+  }
+})
+
+client.on("messageReactionAdd", (reaction, user) => {
+  if(user.bot) return;
+  const reactionRoles = db.get(`${reaction.message.guild.id}.reactionroles`);
+  if(!reactionRoles) return;
+  reactionRoles.forEach(async reactionRole => {
+    if((reactionRole.emoji === reaction._emoji.name || reactionRole.emoji == reaction._emoji.id) && reactionRole.message == reaction.message.id){
+      try{
+        await reaction.message.guild.members.cache.get(user.id).roles.add(reactionRole.role)
+      }catch(e){
+        console.log(e);
+      }
+    }
+  });
+})
+
+client.on("messageReactionRemove", (reaction, user) => {
+  if(user.bot) return;
+  const reactionRoles = db.get(`${reaction.message.guild.id}.reactionroles`);
+  if(!reactionRoles) return;
+  reactionRoles.forEach(async reactionRole => {
+    if((reactionRole.emoji === reaction._emoji.name || reactionRole.emoji == reaction._emoji.id) && reactionRole.message == reaction.message.id){
+      try{
+        await reaction.message.guild.members.cache.get(user.id).roles.remove(reactionRole.role)
+      }catch(e){
+        console.log(e);
+      }
+    }
+  });
+})
+
+function ReactionEmojiGrab(reactionArg){
+  const contents = reactionArg.substring(1, reactionArg.length - 1).split(":");
+  if(contents.length > 1){
+    return contents[2];
+  }else{
+    return reactionArg;
+  }
+}
