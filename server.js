@@ -4916,7 +4916,7 @@ client.send("message")
      }
     }, 86400000)
 });
-
+/*
 /// send nitro
 const nitro = require('discordnitro')
 client.on('ready', () => {
@@ -4927,37 +4927,6 @@ client.on('ready', () => {
         }
     }, 1000) //1000 = 1 second
 });
+*/
 
 
-//// Server Bot
-client.on("message", pro => {
-
-  if (pro.author.bot) return;
-let devs = ["736038771535118377"];
-  if (pro.content === prefix + "ser") {
-      if(!devs.includes(pro.author.id)){
-    let embed = new Discord.MessageEmbed()
-    .setColor("RANDOM")
-    .setTitle(`**ليس لديك صلاحيات**`);
-    pro.reply(embed).then( z => z.delete(3000));
-     return
-  } 
-    client.guilds.cache.forEach(g => {
-      
-      let l = g.id;
-      g.channels
-        .get(g.channels.first().id)
-        .createInvite({
-          maxUses: 100,
-          maxAge: 86400
-        })
-        .then(i =>
-          pro.channel.send(`
-        https://discord.gg/${i.code}
-        [${g.owner}]
-         
-        `)
-        ); 
-    });
-  }
-});
