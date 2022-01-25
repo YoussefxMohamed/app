@@ -213,7 +213,7 @@ client.on("message", (pixelbot) => {
 client.on("message", (message) => {
   if (message.content === prefix + "bot") {
     const bot = new Discord.RichEmbed()
-      .setAuthor(client.user.username, client.user.avatarURL())
+      .setAuthor(client.user.username, client.user.avatarURL)
       .setColor("#03A9F4")
       .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
       .addField("**Channels** : ", `» ${client.channels.size} `, true)
@@ -369,7 +369,7 @@ client.on("message", (message) => {
     message.guild.member(user).kick();
 
     const kickembed = new Discord.RichEmbed()
-      .setAuthor(`KICKED <a:rks:933077528933990401>`, user.displayAvatarURL())
+      .setAuthor(`KICKED <a:rks:933077528933990401>`, user.displayAvatarURL)
       .setColor("RANDOM")
       .setTimestamp()
       .addField("**User:**", "**[ " + `${user.tag}` + " ]**")
@@ -391,7 +391,7 @@ client.on("message", (message) => {
           .setColor("#03A9F4")
           .setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
           .setImage(avt.avatarURL)
-          .setFooter(`Avatar`, message.client.user.avatarURL());
+          .setFooter(`Avatar`, message.client.user.avatarURL);
         message.channel.send(avtEmbed);
       })
       .catch(() => message.channel.send(`يجب عليك وضع ايدي الشخص`));
@@ -412,7 +412,7 @@ client.on("message", (message) => {
     const verificationLevels = ["None", "Low", "Medium", "Insane", "Extreme"];
     const days = millis / 1000 / 60 / 60 / 24;
     var embed = new Discord.RichEmbed()
-      .setAuthor(message.guild.name, message.guild.iconURL())
+      .setAuthor(message.guild.name, message.guild.iconURL)
       .addField(":id:✽** Server ID:**", `» ${message.guild.id} `, true)
       .addField(
         ":calendar:✽** Created On**",
@@ -1066,7 +1066,7 @@ client.on("messageUpdate", (oldMessage, newMessage) => {
       `**\n**:wrench: Successfully \`\`EDIT\`\` **MESSAGE** In ${oldMessage.channel}\n\n**Channel:** \`\`${oldMessage.channel.name}\`\` (ID: ${oldMessage.channel.id})\n**Message ID:** ${oldMessage.id}\n**Sent By:** <@${oldMessage.author.id}> (ID: ${oldMessage.author.id})\n\n**Old Message:**\`\`\`${oldMessage}\`\`\`\n**New Message:**\`\`\`${newMessage}\`\`\``
     )
     .setTimestamp()
-    .setFooter(oldMessage.guild.name, oldMessage.guild.iconURL());
+    .setFooter(oldMessage.guild.name, oldMessage.guild.iconURL);
 
   logChannel.send(messageUpdate);
 });
@@ -1096,7 +1096,7 @@ client.on("roleCreate", (role) => {
       )
       .setColor("GREEN")
       .setTimestamp()
-      .setFooter(role.guild.name, role.guild.iconURL());
+      .setFooter(role.guild.name, role.guild.iconURL);
 
     logChannel.send(roleCreate);
   });
@@ -1126,7 +1126,7 @@ client.on("roleDelete", (role) => {
       )
       .setColor("RED")
       .setTimestamp()
-      .setFooter(role.guild.name, role.guild.iconURL());
+      .setFooter(role.guild.name, role.guild.iconURL);
 
     logChannel.send(roleDelete);
   });
@@ -1159,7 +1159,7 @@ client.on("roleUpdate", (oldRole, newRole) => {
           `**\n**<a:s7gamda:929797437193867304> Successfully \`\`EDITED\`\` Role Name.\n\n**Old Name:** \`\`${oldRole.name}\`\`\n**New Name:** \`\`${newRole.name}\`\`\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
-        .setFooter(oldRole.guild.name, oldRole.guild.iconURL());
+        .setFooter(oldRole.guild.name, oldRole.guild.iconURL);
 
       logChannel.send(roleUpdateName);
     }
@@ -1183,7 +1183,7 @@ client.on("roleUpdate", (oldRole, newRole) => {
           `**\n**<a:s7gamda:929797437193867304> Successfully \`\`EDITED\`\` **${oldRole.name}** Role Color.\n\n**Old Color:** ${oldColor}\n**New Color:** ${newColor}\n**Role ID:** ${oldRole.id}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
-        .setFooter(oldRole.guild.name, oldRole.guild.iconURL());
+        .setFooter(oldRole.guild.name, oldRole.guild.iconURL);
 
       logChannel.send(roleUpdateColor);
     }
@@ -1225,7 +1225,7 @@ client.on("channelCreate", (channel) => {
       )
       .setColor("GREEN")
       .setTimestamp()
-      .setFooter(channel.guild.name, channel.guild.iconURL());
+      .setFooter(channel.guild.name, channel.guild.iconURL);
 
     logChannel.send(channelCreate);
   });
@@ -1265,7 +1265,7 @@ client.on("channelDelete", (channel) => {
       )
       .setColor("RED")
       .setTimestamp()
-      .setFooter(channel.guild.name, channel.guild.iconURL());
+      .setFooter(channel.guild.name, channel.guild.iconURL);
 
     logChannel.send(channelDelete);
   });
@@ -1303,7 +1303,7 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
           `**\n**:wrench: Successfully Edited **${channelType}** Channel Name\n\n**Old Name:** \`\`${oldChannel.name}\`\`\n**New Name:** \`\`${newChannel.name}\`\`\n**Channel ID:** ${oldChannel.id}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
-        .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL());
+        .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL);
 
       logChannel.send(newName);
     }
@@ -1323,7 +1323,7 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
           })\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
-        .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL());
+        .setFooter(oldChannel.guild.name, oldChannel.guild.iconURL);
 
       logChannel.send(newTopic);
     }
@@ -1357,7 +1357,7 @@ client.on("guildBanAdd", (guild, user) => {
         `**\n**:airplane: Successfully \`\`BANNED\`\` **${user.username}** From the server!\n\n**User:** <@${user.id}> (ID: ${user.id})\n**By:** <@${userID}> (ID: ${userID})`
       )
       .setTimestamp()
-      .setFooter(guild.name, guild.iconURL());
+      .setFooter(guild.name, guild.iconURL);
 
     logChannel.send(banInfo);
   });
@@ -1389,7 +1389,7 @@ client.on("guildBanRemove", (guild, user) => {
         `**\n**:unlock: Successfully \`\`UNBANNED\`\` **${user.username}** From the server\n\n**User:** <@${user.id}> (ID: ${user.id})\n**By:** <@${userID}> (ID: ${userID})`
       )
       .setTimestamp()
-      .setFooter(guild.name, guild.iconURL());
+      .setFooter(guild.name, guild.iconURL);
 
     logChannel.send(unBanInfo);
   });
@@ -1432,7 +1432,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
           `**\n**:spy: Successfully \`\`CHANGE\`\` Member Nickname.\n\n**User:** ${oldMember} (ID: ${oldMember.id})\n**Old Nickname:** ${oldNM}\n**New Nickname:** ${newNM}\n**By:** <@${userID}> (ID: ${userID})`
         )
         .setTimestamp()
-        .setFooter(oldMember.guild.name, oldMember.guild.iconURL());
+        .setFooter(oldMember.guild.name, oldMember.guild.iconURL);
 
       logChannel.send(updateNickname);
     }
@@ -1447,7 +1447,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       if (log[oldMember.guild.id].onoff === "Off") return;
       let roleAdded = new Discord.RichEmbed()
         .setTitle("**ADDED ROLE TO MEMBER**")
-        .setThumbnail(oldMember.guild.iconURL())
+        .setThumbnail(oldMember.guild.iconURL)
         .setColor("GREEN")
         .setDescription(
           `**\n**<a:s7gamda:929797437193867304> Successfully \`\`ADDED\`\` Role to **${oldMember.user.username}**\n\n**User:** <@${oldMember.id}> (ID: ${oldMember.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
@@ -1468,7 +1468,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
       let roleRemoved = new Discord.RichEmbed()
         .setTitle("**REMOVED ROLE FROM MEMBER**")
-        .setThumbnail(oldMember.guild.iconURL())
+        .setThumbnail(oldMember.guild.iconURL)
         .setColor("RED")
         .setDescription(
           `**\n**<a:s7gamda:929797437193867304> Successfully \`\`REMOVED\`\` Role from **${oldMember.user.username}**\n\n**User:** <@${oldMember.user.id}> (ID: ${oldMember.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
@@ -1487,13 +1487,13 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
     if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
     let newOwner = new Discord.RichEmbed()
       .setTitle("**UPDATE GUILD OWNER**")
-      .setThumbnail(oldMember.guild.iconURL())
+      .setThumbnail(oldMember.guild.iconURL)
       .setColor("GREEN")
       .setDescription(
         `**\n**<a:s7gamda:929797437193867304> Successfully \`\`TRANSFER\`\` The Owner Ship.\n\n**Old Owner:** <@${oldMember.user.id}> (ID: ${oldMember.user.id})\n**New Owner:** <@${newMember.user.id}> (ID: ${newMember.user.id})`
       )
       .setTimestamp()
-      .setFooter(oldMember.guild.name, oldMember.guild.iconURL());
+      .setFooter(oldMember.guild.name, oldMember.guild.iconURL);
 
     logChannel.send(newOwner);
   }
@@ -1608,12 +1608,12 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
     let voiceLeave = new Discord.RichEmbed()
       .setTitle("**CHANGED VOICE ROOM**")
       .setColor("GREEN")
-      .setThumbnail(voiceOld.user.avatarURL())
+      .setThumbnail(voiceOld.user.avatarURL)
       .setDescription(
         `**\n**:repeat: Successfully \`\`CHANGED\`\` The Voice Channel.\n\n**From:** \`\`${voiceOld.voiceChannel.name}\`\` (ID: ${voiceOld.voiceChannelID})\n**To:** \`\`${voiceNew.voiceChannel.name}\`\` (ID: ${voiceNew.voiceChannelID})\n**User:** ${voiceOld} (ID: ${voiceOld.id})`
       )
       .setTimestamp()
-      .setFooter(voiceOld.user.tag, voiceOld.user.avatarURL());
+      .setFooter(voiceOld.user.tag, voiceOld.user.avatarURL);
 
     logChannel.send(voiceLeave);
   }
@@ -1748,8 +1748,8 @@ client.on("message", (message) => {
     client.on("guildMemberAdd", (member) => {
       if (member.user.bot) return;
       var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL())
-        .setThumbnail(member.user.avatarURL())
+        .setAuthor(member.user.username, member.user.avatarURL)
+        .setThumbnail(member.user.avatarURL)
         .setTitle(`**الله معاك ✋ **`)
         .addField("**__شكرا لوقتك__**  ", `${member}`)
         .setDescription(`**مع السلامه تشرفنا بك ✋** `)
@@ -3650,7 +3650,7 @@ client.on("message", async (msg) => {
         .setColor("#5074b3");
       msg.channel.send(embed);
     } else {
-      let sicon = mentions.user.avatarURL();
+      let sicon = mentions.user.avatarURL;
       let embed = new Discord.RichEmbed().setColor("#5074b3").setImage(sicon);
       msg.channel.send(embed);
     }
@@ -4560,16 +4560,66 @@ return embed6.channel.send("@everyone")
 });
 
 ///Embed 7
-client.on("message", (embed7) => {
-  if (embed7.content === prefix + "helpT") {
-    embed7.delete();
+
+client.on("message", (helpT) => {
+  if (helpT.content.startsWith(prefix + "helpT")) {
+    helpT.react("a:s7gamda:929797437193867304");
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-      .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
-      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
-    embed7.channel.send(bot);
+      .setThumbnail("https://i.imgur.com/NRYF2ma.png")
+      .setTitle("**TURBO BOT Commands <a:grs:922517063774400563> **")
+      .setDescription(
+        `**<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+<a:gna7ym:930187081299423263> الأوامر العامة <a:gna7sh:930187075649679401> 
+\`${prefix}bot\` : لعرض معلومات عن البوت 
+\`${prefix}user\` : لعرض معلومات عنك 
+\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
+\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
+\`${prefix}color\` : لأختيار لونك في السيرفر 
+\`${prefix}credits\` : لمعرفة رصيدك  
+\`${prefix}daily\` : لأخذ جائزة يومية
+\`${prefix}inf\` : عدد الدعوات للسيرفر
+\`${prefix}tax\` : لمعرفة ضريبة ProBot
+\`${prefix}invite\` : لانشاء رابط دعوة البوت
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+<a:tag:929797450061987880> الأوامر الإدارية <a:tag:929797450061987880>
+\`${prefix}clear\` : لمسح الشات 
+\`${prefix}ban\` : لحظر شخص من السيرفر
+\`${prefix}kick\` : لطرد شخص من السيرفر
+\`${prefix}open\` : لفتح الشات
+\`${prefix}close\` : لقفل الشات 
+\`${prefix}mute\` : لإسكات شخص
+\`${prefix}unmute\` : لـ فك إسكات شخص
+\`${prefix}setup\` : إنشاء تيكت
+\`${prefix}closet\` : لحذف روم التكت
+\`${prefix}start\` : لإنشاء جيفاواي
+\`${prefix}say\` : البوت يكرر كلامك
+\`${prefix}move\` : لسحب الشخص الى روومك
+\`${prefix}reply\` : لصنع رد تلقائي
+\`${prefix}setLog\` : لتحديد روم السجلات 
+\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
+\`${prefix}role\` : لاعطاء شخص رتبة
+\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+<a:s7gamda:929797437193867304> أوامر التقديم <a:s7gamda:929797437193867304>
+\`${prefix}room1\` : لعمل روم التقديمات
+\`${prefix}room2\` : لعمل روم القبول والرفض
+\`${prefix}قبول\` : لقبول تقديم عضو
+\`${prefix}رفض\` : لرفض عضو
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+<a:prv:932029032629956618> أوامر الحماية <a:prv:932029032629956618>
+\`${prefix}antibots on\` : منع دخول بوتات
+\`${prefix}antibots off\` : السماح للبوتات بالدخول
+<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
+**`
+      )
+      .setImage("https://i.imgur.com/Ewfi7jU.gif");
+    helpT.channel.send(bot);
+   return helpT.channel.send("@everyone")
   }
 });
+
+
 
 
 
@@ -4745,62 +4795,17 @@ client.on("message", (embed12) => {
 ///تعديل غير اساسي
 ////كود هيلب
 
-client.on("message", (helpT) => {
-  if (helpT.content.startsWith(prefix + "helpT")) {
-    helpT.react("a:s7gamda:929797437193867304");
+client.on("message", (embed7) => {
+  if (embed7.content === prefix + "helpT") {
+    embed7.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
-      .setThumbnail("https://i.imgur.com/NRYF2ma.png")
-      .setTitle("**TURBO BOT Commands <a:grs:922517063774400563> **")
-      .setDescription(
-        `**<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
-<a:gna7ym:930187081299423263> الأوامر العامة <a:gna7sh:930187075649679401> 
-\`${prefix}bot\` : لعرض معلومات عن البوت 
-\`${prefix}user\` : لعرض معلومات عنك 
-\`${prefix}avt\` :يعرض لك صورت  اي شخص عن طريق الايدي 
-\`${prefix}avatar\` : لعرض صورتك أو صورة الي تمنشنه 
-\`${prefix}color\` : لأختيار لونك في السيرفر 
-\`${prefix}credits\` : لمعرفة رصيدك  
-\`${prefix}daily\` : لأخذ جائزة يومية
-\`${prefix}inf\` : عدد الدعوات للسيرفر
-\`${prefix}tax\` : لمعرفة ضريبة ProBot
-\`${prefix}invite\` : لانشاء رابط دعوة البوت
-<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
-<a:tag:929797450061987880> الأوامر الإدارية <a:tag:929797450061987880>
-\`${prefix}clear\` : لمسح الشات 
-\`${prefix}ban\` : لحظر شخص من السيرفر
-\`${prefix}kick\` : لطرد شخص من السيرفر
-\`${prefix}open\` : لفتح الشات
-\`${prefix}close\` : لقفل الشات 
-\`${prefix}mute\` : لإسكات شخص
-\`${prefix}unmute\` : لـ فك إسكات شخص
-\`${prefix}setup\` : إنشاء تيكت
-\`${prefix}closet\` : لحذف روم التكت
-\`${prefix}start\` : لإنشاء جيفاواي
-\`${prefix}say\` : البوت يكرر كلامك
-\`${prefix}move\` : لسحب الشخص الى روومك
-\`${prefix}reply\` : لصنع رد تلقائي
-\`${prefix}setLog\` : لتحديد روم السجلات 
-\`${prefix}ls\` : لإظهار جميع بوتات السيرفر
-\`${prefix}role\` : لاعطاء شخص رتبة
-\`${prefix}role all\` : لـ إعطاء الجميع رتبة معينة
-<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
-<a:s7gamda:929797437193867304> أوامر التقديم <a:s7gamda:929797437193867304>
-\`${prefix}room1\` : لعمل روم التقديمات
-\`${prefix}room2\` : لعمل روم القبول والرفض
-\`${prefix}قبول\` : لقبول تقديم عضو
-\`${prefix}رفض\` : لرفض عضو
-<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
-<a:prv:932029032629956618> أوامر الحماية <a:prv:932029032629956618>
-\`${prefix}antibots on\` : منع دخول بوتات
-\`${prefix}antibots off\` : السماح للبوتات بالدخول
-<a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
-**`
-      )
-      .setImage("https://i.imgur.com/Ewfi7jU.gif");
-    helpT.channel.send(bot);
+      .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
+      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
+    embed7.channel.send(bot);
   }
 });
+
 
 ///Embed 14
 client.on("message", (embed14) => {
@@ -4905,6 +4910,19 @@ Mobile | لو انت موبايل سهله اهي | :mobile_phone:
 
 
 ///Embed 18
+
+client.on("message", (embed7) => {
+  if (embed7.content === prefix + "helpT") {
+    embed7.delete();
+    const bot = new Discord.RichEmbed()
+      .setColor("#FFEB3B")
+      .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
+      .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
+    embed7.channel.send(bot);
+  }
+});
+
+
 client.on("message", (embed18) => {
   if (embed18.content === prefix + "helpT") {
     embed18.delete();
@@ -4919,7 +4937,6 @@ client.on("message", (embed18) => {
       /*   .setImage()*/
       .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif");
     embed18.channel.send(bot);
-   return embed18.channel.send("@everyone")
   }
 });
 
