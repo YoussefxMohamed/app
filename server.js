@@ -3323,27 +3323,14 @@ client.on("message", (message) => {
           "انت لا تمتلك الصلاحيات الكافية :rolling_eyes:"
         );
 
-      message.mentions.members.first().addRole(role1);
-oldMember.guild.fetchAuditLogs().then((logs) => {
-    var userID = logs.entries.first().executor.id;}
-      let roleAdded = new Discord.RichEmbed()
-        .setTitle("**ADDED ROLE TO MEMBER**")
-        .setThumbnail(guild.iconURL)
-        .setColor("GREEN")
-        .setDescription(
-          `**\n**<a:s7gamda:929797437193867304> Successfully \`\`ADDED\`\` Role to **${message.user.username}**\n\n**User:** <@${message.id}> (ID: ${message.user.id})\n**Role:** \`\`${role.name}\`\` (ID: ${role.id})\n**By:** <@${userID}> (ID: ${userID})`
-        )
-        .setTimestamp()
-        .setFooter("Turbo Bot  ⚡#3042", "https://i.imgur.com/NRYF2ma.png");
 
-      message.channel.send(roleAdded);
       return message.reply(
         "**<a:s7gamda:929797437193867304> [ " +
           role1.name +
           " ] رتبة [ " +
-          args[0] +
+          args[0] ] +[
           " ] تم اعطاء **"
-      );
+        )
     }
     if (args[0].toLowerCase() == "all") {
       if (role1.position >= message.member.highestRole.position)
