@@ -475,7 +475,7 @@ client.on("message", (message) => {
       return message
         .reply("** يجب عليك منشنت شخص اولاً**")
         .catch(console.error);
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
       .setColor(0x00ae86)
       .setTimestamp()
       .addField("الأستعمال:", "اسكت/احكي")
@@ -498,7 +498,7 @@ client.on("message", (message) => {
         .catch(console.error);
 
     if (message.guild.member(user).removeRole(muteRole.id)) {
-      const avtEmbed = new Discord.RichEmbed()
+      const avtEmbed = new Discord.MessageEmbed()
         .setColor("#FFEB3B")
         .setDescription(
           `> **<a:s7gamda:929797437193867304>    تم فك الميوت عن الشخص **`
@@ -509,7 +509,7 @@ client.on("message", (message) => {
         .member(user)
         .removeRole(muteRole)
         .then(() => {
-          const avtEmbed = new Discord.RichEmbed()
+          const avtEmbed = new Discord.MessageEmbed()
             .setColor("#FFEB3B")
             .setDescription(
               `> **<a:s7gamda:929797437193867304>    تم فك الميوت عن الشخص **`
@@ -546,7 +546,7 @@ client.on("message", (message) => {
         .reply("** يجب عليك تمنشن شخص اولاً**")
         .catch(console.error);
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
       .setColor(0x00ae86)
       .setTimestamp()
       .addField("الأستعمال:", "اسكت/احكي")
@@ -569,7 +569,7 @@ client.on("message", (message) => {
         .catch(console.error);
 
     if (message.guild.member(user).roles.has(muteRole.id)) {
-      const avtEmbed = new Discord.RichEmbed()
+      const avtEmbed = new Discord.MessageEmbed()
         .setColor("#FF1100")
         .setDescription(
           `> **<a:s7gamda:929797437193867304>    تم اعطاء العضو ميوت **`
@@ -580,7 +580,7 @@ client.on("message", (message) => {
         .member(user)
         .addRole(muteRole)
         .then(() => {
-          const avtEmbed = new Discord.RichEmbed()
+          const avtEmbed = new Discord.MessageEmbed()
             .setColor("#FF1100")
             .setDescription(
               `> **<a:s7gamda:929797437193867304>    تم اعطاء العضو ميوت كتابي**`
@@ -605,7 +605,7 @@ client.on("message", (message) => {
       })
       .then(() => {
         message.delete();
-        const bot = new Discord.RichEmbed()
+        const bot = new Discord.MessageEmbed()
           .setColor("#FF1100")
           .setTitle(`> **تم قفل التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
@@ -623,7 +623,7 @@ client.on("message", (message) => {
       })
       .then(() => {
         message.delete();
-        const bot = new Discord.RichEmbed()
+        const bot = new Discord.MessageEmbed()
           .setColor("#FF1100")
           .setTitle(`> **تم فتح التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
@@ -668,13 +668,13 @@ client.on("message", (message) => {
         if (message.mentions.members.first().voiceChannel != null) {
           var authorchannel = message.member.voiceChannelID;
           var usermentioned = message.mentions.members.first().id;
-          var embed = new Discord.RichEmbed()
+          var embed = new Discord.MessageEmbed()
             .setTitle("Succes!")
             .setColor("#03A9F4")
             .setDescription(
               `<a:s7gamda:929797437193867304> You Have Moved <@${usermentioned}> To Your Channel `
             );
-          var embed = new Discord.RichEmbed()
+          var embed = new Discord.MessageEmbed()
             .setTitle(`You are Moved in ${message.guild.name} `)
             .setColor("RANDOM")
             .setTitle(`✽ **Premium**`)
@@ -731,7 +731,7 @@ client.on("message", function (message) {
                   ": عدد الرسائل التي تم مسحها" +
                   "```**"
               )
-              .then((m) => m.delete(10000));
+              .then((m) => m.delete({ timeout: 10000, reason: 'It had to be done.' }));
           });
         } else {
           let messagecount = parseInt(args[1]);
@@ -747,11 +747,11 @@ client.on("message", function (message) {
                 ": عدد الرسائل التي تم مسحها" +
                 "```**"
             )
-            .then((m) => m.delete(10000));
-          message.delete(60000);
+            .then((m) => m.delete({ timeout: 10000, reason: 'It had to be done.' }));
+          message.delete({ timeout: 60000, reason: 'It had to be done.' });
         }
       } else {
-        var manage = new Discord.RichEmbed()
+        var manage = new Discord.MessageEmbed()
           .setDescription("You Do Not Have Permission MANAGE_MESSAGES :(")
           .setColor("RANDOM");
         message.channel.send(manage);
@@ -967,7 +967,7 @@ client.on("message", (message) => {
     if (!room) return message.channel.send("Please Type The Channel Name");
     if (!findroom)
       return message.channel.send("Please Type The Log Channel Name");
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setTitle("**Done The Log Code Has Been Setup**")
       .addField("Channel:", `${room}`)
       .addField("Requested By:", `${message.author}`)
@@ -1031,7 +1031,7 @@ client.on("messageDelete", (message) => {
   );
   if (!logChannel) return;
 
-  let messageDelete = new Discord.RichEmbed()
+  let messageDelete = new Discord.MessageEmbed()
     .setTitle("**MESSAGE DELETE**")
     .setColor("RED")
     .setThumbnail(message.author.avatarURL)
@@ -1062,7 +1062,7 @@ client.on("messageUpdate", (oldMessage, newMessage) => {
 
   if (oldMessage.content.startsWith("https://")) return;
 
-  let messageUpdate = new Discord.RichEmbed()
+  let messageUpdate = new Discord.MessageEmbed()
     .setTitle("**[MESSAGE EDIT]**")
     .setThumbnail(oldMessage.author.avatarURL)
     .setColor("BLUE")
@@ -1092,7 +1092,7 @@ client.on("roleCreate", (role) => {
     var userID = logs.entries.first().executor.id;
     var userAvatar = logs.entries.first().executor.avatarURL;
 
-    let roleCreate = new Discord.RichEmbed()
+    let roleCreate = new Discord.MessageEmbed()
       .setTitle("**ROLE CREATE**")
       .setThumbnail(userAvatar)
       .setDescription(
@@ -1122,7 +1122,7 @@ client.on("roleDelete", (role) => {
     var userID = logs.entries.first().executor.id;
     var userAvatar = logs.entries.first().executor.avatarURL;
 
-    let roleDelete = new Discord.RichEmbed()
+    let roleDelete = new Discord.MessageEmbed()
       .setTitle("**ROLE DELETE**")
       .setThumbnail(userAvatar)
       .setDescription(
@@ -1155,7 +1155,7 @@ client.on("roleUpdate", (oldRole, newRole) => {
 
     if (oldRole.name !== newRole.name) {
       if (log[oldRole.guild.id].onoff === "Off") return;
-      let roleUpdateName = new Discord.RichEmbed()
+      let roleUpdateName = new Discord.MessageEmbed()
         .setTitle("**ROLE NAME UPDATE**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
@@ -1179,7 +1179,7 @@ client.on("roleUpdate", (oldRole, newRole) => {
         var newColor = newRole.hexColor;
       }
       if (log[oldRole.guild.id].onoff === "Off") return;
-      let roleUpdateColor = new Discord.RichEmbed()
+      let roleUpdateColor = new Discord.MessageEmbed()
         .setTitle("**ROLE COLOR UPDATE**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
@@ -1221,7 +1221,7 @@ client.on("channelCreate", (channel) => {
     var userID = logs.entries.first().executor.id;
     var userAvatar = logs.entries.first().executor.avatarURL;
 
-    let channelCreate = new Discord.RichEmbed()
+    let channelCreate = new Discord.MessageEmbed()
       .setTitle("**CHANNEL CREATE**")
       .setThumbnail(userAvatar)
       .setDescription(
@@ -1261,7 +1261,7 @@ client.on("channelDelete", (channel) => {
     var userID = logs.entries.first().executor.id;
     var userAvatar = logs.entries.first().executor.avatarURL;
 
-    let channelDelete = new Discord.RichEmbed()
+    let channelDelete = new Discord.MessageEmbed()
       .setTitle("**CHANNEL DELETE**")
       .setThumbnail(userAvatar)
       .setDescription(
@@ -1299,7 +1299,7 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
     var userAvatar = logs.entries.first().executor.avatarURL;
 
     if (oldChannel.name !== newChannel.name) {
-      let newName = new Discord.RichEmbed()
+      let newName = new Discord.MessageEmbed()
         .setTitle("**CHANNEL EDIT**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
@@ -1313,7 +1313,7 @@ client.on("channelUpdate", (oldChannel, newChannel) => {
     }
     if (oldChannel.topic !== newChannel.topic) {
       if (log[oldChannel.guild.id].onoff === "Off") return;
-      let newTopic = new Discord.RichEmbed()
+      let newTopic = new Discord.MessageEmbed()
         .setTitle("**CHANNEL EDIT**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
@@ -1353,7 +1353,7 @@ client.on("guildBanAdd", (guild, user) => {
 
     if (userID === client.user.id) return;
 
-    let banInfo = new Discord.RichEmbed()
+    let banInfo = new Discord.MessageEmbed()
       .setTitle("**BANNED**")
       .setThumbnail(userAvatar)
       .setColor("DARK_RED")
@@ -1385,7 +1385,7 @@ client.on("guildBanRemove", (guild, user) => {
 
     if (userID === client.user.id) return;
 
-    let unBanInfo = new Discord.RichEmbed()
+    let unBanInfo = new Discord.MessageEmbed()
       .setTitle("**UNBANNED**")
       .setThumbnail(userAvatar)
       .setColor("GREEN")
@@ -1428,7 +1428,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
         var newNM = newMember.nickname;
       }
 
-      let updateNickname = new Discord.RichEmbed()
+      let updateNickname = new Discord.MessageEmbed()
         .setTitle("**UPDATE MEMBER NICKNAME**")
         .setThumbnail(userAvatar)
         .setColor("BLUE")
@@ -1449,7 +1449,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
           onoff: "Off",
         };
       if (log[oldMember.guild.id].onoff === "Off") return;
-      let roleAdded = new Discord.RichEmbed()
+      let roleAdded = new Discord.MessageEmbed()
         .setTitle("**ADDED ROLE TO MEMBER**")
         .setThumbnail(oldMember.guild.iconURL())
         .setColor("GREEN")
@@ -1470,7 +1470,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
           onoff: "Off",
         };
       if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
-      let roleRemoved = new Discord.RichEmbed()
+      let roleRemoved = new Discord.MessageEmbed()
         .setTitle("**REMOVED ROLE FROM MEMBER**")
         .setThumbnail(oldMember.guild.iconURL())
         .setColor("RED")
@@ -1489,7 +1489,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
         onoff: "Off",
       };
     if (log[(oldMember, newMember.guild.id)].onoff === "Off") return;
-    let newOwner = new Discord.RichEmbed()
+    let newOwner = new Discord.MessageEmbed()
       .setTitle("**UPDATE GUILD OWNER**")
       .setThumbnail(oldMember.guild.iconURL())
       .setColor("GREEN")
@@ -1523,7 +1523,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
     var userAvatar = logs.entries.first().executor.avatarURL;
 
     if (voiceOld.serverMute === false && voiceNew.serverMute === true) {
-      let serverMutev = new Discord.RichEmbed()
+      let serverMutev = new Discord.MessageEmbed()
         .setTitle("**VOICE MUTE**")
         .setThumbnail(
           "https://images-ext-1.discordapp.net/external/pWQaw076OHwVIFZyeFoLXvweo0T_fDz6U5C9RBlw_fQ/https/cdn.pg.sa/UosmjqDNgS.png"
@@ -1543,7 +1543,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
           onoff: "Off",
         };
       if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
-      let serverUnmutev = new Discord.RichEmbed()
+      let serverUnmutev = new Discord.MessageEmbed()
         .setTitle("**VOICE UNMUTE**")
         .setThumbnail(
           "https://images-ext-1.discordapp.net/external/u2JNOTOc1IVJGEb1uCKRdQHXIj5-r8aHa3tSap6SjqM/https/cdn.pg.sa/Iy4t8H4T7n.png"
@@ -1563,7 +1563,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
           onoff: "Off",
         };
       if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
-      let serverDeafv = new Discord.RichEmbed()
+      let serverDeafv = new Discord.MessageEmbed()
         .setTitle("**VOICE DEAF**")
         .setThumbnail(
           "https://images-ext-1.discordapp.net/external/7ENt2ldbD-3L3wRoDBhKHb9FfImkjFxYR6DbLYRjhjA/https/cdn.pg.sa/auWd5b95AV.png"
@@ -1583,7 +1583,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
           onoff: "Off",
         };
       if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
-      let serverUndeafv = new Discord.RichEmbed()
+      let serverUndeafv = new Discord.MessageEmbed()
         .setTitle("**VOICE UNDEAF**")
         .setThumbnail(
           "https://images-ext-2.discordapp.net/external/s_abcfAlNdxl3uYVXnA2evSKBTpU6Ou3oimkejx3fiQ/https/cdn.pg.sa/i7fC8qnbRF.png"
@@ -1609,7 +1609,7 @@ client.on("voiceStateUpdate", (voiceOld, voiceNew) => {
         onoff: "Off",
       };
     if (log[(voiceOld, voiceOld.guild.id)].onoff === "Off") return;
-    let voiceLeave = new Discord.RichEmbed()
+    let voiceLeave = new Discord.MessageEmbed()
       .setTitle("**CHANGED VOICE ROOM**")
       .setColor("GREEN")
       .setThumbnail(voiceOld.user.avatarURL())
@@ -1640,7 +1640,7 @@ message.channel.send({
 client.on("message", (message) => {
   if (message.content === "خط") {
     message.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FD1100")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
@@ -1649,7 +1649,7 @@ client.on("message", (message) => {
 client.on("message", (message) => {
   if (message.content === "خط_جيف") {
     message.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#E91E63")
       .setImage(`https://i.imgur.com/WMP2z2T.gif`)
     message.channel.send(bot);
@@ -1658,7 +1658,7 @@ client.on("message", (message) => {
 client.on("message", (message) => {
   if (message.content === "خط_بارت") {
     message.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#F44336")
       .setImage(`https://i.imgur.com/GoOgpUO.gif`)
     message.channel.send(bot);
@@ -1667,7 +1667,7 @@ client.on("message", (message) => {
 client.on("message", (message) => {
   if (message.content === "خط_ايدي") {
     message.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FF5722")
       .setImage(`https://i.imgur.com/hy5IrC0.gif`)
     message.channel.send(bot);
@@ -1740,7 +1740,7 @@ client.on("message", (message) => {
       message.channel
         .send("** منشن روم . <a:glt:929681265752412180>**")
         .then((m) => {
-          m.delete(1500);
+          m.delete({ timeout: 1500, reason: 'It had to be done.' });
         });
     if (
       !message.guild.member(message.author.id).hasPermission("MANAGE_CHANNELS")
@@ -1753,7 +1753,7 @@ client.on("message", (message) => {
     );
     client.on("guildMemberAdd", (member) => {
       if (member.user.bot) return;
-      var embed = new Discord.RichEmbed()
+      var embed = new Discord.MessageEmbed()
         .setAuthor(member.user.username, member.user.avatarURL())
         .setThumbnail(member.user.avatarURL())
         .setTitle(`**الله معاك ✋ **`)
@@ -2474,29 +2474,29 @@ client.on("message", async (message) => {
   var filter = (m) => m.author.id === message.author.id;
   if (message.content.startsWith(prefix + "gcreate")) {
     message.delete();
-    let embed1 = new Discord.RichEmbed()
+    let embed1 = new Discord.MessageEmbed()
       .setColor()
       .setDescription("Missing the following permission `MANAGE_GUILD`");
 
-    let embed2 = new Discord.RichEmbed()
+    let embed2 = new Discord.MessageEmbed()
       .setColor()
       .setDescription("Please send the `room` name without mentioning it");
 
-    let embed3 = new Discord.RichEmbed()
+    let embed3 = new Discord.MessageEmbed()
       .setColor()
       .setDescription("Wrong room name");
 
-    let embed4 = new Discord.RichEmbed()
+    let embed4 = new Discord.MessageEmbed()
       .setColor()
       .setDescription("Please send the `time`");
 
-    let embed5 = new Discord.RichEmbed()
+    let embed5 = new Discord.MessageEmbed()
       .setColor()
       .setDescription(
         "Wrong time format\nExample of time format: 1s / 1m / 1h / 1d / 1w"
       );
 
-    let embed6 = new Discord.RichEmbed()
+    let embed6 = new Discord.MessageEmbed()
       .setColor()
       .setDescription("Please send the `gift`");
 
@@ -2541,7 +2541,7 @@ client.on("message", async (message) => {
                       msg.delete();
                       message.delete();
                       try {
-                        let giveEmbed = new Discord.RichEmbed()
+                        let giveEmbed = new Discord.MessageEmbed()
                           .setColor()
                           .setTitle(`${title}`)
                           .setDescription(
@@ -2570,7 +2570,7 @@ client.on("message", async (message) => {
                                   Math.floor(Math.random() * list.length) + 1
                                 ];
                               if (gFilter === undefined) {
-                                let endEmbed = new Discord.RichEmbed()
+                                let endEmbed = new Discord.MessageEmbed()
                                   .setColor()
                                   .setTitle(title)
                                   .setDescription(
@@ -2585,7 +2585,7 @@ client.on("message", async (message) => {
                                   }
                                 );
                               } else {
-                                let endEmbed = new Discord.RichEmbed()
+                                let endEmbed = new Discord.MessageEmbed()
                                   .setColor()
                                   .setTitle(title)
                                   .setDescription(`Winners : ${gFilter}`)
