@@ -4776,7 +4776,7 @@ client.on("message", message => {
   if (message.channel.id !== "872242483420094506") return;
   if(message.author.id === client.user.id) return
     const bot = new Discord.RichEmbed()
-      .setColor("#F44336")
+      .setColor("#FD1100")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
 
@@ -4787,7 +4787,7 @@ client.on("message", message => {
   if (message.channel.id !== "918004475640287262") return;
   if(message.author.id === client.user.id) return
     const bot = new Discord.RichEmbed()
-      .setColor("#F44336")
+      .setColor("#FD1100")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
 
@@ -4934,7 +4934,7 @@ client.on('ready', () => {
 client.on("message",async message =>{
 let command = message.content.toLowerCase().split(" ")[0];
 if (command == `${prefix}clear` || command == `${prefix}مسح` || command == `${prefix}cr`) { 
-message.delete({timeout: 20000})
+message.delete(1)
     if(!message.channel.guild) return message.reply(`** This Command For Servers Only**`); 
      if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`> ** You don't have perms :x:**`);
      if(!message.guild.member(client.user).hasPermission('MANAGE_GUILD')) return message.channel.send(`> ** I don't have perms :x:**`);
@@ -4949,8 +4949,29 @@ if(!messagecount) messagecount = '100';
     message.channel.send(`\`\`\`js
 ${msgs.size} عدد الرسائل التي تم مسحها
 \`\`\``).then(messages => 
-messages.delete({timeout:60000}));
+messages.delete(10000));
     })
   }    
 });
 
+
+/// welcome
+const guild = client.guilds.cache.get("872242482442809476")///ايدي السيرفر حقك
+client.on('guildMemberAdd', async (member) => {
+  const channel = member.guild.channels.cache.find(ch => ch.id === '872242482753183803');/// ايدي روم الترحيب
+if (!channel) return;
+channel.send(`مرحباً بك ${member} نورت سيرفرنا **${member.guild.name}**, `);/// الكلام الي فوق 
+const wel = client.channels.cache.get("872242482753183803")/// ايدي روم الترحيب 
+let msg = new Discord.RichEmbed()
+let embed = new Discord.RichEmbed()
+.setTitle(`༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡`)/// اسم سيرفرك
+.setDescription(`كل شيء يرحب بك، كل شيء يبتسم فرحاً بقدومك، كل شيء يتمنى مشاركتك وتفاعلك وإبدعاتك الرائعة حياك الله.`)///الكتابة الي تريدها 
+.setImage(``)/// رابط الصوره الي بتضهر
+.setThumbnail(member.user.avatarURL({dynamic:true}))
+.setFooter(`**أصبحنا الآن ${member.guild.memberCount} صديق في السيرفر ✿**`) /// الكلام الي تحت 
+.setColor('BLUE')
+wel.send(embed).then((msg) => {
+}).catch((e) => {
+console.log(e)}
+)
+});
