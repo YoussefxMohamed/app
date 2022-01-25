@@ -54,7 +54,7 @@ client.on("ready", () => {
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-  console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));
+/*  console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));*/
   client.user.setStatus("idle");
 
   client.user.setActivity(`${prefix}helpT`, { type: "Playing" });
@@ -956,7 +956,7 @@ const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 client.on("message", (message) => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
-  let findroom = message.guild.channels.find((r) => r.name == room);
+  let findroom = message.guild.channels.cache.find((r) => r.name == room);
   if (message.content.startsWith(prefix + "setLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
@@ -1026,7 +1026,7 @@ client.on("messageDelete", (message) => {
       onoff: "Off",
     };
   if (log[message.guild.id].onoff === "Off") return;
-  var logChannel = message.guild.channels.find(
+  var logChannel = message.guild.channels.cache.find(
     (c) => c.name === `${log[message.guild.id].channel}`
   );
   if (!logChannel) return;
@@ -1041,7 +1041,7 @@ client.on("messageDelete", (message) => {
     .setTimestamp()
     .setFooter(message.guild.name, message.guild.iconURL());
 
-  logChannel.send(messageDelete);
+  logChannel.send({ embed: messageDelete });
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
   if (oldMessage.author.bot) return;
@@ -1406,7 +1406,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       onoff: "Off",
     };
   if (log[oldMember.guild.id].onoff === "Off") return;
-  var logChannel = oldMember.guild.channels.find(
+  var logChannel = oldMember.guild.channels.cache.find(
     (c) => c.name === `${log[(oldMember, newMember.guild.id)].channel}`
   );
   if (!logChannel) return;
@@ -1643,7 +1643,7 @@ client.on("message", (message) => {
     const bot = new Discord.MessageEmbed()
       .setColor("#FD1100")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
-    message.channel.send(bot);
+    message.channel.send({ embed: bot });
   }
 });
 client.on("message", (message) => {
@@ -3562,7 +3562,7 @@ client.on("message", async (message) => {
   if (!message.guild) return;
   let mention = message.mentions.members.first();
   let role = message.content.split(" ").slice(2).join(" ");
-  let mySupport = message.guild.roles.find((gg) => gg.name === role);
+  let mySupport = message.guild.roles.cache.find((gg) => gg.name === role);
   if (message.content.startsWith(prefix + "قبول")) {
     let acRoom = message.guild.channels.find(
       (gg) => gg.name === "القبول-الرفض"
