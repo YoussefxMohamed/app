@@ -54,7 +54,7 @@ client.on("ready", () => {
 //كود تغيير الحالة
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-/*  console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));*/
+  console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));
   client.user.setStatus("idle");
 
   client.user.setActivity(`${prefix}helpT`, { type: "Playing" });
@@ -111,7 +111,7 @@ client.on("message", (message) => {
           READ_MESSAGES: false,
         });
         message.channel.send(`:white_check_mark: تم إنشاء تذكرتك, ${c}.`);
-        const embed = new Discord.MessageEmbed()
+        const embed = new Discord.RichEmbed()
           .setColor(0xcf40fa)
           .addField(
             `Hey ${message.author.username}!`,
@@ -184,7 +184,7 @@ client.on("message", (pixelbot) => {
       var roles = pixelbot.member.roles
         .map((roles) => `**__${roles.name}__ |**`)
         .join(` `);
-      let pixeluser = new Discord.MessageEmbed() // itzZa1D - Codes Team.
+      let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
         .setColor("#FFEB3B")
         .setTitle(" :beginner: | User Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
@@ -212,7 +212,7 @@ client.on("message", (pixelbot) => {
 ////كود معلومات البوت
 client.on("message", (message) => {
   if (message.content === prefix + "bot") {
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setAuthor(client.user.username, client.user.avatarURL())
       .setColor("#03A9F4")
       .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
@@ -261,7 +261,7 @@ client.on("message", (message) => {
     message.channel.send(
       `**<a:s7gamda:929797437193867304> ${user.tag} banned from the server ! :airplane: **`
     );
-    const banembed = new Discord.MessageEmbed()
+    const banembed = new Discord.RichEmbed()
       .setColor("RED")
       .setImage("https://i.imgur.com/pgXofXt.gif")
       .setFooter("علوبي");
@@ -306,7 +306,7 @@ client.on("message", async (message) => {
       let millisJoined = new Date().getTime() - mem.joinedAt.getTime();
       let daysJoined = millisJoined / 1000 / 60 / 60 / 24;
       console.log(inviteCode);
-      var inviteInfo = new Discord.MessageEmbed()
+      var inviteInfo = new Discord.RichEmbed()
         .setTitle(`:incoming_envelope: **INVITE INFO** ${Username}`)
         .addField(
           "**عدد الدعوات للسيرفر**",
@@ -370,7 +370,7 @@ client.on("message", (message) => {
 
     message.guild.member(user).kick();
 
-    const kickembed = new Discord.MessageEmbed()
+    const kickembed = new Discord.RichEmbed()
       .setAuthor(`KICKED <a:rks:933077528933990401>`, user.displayAvatarURL())
       .setColor("RANDOM")
       .setTimestamp()
@@ -391,7 +391,7 @@ client.on("message", (message) => {
       .fetchUser(avt)
       .then((user) => {
         avt = user;
-        let avtEmbed = new Discord.MessageEmbed()
+        let avtEmbed = new Discord.RichEmbed()
           .setColor("#03A9F4")
           .setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
           .setImage(avt.avatarURL)
@@ -415,7 +415,7 @@ client.on("message", (message) => {
     const now = new Date();
     const verificationLevels = ["None", "Low", "Medium", "Insane", "Extreme"];
     const days = millis / 1000 / 60 / 60 / 24;
-    var embed = new Discord.MessageEmbed()
+    var embed = new Discord.RichEmbed()
       .setAuthor(message.guild.name, message.guild.iconURL())
       .addField(":id:✽** Server ID:**", `» ${message.guild.id} `, true)
       .addField(
@@ -719,7 +719,7 @@ client.on("message", function (message) {
       if (!message.channel.guild) return;
       if (message.member.hasPermission(0x2000)) {
         if (!args[1]) {
-          message.channel.messages.fetch().then((messages) => {
+          message.channel.fetchMessages().then((messages) => {
             message.channel.bulkDelete(messages);
             var messagesDeleted = messages.array().length;
             message.channel
@@ -956,7 +956,7 @@ const log = JSON.parse(fs.readFileSync("./log.json", "utf8"));
 client.on("message", (message) => {
   if (!message.channel.guild) return;
   let room = message.content.split(" ").slice(1);
-  let findroom = message.guild.channels.cache.find((r) => r.name == room);
+  let findroom = message.guild.channels.find((r) => r.name == room);
   if (message.content.startsWith(prefix + "setLog")) {
     if (!message.channel.guild)
       return message.reply("**This Command Only For Servers**");
@@ -1026,7 +1026,7 @@ client.on("messageDelete", (message) => {
       onoff: "Off",
     };
   if (log[message.guild.id].onoff === "Off") return;
-  var logChannel = message.guild.channels.cache.find(
+  var logChannel = message.guild.channels.find(
     (c) => c.name === `${log[message.guild.id].channel}`
   );
   if (!logChannel) return;
@@ -1041,7 +1041,7 @@ client.on("messageDelete", (message) => {
     .setTimestamp()
     .setFooter(message.guild.name, message.guild.iconURL());
 
-  logChannel.send({ embed: messageDelete });
+  logChannel.send(messageDelete);
 });
 client.on("messageUpdate", (oldMessage, newMessage) => {
   if (oldMessage.author.bot) return;
@@ -1406,7 +1406,7 @@ client.on("guildMemberUpdate", (oldMember, newMember) => {
       onoff: "Off",
     };
   if (log[oldMember.guild.id].onoff === "Off") return;
-  var logChannel = oldMember.guild.channels.cache.find(
+  var logChannel = oldMember.guild.channels.find(
     (c) => c.name === `${log[(oldMember, newMember.guild.id)].channel}`
   );
   if (!logChannel) return;
@@ -1643,7 +1643,7 @@ client.on("message", (message) => {
     const bot = new Discord.MessageEmbed()
       .setColor("#FD1100")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
-    message.channel.send({ embed: bot });
+    message.channel.send(bot);
   }
 });
 client.on("message", (message) => {
@@ -3562,7 +3562,7 @@ client.on("message", async (message) => {
   if (!message.guild) return;
   let mention = message.mentions.members.first();
   let role = message.content.split(" ").slice(2).join(" ");
-  let mySupport = message.guild.roles.cache.find((gg) => gg.name === role);
+  let mySupport = message.guild.roles.find((gg) => gg.name === role);
   if (message.content.startsWith(prefix + "قبول")) {
     let acRoom = message.guild.channels.find(
       (gg) => gg.name === "القبول-الرفض"
@@ -4685,7 +4685,7 @@ client.on("message", (embed10) => {
   if (embed10.content === prefix + "id") {
     embed10.delete();
     /*   return embed10.channel.send(`**TEST**`);*/
-    const bot2 = new Discord.MessageEmbed().setColor("#00BCD4")
+    const bot2 = new Discord.RichEmbed().setColor("#00BCD4")
       .setDescription(`**<a:gna7sh:930187075649679401><a:s_:930190463535816735><a:c_:930191251897217096><a:r_:930190480996728922><a:i_:930190442862112778><a:m_:930190482162712586><a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210><a:gna7ym:930187081299423263>
 
 <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
@@ -4710,7 +4710,7 @@ client.on("message", (embed10) => {
 client.on("message", (embed11) => {
   if (embed11.content === prefix + "MVP") {
     embed11.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/uUqpetM.gif")
       .setDescription(
@@ -4753,7 +4753,7 @@ client.on("message", (embed12) => {
 client.on("message", (helpT) => {
   if (helpT.content.startsWith(prefix + "helpT")) {
     helpT.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/NRYF2ma.png")
       .setTitle("**TURBO BOT Commands <a:grs:922517063774400563> **")
@@ -4811,7 +4811,7 @@ client.on("message", (helpT) => {
 client.on("message", (embed14) => {
   if (embed14.content === prefix + "listTDM") {
     embed14.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
 .setColor("#FFEB3B")
       .setDescription(`<a:gna7sh:930187075649679401><a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586><a:hypeshiny:930187068125118474><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>
 
@@ -4872,7 +4872,7 @@ else
 client.on("message", (embed17) => {
   if (embed17.content.startsWith(prefix + "اثبت نفسك")) {
     embed17.delete();
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#03A9F4")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setDescription(
@@ -4914,7 +4914,7 @@ client.on("message", (embed18) => {
   if (embed18.content === prefix + "helpT") {
     embed18.delete();
     embed18.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
             .setAuthor(
               `Music Commands ⚡`,"https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif"
             )
@@ -4952,7 +4952,7 @@ message.react("929797397318623262");
 client.on("message", message => {
   if (message.channel.id !== "872242483420094506") return;
   if(message.author.id === client.user.id) return
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#F44336")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
@@ -4963,7 +4963,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.channel.id !== "918004475640287262") return;
   if(message.author.id === client.user.id) return
-    const bot = new Discord.MessageEmbed()
+    const bot = new Discord.RichEmbed()
       .setColor("#F44336")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
@@ -4981,7 +4981,7 @@ client.on("message", message => {
  
     var user = message.mentions.users.first();
     var reason = args.slice(1).join(' ');
-    const embed = new Discord.MessageEmbed()
+    const embed = new Discord.RichEmbed()
         .setColor('#0083ff')
         .setTimestamp();
  
@@ -4997,7 +4997,7 @@ client.on("message", message => {
     embed.addField("**تم ارسال الانذار** ", ` **${user.tag}!**`)
         .setTimestamp();
     message.channel.send(embed);
-    const embed1 = new Discord.MessageEmbed()
+    const embed1 = new Discord.RichEmbed()
         .setColor('#FF1100')
         .setTimestamp()
         .setTitle("**تم تنذيرك <a:BlobBanHammer:922517087098921000>**")
@@ -5034,7 +5034,7 @@ client.on('message', message => {
             } else {
                 h = message.member
             }
-            var baderp = new Discord.MessageEmbed()
+            var baderp = new Discord.RichEmbed()
                 .setColor('Random')
                 .setImage(`https://api.probot.io/profile/${user.id}`)
             message.channel.send(baderp)
