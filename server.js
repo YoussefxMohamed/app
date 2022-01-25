@@ -4979,3 +4979,13 @@ console.log(e)}
 
 
 
+/// Verified
+client.on('message', nibo => {
+  if (nibo.content === prefix + "ver") {
+    const embed = new Discord.RichEmbed()
+.setColor("#03A9F4")//اللون
+.setTitle(`Verified Bot`)
+.setDescription(`لقد دخل بوتك  ${client.guilds.size} سيرفر من 100 **Dont Give Up**`)
+.setFooter(`${client.user.username}`)
+nibo.channel.send(embed);
+}});
