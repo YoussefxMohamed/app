@@ -5058,3 +5058,21 @@ function ReactionEmojiGrab(reactionArg){
     return reactionArg;
   }
 }*/
+
+
+/// DM BOT
+client.on("message", message => {
+  if (message.channel.type === 'dm') {
+    const developer = client.users.find(y => y.id === '736038771535118377')
+    if (message.author.bot) return
+    if (message.content.length == 0) return
+    let embed = new Discord.RichEmbed()
+    .setTitle('NEW MESSAGE IN DM')
+    .setColor("RED")
+    .setAuthor(message.author.tag , message.author.avatarURL)
+    .setFooter(client.user.username , client.user.avatarURL({dynamic: true)
+    .setTimestamp()
+    .addField(`Message :`, ` \`\`\`\n- ${message.content} \`\`\` `)
+    developer.send(`**Message By : ${message.author}**\n**ID : ${message.author.id}**`,embed)
+  }
+})
