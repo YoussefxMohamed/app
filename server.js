@@ -4929,4 +4929,69 @@ client.on('ready', () => {
 });
 */
 
-
+/// add Role
+client.on('message', async(msg) => {
+    if (msg.content.startsWith(prefix + "role")) {
+        var args = msg.content.split(" ");
+        var time = args[3];
+        var user = msg.mentions.members.first() || client.users.find(args[1]);
+        var member = msg.guild.member(user);
+        var role = msg.guild.roles.find(r => r.name === args[2]) || msg.mentions.roles.first() || msg.guild.roles.find(r => r.id === args[2])
+        if (!msg.member.hasPermission("MANAGE_CHANNELS")) return msg.channel.send(
+            new Discord.RichEmbed()
+            .setAuthor('❌ | Error', msg.author.avatarURL)
+            .setColor("RED")
+            .setDescription(`**❌ | You Don't Have Permission!.**`)
+            .setThumbnail(msg.author.avatarURL)
+            .setTimestamp()
+            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
+        );
+        if (!user) return msg.channel.send(
+            new Discord.RichEmbed()
+            .setAuthor('❌ | Error', msg.author.avatarURL)
+            .setColor("RED")
+            .setDescription(`**❌ | Please Mention/Id Sameone!.**`)
+            .setThumbnail(msg.author.avatarURL)
+            .setTimestamp()
+            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
+        );
+        if (!role) return msg.channel.send(
+            new Discord.RichEmbed()
+            .setAuthor('❌ | Error', msg.author.avatarURL)
+            .setColor("RED")
+            .setDescription(`**❌ | Please Mention/Id/Name The Role!.**`)
+            .setThumbnail(msg.author.avatarURL)
+            .setTimestamp()
+            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
+        );
+        if (!time) time = "24h"
+        if (user.id === msg.author.id) return msg.channel.send(
+            new Discord.RichEmbed()
+            .setAuthor('❌ | Error', msg.author.avatarURL)
+            .setColor("RED")
+            .setDescription(`**❌ | You Can't Give Your Self A Role!.**`)
+            .setThumbnail(msg.author.avatarURL)
+            .setTimestamp()
+            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
+        );
+        if (user.id === client.user.id) return msg.channel.send(
+            new Discord.RichEmbed()
+            .setAuthor('❌ | Error', msg.author.avatarURL)
+            .setColor("RED")
+            .setDescription(`**❌ | You Can't Give Me A Role!.**`)
+            .setThumbnail(msg.author.avatarURL)
+            .setTimestamp()
+            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
+        );
+        member.roles.add(role);
+        msg.channel.send(
+            new Discord.RichEmbed()
+            .setAuthor('✅ | Done', msg.author.avatarURL)
+            .setColor("GREEN")
+            .setDescription(`**✅ | <@!${user.id}> Has Been Gived <@!${role.id}> For ${ms(ms(time))}.**`)
+            .setThumbnail(msg.author.avatarURL)
+            .setTimestamp()
+            .setFooter("Requested By: " + msg.author.tag, msg.author.avatarURL)
+        );
+    }
+});
