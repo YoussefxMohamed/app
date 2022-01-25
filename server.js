@@ -5080,9 +5080,8 @@ if (command === "embed") {
       return message.channel.send(`> :x: **Usage: ${prefix}embed \`(image-link)\` \`(color)\` \`(description)\` **\n error i can't find description لا يمكننى العثور على وصف`).catch(console.error);
 message.delete()
   message.channel.send(new Discord.RichEmbed()
-.setAuthor(`${message.user.username}`,client.user.displayAvatarURL)
 .setDescription(`${BESHO[1]}`)
-.setThumbnail(guild.iconURL)
+.setThumbnail("https://i.imgur.com/gCWiLdT.gif")
 .setColor("#03A9F4") )
 /*.setFooter(message.user.username, message.user.avatarURL)*/
 .catch(console.error);
