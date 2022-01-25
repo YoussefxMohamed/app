@@ -57,7 +57,7 @@ client.on("ready", () => {
   console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));
   client.user.setStatus("idle");
 
-  client.user.setActivity(`${prefix}helpT`, { type: "Playing" });
+  client.user.setActivity(`${prefix}helpT`, { type: "Playing", status: "idle"});
 });
 
 client.on("message", (message) => {
@@ -4979,5 +4979,3 @@ console.log(e)}
 
 
 
-client.on('ready', () => {
- client.user.setPresence({ activity: { name: ` وصف حقك هون / Servers ! ${client.guilds.cache.size}`, type: 'WATCHING' }, status: "dnd"}) 
