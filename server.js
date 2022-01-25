@@ -55,7 +55,7 @@ client.on("ready", () => {
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log(client.guilds.map((c) => `${c.name} : ${c.me.hasPermission(8)}`));
-  client.user.setStatus("idle");
+  client.user.setStatus('idle');
 
   client.user.setActivity(`${prefix}helpT`, { type: "Playing", status: "idle"});
 });
