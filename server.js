@@ -111,7 +111,7 @@ client.on("message", (message) => {
           READ_MESSAGES: false,
         });
         message.channel.send(`:white_check_mark: تم إنشاء تذكرتك, ${c}.`);
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
           .setColor(0xcf40fa)
           .addField(
             `Hey ${message.author.username}!`,
@@ -184,7 +184,7 @@ client.on("message", (pixelbot) => {
       var roles = pixelbot.member.roles
         .map((roles) => `**__${roles.name}__ |**`)
         .join(` `);
-      let pixeluser = new Discord.RichEmbed() // itzZa1D - Codes Team.
+      let pixeluser = new Discord.MessageEmbed() // itzZa1D - Codes Team.
         .setColor("#FFEB3B")
         .setTitle(" :beginner: | User Info") // itzZa1D - Codes Team.
         .setAuthor(pixelbot.author.username, pixelbot.author.avatarURL)
@@ -212,7 +212,7 @@ client.on("message", (pixelbot) => {
 ////كود معلومات البوت
 client.on("message", (message) => {
   if (message.content === prefix + "bot") {
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setAuthor(client.user.username, client.user.avatarURL())
       .setColor("#03A9F4")
       .addField("**Servers** :  ", `» ${client.guilds.size}`, true)
@@ -261,7 +261,7 @@ client.on("message", (message) => {
     message.channel.send(
       `**<a:s7gamda:929797437193867304> ${user.tag} banned from the server ! :airplane: **`
     );
-    const banembed = new Discord.RichEmbed()
+    const banembed = new Discord.MessageEmbed()
       .setColor("RED")
       .setImage("https://i.imgur.com/pgXofXt.gif")
       .setFooter("علوبي");
@@ -306,7 +306,7 @@ client.on("message", async (message) => {
       let millisJoined = new Date().getTime() - mem.joinedAt.getTime();
       let daysJoined = millisJoined / 1000 / 60 / 60 / 24;
       console.log(inviteCode);
-      var inviteInfo = new Discord.RichEmbed()
+      var inviteInfo = new Discord.MessageEmbed()
         .setTitle(`:incoming_envelope: **INVITE INFO** ${Username}`)
         .addField(
           "**عدد الدعوات للسيرفر**",
@@ -370,7 +370,7 @@ client.on("message", (message) => {
 
     message.guild.member(user).kick();
 
-    const kickembed = new Discord.RichEmbed()
+    const kickembed = new Discord.MessageEmbed()
       .setAuthor(`KICKED <a:rks:933077528933990401>`, user.displayAvatarURL())
       .setColor("RANDOM")
       .setTimestamp()
@@ -391,7 +391,7 @@ client.on("message", (message) => {
       .fetchUser(avt)
       .then((user) => {
         avt = user;
-        let avtEmbed = new Discord.RichEmbed()
+        let avtEmbed = new Discord.MessageEmbed()
           .setColor("#03A9F4")
           .setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
           .setImage(avt.avatarURL)
@@ -415,7 +415,7 @@ client.on("message", (message) => {
     const now = new Date();
     const verificationLevels = ["None", "Low", "Medium", "Insane", "Extreme"];
     const days = millis / 1000 / 60 / 60 / 24;
-    var embed = new Discord.RichEmbed()
+    var embed = new Discord.MessageEmbed()
       .setAuthor(message.guild.name, message.guild.iconURL())
       .addField(":id:✽** Server ID:**", `» ${message.guild.id} `, true)
       .addField(
@@ -719,7 +719,7 @@ client.on("message", function (message) {
       if (!message.channel.guild) return;
       if (message.member.hasPermission(0x2000)) {
         if (!args[1]) {
-          message.channel.fetchMessages().then((messages) => {
+          message.channel.messages.fetch().then((messages) => {
             message.channel.bulkDelete(messages);
             var messagesDeleted = messages.array().length;
             message.channel
@@ -2676,7 +2676,7 @@ client.on("message", async (message) => {
                 replayMessage: collectedd.first().content,
               };
               saveReplay();
-              var embed1 = new Discord.RichEmbed()
+              var embed1 = new Discord.MessageEmbed()
                 .setTitle(`Done The Autoreply Setup`)
                 .setThumbnail(message.author.avatarURL)
                 .setColor("GRAY")
@@ -3335,7 +3335,7 @@ client.on("message", (message) => {
                                           ).then((mtime) => {
                                             setTimeout(() => {
                                               let embed =
-                                                new Discord.RichEmbed()
+                                                new Discord.MessageEmbed()
                                                   .setColor("RANDOM")
                                                   .setTitle(
                                                     `**تقديم على رتبه** [__**${message.guild.name}**__]`
@@ -3650,13 +3650,13 @@ client.on("message", async (msg) => {
     let mentions = msg.mentions.members.first();
     if (!mentions) {
       let sicon = msg.author.avatarURL;
-      let embed = new Discord.RichEmbed()
+      let embed = new Discord.MessageEmbed()
         .setImage(msg.author.avatarURL)
         .setColor("#5074b3");
       msg.channel.send({ embed });
     } else {
       let sicon = mentions.user.avatarURL();
-      let embed = new Discord.RichEmbed().setColor("#5074b3").setImage(sicon);
+      let embed = new Discord.MessageEmbed().setColor("#5074b3").setImage(sicon);
       msg.channel.send({ embed });
     }
   }
@@ -4040,7 +4040,7 @@ client.on("message", async msg => {
         ":no_entry_sign: There must be music playing to use that!"
       );
 
-    let embed = new Discord.RichEmbed().setAuthor(
+    let embed = new Discord.MessageEmbed().setAuthor(
       `${client.user.username}`,
       client.user.displayAvatarURL
     );
@@ -4281,7 +4281,7 @@ client.on("message", message => {
     if(message.content.startsWith( prefix + 'tax')) {
     let args = message.content.split(" ").slice(1).join(" ");
     if(!args) return message.reply('متحط المبلغ ينجم <a:BlobBanHammer:922517087098921000> ')
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
     .setColor('#FFEB3B')
   /*  .addFields(
       {name:'`المبلغ المراد دفعه : `', value:'`**${args}**`'},
@@ -4314,7 +4314,7 @@ client.on("message", (message) => {
         VIEW_CHANNEL: false,
       })
       .then(() => {
-        const bot = new Discord.RichEmbed()
+        const bot = new Discord.MessageEmbed()
           .setColor("#FF1100")
           .setTitle(`> **تم اخفاء التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
@@ -4332,7 +4332,7 @@ client.on("message", (message) => {
         VIEW_CHANNEL: true,
       })
       .then(() => {
-        const bot = new Discord.RichEmbed()
+        const bot = new Discord.MessageEmbed()
           .setColor("#FF1100")
           .setTitle(`> **تم اظهار التشانل    <a:s7gamda:929797437193867304>**`);
         message.channel.send(bot);
@@ -4370,7 +4370,7 @@ client.on("messageCreate", async (message) => {
 client.on("message", (embed1) => {
   if (embed1.content === prefix + "Ttdm") {
     embed1.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("**طريقة التسجيل <a:s7:929681264984858664> **")
@@ -4392,7 +4392,7 @@ return embed1.channel.send("@everyone")
 client.on("message", (embed2) => {
   if (embed2.content === prefix + "Tcla") {
     embed2.delete();
-    const bot2 = new Discord.RichEmbed()
+    const bot2 = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("**طريقة التسجيل <a:s7:929681264984858664> **")
@@ -4418,7 +4418,7 @@ return embed2.channel.send("@everyone")
 client.on("message", (embed3) => {
   if (embed3.content === prefix + "serRULE") {
     embed3.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("**SERVER RULES <a:hypeshiny:930187068125118474> **")
@@ -4463,7 +4463,7 @@ return embed3.channel.send("@everyone")
 client.on("message", (embed4) => {
   if (embed4.content === prefix + "claRULE") {
     embed4.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("SCRIM RULES <a:rule:880872686279094372> ")
@@ -4498,7 +4498,7 @@ return embed4.channel.send("@everyone")
 client.on("message", (embed5) => {
   if (embed5.content === prefix + "claINFO") {
     embed5.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("POINT SYSTEM <a:grs:922517063774400563> ")
@@ -4537,7 +4537,7 @@ return embed5.channel.send("@everyone")
 client.on("message", (embed6) => {
   if (embed6.content === prefix + "tdmRULE") {
     embed6.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setTitle("TDM RULES <a:grs:922517063774400563> ")
@@ -4568,7 +4568,7 @@ return embed6.channel.send("@everyone")
 client.on("message", (embed7) => {
   if (embed7.content === prefix + "helpT") {
     embed7.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
       .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
@@ -4582,7 +4582,7 @@ client.on("message", (embed7) => {
 client.on("message", (embed8) => {
   if (embed8.content === prefix + "list") {
     embed8.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
     .setColor("#00BCD4")
     .setDescription(`**
 **<a:gna7sh:930187075649679401><a:s_:930190463535816735><a:c_:930191251897217096><a:r_:930190480996728922><a:i_:930190442862112778><a:m_:930190482162712586><a:love:930190460683685978><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>**
@@ -4657,7 +4657,7 @@ return embed8.channel.send("@everyone")
 client.on("message", (embed9) => {
   if (embed9.content === prefix + "idTDM") {
     embed9.delete();
-    const bot2 = new Discord.RichEmbed()
+    const bot2 = new Discord.MessageEmbed()
       .setColor("#00BCD4")
       .setTitle(
         "**<a:gna7sh:930187075649679401>.<a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586>­<a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210>.<a:gna7ym:930187081299423263>**"
@@ -4685,7 +4685,7 @@ client.on("message", (embed10) => {
   if (embed10.content === prefix + "id") {
     embed10.delete();
     /*   return embed10.channel.send(`**TEST**`);*/
-    const bot2 = new Discord.RichEmbed().setColor("#00BCD4")
+    const bot2 = new Discord.MessageEmbed().setColor("#00BCD4")
       .setDescription(`**<a:gna7sh:930187075649679401><a:s_:930190463535816735><a:c_:930191251897217096><a:r_:930190480996728922><a:i_:930190442862112778><a:m_:930190482162712586><a:love:930190460683685978><a:i_:930190442862112778><a:d_:930856769771696210><a:gna7ym:930187081299423263>
 
 <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570>
@@ -4710,7 +4710,7 @@ client.on("message", (embed10) => {
 client.on("message", (embed11) => {
   if (embed11.content === prefix + "MVP") {
     embed11.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/uUqpetM.gif")
       .setDescription(
@@ -4753,7 +4753,7 @@ client.on("message", (embed12) => {
 client.on("message", (helpT) => {
   if (helpT.content.startsWith(prefix + "helpT")) {
     helpT.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#FFEB3B")
       .setThumbnail("https://i.imgur.com/NRYF2ma.png")
       .setTitle("**TURBO BOT Commands <a:grs:922517063774400563> **")
@@ -4811,7 +4811,7 @@ client.on("message", (helpT) => {
 client.on("message", (embed14) => {
   if (embed14.content === prefix + "listTDM") {
     embed14.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
 .setColor("#FFEB3B")
       .setDescription(`<a:gna7sh:930187075649679401><a:t_:930190463384842261><a:d_:930856769771696210><a:m_:930190482162712586><a:hypeshiny:930187068125118474><a:l_:930190461077979196><a:i_:930190442862112778><a:s_:930190463535816735><a:t_:930190463384842261><a:gna7ym:930187081299423263>
 
@@ -4872,7 +4872,7 @@ else
 client.on("message", (embed17) => {
   if (embed17.content.startsWith(prefix + "اثبت نفسك")) {
     embed17.delete();
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#03A9F4")
       .setThumbnail("https://i.imgur.com/gCWiLdT.gif")
       .setDescription(
@@ -4914,7 +4914,7 @@ client.on("message", (embed18) => {
   if (embed18.content === prefix + "helpT") {
     embed18.delete();
     embed18.react("a:s7gamda:929797437193867304");
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
             .setAuthor(
               `Music Commands ⚡`,"https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif"
             )
@@ -4952,7 +4952,7 @@ message.react("929797397318623262");
 client.on("message", message => {
   if (message.channel.id !== "872242483420094506") return;
   if(message.author.id === client.user.id) return
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#F44336")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
@@ -4963,7 +4963,7 @@ client.on("message", message => {
 client.on("message", message => {
   if (message.channel.id !== "918004475640287262") return;
   if(message.author.id === client.user.id) return
-    const bot = new Discord.RichEmbed()
+    const bot = new Discord.MessageEmbed()
       .setColor("#F44336")
       .setImage(`https://i.imgur.com/GzMoqJh.gif`)
     message.channel.send(bot);
@@ -4981,7 +4981,7 @@ client.on("message", message => {
  
     var user = message.mentions.users.first();
     var reason = args.slice(1).join(' ');
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
         .setColor('#0083ff')
         .setTimestamp();
  
@@ -4997,7 +4997,7 @@ client.on("message", message => {
     embed.addField("**تم ارسال الانذار** ", ` **${user.tag}!**`)
         .setTimestamp();
     message.channel.send(embed);
-    const embed1 = new Discord.RichEmbed()
+    const embed1 = new Discord.MessageEmbed()
         .setColor('#FF1100')
         .setTimestamp()
         .setTitle("**تم تنذيرك <a:BlobBanHammer:922517087098921000>**")
@@ -5034,7 +5034,7 @@ client.on('message', message => {
             } else {
                 h = message.member
             }
-            var baderp = new Discord.RichEmbed()
+            var baderp = new Discord.MessageEmbed()
                 .setColor('Random')
                 .setImage(`https://api.probot.io/profile/${user.id}`)
             message.channel.send(baderp)
