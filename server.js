@@ -727,7 +727,7 @@ client.on("message", function (message) {
                   ": عدد الرسائل التي تم مسحها" +
                   "```**"
               )
-              .then((m) => m.delete({ timeout: 10000, reason: 'It had to be done.' }));
+              .then((m) => m.delete(10000));
           });
         } else {
           let messagecount = parseInt(args[1]);
@@ -743,8 +743,8 @@ client.on("message", function (message) {
                 ": عدد الرسائل التي تم مسحها" +
                 "```**"
             )
-            .then((m) => m.delete({ timeout: 10000, reason: 'It had to be done.' }));
-          message.delete({ timeout: 60000, reason: 'It had to be done.' });
+            .then((m) => m.delete(10000));
+          message.delete(60000);
         }
       } else {
         var manage = new Discord.RichEmbed()
