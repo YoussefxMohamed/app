@@ -4730,7 +4730,10 @@ client.on("message", (embed18) => {
     embed18.delete();
     const bot = new Discord.RichEmbed()
       .setColor("#FFEB3B")
+      .setThumbnail("https://i.imgur.com/NRYF2ma.png")
+      .setImage("https://i.imgur.com/Ewfi7jU.gif")
       .setTitle("Giveaway Commands <a:HyperTada:922517074771865600>")
+      .setFooter("༺𝐔𝐋𝐓༻ 𝐄𝐒𝐏𝐎𝐑𝐓𝐒 彡", "https://i.imgur.com/gCWiLdT.gif")
       .setDescription("**・Giveaway **\n `!start` [channel-name] [Time] [winners] [Prize] \n `!reroll` [prize name] \n `!end` [prize name] \n <a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570><a:line:930859851133890570> \n **・Examples** \n `!start` #giveaway 5m 1 Testing \n `!end` Testing \n `reroll` Testing")
     embed18.channel.send(bot);
   }
